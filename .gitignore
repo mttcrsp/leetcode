@@ -1,3 +1,5 @@
+*.xcodeproj
+
 # General
 .DS_Store
 .AppleDouble
