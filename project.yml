@@ -11,10 +11,13 @@ settingGroups:
     SWIFT_TREAT_WARNINGS_AS_ERRORS: 'YES'
     SWIFT_VERSION: '5.1'
 targets:
-  Example:
-    type: tool
+  Leetcode:
+    type: framework
     sources:
     - Sources/
+    scheme:
+      testTargets:
+        - Tests
     platform: macOS
     postbuildScripts:
     - script: swiftformat .
@@ -23,3 +26,10 @@ targets:
         PRODUCT_NAME: "$(TARGET_NAME)"
         VERSIONING_SYSTEM: apple-generic
         DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+  Tests:
+    platform: macOS
+    type: bundle.unit-test
+    sources:
+    - Tests
+    postbuildScripts:
+    - script: swiftformat .
