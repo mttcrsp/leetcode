@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func largeGroupPositions(_ S: String) -> [[Int]] {
         typealias Group = (character: Character, offset: Int, count: Int)
 

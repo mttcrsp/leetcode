@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func lastSubstring(_ s: String) -> String {
         var max = ""
 

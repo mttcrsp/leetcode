@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func canThreePartsEqualSum(_ A: [Int]) -> Bool {
         var sum = 0
         var sums: [Int] = []

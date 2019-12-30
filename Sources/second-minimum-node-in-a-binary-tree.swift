@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func findSecondMinimumValue(_ root: TreeNode?) -> Int {
         guard let root = root else {
             return -1

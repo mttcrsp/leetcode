@@ -1,5 +1,5 @@
 
-class Solution {
+extension Solution {
     func orangesRotting(_ grid: [[Int]]) -> Int {
         var positionedOranges: [Position: Orange] = [:]
 
@@ -54,11 +54,15 @@ class Solution {
         return minutes
     }
 
-    enum State: Equatable { case empty, fresh, rotten }
+    fileprivate enum State: Equatable {
+        case empty, fresh, rotten
+    }
 
-    struct Position: Hashable { let x, y: Int }
+    fileprivate struct Position: Hashable {
+        let x, y: Int
+    }
 
-    final class Orange {
+    fileprivate final class Orange {
         var isRotten: Bool
         var adjacents: [Orange] = []
 
@@ -68,7 +72,7 @@ class Solution {
     }
 }
 
-extension Solution.Position {
+private extension Solution.Position {
     typealias Grid = [[Int]]
 
     init(_ x: Int, _ y: Int) {
@@ -88,7 +92,7 @@ extension Solution.Position {
     }
 }
 
-extension Solution.State {
+private extension Solution.State {
     init(integer: Int) {
         switch integer {
         case 0: self = .empty

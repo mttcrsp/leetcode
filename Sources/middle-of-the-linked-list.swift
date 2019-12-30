@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func middleNode(_ head: ListNode?) -> ListNode? {
         guard let head = head else { return nil }
 

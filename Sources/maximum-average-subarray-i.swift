@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func findMaxAverage(_ nums: [Int], _ k: Int) -> Double {
         guard k != 0 else { return 0 }
 

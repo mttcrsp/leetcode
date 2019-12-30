@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func romanToInt(_ s: String) -> Int {
         var current = (value: 0, remaining: s)
 
@@ -11,7 +11,7 @@ class Solution {
         return current.value
     }
 
-    func consume(_ s: String) -> (Int, String) {
+    private func consume(_ s: String) -> (Int, String) {
         if let value = Solution.mapping[String(s.prefix(3))] {
             return (value, String(s.dropFirst(3)))
         }
@@ -27,7 +27,7 @@ class Solution {
         fatalError()
     }
 
-    static let mapping: [String: Int] = [
+    private static let mapping: [String: Int] = [
         "I": 1, "II": 2, "III": 3, "IV": 4, "V": 5,
         "IX": 9, "X": 10, "XX": 20, "XXX": 30, "XL": 40, "L": 50,
         "XC": 90, "C": 100, "CC": 200, "CCC": 300, "CD": 400, "D": 500,

@@ -1,32 +1,28 @@
-class Solution {
-    /// One line solution that you really cannot understand
-    func isRectangleOverlapOneLiner(_ rec1: [Int], _ rec2: [Int]) -> Bool {
-        return !(rec1[2] <= rec2[0] || rec2[2] <= rec1[0] || rec1[3] <= rec2[1] || rec2[3] <= rec1[1])
-    }
-
+extension Solution {
     func isRectangleOverlap(_ rec1: [Int], _ rec2: [Int]) -> Bool {
         let r1 = Rectangle(values: rec1)
         let r2 = Rectangle(values: rec2)
         return r1.overlaps(r2)
     }
-}
 
-struct Point {
-    let x: Int, y: Int
+    /// One line solution that you really cannot understand
+    private func isRectangleOverlapOneLiner(_ rec1: [Int], _ rec2: [Int]) -> Bool {
+        return !(rec1[2] <= rec2[0] || rec2[2] <= rec1[0] || rec1[3] <= rec2[1] || rec2[3] <= rec1[1])
+    }
 
-    init(_ x: Int, _ y: Int) {
-        self.x = x
-        self.y = y
+    fileprivate struct Point {
+        let x, y: Int
+    }
+
+    fileprivate struct Rectangle {
+        let topRight, bottomLeft: Point
     }
 }
 
-struct Rectangle {
-    let topRight: Point
-    let bottomLeft: Point
-
+private extension Solution.Rectangle {
     init(values: [Int]) {
-        topRight = .init(values[2], values[3])
-        bottomLeft = .init(values[0], values[1])
+        topRight = .init(x: values[2], y: values[3])
+        bottomLeft = .init(x: values[0], y: values[1])
     }
 
     var minX: Int { return bottomLeft.x }
@@ -36,7 +32,7 @@ struct Rectangle {
     var rangeX: ClosedRange<Int> { return minX ... maxX }
     var rangeY: ClosedRange<Int> { return minY ... maxY }
 
-    func overlaps(_ other: Rectangle) -> Bool {
+    func overlaps(_ other: Solution.Rectangle) -> Bool {
         if rangeX.upperBound <= other.rangeX.lowerBound { return false }
         if other.rangeX.upperBound <= rangeX.lowerBound { return false }
         if rangeY.upperBound <= other.rangeY.lowerBound { return false }

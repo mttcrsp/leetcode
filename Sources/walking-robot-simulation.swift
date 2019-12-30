@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func robotSim(_ commands: [Int], _ obstacles: [[Int]]) -> Int {
         var obstaclesByX: [Int: [Int]] = [:]
         for obstacle in obstacles {
@@ -37,21 +37,20 @@ class Solution {
 
         return maxDistance
     }
+
+    fileprivate struct Position: Equatable {
+        let x, y: Int
+    }
+
+    fileprivate enum Direction {
+        case north, east, south, west
+    }
 }
 
-struct Position: Equatable {
-    let x: Int
-    let y: Int
-}
+private extension Solution.Position {
+    static let initial = Solution.Position(x: 0, y: 0)
 
-enum Direction {
-    case north, east, south, west
-}
-
-extension Position {
-    static let initial = Position(x: 0, y: 0)
-
-    func next(in direction: Direction) -> Position {
+    func next(in direction: Solution.Direction) -> Solution.Position {
         let x = self.x + direction.adjustment.x
         let y = self.y + direction.adjustment.y
         return .init(x: x, y: y)
@@ -66,7 +65,7 @@ extension Position {
     }
 }
 
-extension Direction {
+private extension Solution.Direction {
     var adjustment: (x: Int, y: Int) {
         switch self {
         case .east: return (1, 0)
@@ -76,7 +75,7 @@ extension Direction {
         }
     }
 
-    var right: Direction {
+    var right: Solution.Direction {
         switch self {
         case .north: return .east
         case .east: return .south
@@ -85,7 +84,7 @@ extension Direction {
         }
     }
 
-    var left: Direction {
+    var left: Solution.Direction {
         switch self {
         case .north: return .west
         case .west: return .south

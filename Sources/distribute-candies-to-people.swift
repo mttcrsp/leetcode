@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func distributeCandies(_ candies: Int, _ num_people: Int) -> [Int] {
         guard num_people > 0 else { return [] }
 

@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func sumEvenAfterQueries(_ A: [Int], _ queries: [[Int]]) -> [Int] {
         var result: [Int] = []
         var current = A

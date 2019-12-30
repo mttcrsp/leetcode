@@ -1,5 +1,5 @@
 // You could achieve the same result with even less operations and no extra space
-class Solution {
+extension Solution {
     func isMonotonic(_ A: [Int]) -> Bool {
         guard A.count > 2 else { return true }
 
@@ -19,7 +19,7 @@ class Solution {
         return true
     }
 
-    enum Direction {
+    private enum Direction {
         case unknown, increasing, decreasing
     }
 

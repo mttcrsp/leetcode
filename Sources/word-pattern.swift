@@ -1,9 +1,11 @@
-class Solution {
-    func wordPattern(_ pattern: String, _ str: String) -> Bool {
+import Foundation
+
+extension Solution {
+    func wordPattern(_ pattern: String, _ string: String) -> Bool {
         // This may be very inefficient in case of long strings
         // and small patterns as you may end up scanning the whole
         // string without the actual need to do so.
-        let words = str.components(separatedBy: " ")
+        let words = string.components(separatedBy: " ")
         guard words.count == pattern.count else { return false }
 
         var patternMapping: [Character: String] = [:]

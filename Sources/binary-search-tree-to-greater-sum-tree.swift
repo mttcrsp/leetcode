@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func bstToGst(_ root: TreeNode?) -> TreeNode? {
         guard let root = root else { return nil }
 

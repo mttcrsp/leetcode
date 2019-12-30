@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func isValid(_ string: String) -> Bool {
         var unmatched: [Character] = []
 

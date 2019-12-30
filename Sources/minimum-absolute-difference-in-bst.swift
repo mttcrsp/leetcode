@@ -1,17 +1,12 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     public var val: Int
- *     public var left: TreeNode?
- *     public var right: TreeNode?
- *     public init(_ val: Int) {
- *         self.val = val
- *         self.left = nil
- *         self.right = nil
- *     }
- * }
- */
-class Solution {
+extension Solution {
+    func getMinimumDifference(_ root: TreeNode?) -> Int {
+        return Solver().getMinimumDifference(root)
+    }
+}
+
+private final class Solver {
+    private var sortedValues: [Int] = []
+
     func getMinimumDifference(_ root: TreeNode?) -> Int {
         guard let root = root else {
             preconditionFailure("A BST with less than two nodes was provided")
@@ -32,8 +27,6 @@ class Solution {
 
         return min
     }
-
-    private var sortedValues: [Int] = []
 
     private func fillSortedValues(startingFrom node: TreeNode) {
         if let left = node.left {

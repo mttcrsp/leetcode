@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func longestStrChain(_ words: [String]) -> Int {
         var dictionary: [Int: Set<Node>] = [:]
         for word in words {
@@ -37,6 +37,11 @@ private final class Node: Hashable {
         self.word = word
     }
 
+    var depth: Int {
+        guard let depth = predecessors.map({ node in node.depth }).max() else { return 1 }
+        return depth + 1
+    }
+
     func addPredecessor(_ predecessor: Node) {
         predecessors.insert(predecessor)
     }
@@ -47,13 +52,6 @@ private final class Node: Hashable {
 
     func hash(into hasher: inout Hasher) {
         hasher.combine(word)
-    }
-
-    var depth: Int {
-        guard let depth = predecessors.map({ node in node.depth }).max() else {
-            return 1
-        }
-        return depth + 1
     }
 }
 

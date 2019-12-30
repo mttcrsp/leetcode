@@ -8,9 +8,12 @@ class KthLargest {
     }
 
     func add(_ val: Int) -> Int {
-        current.insert(val, at: current.firstIndex(where: { $0 > val }) ?? current.count)
+        let index = current.firstIndex(where: { $0 > val }) ?? current.count
+        current.insert(val, at: index)
 
-        if current.count > maxSize { current.removeFirst() }
+        if current.count > maxSize {
+            current.removeFirst()
+        }
 
         return current.first ?? 0
     }

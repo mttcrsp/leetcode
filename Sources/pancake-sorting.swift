@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func pancakeSort(_ numbers: [Int]) -> [Int] {
         var values = numbers
         var result: [Int] = []

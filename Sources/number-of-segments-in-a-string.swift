@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func countSegments(_ s: String) -> Int {
         let string = " " + s
         var result = 0

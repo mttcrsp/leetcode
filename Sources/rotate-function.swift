@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func maxRotateFunction(_ A: [Int]) -> Int {
         guard !A.isEmpty else { return 0 }
 

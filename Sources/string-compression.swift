@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func compress(_ chars: inout [Character]) -> Int {
         let indices = chars.indices
 

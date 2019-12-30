@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func uncommonFromSentences(_ x: String, _ y: String) -> [String] {
         let wordsX = x.split(separator: " ").map(String.init)
         let wordsY = y.split(separator: " ").map(String.init)

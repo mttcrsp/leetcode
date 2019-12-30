@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func readBinaryWatch(_ num: Int) -> [String] {
         var result: [String] = []
 

@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func smallestRangeI(_ A: [Int], _ K: Int) -> Int {
         var min = A[0]
         var max = A[0]

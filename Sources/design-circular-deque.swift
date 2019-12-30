@@ -1,4 +1,3 @@
-
 class MyCircularDeque {
     private var k: Int
     private var array: [Int]

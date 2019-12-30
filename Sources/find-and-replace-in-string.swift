@@ -1,10 +1,4 @@
-private struct Replacement {
-    let index: Int
-    let source: String
-    let target: String
-}
-
-class Solution {
+extension Solution {
     func findReplaceString(_ S: String, _ indexes: [Int], _ sources: [String], _ targets: [String]) -> String {
         var replacements: [Replacement] = []
         for ((index, source), target) in zip(zip(indexes, sources), targets) {
@@ -26,5 +20,11 @@ class Solution {
             }
         }
         return mutableS
+    }
+
+    private struct Replacement {
+        let index: Int
+        let source: String
+        let target: String
     }
 }

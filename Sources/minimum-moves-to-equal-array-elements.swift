@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func minMoves(_ nums: [Int]) -> Int {
         let min = nums.min()!
 

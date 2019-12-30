@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func fizzBuzz(_ n: Int) -> [String] {
         var result: [String] = []
 

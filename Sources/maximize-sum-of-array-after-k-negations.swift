@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func largestSumAfterKNegations(_ A: [Int], _ K: Int) -> Int {
         guard !A.isEmpty else { return 0 }
 

@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func licenseKeyFormatting(_ S: String, _ K: Int) -> String {
         var alphanumericsCount = 0
         var result = ""

@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func subdomainVisits(_ cpdomains: [String]) -> [String] {
         var visitsPerSubdomain: [String: Int] = [:]
 

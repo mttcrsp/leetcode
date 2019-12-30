@@ -1,21 +1,5 @@
-class Solution {
+extension Solution {
     func flipAndInvertImage(_ A: [[Int]]) -> [[Int]] {
-        @inline(__always) func invert(_ value: Int) -> Int {
-            switch value {
-            case 0: return 1
-            case 1: return 0
-            default: fatalError()
-            }
-        }
-
-        @inline(__always) func opposite(of column: Int, in colums: Int) -> Int {
-            return colums - 1 - column
-        }
-
-        @inline(__always) func centerColumn(in colums: Int) -> Int {
-            return colums / 2
-        }
-
         var matrix = A
 
         for i in matrix.indices {
@@ -34,5 +18,21 @@ class Solution {
         }
 
         return matrix
+    }
+
+    private func invert(_ value: Int) -> Int {
+        switch value {
+        case 0: return 1
+        case 1: return 0
+        default: fatalError()
+        }
+    }
+
+    private func opposite(of column: Int, in colums: Int) -> Int {
+        return colums - 1 - column
+    }
+
+    private func centerColumn(in colums: Int) -> Int {
+        return colums / 2
     }
 }

@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
         var initial: ListNode?
         var current: ListNode?
@@ -13,7 +13,7 @@ class Solution {
                 next = list2; list2 = list2?.next
             }
 
-            if let result = initial {
+            if initial != nil {
                 current?.next = next
                 current = next
             } else {

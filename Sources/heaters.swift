@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func findRadius(_ houses: [Int], _ heaters: [Int]) -> Int {
         let heaters = heaters.sorted()
         let houses = houses.sorted()

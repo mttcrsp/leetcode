@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func search(_ nums: [Int], _ target: Int) -> Int {
         var min = 0
         var max = nums.count

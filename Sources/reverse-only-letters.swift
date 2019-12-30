@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func reverseOnlyLetters(_ S: String) -> String {
         var result = Array(S)
         var left = 0, right = result.count - 1
@@ -23,5 +23,3 @@ class Solution {
         return String(result)
     }
 }
-
-Solution().reverseOnlyLetters("a-bC-dEf-ghIj")

@@ -1,6 +1,6 @@
-class Solution {
+extension Solution {
     func numSmallerByFrequency(_ queries: [String], _ words: [String]) -> [Int] { // [UInt]
-        var queriesFrequencies = queries.map(frequencyOfSmallestCharacter)
+        let queriesFrequencies = queries.map(frequencyOfSmallestCharacter)
 
         var wordsFrequenciesCounts: [Int: Int] = [:]
         for word in words {

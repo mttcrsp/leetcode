@@ -1,4 +1,4 @@
-class Solution {
+extension Solution {
     func toGoatLatin(_ S: String) -> String {
         var result: [String.SubSequence] = []
 
