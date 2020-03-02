@@ -31,5 +31,7 @@ targets:
     type: bundle.unit-test
     sources:
     - Tests
+    dependencies:
+    - target: Leetcode
     postbuildScripts:
     - script: swiftformat .
