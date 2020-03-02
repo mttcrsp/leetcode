@@ -81,7 +81,7 @@ private extension Solution.Position {
     }
 
     func adjacentPositions(in grid: Grid) -> [Solution.Position] {
-        return [.init(x - 1, y), .init(x + 1, y), .init(x, y + 1), .init(x, y - 1)].filter {
+        [.init(x - 1, y), .init(x + 1, y), .init(x, y + 1), .init(x, y - 1)].filter {
             position in position.isWithinBounds(of: grid)
         }
     }
@@ -105,10 +105,10 @@ private extension Solution.State {
 
 extension Solution.Orange {
     var isIsolated: Bool {
-        return adjacents.isEmpty
+        adjacents.isEmpty
     }
 
     var isNearRotten: Bool {
-        return adjacents.contains { $0.isRotten }
+        adjacents.contains { $0.isRotten }
     }
 }

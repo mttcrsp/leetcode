@@ -28,6 +28,6 @@ extension Solution {
 
 private extension Int {
     func distance(to other: Int) -> Int {
-        return abs(self - other)
+        abs(self - other)
     }
 }

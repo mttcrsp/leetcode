@@ -29,5 +29,5 @@ extension Solution {
 }
 
 private extension Int {
-    var isEven: Bool { return self % 2 == 0 }
+    var isEven: Bool { self % 2 == 0 }
 }

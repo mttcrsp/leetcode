@@ -1,6 +1,6 @@
 extension Solution {
     func getMinimumDifference(_ root: TreeNode?) -> Int {
-        return Solver().getMinimumDifference(root)
+        Solver().getMinimumDifference(root)
     }
 }
 

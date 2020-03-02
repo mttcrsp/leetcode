@@ -29,10 +29,10 @@ extension Solution {
     }
 
     private func opposite(of column: Int, in colums: Int) -> Int {
-        return colums - 1 - column
+        colums - 1 - column
     }
 
     private func centerColumn(in colums: Int) -> Int {
-        return colums / 2
+        colums / 2
     }
 }

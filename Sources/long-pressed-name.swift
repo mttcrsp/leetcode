@@ -16,6 +16,6 @@ extension Solution {
 
 private extension String {
     func character(at integerIndex: Int) -> Character { // only safe of ascii strings
-        return self[index(startIndex, offsetBy: integerIndex)]
+        self[index(startIndex, offsetBy: integerIndex)]
     }
 }

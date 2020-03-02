@@ -43,10 +43,10 @@ class MyCircularDeque {
     }
 
     func isEmpty() -> Bool {
-        return array.isEmpty
+        array.isEmpty
     }
 
     func isFull() -> Bool {
-        return array.count >= k
+        array.count >= k
     }
 }

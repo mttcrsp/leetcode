@@ -24,7 +24,7 @@ final class MyQueue {
     }
 
     func empty() -> Bool {
-        return stack.isEmpty
+        stack.isEmpty
     }
 }
 
@@ -36,18 +36,18 @@ private final class Stack<T> {
     }
 
     func pop() -> T {
-        return array.removeLast()
+        array.removeLast()
     }
 
     func peek() -> T {
-        return array.last!
+        array.last!
     }
 
     var count: Int {
-        return array.count
+        array.count
     }
 
     var isEmpty: Bool {
-        return array.isEmpty
+        array.isEmpty
     }
 }

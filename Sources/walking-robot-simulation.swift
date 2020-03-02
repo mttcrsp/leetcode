@@ -57,7 +57,7 @@ private extension Solution.Position {
     }
 
     var distance: Int {
-        return (x * x) + (y * y)
+        (x * x) + (y * y)
     }
 
     init(obstacle: [Int]) {

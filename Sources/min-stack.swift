@@ -32,14 +32,14 @@ class MinStack {
     }
 
     func top() -> Int { // Int?
-        return array.last ?? 0
+        array.last ?? 0
     }
 
     func getMin() -> Int { // Int?
-        return sortedArray.first ?? 0
+        sortedArray.first ?? 0
     }
 
     private var isEmpty: Bool {
-        return array.isEmpty
+        array.isEmpty
     }
 }

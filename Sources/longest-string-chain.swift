@@ -47,7 +47,7 @@ private final class Node: Hashable {
     }
 
     static func == (_ lhs: Node, _ rhs: Node) -> Bool {
-        return lhs.word == rhs.word
+        lhs.word == rhs.word
     }
 
     func hash(into hasher: inout Hasher) {

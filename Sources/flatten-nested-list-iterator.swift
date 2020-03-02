@@ -9,11 +9,11 @@ class NestedIterator {
     }
 
     func next() -> Int {
-        return list.removeFirst()
+        list.removeFirst()
     }
 
     func hasNext() -> Bool {
-        return !list.isEmpty
+        !list.isEmpty
     }
 }
 

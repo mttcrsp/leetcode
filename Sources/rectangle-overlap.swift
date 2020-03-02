@@ -7,7 +7,7 @@ extension Solution {
 
     /// One line solution that you really cannot understand
     private func isRectangleOverlapOneLiner(_ rec1: [Int], _ rec2: [Int]) -> Bool {
-        return !(rec1[2] <= rec2[0] || rec2[2] <= rec1[0] || rec1[3] <= rec2[1] || rec2[3] <= rec1[1])
+        !(rec1[2] <= rec2[0] || rec2[2] <= rec1[0] || rec1[3] <= rec2[1] || rec2[3] <= rec1[1])
     }
 
     fileprivate struct Point {
@@ -25,12 +25,12 @@ private extension Solution.Rectangle {
         bottomLeft = .init(x: values[0], y: values[1])
     }
 
-    var minX: Int { return bottomLeft.x }
-    var maxX: Int { return topRight.x }
-    var minY: Int { return bottomLeft.y }
-    var maxY: Int { return topRight.y }
-    var rangeX: ClosedRange<Int> { return minX ... maxX }
-    var rangeY: ClosedRange<Int> { return minY ... maxY }
+    var minX: Int { bottomLeft.x }
+    var maxX: Int { topRight.x }
+    var minY: Int { bottomLeft.y }
+    var maxY: Int { topRight.y }
+    var rangeX: ClosedRange<Int> { minX ... maxX }
+    var rangeY: ClosedRange<Int> { minY ... maxY }
 
     func overlaps(_ other: Solution.Rectangle) -> Bool {
         if rangeX.upperBound <= other.rangeX.lowerBound { return false }

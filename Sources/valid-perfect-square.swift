@@ -8,6 +8,6 @@ extension Solution {
     }
 
     private func nextApproximation(of target: Int, from current: Int) -> Int {
-        return (current + (target / current)) / 2
+        (current + (target / current)) / 2
     }
 }
