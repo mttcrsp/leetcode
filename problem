@@ -1,0 +1,61 @@
+#!/usr/bin/env swift
+
+import Foundation
+
+let arguments = CommandLine.arguments
+
+guard arguments.count == 2, let urlString = arguments.last, let url = URL(string: urlString) else {
+    fatalError("Expected the Leetcode problem URL to be provided as the one and only parameter.")
+}
+
+let fileManager = FileManager.default
+let path = fileManager.currentDirectoryPath as NSString
+let testsPath = path.appendingPathComponent("Tests")
+let sourcesPath = path.appendingPathComponent("Sources")
+
+guard fileManager.fileExists(atPath: testsPath)
+    , fileManager.fileExists(atPath: sourcesPath) else {
+    fatalError("Unable to locate the Sources/ and Tests/ folders. This script should be executed from the root of the project.")
+}
+
+let problemName = url.lastPathComponent
+
+let sourceName = "\(problemName).swift"
+let sourcePath = (sourcesPath as NSString).appendingPathComponent(sourceName)
+
+let testName = "\(problemName)-tests.swift"
+let testPath = (testsPath as NSString).appendingPathComponent(testName)
+let testContents = Data("""
+@testable
+import Leetcode
+import XCTest
+
+extension SolutionTests {
+    func test<#Func#>1() {
+        let input = 0
+        let output = 0
+        XCTAssertEqual(Solution().<#func#>(input), output)
+    }
+}
+""".utf8)
+
+guard fileManager.createFile(atPath: sourcePath, contents: nil)
+    , fileManager.createFile(atPath: testPath, contents: testContents) else {
+    fatalError("Unable to generate files for the specified problem.")
+}
+
+var process = Process()
+process.launchPath = "/usr/bin/env"
+process.arguments = ["xcodegen", "--quiet"]
+process.launch()
+process.waitUntilExit()
+
+guard process.terminationStatus == 0 else {
+    fatalError("Failed to regenerate Xcode project via Xcodegen.")
+}
+
+process = Process()
+process.launchPath = "/usr/bin/env"
+process.arguments = ["xed", "."]
+process.launch()
+process.waitUntilExit()
