@@ -1,20 +1,15 @@
 extension Solution {
     func findJudge(_ N: Int, _ trust: [[Int]]) -> Int {
-        if N == 1 {
-            return 1
-        }
-
-        var trusts: [Int: Set<Int>] = [:]
-        var isTrusted: [Int: Set<Int>] = [:]
+        var reputation = [Int](repeating: 0, count: N + 1)
 
         for element in trust {
             let truster = element[0]
             let trusted = element[1]
-            trusts[truster, default: []].insert(trusted)
-            isTrusted[trusted, default: []].insert(truster)
+            reputation[truster] -= 1
+            reputation[trusted] += 1
         }
 
-        for (person, trusters) in isTrusted where trusters.count == N - 1 && trusts[person, default: []].isEmpty {
+        for person in 1 ... N where reputation[person] == N - 1 {
             return person
         }
         return -1
