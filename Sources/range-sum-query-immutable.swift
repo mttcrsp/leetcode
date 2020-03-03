@@ -1,18 +1,20 @@
 class NumArray {
-    private let nums: [Int]
+    private let numbers: [Int]
 
     init(_ nums: [Int]) {
-        self.nums = nums
+        var numbers: [Int] = nums
+        for i in numbers.indices.dropFirst() {
+            numbers[i] += numbers[i - 1]
+        }
+
+        self.numbers = numbers
     }
 
     func sumRange(_ i: Int, _ j: Int) -> Int {
-        // This brute force solution is extremely inefficient from a time
-        // perspective but is it the most efficient solution from a space
-        // perspective.
-        var result = 0
-        for index in i ... j {
-            result += nums[index]
+        if i == 0 {
+            return numbers[j]
+        } else {
+            return numbers[j] - numbers[i - 1]
         }
-        return result
     }
 }
