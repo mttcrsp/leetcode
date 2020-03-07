@@ -1,13 +1,16 @@
 extension Solution {
     func rob(_ nums: [Int]) -> Int {
-        var sums = [0, 0]
+        var sumsMinus2 = 0
+        var sumsMinus1 = 0
 
-        for (index, value) in nums.enumerated() {
-            let take = sums[index] + value
-            let skip = sums[index + 1]
-            sums.append(max(take, skip))
+        for num in nums {
+            let take = sumsMinus2 + num
+            let skip = sumsMinus1
+            let best = max(take, skip)
+            sumsMinus2 = sumsMinus1
+            sumsMinus1 = best
         }
 
-        return sums.last ?? 0
+        return sumsMinus1
     }
 }
