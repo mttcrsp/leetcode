@@ -1,26 +1,19 @@
 extension Solution {
     func sortedSquares(_ A: [Int]) -> [Int] {
-        var negatives: [Int] = []
-        var result: [Int] = []
+        var i = A.count - 1
+        var lhs = 0
+        var rhs = i
+        var result = [Int](repeating: 0, count: A.count)
 
-        for number in A {
-            let squared = number * number
-
-            if number < 0 {
-                negatives.append(squared)
-                continue
+        while i >= 0 {
+            if abs(A[lhs]) > abs(A[rhs]) {
+                result[i] = A[lhs] * A[lhs]
+                lhs += 1
+            } else {
+                result[i] = A[rhs] * A[rhs]
+                rhs -= 1
             }
-
-            while let smallestNegative = negatives.last, smallestNegative <= squared {
-                result.append(smallestNegative)
-                negatives.removeLast()
-            }
-
-            result.append(squared)
-        }
-
-        for negative in negatives.lazy.reversed() {
-            result.append(negative)
+            i -= 1
         }
 
         return result
