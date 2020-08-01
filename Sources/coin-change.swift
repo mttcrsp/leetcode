@@ -1,39 +1,18 @@
 extension Solution {
     func coinChange(_ coins: [Int], _ amount: Int) -> Int {
-        guard amount != 0 else {
+        if amount == 0 {
             return 0
         }
 
-        var validCoins: Set<Int> = []
-        for coin in coins {
-            if coin == amount {
-                return 1
-            } else if coin < amount {
-                validCoins.insert(coin)
+        var amounts = [Int](repeating: amount + 1, count: amount + 1)
+        amounts[0] = 0
+
+        for i in 1 ... amount {
+            for coin in coins where coin <= i {
+                amounts[i] = min(amounts[i], amounts[i - coin] + 1)
             }
         }
 
-        var iteration = 0
-        var sums: Set<Int> = [0]
-
-        while sums.contains(where: { sum in sum < amount }) {
-            var newSums: Set<Int> = []
-
-            for coin in validCoins {
-                for sum in sums {
-                    let newSum = sum + coin
-                    if newSum == amount {
-                        return iteration + 1
-                    } else if newSum < amount {
-                        newSums.insert(newSum)
-                    }
-                }
-            }
-
-            iteration += 1
-            sums = newSums
-        }
-
-        return -1
+        return amounts[amount] > amount ? -1 : amounts[amount]
     }
 }
