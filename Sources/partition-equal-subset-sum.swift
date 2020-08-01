@@ -1,20 +1,25 @@
 extension Solution {
     func canPartition(_ numbers: [Int]) -> Bool {
-        var partialSums: Set<Int> = [0]
         var sum = 0
-
         for number in numbers {
             sum += number
+        }
 
-            for partialSum in partialSums {
-                partialSums.insert(partialSum + number)
+        if sum & 1 == 1 {
+            return false
+        }
+
+        let target = sum / 2
+
+        var partialSums = [Bool](repeating: false, count: target + 1)
+        partialSums[0] = true
+
+        for number in numbers {
+            for i in stride(from: target, through: 1, by: -1) where i >= number {
+                partialSums[i] = partialSums[i] || partialSums[i - number]
             }
         }
 
-        if sum % 2 == 0 {
-            return partialSums.contains(sum / 2)
-        } else {
-            return false
-        }
+        return partialSums[target]
     }
 }
