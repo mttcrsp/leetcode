@@ -1,114 +1,78 @@
-
 extension Solution {
     func orangesRotting(_ grid: [[Int]]) -> Int {
-        var positionedOranges: [Position: Orange] = [:]
+        var fresh: Set<Position> = []
+        var rotten: Set<Position> = []
+        var states: [Position: State] = [:]
 
         for x in grid.indices {
             for y in grid[x].indices {
-                let state = State(integer: grid[x][y])
-                let position = Position(x, y)
+                if let state = State(rawValue: grid[x][y]) {
+                    let position = Position(x: x, y: y)
 
-                switch state {
-                case .empty: continue
-                case .fresh: positionedOranges[position] = Orange(isRotten: false)
-                case .rotten: positionedOranges[position] = Orange(isRotten: true)
+                    states[position] = state
+                    switch state {
+                    case .fresh:
+                        fresh.insert(position)
+                    case .rotten:
+                        rotten.insert(position)
+                    }
                 }
             }
         }
 
-        for (position, orange) in positionedOranges {
-            for adjacentPosition in position.adjacentPositions(in: grid) {
-                if let adjacentOrange = positionedOranges[adjacentPosition] {
-                    orange.adjacents.append(adjacentOrange)
+        var adjacency: [Position: Set<Position>] = [:]
+
+        for (position, state) in states {
+            for adjacent in position.adjacents {
+                if states[adjacent] != nil {
+                    adjacency[position, default: []].insert(adjacent)
                 }
             }
-        }
 
-        let oranges = positionedOranges.values
-
-        if oranges.isEmpty {
-            return 0
-        }
-
-        var minutes = 0
-
-        while oranges.contains(where: { !$0.isRotten }) {
-            // This could be optimized in order to work only of oranges
-            // that are still fresh rather than on all oranges.
-            var nearlyRottenOranges: [Orange] = []
-            for orange in oranges where !orange.isRotten && orange.isNearRotten {
-                nearlyRottenOranges.append(orange)
+            if state == .fresh, adjacency[position] == nil {
+                return -1
             }
+        }
 
-            if nearlyRottenOranges.isEmpty {
+        var minute = 0
+
+        while !fresh.isEmpty {
+            if rotten.isEmpty {
                 return -1
             }
 
-            for orange in nearlyRottenOranges {
-                orange.isRotten = true
+            var newRotten: Set<Position> = []
+            for position in rotten {
+                let adjacents = adjacency[position, default: []]
+                for adjacent in adjacents where fresh.contains(adjacent) {
+                    newRotten.insert(adjacent)
+                    fresh.remove(adjacent)
+                }
             }
 
-            minutes += 1
+            rotten = newRotten
+            minute += 1
         }
 
-        return minutes
-    }
-
-    fileprivate enum State: Equatable {
-        case empty, fresh, rotten
-    }
-
-    fileprivate struct Position: Hashable {
-        let x, y: Int
-    }
-
-    fileprivate final class Orange {
-        var isRotten: Bool
-        var adjacents: [Orange] = []
-
-        init(isRotten: Bool) {
-            self.isRotten = isRotten
-        }
+        return minute
     }
 }
 
-private extension Solution.Position {
-    typealias Grid = [[Int]]
-
-    init(_ x: Int, _ y: Int) {
-        self.x = x
-        self.y = y
-    }
-
-    func adjacentPositions(in grid: Grid) -> [Solution.Position] {
-        [.init(x - 1, y), .init(x + 1, y), .init(x, y + 1), .init(x, y - 1)].filter {
-            position in position.isWithinBounds(of: grid)
-        }
-    }
-
-    func isWithinBounds(of grid: Grid) -> Bool {
-        guard grid.indices.contains(x), grid[x].indices.contains(y) else { return false }
-        return true
-    }
+private enum State: Int {
+    case fresh = 1, rotten = 2
 }
 
-private extension Solution.State {
-    init(integer: Int) {
-        switch integer {
-        case 0: self = .empty
-        case 1: self = .fresh
-        case 2: self = .rotten
-        default: preconditionFailure("Each cell can have one of tree values: 0, 1, 2.")
-        }
-    }
+private struct Position: Hashable {
+    let x, y: Int
 }
 
-extension Solution.Orange {
-    var isIsolated: Bool {
-        adjacents.isEmpty
-    }
-
-    var isNearRotten: Bool {
-        adjacents.contains { $0.isRotten }
+extension Position {
+    var adjacents: Set<Position> {
+        [
+            Position(x: x + 1, y: y),
+            Position(x: x - 1, y: y),
+            Position(x: x, y: y + 1),
+            Position(x: x, y: y - 1),
+        ]
     }
 }
