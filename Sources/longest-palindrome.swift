@@ -1,18 +1,17 @@
 extension Solution {
     func longestPalindrome(_ s: String) -> Int {
-        var occurrencesCounts: [Character: Int] = [:]
+        var occurrences: [Character: Int] = [:]
         for character in s {
-            occurrencesCounts[character, default: 0] += 1
+            occurrences[character, default: 0] += 1
         }
 
-        var matchedOccurrences = 0
-        var unmatchedOccurrences = 0
-        for (_, occurrences) in occurrencesCounts {
-            matchedOccurrences += occurrences / 2
-            unmatchedOccurrences += occurrences % 2
+        var result = 0
+        var containsOdd = false
+        for (_, count) in occurrences {
+            result += count / 2
+            containsOdd = containsOdd || count & 1 == 1
         }
 
-        let additionalCharacterConstant = unmatchedOccurrences == 0 ? 0 : 1
-        return (matchedOccurrences * 2) + additionalCharacterConstant
+        return result * 2 + (containsOdd ? 1 : 0)
     }
 }
