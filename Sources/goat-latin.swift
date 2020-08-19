@@ -1,24 +1,21 @@
 extension Solution {
-    func toGoatLatin(_ S: String) -> String {
-        var result: [String.SubSequence] = []
+    func toGoatLatin(_ string: String) -> String {
+        var words = string.components(separatedBy: " ")
 
-        for (i, var word) in S.split(separator: " ").enumerated() {
-            guard let first = word.first else { continue }
+        for index in words.indices {
+            guard let initial = words[index].first else { continue }
 
-            let startsWithVowel = ["a", "e", "i", "o", "u"].contains(first.lowercased())
-            if startsWithVowel {
-                word.append(contentsOf: "ma")
+            let vowels: Set<Character> = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
+            if vowels.contains(initial) {
+                words[index] += "ma"
             } else {
-                word.append(contentsOf: String(word.removeFirst()) + "ma")
+                words[index].removeFirst()
+                words[index] += "\(initial)ma"
             }
 
-            let suffixLength = word.contains("a") ? i + 1 : 0
-            let suffix = String(Array(repeating: "a", count: suffixLength))
-            word.append(contentsOf: suffix)
-
-            result.append(word)
+            words[index] += String(repeating: "a", count: index + 1)
         }
 
-        return result.joined(separator: " ")
+        return words.joined(separator: " ")
     }
 }
