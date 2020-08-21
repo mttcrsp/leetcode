@@ -11,7 +11,8 @@ extension Solution {
                 indices.lhs < heaters.count,
                 indices.rhs < heaters.count,
                 heaters[indices.lhs].distance(to: house) >=
-                heaters[indices.rhs].distance(to: house) {
+                heaters[indices.rhs].distance(to: house)
+            {
                 indices.lhs += 1
                 indices.rhs += 1
             }
