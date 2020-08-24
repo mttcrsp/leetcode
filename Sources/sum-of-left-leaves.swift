@@ -1,22 +1,18 @@
 extension Solution {
     func sumOfLeftLeaves(_ root: TreeNode?) -> Int {
-        var result = 0
+        return root?.visit(isLeft: false) ?? 0
+    }
+}
 
-        func visit(_ node: TreeNode?, isLeft: Bool) {
-            guard let node = node else { return }
-
-            if node.left == nil, node.right == nil {
-                if isLeft {
-                    result += node.val
-                }
-            } else {
-                visit(node.left, isLeft: true)
-                visit(node.right, isLeft: false)
-            }
+private extension TreeNode {
+    func visit(isLeft: Bool) -> Int {
+        if left == nil, right == nil {
+            return isLeft ? val : 0
         }
-
-        visit(root, isLeft: false)
-
-        return result
+        
+        var count = 0
+        count += left?.visit(isLeft: true) ?? 0
+        count += right?.visit(isLeft: false) ?? 0
+        return count
     }
 }
