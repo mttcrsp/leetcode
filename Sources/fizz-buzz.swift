@@ -1,21 +1,17 @@
 extension Solution {
     func fizzBuzz(_ n: Int) -> [String] {
-        var result: [String] = []
-
-        for i in 1 ... n {
-            let divisible3 = i % 3 == 0
-            let divisible5 = i % 5 == 0
+        (1 ... n).map { number in
+            let divisible3 = number % 3 == 0
+            let divisible5 = number % 5 == 0
             if divisible3, divisible5 {
-                result.append("FizzBuzz")
+                return "FizzBuzz"
             } else if divisible3 {
-                result.append("Fizz")
+                return "Fizz"
             } else if divisible5 {
-                result.append("Buzz")
+                return "Buzz"
             } else {
-                result.append(i.description)
+                return number.description
             }
         }
-
-        return result
     }
 }
