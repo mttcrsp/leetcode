@@ -1,95 +1,95 @@
 extension Solution {
-    func robotSim(_ commands: [Int], _ obstacles: [[Int]]) -> Int {
-        var obstaclesByX: [Int: [Int]] = [:]
-        for obstacle in obstacles {
-            obstaclesByX[obstacle[0], default: []].append(obstacle[1])
-        }
+  func robotSim(_ commands: [Int], _ obstacles: [[Int]]) -> Int {
+    var obstaclesByX: [Int: [Int]] = [:]
+    for obstacle in obstacles {
+      obstaclesByX[obstacle[0], default: []].append(obstacle[1])
+    }
 
-        var currentDirection = Direction.north
-        var currentPosition = Position.initial
-        var maxDistance = 0
+    var currentDirection = Direction.north
+    var currentPosition = Position.initial
+    var maxDistance = 0
 
-        for command in commands {
-            switch command {
-            case -1:
-                currentDirection = currentDirection.right
-            case -2:
-                currentDirection = currentDirection.left
-            case _ where command >= 1 && command <= 9:
-                for _ in 0 ..< command {
-                    let nextPosition = currentPosition.next(in: currentDirection)
+    for command in commands {
+      switch command {
+      case -1:
+        currentDirection = currentDirection.right
+      case -2:
+        currentDirection = currentDirection.left
+      case _ where command >= 1 && command <= 9:
+        for _ in 0 ..< command {
+          let nextPosition = currentPosition.next(in: currentDirection)
 
-                    if obstaclesByX[nextPosition.x]?.contains(nextPosition.y) ?? false {
-                        break
-                    } else {
-                        currentPosition = nextPosition
+          if obstaclesByX[nextPosition.x]?.contains(nextPosition.y) ?? false {
+            break
+          } else {
+            currentPosition = nextPosition
 
-                        let distance = currentPosition.distance
-                        if maxDistance < distance {
-                            maxDistance = distance
-                        }
-                    }
-                }
-            case _:
-                preconditionFailure("Unexpected command: \(command)")
+            let distance = currentPosition.distance
+            if maxDistance < distance {
+              maxDistance = distance
             }
+          }
         }
-
-        return maxDistance
+      case _:
+        preconditionFailure("Unexpected command: \(command)")
+      }
     }
 
-    fileprivate struct Position: Equatable {
-        let x, y: Int
-    }
+    return maxDistance
+  }
 
-    fileprivate enum Direction {
-        case north, east, south, west
-    }
+  fileprivate struct Position: Equatable {
+    let x, y: Int
+  }
+
+  fileprivate enum Direction {
+    case north, east, south, west
+  }
 }
 
 private extension Solution.Position {
-    static let initial = Solution.Position(x: 0, y: 0)
+  static let initial = Solution.Position(x: 0, y: 0)
 
-    func next(in direction: Solution.Direction) -> Solution.Position {
-        let x = self.x + direction.adjustment.x
-        let y = self.y + direction.adjustment.y
-        return .init(x: x, y: y)
-    }
+  func next(in direction: Solution.Direction) -> Solution.Position {
+    let x = self.x + direction.adjustment.x
+    let y = self.y + direction.adjustment.y
+    return .init(x: x, y: y)
+  }
 
-    var distance: Int {
-        (x * x) + (y * y)
-    }
+  var distance: Int {
+    (x * x) + (y * y)
+  }
 
-    init(obstacle: [Int]) {
-        self.init(x: obstacle[0], y: obstacle[1])
-    }
+  init(obstacle: [Int]) {
+    self.init(x: obstacle[0], y: obstacle[1])
+  }
 }
 
 private extension Solution.Direction {
-    var adjustment: (x: Int, y: Int) {
-        switch self {
-        case .east: return (1, 0)
-        case .west: return (-1, 0)
-        case .north: return (0, 1)
-        case .south: return (0, -1)
-        }
+  var adjustment: (x: Int, y: Int) {
+    switch self {
+    case .east: return (1, 0)
+    case .west: return (-1, 0)
+    case .north: return (0, 1)
+    case .south: return (0, -1)
     }
+  }
 
-    var right: Solution.Direction {
-        switch self {
-        case .north: return .east
-        case .east: return .south
-        case .south: return .west
-        case .west: return .north
-        }
+  var right: Solution.Direction {
+    switch self {
+    case .north: return .east
+    case .east: return .south
+    case .south: return .west
+    case .west: return .north
     }
+  }
 
-    var left: Solution.Direction {
-        switch self {
-        case .north: return .west
-        case .west: return .south
-        case .south: return .east
-        case .east: return .north
-        }
+  var left: Solution.Direction {
+    switch self {
+    case .north: return .west
+    case .west: return .south
+    case .south: return .east
+    case .east: return .north
     }
+  }
 }

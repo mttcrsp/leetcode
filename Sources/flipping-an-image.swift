@@ -1,38 +1,38 @@
 extension Solution {
-    func flipAndInvertImage(_ A: [[Int]]) -> [[Int]] {
-        var matrix = A
+  func flipAndInvertImage(_ A: [[Int]]) -> [[Int]] {
+    var matrix = A
 
-        for i in matrix.indices {
-            for j in 0 ..< matrix[i].count / 2 {
-                let oppositeOfJ = opposite(of: j, in: matrix[i].count)
-                let invert1 = invert(matrix[i][j])
-                let invert2 = invert(matrix[i][oppositeOfJ])
-                matrix[i][j] = invert2
-                matrix[i][oppositeOfJ] = invert1
-            }
-        }
-
-        for i in matrix.indices where matrix[i].count % 2 != 0 {
-            let j = centerColumn(in: matrix[i].count)
-            matrix[i][j] = invert(matrix[i][j])
-        }
-
-        return matrix
+    for i in matrix.indices {
+      for j in 0 ..< matrix[i].count / 2 {
+        let oppositeOfJ = opposite(of: j, in: matrix[i].count)
+        let invert1 = invert(matrix[i][j])
+        let invert2 = invert(matrix[i][oppositeOfJ])
+        matrix[i][j] = invert2
+        matrix[i][oppositeOfJ] = invert1
+      }
     }
 
-    private func invert(_ value: Int) -> Int {
-        switch value {
-        case 0: return 1
-        case 1: return 0
-        default: fatalError()
-        }
+    for i in matrix.indices where matrix[i].count % 2 != 0 {
+      let j = centerColumn(in: matrix[i].count)
+      matrix[i][j] = invert(matrix[i][j])
     }
 
-    private func opposite(of column: Int, in colums: Int) -> Int {
-        colums - 1 - column
-    }
+    return matrix
+  }
 
-    private func centerColumn(in colums: Int) -> Int {
-        colums / 2
+  private func invert(_ value: Int) -> Int {
+    switch value {
+    case 0: return 1
+    case 1: return 0
+    default: fatalError()
     }
+  }
+
+  private func opposite(of column: Int, in colums: Int) -> Int {
+    colums - 1 - column
+  }
+
+  private func centerColumn(in colums: Int) -> Int {
+    colums / 2
+  }
 }

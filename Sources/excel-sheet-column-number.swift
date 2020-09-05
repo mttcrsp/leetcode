@@ -1,29 +1,29 @@
 import Foundation
 
 extension Solution {
-    func titleToNumber(_ string: String) -> Int {
-        let base: Double = Character.lastExcelCharacter.excelValue
+  func titleToNumber(_ string: String) -> Int {
+    let base: Double = Character.lastExcelCharacter.excelValue
 
-        var result: Double = 0
+    var result: Double = 0
 
-        for (offset, character) in string.reversed().enumerated() {
-            result += pow(base, Double(offset)) * character.excelValue
-        }
-
-        return Int(result)
+    for (offset, character) in string.reversed().enumerated() {
+      result += pow(base, Double(offset)) * character.excelValue
     }
+
+    return Int(result)
+  }
 }
 
 private extension Character {
-    var excelValue: Double {
-        Double(asciiValue! - Character.firstExcelCharacter.asciiValue!) + 1
-    }
+  var excelValue: Double {
+    Double(asciiValue! - Character.firstExcelCharacter.asciiValue!) + 1
+  }
 
-    static var firstExcelCharacter: Character {
-        "A"
-    }
+  static var firstExcelCharacter: Character {
+    "A"
+  }
 
-    static var lastExcelCharacter: Character {
-        "Z"
-    }
+  static var lastExcelCharacter: Character {
+    "Z"
+  }
 }

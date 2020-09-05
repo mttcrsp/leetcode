@@ -1,5 +1,5 @@
 extension Solution {
-    func divisorGame(_ N: Int) -> Bool {
-        N % 2 == 0
-    }
+  func divisorGame(_ N: Int) -> Bool {
+    N % 2 == 0
+  }
 }

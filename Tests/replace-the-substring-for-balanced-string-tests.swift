@@ -3,33 +3,33 @@ import Leetcode
 import XCTest
 
 extension SolutionTests {
-    func testBalancedString1() {
-        let input = "QWER"
-        let output = 0
-        XCTAssertEqual(Solution().balancedString(input), output)
-    }
+  func testBalancedString1() {
+    let input = "QWER"
+    let output = 0
+    XCTAssertEqual(Solution().balancedString(input), output)
+  }
 
-    func testBalancedString2() {
-        let input = "QQWE"
-        let output = 1
-        XCTAssertEqual(Solution().balancedString(input), output)
-    }
+  func testBalancedString2() {
+    let input = "QQWE"
+    let output = 1
+    XCTAssertEqual(Solution().balancedString(input), output)
+  }
 
-    func testBalancedString3() {
-        let input = "QQQW"
-        let output = 2
-        XCTAssertEqual(Solution().balancedString(input), output)
-    }
+  func testBalancedString3() {
+    let input = "QQQW"
+    let output = 2
+    XCTAssertEqual(Solution().balancedString(input), output)
+  }
 
-    func testBalancedString4() {
-        let input = "QQQQ"
-        let output = 3
-        XCTAssertEqual(Solution().balancedString(input), output)
-    }
+  func testBalancedString4() {
+    let input = "QQQQ"
+    let output = 3
+    XCTAssertEqual(Solution().balancedString(input), output)
+  }
 
-    func testBalancedString5() {
-        let input = "QEWEEEEWERREWWQQWRWW"
-        let output = 6
-        XCTAssertEqual(Solution().balancedString(input), output)
-    }
+  func testBalancedString5() {
+    let input = "QEWEEEEWERREWWQQWRWW"
+    let output = 6
+    XCTAssertEqual(Solution().balancedString(input), output)
+  }
 }
