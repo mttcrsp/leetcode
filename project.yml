@@ -1,6 +1,8 @@
 version: 2.4.0
 name: Leetcode
 options:
+  tabWidth: 2
+  indentWidth: 2
   deploymentTarget:
       macOS: 10.14
   createIntermediateGroups: true
