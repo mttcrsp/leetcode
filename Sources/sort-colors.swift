@@ -1,21 +1,18 @@
 extension Solution {
   func sortColors(_ numbers: inout [Int]) {
     var counts = [0, 0, 0]
-    for number in numbers {
-      counts[number] += 1
-    }
-
-    for i in numbers.indices {
-      if counts[0] > 0 {
-        numbers[i] = 0
-        counts[0] -= 1
-      } else if counts[1] > 0 {
-        numbers[i] = 1
-        counts[1] -= 1
-      } else {
-        numbers[i] = 2
-        counts[2] -= 1
+    for (i, number) in numbers.enumerated() {
+      if number < 1, counts[1] > 0 {
+        let firstIndexOf1 = counts[0]
+        numbers.swapAt(i, firstIndexOf1)
       }
+
+      if number < 2, counts[2] > 0 {
+        let firstIndexOf2 = counts[0] + counts[1]
+        numbers.swapAt(i, firstIndexOf2)
+      }
+
+      counts[number] += 1
     }
   }
 }
