@@ -11,7 +11,6 @@ settingGroups:
   common:
     INFOPLIST_FILE: "$(TARGET_NAME)/Info.plist"
     SWIFT_TREAT_WARNINGS_AS_ERRORS: 'YES'
-    SWIFT_VERSION: '5.1'
 targets:
   Leetcode:
     type: framework
