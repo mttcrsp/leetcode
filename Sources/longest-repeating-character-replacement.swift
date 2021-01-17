@@ -1,19 +1,27 @@
 struct LongestRepeatingCharacterReplacement {
   func characterReplacement(_ s: String, _ k: Int) -> Int {
-    let chars = Array(s)
+    let characters = Array(s)
+    var count = [Int](repeating: 0, count: 26)
+    var lhs = 0, maxCount = 0, maxLength = 0
+    for rhs in characters.indices {
+      let lhsValue = characters[rhs].alphabeticalValue
+      count[lhsValue] += 1
 
-    var i = 0, max = Int.min, counts: [Character: Int] = [:]
-    for j in chars.indices {
-      counts[chars[j], default: 0] += 1
-
-      if j - i + 1 - counts.values.max()! > k {
-        counts[chars[i], default: 0] -= 1
-        i += 1
+      maxCount = max(maxCount, count[lhsValue])
+      while rhs - lhs + 1 - maxCount > k {
+        let rhsValue = characters[lhs].alphabeticalValue
+        count[rhsValue] -= 1
+        lhs += 1
       }
 
-      max = Swift.max(max, j - i + 1)
+      maxLength = max(maxLength, rhs - lhs + 1)
     }
+    return maxLength
+  }
+}
 
-    return max == Int.min ? 0 : max
+private extension Character {
+  var alphabeticalValue: Int {
+    Int(asciiValue! - Character("A").asciiValue!)
   }
 }
