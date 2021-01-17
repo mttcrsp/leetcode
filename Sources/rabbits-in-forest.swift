@@ -1,4 +1,4 @@
-extension Solution {
+struct RabbitsInForest {
   func numRabbits(_ answers: [Int]) -> Int {
     var matchedAnswers: [Int: Int] = [:]
     var count = 0

@@ -1,4 +1,4 @@
-extension Solution {
+struct FlowerPlantingWithNoAdjacent {
   func gardenNoAdj(_ N: Int, _ paths: [[Int]]) -> [Int] {
     let types = Set(1 ... 4)
 

@@ -1,4 +1,4 @@
-extension Solution {
+struct SquaresOfASortedArray {
   func sortedSquares(_ A: [Int]) -> [Int] {
     var i = A.count - 1
     var lhs = 0

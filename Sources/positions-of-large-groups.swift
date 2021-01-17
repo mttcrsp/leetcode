@@ -1,4 +1,4 @@
-extension Solution {
+struct PositionsOfLargeGroups {
   func largeGroupPositions(_ S: String) -> [[Int]] {
     typealias Group = (character: Character, offset: Int, count: Int)
 

@@ -1,4 +1,4 @@
-extension Solution {
+struct StringCompression {
   func compress(_ chars: inout [Character]) -> Int {
     let indices = chars.indices
 

@@ -1,4 +1,4 @@
-extension Solution {
+struct RunningSumOf1DArray {
   func runningSum(_ numbers: [Int]) -> [Int] {
     var runningSum: [Int] = []
     for number in numbers {

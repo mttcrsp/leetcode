@@ -1,4 +1,4 @@
-extension Solution {
+struct LongestHarmoniousSubsequence {
   func findLHS(_ nums: [Int]) -> Int {
     var counts: [Int: Int] = [:]
     for number in nums {

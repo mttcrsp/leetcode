@@ -1,4 +1,4 @@
-extension Solution {
+struct LastSubstringInLexicographicalOrder {
   func lastSubstring(_ s: String) -> String {
     var max = ""
 

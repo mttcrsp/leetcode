@@ -1,4 +1,4 @@
-extension Solution {
+struct MaximizeSumOfArrayAfterKNegations {
   func largestSumAfterKNegations(_ A: [Int], _ K: Int) -> Int {
     guard !A.isEmpty else { return 0 }
 

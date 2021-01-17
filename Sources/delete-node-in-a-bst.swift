@@ -1,4 +1,4 @@
-extension Solution {
+struct DeleteNodeInABst {
   func deleteNode(_ node: TreeNode?, _ key: Int) -> TreeNode? {
     var sorted: [TreeNode] = []
 

@@ -1,4 +1,4 @@
-extension Solution {
+struct BasicCalculator {
   func calculate(_ string: String) -> Int {
     solve(parse(from: string))
   }

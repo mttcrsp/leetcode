@@ -1,4 +1,4 @@
-extension Solution {
+struct FlipBinaryTreeToMatchPreorderTraversal {
   func flipMatchVoyage(_ root: TreeNode?, _ voyage: [Int]) -> [Int] {
     guard let node = root else { return voyage.isEmpty ? [] : [-1] }
 

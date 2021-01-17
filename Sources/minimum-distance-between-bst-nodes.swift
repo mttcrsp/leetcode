@@ -1,4 +1,4 @@
-extension Solution {
+struct MinimumDistanceBetweenBstNodes {
   func minDiffInBST(_ root: TreeNode?) -> Int {
     var values: [Int] = []
 

@@ -1,4 +1,4 @@
-extension Solution {
+struct NumberComplement {
   func findComplement(_ num: Int) -> Int {
     if num == 0 { return 1 }
 

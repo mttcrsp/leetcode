@@ -1,4 +1,4 @@
-extension Solution {
+struct PartitionEqualSubsetSum {
   func canPartition(_ numbers: [Int]) -> Bool {
     var sum = 0
     for number in numbers {

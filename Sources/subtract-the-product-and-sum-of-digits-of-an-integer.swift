@@ -1,4 +1,4 @@
-extension Solution {
+struct SubtractTheProductAndSumOfDigitsOfAnInteger {
   func subtractProductAndSum(_ n: Int) -> Int {
     var number = n
     var product = 1

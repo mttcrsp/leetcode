@@ -1,4 +1,4 @@
-extension Solution {
+struct ValidPerfectSquare {
   func isPerfectSquare(_ target: Int) -> Bool {
     var approximation = target
     while approximation * approximation > target {

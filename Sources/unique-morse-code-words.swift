@@ -1,8 +1,8 @@
-extension Solution {
+struct UniqueMorseCodeWords {
   func uniqueMorseRepresentations(_ words: [String]) -> Int {
     var values: Set<String> = []
     for word in words where !word.isEmpty {
-      values.insert(word.map { character in Solution.mapping[character]! }.joined())
+      values.insert(word.map { character in UniqueMorseCodeWords.mapping[character]! }.joined())
     }
     return values.count
   }

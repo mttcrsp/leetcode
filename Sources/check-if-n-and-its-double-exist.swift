@@ -1,4 +1,4 @@
-extension Solution {
+struct CheckIfNAndItsDoubleExist {
   func checkIfExist(_ numbers: [Int]) -> Bool {
     var previouses: Set<Int> = []
     for number in numbers {

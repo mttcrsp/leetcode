@@ -1,4 +1,4 @@
-extension Solution {
+struct CircularArrayLoop {
   func circularArrayLoop(_ nums: [Int]) -> Bool {
     guard nums.count > 1 else {
       return false

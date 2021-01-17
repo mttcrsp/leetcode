@@ -1,4 +1,4 @@
-extension Solution {
+struct KClosestPointsToOrigin {
   func kClosest(_ points: [[Int]], _ K: Int) -> [[Int]] {
     let sortedFromOrigin = points.sorted { lhs, rhs in
       lhs.distanceFromOrigin() < rhs.distanceFromOrigin()

@@ -1,6 +1,6 @@
 import Foundation
 
-extension Solution {
+struct NumbersWithSameConsecutiveDifferences {
   func numsSameConsecDiff(_ count: Int, _ difference: Int) -> [Int] {
     if count == 1 {
       return Array(0 ... 9)

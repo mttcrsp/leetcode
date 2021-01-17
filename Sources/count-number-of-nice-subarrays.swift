@@ -1,4 +1,4 @@
-extension Solution {
+struct CountNumberOfNiceSubarrays {
   func numberOfSubarrays(_ nums: [Int], _ k: Int) -> Int {
     var oddNumbersRunningCount = 0
     var subarraysRunningCount = 0

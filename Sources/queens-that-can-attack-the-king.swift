@@ -1,4 +1,4 @@
-extension Solution {
+struct QueensThatCanAttackTheKing {
   func queensAttacktheKing(_ queens: [[Int]], _ king: [Int]) -> [[Int]] {
     let nextPositionGenerators: [([Int]) -> [Int]] = [
       { [$0[0] + 1, $0[1] + 1] }, { [$0[0] + 1, $0[1] - 1] },

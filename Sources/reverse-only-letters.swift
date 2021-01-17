@@ -1,4 +1,4 @@
-extension Solution {
+struct ReverseOnlyLetters {
   func reverseOnlyLetters(_ S: String) -> String {
     var result = Array(S)
     var left = 0, right = result.count - 1

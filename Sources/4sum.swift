@@ -1,4 +1,4 @@
-extension Solution {
+struct FourSum {
   func fourSum(_ numbers: [Int], target: Int) -> [[Int]] {
     var counts: [Int: Int] = [:]
     for number in numbers {

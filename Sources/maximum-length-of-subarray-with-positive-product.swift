@@ -1,4 +1,4 @@
-extension Solution {
+struct MaximumLengthOfSubarrayWithPositiveProduct {
   func getMaxLen(_ numbers: [Int]) -> Int {
     var slices: [[Int]] = [[]]
     for number in numbers {

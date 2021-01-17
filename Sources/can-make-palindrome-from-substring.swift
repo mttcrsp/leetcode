@@ -1,4 +1,4 @@
-extension Solution {
+struct CanMakePalindromeFromSubstring {
   func canMakePaliQueries(_ s: String, _ queries: [[Int]]) -> [Bool] {
     let baseCharacter: Character = "a"
 

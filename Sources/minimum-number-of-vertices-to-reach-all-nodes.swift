@@ -1,4 +1,4 @@
-extension Solution {
+struct MinimumNumberOfVerticesToReachAllNodes {
   func findSmallestSetOfVertices(_ n: Int, _ edges: [[Int]]) -> [Int] {
     var nodes = Set<Int>(0 ... n - 1)
 

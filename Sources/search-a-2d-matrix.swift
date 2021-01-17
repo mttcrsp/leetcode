@@ -1,4 +1,4 @@
-extension Solution {
+struct SearchA2DMatrix {
   func searchMatrix(_ matrix: [[Int]], _ target: Int) -> Bool {
     guard let firstRow = matrix.first, !firstRow.isEmpty else { return false }
 

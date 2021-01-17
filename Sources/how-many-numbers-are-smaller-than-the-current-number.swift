@@ -1,4 +1,4 @@
-extension Solution {
+struct HowManyNumbersAreSmallerThanTheCurrentNumber {
   func smallerNumbersThanCurrent(_ nums: [Int]) -> [Int] {
     let sortedNumbers = nums.sorted()
 

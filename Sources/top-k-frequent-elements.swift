@@ -1,4 +1,4 @@
-extension Solution {
+struct TopKFrequentElements {
   func topKFrequent(_ numbers: [Int], _ k: Int) -> [Int] {
     var counts: [Int: Int] = [:]
     for number in numbers {

@@ -2,7 +2,7 @@
 import Leetcode
 import XCTest
 
-extension SolutionTests {
+final class ImplementQueueUsingStacksTests: XCTestCase {
   func testMyQueue1() {
     let queue = MyQueue()
     queue.push(1)

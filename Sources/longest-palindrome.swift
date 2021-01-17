@@ -1,4 +1,4 @@
-extension Solution {
+struct LongestPalindrome {
   func longestPalindrome(_ s: String) -> Int {
     var occurrences: [Character: Int] = [:]
     for character in s {

@@ -1,4 +1,4 @@
-extension Solution {
+struct LengthOfLastWord {
   func lengthOfLastWord(_ s: String) -> Int {
     var string = s
     while string.last == " " {

@@ -1,4 +1,4 @@
-extension Solution {
+struct Base7 {
   func convertToBase7(_ num: Int) -> String {
     if num == 0 { return "0" }
     let isNegative = num < 0

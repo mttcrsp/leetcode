@@ -1,6 +1,6 @@
 import Foundation
 
-extension Solution {
+struct WordPattern {
   func wordPattern(_ pattern: String, _ string: String) -> Bool {
     // This may be very inefficient in case of long strings
     // and small patterns as you may end up scanning the whole

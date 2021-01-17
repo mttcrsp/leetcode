@@ -36,19 +36,33 @@ guard fileManager.fileExists(atPath: testsPath)
   fatalError("Unable to locate the Sources/ and Tests/ folders. This script should be executed from the root of the project.")
 }
 
-let problemName = url.lastPathComponent
+let problemFileName = url.lastPathComponent
+var problemName = problemFileName.capitalized
+for rhsIndex in problemName.indices.dropFirst().reversed() {
+  let lhsIndex = problemName.index(before: rhsIndex)
+  let rhs = problemName[rhsIndex]
+  let lhs = problemName[lhsIndex]
+  if lhs == "-" {
+    problemName.replaceSubrange(lhsIndex ... rhsIndex, with: rhs.uppercased())
+  }
+}
 
-let sourceName = "\(problemName).swift"
+let sourceName = "\(problemFileName).swift"
 let sourcePath = (sourcesPath as NSString).appendingPathComponent(sourceName)
+let sourceContents = Data("""
+struct \(problemName) {
+  
+}
+""".utf8)
 
-let testName = "\(problemName)-tests.swift"
+let testName = "\(problemFileName)-tests.swift"
 let testPath = (testsPath as NSString).appendingPathComponent(testName)
 let testCases = (1 ... testCasesCount).map { i in
   """
     func test\(testFunctionName.capitalized)\(i)() {
       let input = 0
       let output = 0
-      XCTAssertEqual(Solution().\(testFunctionName)(input), output)
+      XCTAssertEqual(\(problemName)().\(testFunctionName)(input), output)
     }
   """
 }.joined(separator: "\n\n")
@@ -58,12 +72,12 @@ let testContents = Data("""
 import Leetcode
 import XCTest
 
-extension SolutionTests {
+final class \(problemName)Tests: XCTestCase {
 \(testCases)
 }
 """.utf8)
 
-guard fileManager.createFile(atPath: sourcePath, contents: nil)
+guard fileManager.createFile(atPath: sourcePath, contents: sourceContents)
     , fileManager.createFile(atPath: testPath, contents: testContents) else {
   fatalError("Unable to generate files for the specified problem.")
 }

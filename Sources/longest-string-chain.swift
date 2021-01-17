@@ -1,4 +1,4 @@
-extension Solution {
+struct LongestStringChain {
   func longestStrChain(_ words: [String]) -> Int {
     var dictionary: [Int: Set<Node>] = [:]
     for word in words {

@@ -1,4 +1,4 @@
-extension Solution {
+struct BaseballGame {
   func calPoints(_ operations: [String]) -> Int {
     var validRoundsPoints: [Int] = []
 

@@ -1,4 +1,4 @@
-extension Solution {
+struct PascalsTriangleIi {
   func getRow(_ rowIndex: Int) -> [Int] {
     if rowIndex == 0 { return [1] }
     if rowIndex == 1 { return [1, 1] }

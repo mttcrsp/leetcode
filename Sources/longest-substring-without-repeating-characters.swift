@@ -1,4 +1,4 @@
-extension Solution {
+struct LongestSubstringWithoutRepeatingCharacters {
   func lengthOfLongestSubstring(_ s: String) -> Int {
     let characters = Array(s)
 

@@ -1,4 +1,4 @@
-extension Solution {
+struct ArrangingCoins {
   func arrangeCoins(_ n: Int) -> Int {
     let base = Double(2 * n) + 0.25
     let root = base.squareRoot()

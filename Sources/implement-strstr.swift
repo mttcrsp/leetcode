@@ -1,4 +1,4 @@
-extension Solution {
+struct ImplementStrstr {
   /// Knuth-Morris-Pratt is the optimal solution to this problem
   func strStr(_ haystack: String, _ needle: String) -> Int {
     if needle.isEmpty {

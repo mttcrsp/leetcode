@@ -1,4 +1,4 @@
-extension Solution {
+struct DivideArrayInSetsOfKConsecutiveNumbers {
   func isPossibleDivide(_ nums: [Int], _ k: Int) -> Bool {
     var counts: [Int: Int] = [:]
     for num in nums {

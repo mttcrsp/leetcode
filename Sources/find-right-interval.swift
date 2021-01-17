@@ -1,4 +1,4 @@
-extension Solution {
+struct FindRightInterval {
   func findRightInterval(_ intervals: [[Int]]) -> [Int] {
     let intervalsByStart = intervals.enumerated().sorted { lhs, rhs in
       lhs.element[0] < rhs.element[0]

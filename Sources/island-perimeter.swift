@@ -1,4 +1,4 @@
-extension Solution {
+struct IslandPerimeter {
   func islandPerimeter(_ grid: [[Int]]) -> Int {
     var result = 0
 

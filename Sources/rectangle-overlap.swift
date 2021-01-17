@@ -1,4 +1,4 @@
-extension Solution {
+struct RectangleOverlap {
   func isRectangleOverlap(_ rec1: [Int], _ rec2: [Int]) -> Bool {
     let r1 = Rectangle(values: rec1)
     let r2 = Rectangle(values: rec2)
@@ -19,7 +19,7 @@ extension Solution {
   }
 }
 
-private extension Solution.Rectangle {
+private extension RectangleOverlap.Rectangle {
   init(values: [Int]) {
     topRight = .init(x: values[2], y: values[3])
     bottomLeft = .init(x: values[0], y: values[1])
@@ -32,7 +32,7 @@ private extension Solution.Rectangle {
   var rangeX: ClosedRange<Int> { minX ... maxX }
   var rangeY: ClosedRange<Int> { minY ... maxY }
 
-  func overlaps(_ other: Solution.Rectangle) -> Bool {
+  func overlaps(_ other: RectangleOverlap.Rectangle) -> Bool {
     if rangeX.upperBound <= other.rangeX.lowerBound { return false }
     if other.rangeX.upperBound <= rangeX.lowerBound { return false }
     if rangeY.upperBound <= other.rangeY.lowerBound { return false }

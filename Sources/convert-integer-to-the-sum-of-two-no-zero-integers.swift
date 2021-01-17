@@ -1,4 +1,4 @@
-extension Solution {
+struct ConvertIntegerToTheSumOfTwoNoZeroIntegers {
   func getNoZeroIntegers(_ n: Int) -> [Int] {
     var i = 1
     while true {

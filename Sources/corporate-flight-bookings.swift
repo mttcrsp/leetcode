@@ -1,4 +1,4 @@
-extension Solution {
+struct CorporateFlightBookings {
   func corpFlightBookings(_ bookings: [[Int]], _ n: Int) -> [Int] {
     var openings: [Int: Int] = [:]
     var closings: [Int: Int] = [:]

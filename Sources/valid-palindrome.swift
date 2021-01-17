@@ -1,4 +1,4 @@
-extension Solution {
+struct ValidPalindrome {
   func isPalindrome(_ s: String) -> Bool {
     var i = 0
     var j = s.count - 1

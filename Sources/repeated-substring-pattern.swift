@@ -1,4 +1,4 @@
-extension Solution {
+struct RepeatedSubstringPattern {
   func repeatedSubstringPattern(_ s: String) -> Bool {
     guard s.count > 1 else { return false }
 

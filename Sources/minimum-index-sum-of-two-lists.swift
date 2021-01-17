@@ -1,4 +1,4 @@
-extension Solution {
+struct MinimumIndexSumOfTwoLists {
   func findRestaurant(_ list1: [String], _ list2: [String]) -> [String] {
     var indices: [String: Int] = [:]
     for (index, restaurant) in list1.enumerated() {

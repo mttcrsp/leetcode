@@ -1,4 +1,4 @@
-extension Solution {
+struct LargestTimeForGivenDigits {
   func largestTimeFromDigits(_ A: [Int]) -> String {
     var maxMinutes = Int.min
     var maxTime: (hh: Int, mm: Int)?

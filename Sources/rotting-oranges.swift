@@ -1,4 +1,4 @@
-extension Solution {
+struct RottingOranges {
   func orangesRotting(_ grid: [[Int]]) -> Int {
     var fresh: Set<Position> = []
     var rotten: Set<Position> = []

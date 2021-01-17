@@ -1,4 +1,4 @@
-extension Solution {
+struct BinaryWatch {
   func readBinaryWatch(_ num: Int) -> [String] {
     var result: [String] = []
 

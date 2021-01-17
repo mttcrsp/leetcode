@@ -1,4 +1,4 @@
-extension Solution {
+struct IsSubsequence {
   func isSubsequence(_ s: String, _ t: String) -> Bool {
     switch (s.isEmpty, t.isEmpty) {
     case (true, true): return true

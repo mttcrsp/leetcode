@@ -1,4 +1,4 @@
-extension Solution {
+struct MaximumNumberOfBalloons {
   func maxNumberOfBalloons(_ text: String) -> Int {
     var occurrences: [Character: Int] = [:]
     for character in text {

@@ -1,4 +1,4 @@
-extension Solution {
+struct BinaryTreeLevelOrderTraversalIi {
   func levelOrderBottom(_ root: TreeNode?) -> [[Int]] {
     var valuesForDepth: [Int: [Int]] = [:]
 

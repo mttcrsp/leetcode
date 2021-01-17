@@ -1,4 +1,4 @@
-extension Solution {
+struct MiddleOfTheLinkedList {
   func middleNode(_ head: ListNode?) -> ListNode? {
     guard let head = head else { return nil }
 

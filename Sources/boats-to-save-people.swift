@@ -1,4 +1,4 @@
-extension Solution {
+struct BoatsToSavePeople {
   func numRescueBoats(_ people: [Int], _ limit: Int) -> Int {
     assert(people.allSatisfy { weight in weight <= limit })
 

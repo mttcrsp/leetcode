@@ -1,4 +1,4 @@
-extension Solution {
+struct SumOfLeftLeaves {
   func sumOfLeftLeaves(_ root: TreeNode?) -> Int {
     guard let root = root else { return 0 }
 

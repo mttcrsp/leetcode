@@ -1,4 +1,4 @@
-extension Solution {
+struct ValidParentheses {
   func isValid(_ string: String) -> Bool {
     var unmatched: [Character] = []
 

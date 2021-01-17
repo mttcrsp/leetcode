@@ -1,4 +1,4 @@
-extension Solution {
+struct MaximumNumberOfOccurrencesOfASubstring {
   func maxFreq(_ s: String, _ maxLetters: Int, _ minSize: Int, _: Int) -> Int {
     let string = Array(s)
     var letters: [Character: Int] = [:]

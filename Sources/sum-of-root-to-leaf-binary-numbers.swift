@@ -1,4 +1,4 @@
-extension Solution {
+struct SumOfRootToLeafBinaryNumbers {
   func sumRootToLeaf(_ root: TreeNode?) -> Int {
     var result = 0
 

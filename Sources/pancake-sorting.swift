@@ -1,4 +1,4 @@
-extension Solution {
+struct PancakeSorting {
   func pancakeSort(_ numbers: [Int]) -> [Int] {
     var values = numbers
     var result: [Int] = []

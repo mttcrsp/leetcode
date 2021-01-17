@@ -2,7 +2,7 @@
 import Leetcode
 import XCTest
 
-extension SolutionTests {
+final class RangeSumQueryImmutableTests: XCTestCase {
   private var numArray: NumArray {
     .init([-2, 0, 3, -5, 2, -1])
   }

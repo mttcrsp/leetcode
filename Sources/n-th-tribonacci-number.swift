@@ -1,4 +1,4 @@
-extension Solution {
+struct NThTribonacciNumber {
   func tribonacci(_ n: Int) -> Int {
     var table: [Int] = [0, 1, 1]
 

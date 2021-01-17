@@ -1,4 +1,4 @@
-extension Solution {
+struct FizzBuzz {
   func fizzBuzz(_ n: Int) -> [String] {
     (1 ... n).map { number in
       let divisible3 = number % 3 == 0

@@ -1,4 +1,4 @@
-extension Solution {
+struct NAryTreePreorderTraversal {
   func preorder(_ root: NaryTreeNode?) -> [Int] {
     var result: [Int] = []
 

@@ -1,6 +1,6 @@
 import Foundation
 
-extension Solution {
+struct ReverseInteger {
   func reverse(_ x: Int) -> Int {
     var overflow = false
     var result: Int32 = 0

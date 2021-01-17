@@ -1,4 +1,4 @@
-extension Solution {
+struct PushDominoes {
   private struct Push {
     let direction: Character
     let index: Int

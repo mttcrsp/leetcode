@@ -1,4 +1,4 @@
-extension Solution {
+struct FindAndReplaceInString {
   func findReplaceString(_ S: String, _ indexes: [Int], _ sources: [String], _ targets: [String]) -> String {
     var replacements: [Replacement] = []
     for ((index, source), target) in zip(zip(indexes, sources), targets) {

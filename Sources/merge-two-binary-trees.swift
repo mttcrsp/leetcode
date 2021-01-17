@@ -1,4 +1,4 @@
-extension Solution {
+struct MergeTwoBinaryTrees {
   func mergeTrees(_ t1: TreeNode?, _ t2: TreeNode?) -> TreeNode? {
     if t1 == nil { return t2 }
     if t2 == nil { return t1 }

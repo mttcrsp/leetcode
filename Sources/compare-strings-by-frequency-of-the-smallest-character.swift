@@ -1,4 +1,4 @@
-extension Solution {
+struct CompareStringsByFrequencyOfTheSmallestCharacter {
   func numSmallerByFrequency(_ queries: [String], _ words: [String]) -> [Int] { // [UInt]
     let queriesFrequencies = queries.map(frequencyOfSmallestCharacter)
 

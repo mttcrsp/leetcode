@@ -1,4 +1,4 @@
-extension Solution {
+struct SortColors {
   func sortColors(_ numbers: inout [Int]) {
     var counts = [0, 0, 0]
     for (i, number) in numbers.enumerated() {

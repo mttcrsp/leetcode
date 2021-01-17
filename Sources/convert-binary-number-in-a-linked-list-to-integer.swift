@@ -1,4 +1,4 @@
-extension Solution {
+struct ConvertBinaryNumberInALinkedListToInteger {
   func getDecimalValue(_ head: ListNode?) -> Int {
     var number = 0
 

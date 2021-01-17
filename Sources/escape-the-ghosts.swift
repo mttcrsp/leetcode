@@ -1,4 +1,4 @@
-extension Solution {
+struct EscapeTheGhosts {
   func escapeGhosts(_ ghosts: [[Int]], _ target: [Int]) -> Bool {
     let yourDistance = distance(between: target, [0, 0])
     for ghost in ghosts where distance(between: ghost, target) <= yourDistance {

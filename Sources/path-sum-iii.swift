@@ -1,4 +1,4 @@
-extension Solution {
+struct PathSumIii {
   func pathSum(_ root: TreeNode?, _ sum: Int) -> Int {
     var sums: [Int] = []
     var count = 0

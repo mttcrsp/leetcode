@@ -1,4 +1,4 @@
-extension Solution {
+struct MoveZeroes {
   func moveZeroes(_ numbers: inout [Int]) {
     var j = 0
     for i in numbers.indices {

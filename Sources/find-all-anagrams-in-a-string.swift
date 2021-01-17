@@ -1,4 +1,4 @@
-extension Solution {
+struct FindAllAnagramsInAString {
   func findAnagrams(_ string: String, _ pattern: String) -> [Int] {
     if string.count < pattern.count {
       return []

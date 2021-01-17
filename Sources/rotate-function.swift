@@ -1,4 +1,4 @@
-extension Solution {
+struct RotateFunction {
   func maxRotateFunction(_ A: [Int]) -> Int {
     guard !A.isEmpty else { return 0 }
 

@@ -1,4 +1,4 @@
-extension Solution {
+struct AngleBetweenHandsOfAClock {
   func angleClock(_ hour: Int, _ minutes: Int) -> Double {
     let minutes = Double(minutes % 60)
     let hour = Double(hour % 12)

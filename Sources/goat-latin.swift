@@ -1,4 +1,4 @@
-extension Solution {
+struct GoatLatin {
   func toGoatLatin(_ string: String) -> String {
     var words = string.components(separatedBy: " ")
 

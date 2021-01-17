@@ -1,4 +1,4 @@
-extension Solution {
+struct RemoveCoveredIntervals {
   func removeCoveredIntervals(_ intervals: [[Int]]) -> Int {
     let sortedIntervals = intervals.sorted { lhs, rhs in
       lhs[0] < rhs[0]

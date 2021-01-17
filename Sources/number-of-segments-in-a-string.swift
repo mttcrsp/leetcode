@@ -1,4 +1,4 @@
-extension Solution {
+struct NumberOfSegmentsInAString {
   func countSegments(_ s: String) -> Int {
     let string = " " + s
     var result = 0

@@ -1,4 +1,4 @@
-extension Solution {
+struct ArrayNesting {
   func arrayNesting(_ nums: [Int]) -> Int {
     var visited: Set<Int> = []
     var max: Int = 0

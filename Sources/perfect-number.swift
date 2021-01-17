@@ -1,4 +1,4 @@
-extension Solution {
+struct PerfectNumber {
   func checkPerfectNumber(_ number: Int) -> Bool {
     var sum = 0
     for i in 1 ... Int(Double(number).squareRoot()) where number % i == 0 {

@@ -1,4 +1,4 @@
-extension Solution {
+struct CourseScheduleIi {
   func findOrder(_ numCourses: Int, _ prerequisites: [[Int]]) -> [Int] {
     var adjacency: [Int: Set<Int>] = [:]
     var adjacencyReversed: [Int: Set<Int>] = [:]

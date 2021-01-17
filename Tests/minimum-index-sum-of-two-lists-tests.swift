@@ -2,14 +2,14 @@
 import Leetcode
 import XCTest
 
-extension SolutionTests {
+final class MinimumIndexSumOfTwoListsTests: XCTestCase {
   func testFindRestaurant1() {
     let input = (
       ["Shogun", "Tapioca Express", "Burger King", "KFC"],
       ["Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun"]
     )
     let output = ["Shogun"]
-    XCTAssertEqual(Set(Solution().findRestaurant(input.0, input.1)), Set(output))
+    XCTAssertEqual(Set(MinimumIndexSumOfTwoLists().findRestaurant(input.0, input.1)), Set(output))
   }
 
   func testFindRestaurant2() {
@@ -18,7 +18,7 @@ extension SolutionTests {
       ["KFC", "Shogun", "Burger King"]
     )
     let output = ["Shogun"]
-    XCTAssertEqual(Set(Solution().findRestaurant(input.0, input.1)), Set(output))
+    XCTAssertEqual(Set(MinimumIndexSumOfTwoLists().findRestaurant(input.0, input.1)), Set(output))
   }
 
   func testFindRestaurant3() {
@@ -27,7 +27,7 @@ extension SolutionTests {
       ["KFC", "Burger King", "Tapioca Express", "Shogun"]
     )
     let output = ["KFC", "Burger King", "Tapioca Express", "Shogun"]
-    XCTAssertEqual(Set(Solution().findRestaurant(input.0, input.1)), Set(output))
+    XCTAssertEqual(Set(MinimumIndexSumOfTwoLists().findRestaurant(input.0, input.1)), Set(output))
   }
 
   func testFindRestaurant4() {
@@ -36,7 +36,7 @@ extension SolutionTests {
       ["KNN", "KFC", "Burger King", "Tapioca Express", "Shogun"]
     )
     let output = ["KFC", "Burger King", "Tapioca Express", "Shogun"]
-    XCTAssertEqual(Set(Solution().findRestaurant(input.0, input.1)), Set(output))
+    XCTAssertEqual(Set(MinimumIndexSumOfTwoLists().findRestaurant(input.0, input.1)), Set(output))
   }
 
   func testFindRestaurant5() {
@@ -45,6 +45,6 @@ extension SolutionTests {
       ["KFC"]
     )
     let output = ["KFC"]
-    XCTAssertEqual(Set(Solution().findRestaurant(input.0, input.1)), Set(output))
+    XCTAssertEqual(Set(MinimumIndexSumOfTwoLists().findRestaurant(input.0, input.1)), Set(output))
   }
 }

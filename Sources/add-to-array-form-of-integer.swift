@@ -1,6 +1,6 @@
 import Foundation
 
-extension Solution {
+struct AddToArrayFormOfInteger {
   func addToArrayForm(_ A: [Int], _ K: Int) -> [Int] {
     var isZero = true
     var carry = 0

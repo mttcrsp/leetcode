@@ -1,4 +1,4 @@
-extension Solution {
+struct MinimumMovesToEqualArrayElements {
   func minMoves(_ nums: [Int]) -> Int {
     let min = nums.min()!
 

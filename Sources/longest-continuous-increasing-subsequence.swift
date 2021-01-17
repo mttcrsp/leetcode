@@ -1,4 +1,4 @@
-extension Solution {
+struct LongestContinuousIncreasingSubsequence {
   func findLengthOfLCIS(_ nums: [Int]) -> Int {
     guard !nums.isEmpty else { return 0 }
 

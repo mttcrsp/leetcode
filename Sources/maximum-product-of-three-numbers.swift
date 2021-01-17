@@ -1,4 +1,4 @@
-extension Solution {
+struct MaximumProductOfThreeNumbers {
   func maximumProduct(_ numbers: [Int]) -> Int {
     let n = numbers.count
     let sorted = numbers.sorted()

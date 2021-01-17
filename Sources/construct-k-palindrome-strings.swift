@@ -1,4 +1,4 @@
-extension Solution {
+struct ConstructKPalindromeStrings {
   func canConstruct(_ s: String, _ k: Int) -> Bool {
     var counts: [Character: Int] = [:]
     for character in s {

@@ -1,5 +1,5 @@
 // You could achieve the same result with even less operations and no extra space
-extension Solution {
+struct MonotonicArray {
   func isMonotonic(_ A: [Int]) -> Bool {
     guard A.count > 2 else { return true }
 

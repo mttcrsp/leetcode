@@ -2,7 +2,7 @@
 import Leetcode
 import XCTest
 
-extension SolutionTests {
+final class MyCalendarITests: XCTestCase {
   func testMyCalendar1() {
     let calendar = MyCalendar()
     XCTAssertTrue(calendar.book(10, 20))

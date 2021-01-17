@@ -1,4 +1,4 @@
-extension Solution {
+struct PascalsTriangle {
   func generate(_ numRows: Int) -> [[Int]] {
     guard numRows >= 0 else {
       return [[1]]

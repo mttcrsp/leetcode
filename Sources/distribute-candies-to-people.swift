@@ -1,4 +1,4 @@
-extension Solution {
+struct DistributeCandiesToPeople {
   func distributeCandies(_ candies: Int, _ people: Int) -> [Int] {
     if people == 1 { return [candies] }
 

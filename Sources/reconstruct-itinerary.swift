@@ -1,4 +1,4 @@
-extension Solution {
+struct ReconstructItinerary {
   func findItinerary(_ tickets: [[String]]) -> [String] {
     guard !tickets.isEmpty else { return [] }
 

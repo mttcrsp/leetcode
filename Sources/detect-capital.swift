@@ -1,4 +1,4 @@
-extension Solution {
+struct DetectCapital {
   func detectCapitalUse(_ word: String) -> Bool {
     for (offset, (lhs, rhs)) in zip(word, word.dropFirst()).enumerated() {
       switch (offset, lhs.isUppercase, rhs.isUppercase) {

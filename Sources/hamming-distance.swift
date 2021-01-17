@@ -1,4 +1,4 @@
-extension Solution {
+struct HammingDistance {
   func hammingDistance(_ x: Int, _ y: Int) -> Int {
     var result = 0
     var x = x

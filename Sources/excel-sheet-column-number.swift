@@ -1,6 +1,6 @@
 import Foundation
 
-extension Solution {
+struct ExcelSheetColumnNumber {
   func titleToNumber(_ string: String) -> Int {
     let base: Double = Character.lastExcelCharacter.excelValue
 

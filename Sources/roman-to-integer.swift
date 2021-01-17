@@ -1,4 +1,4 @@
-extension Solution {
+struct RomanToInteger {
   func romanToInt(_ s: String) -> Int {
     var current = (value: 0, remaining: s)
 
@@ -12,15 +12,15 @@ extension Solution {
   }
 
   private func consume(_ s: String) -> (Int, String) {
-    if let value = Solution.mapping[String(s.prefix(3))] {
+    if let value = RomanToInteger.mapping[String(s.prefix(3))] {
       return (value, String(s.dropFirst(3)))
     }
 
-    if let value = Solution.mapping[String(s.prefix(2))] {
+    if let value = RomanToInteger.mapping[String(s.prefix(2))] {
       return (value, String(s.dropFirst(2)))
     }
 
-    if let value = Solution.mapping[String(s.prefix(1))] {
+    if let value = RomanToInteger.mapping[String(s.prefix(1))] {
       return (value, String(s.dropFirst()))
     }
 

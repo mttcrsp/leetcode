@@ -1,4 +1,4 @@
-extension Solution {
+struct SplitAStringInBalancedStrings {
   func balancedStringSplit(_ s: String) -> Int {
     var lCount = 0, rCount = 0, count = 0
 

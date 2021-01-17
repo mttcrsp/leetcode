@@ -1,4 +1,4 @@
-extension Solution {
+struct RepeatedDnaSequences {
   func findRepeatedDnaSequences(_ s: String) -> [String] {
     var dictionary: [Substring: Int] = [:]
     for index in s.indices.dropLast(9) {

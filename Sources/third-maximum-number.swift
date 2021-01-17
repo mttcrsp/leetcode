@@ -1,4 +1,4 @@
-extension Solution {
+struct ThirdMaximumNumber {
   func thirdMax(_ nums: [Int]) -> Int {
     var max1: Int!
     var max2: Int!

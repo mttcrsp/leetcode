@@ -1,4 +1,4 @@
-extension Solution {
+struct ZigzagConversion {
   func convert(_ s: String, _ numRows: Int) -> String {
     guard numRows > 1 else { return s }
 

@@ -1,4 +1,4 @@
-extension Solution {
+struct MinimumAbsoluteDifferenceInBst {
   func getMinimumDifference(_ root: TreeNode?) -> Int {
     Solver().getMinimumDifference(root)
   }

@@ -1,4 +1,4 @@
-extension Solution {
+struct LemonadeChange {
   func lemonadeChange(_ bills: [Int]) -> Bool {
     var count5 = 0
     var count10 = 0

@@ -1,4 +1,4 @@
-extension Solution {
+struct SameTree {
   func isSameTree(_ p: TreeNode?, _ q: TreeNode?) -> Bool {
     guard let unwrappedP = p, let unwrappedQ = q else {
       return p == nil && q == nil

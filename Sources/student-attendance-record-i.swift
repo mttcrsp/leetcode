@@ -1,4 +1,4 @@
-extension Solution {
+struct StudentAttendanceRecordI {
   func checkRecord(_ attendance: String) -> Bool {
     let attendance = Array(attendance)
     var wasAbsenceRecorded = false

@@ -1,4 +1,4 @@
-extension Solution {
+struct TheKWeakestRowsInAMatrix {
   func kWeakestRows(_ mat: [[Int]], _ k: Int) -> [Int] {
     var weakestRowsSet: Set<Int> = []
     var weakestRows: [Int] = []

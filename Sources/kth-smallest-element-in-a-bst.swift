@@ -1,4 +1,4 @@
-extension Solution {
+struct KthSmallestElementInABst {
   func kthSmallest(_ root: TreeNode?, _ k: Int) -> Int {
     var count = 0
     var result: Int?

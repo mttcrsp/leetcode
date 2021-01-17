@@ -1,4 +1,4 @@
-extension Solution {
+struct ReplaceElementsWithGreatestElementOnRightSide {
   func replaceElements(_ arr: [Int]) -> [Int] {
     var result = [Int](repeating: -1, count: arr.count)
     var max = Int.min

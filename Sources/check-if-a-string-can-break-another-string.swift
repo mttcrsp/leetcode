@@ -1,4 +1,4 @@
-extension Solution {
+struct CheckIfAStringCanBreakAnotherString {
   func checkIfCanBreak(_ s1: String, _ s2: String) -> Bool {
     let sorted1 = s1.sorted()
     let sorted2 = s2.sorted()

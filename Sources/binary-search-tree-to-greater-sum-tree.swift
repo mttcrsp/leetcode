@@ -1,4 +1,4 @@
-extension Solution {
+struct BinarySearchTreeToGreaterSumTree {
   func bstToGst(_ root: TreeNode?) -> TreeNode? {
     guard let root = root else { return nil }
 

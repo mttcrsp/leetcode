@@ -1,4 +1,4 @@
-extension Solution {
+struct BestTimeToBuyAndSellStock {
   func maxProfit(_ prices: [Int]) -> Int {
     guard let first = prices.first else {
       return 0

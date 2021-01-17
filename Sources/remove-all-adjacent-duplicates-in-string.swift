@@ -1,4 +1,4 @@
-extension Solution {
+struct RemoveAllAdjacentDuplicatesInString {
   func removeDuplicates(_ S: String) -> String {
     var result = Array(S)
     var index = result.count - 1

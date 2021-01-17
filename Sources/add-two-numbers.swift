@@ -1,4 +1,4 @@
-extension Solution {
+struct AddTwoNumbers {
   func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
     var lhs = l1
     var rhs = l2

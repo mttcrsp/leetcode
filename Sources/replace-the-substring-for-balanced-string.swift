@@ -1,4 +1,4 @@
-extension Solution {
+struct ReplaceTheSubstringForBalancedString {
   func balancedString(_ s: String) -> Int {
     let characters: [Character] = ["Q", "W", "E", "R"]
 

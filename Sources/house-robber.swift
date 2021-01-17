@@ -1,4 +1,4 @@
-extension Solution {
+struct HouseRobber {
   func rob(_ nums: [Int]) -> Int {
     var sumsMinus2 = 0
     var sumsMinus1 = 0

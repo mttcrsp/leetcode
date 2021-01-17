@@ -1,4 +1,4 @@
-extension Solution {
+struct MergeTwoSortedLists {
   func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
     var initial: ListNode?
     var current: ListNode?

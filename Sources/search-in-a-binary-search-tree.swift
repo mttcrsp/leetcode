@@ -1,4 +1,4 @@
-extension Solution {
+struct SearchInABinarySearchTree {
   func searchBST(_ root: TreeNode?, _ val: Int) -> TreeNode? {
     guard let root = root else { return nil }
 

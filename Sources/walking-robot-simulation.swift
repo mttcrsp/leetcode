@@ -1,4 +1,4 @@
-extension Solution {
+struct WalkingRobotSimulation {
   func robotSim(_ commands: [Int], _ obstacles: [[Int]]) -> Int {
     var obstaclesByX: [Int: [Int]] = [:]
     for obstacle in obstacles {
@@ -47,10 +47,10 @@ extension Solution {
   }
 }
 
-private extension Solution.Position {
-  static let initial = Solution.Position(x: 0, y: 0)
+private extension WalkingRobotSimulation.Position {
+  static let initial = WalkingRobotSimulation.Position(x: 0, y: 0)
 
-  func next(in direction: Solution.Direction) -> Solution.Position {
+  func next(in direction: WalkingRobotSimulation.Direction) -> WalkingRobotSimulation.Position {
     let x = self.x + direction.adjustment.x
     let y = self.y + direction.adjustment.y
     return .init(x: x, y: y)
@@ -65,7 +65,7 @@ private extension Solution.Position {
   }
 }
 
-private extension Solution.Direction {
+private extension WalkingRobotSimulation.Direction {
   var adjustment: (x: Int, y: Int) {
     switch self {
     case .east: return (1, 0)
@@ -75,7 +75,7 @@ private extension Solution.Direction {
     }
   }
 
-  var right: Solution.Direction {
+  var right: WalkingRobotSimulation.Direction {
     switch self {
     case .north: return .east
     case .east: return .south
@@ -84,7 +84,7 @@ private extension Solution.Direction {
     }
   }
 
-  var left: Solution.Direction {
+  var left: WalkingRobotSimulation.Direction {
     switch self {
     case .north: return .west
     case .west: return .south

@@ -1,4 +1,4 @@
-extension Solution {
+struct ReorderList {
   func reorderList(_ head: ListNode?) {
     guard let head = head else { return }
 

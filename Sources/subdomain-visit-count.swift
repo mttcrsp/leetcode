@@ -1,4 +1,4 @@
-extension Solution {
+struct SubdomainVisitCount {
   func subdomainVisits(_ cpdomains: [String]) -> [String] {
     var visitsPerSubdomain: [String: Int] = [:]
 

@@ -2,7 +2,7 @@
 import Leetcode
 import XCTest
 
-extension SolutionTests {
+final class TheKWeakestRowsInAMatrixTests: XCTestCase {
   func testKWeakestRows1() {
     let input = (
       [
@@ -15,7 +15,7 @@ extension SolutionTests {
       3
     )
     let output = [2, 0, 3]
-    XCTAssertEqual(Set(Solution().kWeakestRows(input.0, input.1)), Set(output))
+    XCTAssertEqual(Set(TheKWeakestRowsInAMatrix().kWeakestRows(input.0, input.1)), Set(output))
   }
 
   func testKWeakestRows2() {
@@ -29,7 +29,7 @@ extension SolutionTests {
       2
     )
     let output = [0, 2]
-    XCTAssertEqual(Solution().kWeakestRows(input.0, input.1), output)
+    XCTAssertEqual(TheKWeakestRowsInAMatrix().kWeakestRows(input.0, input.1), output)
   }
 
   func testKWeakestRows3() {
@@ -44,7 +44,7 @@ extension SolutionTests {
       3
     )
     let output = [0, 1, 2]
-    XCTAssertEqual(Set(Solution().kWeakestRows(input.0, input.1)), Set(output))
+    XCTAssertEqual(Set(TheKWeakestRowsInAMatrix().kWeakestRows(input.0, input.1)), Set(output))
   }
 
   func testKWeakestRows4() {
@@ -57,6 +57,6 @@ extension SolutionTests {
       1
     )
     let output = [0]
-    XCTAssertEqual(Set(Solution().kWeakestRows(input.0, input.1)), Set(output))
+    XCTAssertEqual(Set(TheKWeakestRowsInAMatrix().kWeakestRows(input.0, input.1)), Set(output))
   }
 }

@@ -1,4 +1,4 @@
-extension Solution {
+struct DecryptStringFromAlphabetToIntegerMapping {
   func freqAlphabets(_ s: String) -> String {
     var string = Substring(s)
     var result = ""
