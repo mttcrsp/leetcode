@@ -58,8 +58,11 @@ struct \(problemName) {
 let testName = "\(problemFileName)-tests.swift"
 let testPath = (testsPath as NSString).appendingPathComponent(testName)
 let testCases = (1 ... testCasesCount).map { i in
-  """
-    func test\(testFunctionName.capitalized)\(i)() {
+  var testCaseName = testFunctionName
+  let testCaseNameInitial = testCaseName.removeFirst()
+  testCaseName = "test\(testCaseNameInitial.uppercased())\(testCaseName)\(i)"
+  return """
+    func \(testCaseName)() {
       let input = 0
       let output = 0
       XCTAssertEqual(\(problemName)().\(testFunctionName)(input), output)
