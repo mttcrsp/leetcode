@@ -37,20 +37,16 @@ struct WalkingRobotSimulation {
 
     return maxDistance
   }
-
-  fileprivate struct Position: Equatable {
-    let x, y: Int
-  }
-
-  fileprivate enum Direction {
-    case north, east, south, west
-  }
 }
 
-private extension WalkingRobotSimulation.Position {
-  static let initial = WalkingRobotSimulation.Position(x: 0, y: 0)
+private struct Position: Equatable {
+  let x, y: Int
+}
 
-  func next(in direction: WalkingRobotSimulation.Direction) -> WalkingRobotSimulation.Position {
+private extension Position {
+  static let initial = Position(x: 0, y: 0)
+
+  func next(in direction: Direction) -> Position {
     let x = self.x + direction.adjustment.x
     let y = self.y + direction.adjustment.y
     return .init(x: x, y: y)
@@ -65,7 +61,11 @@ private extension WalkingRobotSimulation.Position {
   }
 }
 
-private extension WalkingRobotSimulation.Direction {
+private enum Direction {
+  case north, east, south, west
+}
+
+private extension Direction {
   var adjustment: (x: Int, y: Int) {
     switch self {
     case .east: return (1, 0)
@@ -75,7 +75,7 @@ private extension WalkingRobotSimulation.Direction {
     }
   }
 
-  var right: WalkingRobotSimulation.Direction {
+  var right: Direction {
     switch self {
     case .north: return .east
     case .east: return .south
@@ -84,7 +84,7 @@ private extension WalkingRobotSimulation.Direction {
     }
   }
 
-  var left: WalkingRobotSimulation.Direction {
+  var left: Direction {
     switch self {
     case .north: return .west
     case .west: return .south
