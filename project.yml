@@ -1,5 +1,6 @@
-version: 2.4.0
+version: 2.18.0
 name: Leetcode
+
 options:
   tabWidth: 2
   indentWidth: 2
@@ -9,24 +10,20 @@ options:
   bundleIdPrefix: com.mttcrsp.Leetcode
 settingGroups:
   common:
-    INFOPLIST_FILE: "$(TARGET_NAME)/Info.plist"
     SWIFT_TREAT_WARNINGS_AS_ERRORS: 'YES'
+
 targets:
   Leetcode:
+    platform: macOS
     type: framework
     sources:
     - Sources/
     scheme:
       testTargets:
         - Tests
-    platform: macOS
     postbuildScripts:
     - script: swiftformat .
-    settings:
-      base:
-        PRODUCT_NAME: "$(TARGET_NAME)"
-        VERSIONING_SYSTEM: apple-generic
-        DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+
   Tests:
     platform: macOS
     type: bundle.unit-test
