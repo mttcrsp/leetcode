@@ -24,7 +24,7 @@ struct FlippingAnImage {
     switch value {
     case 0: return 1
     case 1: return 0
-    default: fatalError()
+    default: preconditionFailure("Unexpected value '\(value)'")
     }
   }
 

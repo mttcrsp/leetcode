@@ -24,7 +24,7 @@ struct RomanToInteger {
       return (value, String(s.dropFirst()))
     }
 
-    fatalError()
+    preconditionFailure("Unable to determine mapping for string '\(s)'")
   }
 
   private static let mapping: [String: Int] = [

@@ -3,7 +3,7 @@ struct ExcelSheetColumnTitle {
     guard let value1 = Character("A").asciiValue,
           let value2 = Character("Z").asciiValue
     else {
-      fatalError()
+      preconditionFailure("Failed ASCII conversion")
     }
 
     var letters = (value1 ... value2).map { value in
