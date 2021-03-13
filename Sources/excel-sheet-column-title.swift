@@ -1,7 +1,7 @@
 struct ExcelSheetColumnTitle {
   func convertToTitle(_ n: Int) -> String {
     guard let value1 = Character("A").asciiValue,
-      let value2 = Character("Z").asciiValue
+          let value2 = Character("Z").asciiValue
     else {
       fatalError()
     }

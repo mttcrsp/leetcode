@@ -13,7 +13,7 @@ struct BoatsToSavePeople {
     }
 
     while let (fatWeight, fatCount) = sortedCountsForWeight.last,
-      let (thinWeight, thinCount) = sortedCountsForWeight.first
+          let (thinWeight, thinCount) = sortedCountsForWeight.first
     {
       if fatWeight + thinWeight > limit {
         numberOfBoats += fatCount
