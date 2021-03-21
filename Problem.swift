@@ -25,14 +25,15 @@ if arguments.count > 3, let count = Int(arguments[3]) {
 } else {
   testCasesCount = 1
 }
-    
+
 let fileManager = FileManager.default
 let path = fileManager.currentDirectoryPath as NSString
 let testsPath = path.appendingPathComponent("Tests")
 let sourcesPath = path.appendingPathComponent("Sources")
 
-guard fileManager.fileExists(atPath: testsPath)
-    , fileManager.fileExists(atPath: sourcesPath) else {
+guard fileManager.fileExists(atPath: testsPath),
+      fileManager.fileExists(atPath: sourcesPath)
+else {
   fatalError("Unable to locate the Sources/ and Tests/ folders. This script should be executed from the root of the project.")
 }
 
@@ -51,7 +52,7 @@ let sourceName = "\(problemFileName).swift"
 let sourcePath = (sourcesPath as NSString).appendingPathComponent(sourceName)
 let sourceContents = Data("""
 struct \(problemName) {
-  
+
 }
 """.utf8)
 
@@ -80,8 +81,9 @@ final class \(problemName)Tests: XCTestCase {
 }
 """.utf8)
 
-guard fileManager.createFile(atPath: sourcePath, contents: sourceContents)
-    , fileManager.createFile(atPath: testPath, contents: testContents) else {
+guard fileManager.createFile(atPath: sourcePath, contents: sourceContents),
+      fileManager.createFile(atPath: testPath, contents: testContents)
+else {
   fatalError("Unable to generate files for the specified problem.")
 }
 
