@@ -87,13 +87,9 @@ guard fileManager.createFile(atPath: sourcePath, contents: sourceContents)
 
 var process = Process()
 process.launchPath = "/usr/bin/env"
-process.arguments = ["xcodegen", "--quiet"]
+process.arguments = ["swift", "package", "generate-xcodeproj"]
 process.launch()
 process.waitUntilExit()
-
-guard process.terminationStatus == 0 else {
-  fatalError("Failed to regenerate Xcode project via Xcodegen.")
-}
 
 process = Process()
 process.launchPath = "/usr/bin/env"

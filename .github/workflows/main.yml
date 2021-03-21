@@ -11,13 +11,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Install Xcodegen
-      run: brew install xcodegen
-    - name: Install Swiftformat
-      run: brew install swiftformat
-    - name: Install xcpretty
-      run: gem install xcpretty-travis-formatter
-    - name: Run Xcodegen
-      run: xcodegen
     - name: Run tests
-      run: xcodebuild -scheme Leetcode build test | xcpretty -f `xcpretty-travis-formatter`
+      run: swift test
