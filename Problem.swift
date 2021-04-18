@@ -87,13 +87,7 @@ else {
   fatalError("Unable to generate files for the specified problem.")
 }
 
-var process = Process()
-process.launchPath = "/usr/bin/env"
-process.arguments = ["swift", "package", "generate-xcodeproj"]
-process.launch()
-process.waitUntilExit()
-
-process = Process()
+let process = Process()
 process.launchPath = "/usr/bin/env"
 process.arguments = ["xed", "."]
 process.launch()
