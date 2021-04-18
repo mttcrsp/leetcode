@@ -1,19 +1,35 @@
 struct SquaresOfASortedArray {
-  func sortedSquares(_ A: [Int]) -> [Int] {
-    var i = A.count - 1
-    var lhs = 0
-    var rhs = i
-    var result = [Int](repeating: 0, count: A.count)
-
-    while i >= 0 {
-      if abs(A[lhs]) > abs(A[rhs]) {
-        result[i] = A[lhs] * A[lhs]
-        lhs += 1
+  func sortedSquares(_ numbers: [Int]) -> [Int] {
+    var positives: [Int] = []
+    var negatives: [Int] = []
+    for number in numbers {
+      let square = number * number
+      if number >= 0 {
+        positives.append(square)
       } else {
-        result[i] = A[rhs] * A[rhs]
-        rhs -= 1
+        negatives.append(square)
       }
-      i -= 1
+    }
+
+    var i = 0
+    var j = negatives.count - 1
+    var result: [Int] = []
+    while i < positives.count || j >= 0 {
+      if i >= positives.count {
+        result.append(negatives[j]); j -= 1
+        continue
+      }
+
+      if j < 0 {
+        result.append(positives[i]); i += 1
+        continue
+      }
+
+      if positives[i] < negatives[j] {
+        result.append(positives[i]); i += 1
+      } else {
+        result.append(negatives[j]); j -= 1
+      }
     }
 
     return result
