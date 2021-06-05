@@ -86,9 +86,3 @@ guard fileManager.createFile(atPath: sourcePath, contents: sourceContents),
 else {
   fatalError("Unable to generate files for the specified problem.")
 }
-
-let process = Process()
-process.launchPath = "/usr/bin/env"
-process.arguments = ["xed", "."]
-process.launch()
-process.waitUntilExit()
