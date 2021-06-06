@@ -1,26 +1,29 @@
+import Foundation
+
 struct ValidPalindrome {
   func isPalindrome(_ s: String) -> Bool {
-    var i = 0
-    var j = s.count - 1
-    let characters = Array(s)
+    let validCharacters = CharacterSet.alphanumerics
 
-    while i < j {
-      guard characters[i].isLetter || characters[i].isNumber else {
-        i += 1
+    var lowerbound = s.startIndex
+    var upperbound = s.index(before: s.endIndex)
+
+    while lowerbound < upperbound {
+      guard validCharacters.contains(s[lowerbound].unicodeScalars.first!) else {
+        lowerbound = s.index(after: lowerbound)
         continue
       }
 
-      guard characters[j].isLetter || characters[j].isNumber else {
-        j -= 1
+      guard validCharacters.contains(s[upperbound].unicodeScalars.first!) else {
+        upperbound = s.index(before: upperbound)
         continue
       }
 
-      guard characters[i].lowercased() == characters[j].lowercased() else {
+      guard s[lowerbound].lowercased() == s[upperbound].lowercased() else {
         return false
       }
 
-      i += 1
-      j -= 1
+      lowerbound = s.index(after: lowerbound)
+      upperbound = s.index(before: upperbound)
     }
 
     return true
