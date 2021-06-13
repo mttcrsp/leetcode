@@ -10,3 +10,13 @@ extension ListNode {
     return nodes.first
   }
 }
+
+extension ListNode: CustomDebugStringConvertible {
+  public var debugDescription: String {
+    var nodes: [ListNode] = [self]
+    while let node = nodes.last?.next {
+      nodes.append(node)
+    }
+    return nodes.map(\.val).map(\.description).joined(separator: " -> ")
+  }
+}
