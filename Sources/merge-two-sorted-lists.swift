@@ -1,27 +1,29 @@
 struct MergeTwoSortedLists {
   func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
-    var initial: ListNode?
-    var current: ListNode?
-    var list1 = l1
-    var list2 = l2
+    if l1 == nil { return l2 }
+    if l2 == nil { return l1 }
 
-    while list1 != nil || list2 != nil {
-      let next: ListNode?
-      if list1 != nil, list2 == nil || list1!.val < list2!.val {
-        next = list1; list1 = list1?.next
+    var l1 = l1
+    var l2 = l2
+    var curr: ListNode?
+    var head: ListNode?
+
+    while let node1 = l1, let node2 = l2 {
+      let next: ListNode
+      if node1.val < node2.val {
+        next = node1; l1 = node1.next
       } else {
-        next = list2; list2 = list2?.next
+        next = node2; l2 = node2.next
       }
 
-      if initial != nil {
-        current?.next = next
-        current = next
-      } else {
-        initial = next
-        current = next
-      }
+      head = head ?? next
+      curr?.next = next
+      curr = next
     }
 
-    return initial
+    if let node = l1 { curr?.next = node }
+    if let node = l2 { curr?.next = node }
+
+    return head
   }
 }
