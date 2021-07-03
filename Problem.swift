@@ -4,23 +4,27 @@ import Foundation
 
 let arguments = CommandLine.arguments
 
-guard arguments.count > 1 else {
-  fatalError("USAGE: problem <url> <test_function_name>? <test_cases_count>?")
+guard arguments.count > 2 else {
+  fatalError("USAGE: problem <url> <problem_number> <test_function_name>? <test_cases_count>?")
 }
 
 guard let url = URL(string: arguments[1]) else {
   fatalError("Expected a Leetcode problem URL to be provided as the first parameter.")
 }
 
+guard Int(arguments[2]) != nil else {
+  fatalError("Expected a Leetcode problem number to provided as the second parameter")
+}
+
 let testFunctionName: String
-if arguments.count > 2 {
-  testFunctionName = arguments[2]
+if arguments.count > 3 {
+  testFunctionName = arguments[3]
 } else {
   testFunctionName = "<#func#>"
 }
 
 let testCasesCount: Int
-if arguments.count > 3, let count = Int(arguments[3]) {
+if arguments.count > 4, let count = Int(arguments[4]) {
   testCasesCount = count
 } else {
   testCasesCount = 1
@@ -48,7 +52,10 @@ for rhsIndex in problemName.indices.dropFirst().reversed() {
   }
 }
 
-let sourceName = "\(problemFileName).swift"
+let problemNumber = arguments[2].description
+let paddedProblemNumber = problemNumber.padding(toLength: 4, withPad: "0", startingAt: 0)
+
+let sourceName = "\(paddedProblemNumber)-\(problemFileName).swift"
 let sourcePath = (sourcesPath as NSString).appendingPathComponent(sourceName)
 let sourceContents = Data("""
 struct \(problemName) {
@@ -56,7 +63,7 @@ struct \(problemName) {
 }
 """.utf8)
 
-let testName = "\(problemFileName)-tests.swift"
+let testName = "\(paddedProblemNumber)-\(problemFileName)-tests.swift"
 let testPath = (testsPath as NSString).appendingPathComponent(testName)
 let testCases = (1 ... testCasesCount).map { i in
   var testCaseName = testFunctionName
