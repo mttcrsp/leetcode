@@ -2,7 +2,7 @@ struct FlipBinaryTreeToMatchPreorderTraversal {
   func flipMatchVoyage(_ root: TreeNode?, _ voyage: [Int]) -> [Int] {
     guard let node = root else { return voyage.isEmpty ? [] : [-1] }
 
-    var index: Int = 0
+    var index = 0
     var swaps: [Int] = []
     swaps.reserveCapacity(voyage.count / 2)
 

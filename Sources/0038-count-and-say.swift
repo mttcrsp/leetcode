@@ -4,7 +4,7 @@ struct CountAndSay {
   }
 
   private func makeCountAndSay(to iteration: Int) -> [String] {
-    var result: [String] = ["1"]
+    var result = ["1"]
     for _ in 1 ..< iteration {
       result.append(makeCountAndSay(from: result.last!))
     }

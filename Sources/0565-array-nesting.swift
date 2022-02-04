@@ -1,7 +1,7 @@
 struct ArrayNesting {
   func arrayNesting(_ nums: [Int]) -> Int {
     var visited: Set<Int> = []
-    var max: Int = 0
+    var max = 0
 
     for num in nums where !visited.contains(num) {
       visited.insert(num)

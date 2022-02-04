@@ -12,7 +12,7 @@ struct ReconstructItinerary {
       destinationsForOrigin[origin] = destinations.sorted()
     }
 
-    var dfs: [String] = ["JFK"]
+    var dfs = ["JFK"]
     var itinerary: [String] = []
     while let previousAirport = dfs.last {
       if destinationsForOrigin[previousAirport, default: []].isEmpty {
