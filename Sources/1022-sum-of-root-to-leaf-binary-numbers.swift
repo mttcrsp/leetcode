@@ -1,15 +1,25 @@
 struct SumOfRootToLeafBinaryNumbers {
   func sumRootToLeaf(_ root: TreeNode?) -> Int {
     var result = 0
+    var current = 0
 
-    func visit(_ node: TreeNode, withContext context: Int) {
-      let context = (context << 1) + node.val
-      if let lhs = node.left { visit(lhs, withContext: context) }
-      if let rhs = node.right { visit(rhs, withContext: context) }
-      if node.left == nil, node.right == nil { result += context }
+    func visit(_ node: TreeNode?) {
+      guard let node = node else { return }
+
+      current = (current << 1) | node.val
+      defer {
+        current = current >> 1
+      }
+
+      if node.left == nil, node.right == nil {
+        result += current
+      } else {
+        visit(node.left)
+        visit(node.right)
+      }
     }
 
-    if let node = root { visit(node, withContext: 0) }
+    visit(root)
 
     return result
   }
