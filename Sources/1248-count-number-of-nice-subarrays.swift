@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/count-number-of-nice-subarrays/
 struct CountNumberOfNiceSubarrays {
   func numberOfSubarrays(_ nums: [Int], _ k: Int) -> Int {
     var oddNumbersRunningCount = 0

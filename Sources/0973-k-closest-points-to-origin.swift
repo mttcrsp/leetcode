@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/k-closest-points-to-origin/
 struct KClosestPointsToOrigin {
   func kClosest(_ points: [[Int]], _ K: Int) -> [[Int]] {
     let sortedFromOrigin = points.sorted { lhs, rhs in

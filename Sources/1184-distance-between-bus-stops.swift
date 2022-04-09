@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/distance-between-bus-stops/
 struct DistanceBetweenBusStops {
   func distanceBetweenBusStops(_ distance: [Int], _ start: Int, _ destination: Int) -> Int {
     var total1 = 0

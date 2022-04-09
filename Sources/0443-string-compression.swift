@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/string-compression/
 struct StringCompression {
   func compress(_ chars: inout [Character]) -> Int {
     let indices = chars.indices

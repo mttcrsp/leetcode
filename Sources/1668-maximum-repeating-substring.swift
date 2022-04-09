@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/maximum-repeating-substring/
 struct MaximumRepeatingSubstring {
   func maxRepeating(_ sequence: String, _ word: String) -> Int {
     var pattern = word

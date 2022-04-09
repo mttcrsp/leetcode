@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/walking-robot-simulation/
 struct WalkingRobotSimulation {
   func robotSim(_ commands: [Int], _ obstacles: [[Int]]) -> Int {
     var obstaclesByX: [Int: [Int]] = [:]

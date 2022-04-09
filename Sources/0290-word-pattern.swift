@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/word-pattern/
 import Foundation
 
 struct WordPattern {

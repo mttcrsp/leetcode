@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/number-of-segments-in-a-string/
 struct NumberOfSegmentsInAString {
   func countSegments(_ s: String) -> Int {
     let string = " " + s

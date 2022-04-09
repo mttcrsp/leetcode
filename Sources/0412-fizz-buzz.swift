@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/fizz-buzz/
 struct FizzBuzz {
   func fizzBuzz(_ n: Int) -> [String] {
     (1 ... n).map { number in

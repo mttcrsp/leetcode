@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/single-number/
 struct SingleNumber {
   func singleNumber(_ nums: [Int]) -> Int {
     var result = 0

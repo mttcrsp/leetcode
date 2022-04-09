@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/binary-number-with-alternating-bits/
 struct BinaryNumberWithAlternatingBits {
   func hasAlternatingBits(_ n: Int) -> Bool {
     var oldFlag = n & 1 == 0

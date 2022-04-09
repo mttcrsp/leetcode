@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/binary-watch/
 struct BinaryWatch {
   func readBinaryWatch(_ num: Int) -> [String] {
     var result: [String] = []

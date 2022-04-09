@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/find-the-town-judge/
 struct FindTheTownJudge {
   func findJudge(_ N: Int, _ trust: [[Int]]) -> Int {
     var reputation = [Int](repeating: 0, count: N + 1)

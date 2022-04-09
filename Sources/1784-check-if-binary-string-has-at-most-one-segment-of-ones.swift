@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/check-if-binary-string-has-at-most-one-segment-of-ones/
 struct CheckIfBinaryStringHasAtMostOneSegmentOfOnes {
   func checkOnesSegment(_ string: String) -> Bool {
     enum State {

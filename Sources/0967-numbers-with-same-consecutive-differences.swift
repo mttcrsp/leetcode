@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/numbers-with-same-consecutive-differences/
 import Foundation
 
 struct NumbersWithSameConsecutiveDifferences {

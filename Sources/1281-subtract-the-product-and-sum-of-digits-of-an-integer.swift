@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/subtract-the-product-and-sum-of-digits-of-an-integer/
 struct SubtractTheProductAndSumOfDigitsOfAnInteger {
   func subtractProductAndSum(_ n: Int) -> Int {
     var number = n

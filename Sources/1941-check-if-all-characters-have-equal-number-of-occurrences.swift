@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/check-if-all-characters-have-equal-number-of-occurrences/
 struct CheckIfAllCharactersHaveEqualNumberOfOccurrences {
   func areOccurrencesEqual(_ s: String) -> Bool {
     var countForCharacter: [Character: Int] = [:]

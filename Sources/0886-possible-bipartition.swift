@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/possible-bipartition/
 struct PossibleBipartition {
   func possibleBipartition(_ n: Int, _ dislikes: [[Int]]) -> Bool {
     enum Color { case red, blue }

@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/check-if-a-string-can-break-another-string/
 struct CheckIfAStringCanBreakAnotherString {
   func checkIfCanBreak(_ s1: String, _ s2: String) -> Bool {
     let sorted1 = s1.sorted()

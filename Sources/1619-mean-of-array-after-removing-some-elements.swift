@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/mean-of-array-after-removing-some-elements/
 import Foundation
 
 struct MeanOfArrayAfterRemovingSomeElements {

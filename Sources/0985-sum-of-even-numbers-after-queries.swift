@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/sum-of-even-numbers-after-queries/
 struct SumOfEvenNumbersAfterQueries {
   func sumEvenAfterQueries(_ A: [Int], _ queries: [[Int]]) -> [Int] {
     var result: [Int] = []

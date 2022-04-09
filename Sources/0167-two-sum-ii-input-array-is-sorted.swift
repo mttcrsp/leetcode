@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
 struct TwoSumIiInputArrayIsSorted {
   func twoSum(_ numbers: [Int], _ target: Int) -> [Int] {
     var lhs = 0

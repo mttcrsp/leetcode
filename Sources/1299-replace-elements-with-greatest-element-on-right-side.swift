@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/replace-elements-with-greatest-element-on-right-side/
 struct ReplaceElementsWithGreatestElementOnRightSide {
   func replaceElements(_ arr: [Int]) -> [Int] {
     var result = [Int](repeating: -1, count: arr.count)

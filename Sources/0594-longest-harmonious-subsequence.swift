@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/longest-harmonious-subsequence/
 struct LongestHarmoniousSubsequence {
   func findLHS(_ nums: [Int]) -> Int {
     var counts: [Int: Int] = [:]

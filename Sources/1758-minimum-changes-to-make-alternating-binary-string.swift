@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/minimum-changes-to-make-alternating-binary-string/
 struct MinimumChangesToMakeAlternatingBinaryString {
   func minOperations(_ s: String) -> Int {
     let alternate: (Character) -> Character = { character in

@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/all-elements-in-two-binary-search-trees/
 struct AllElementsInTwoBinarySearchTrees {
   func getAllElements(_ root1: TreeNode?, _ root2: TreeNode?) -> [Int] {
     var halfSorted: [Int] = []

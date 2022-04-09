@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/longest-repeating-character-replacement/
 struct LongestRepeatingCharacterReplacement {
   func characterReplacement(_ s: String, _ k: Int) -> Int {
     let characters = Array(s)

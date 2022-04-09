@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/replace-all-s-to-avoid-consecutive-repeating-characters/
 struct ReplaceAllSToAvoidConsecutiveRepeatingCharacters {
   func modifyString(_ s: String) -> String {
     var s = s

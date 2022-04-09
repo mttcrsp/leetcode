@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/arithmetic-subarrays/
 struct ArithmeticSubarrays {
   func checkArithmeticSubarrays(_ numbers: [Int], _ lowerbounds: [Int], _ upperbounds: [Int]) -> [Bool] {
     zip(lowerbounds, upperbounds).map { lowerbound, upperbound in

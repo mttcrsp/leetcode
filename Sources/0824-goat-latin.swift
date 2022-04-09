@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/goat-latin/
 struct GoatLatin {
   func toGoatLatin(_ string: String) -> String {
     var words = string.components(separatedBy: " ")

@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 struct BestTimeToBuyAndSellStock {
   func maxProfit(_ prices: [Int]) -> Int {
     guard let first = prices.first else {

@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/queens-that-can-attack-the-king/
 struct QueensThatCanAttackTheKing {
   func queensAttacktheKing(_ queens: [[Int]], _ king: [Int]) -> [[Int]] {
     let nextPositionGenerators: [([Int]) -> [Int]] = [

@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/ugly-number/
 struct UglyNumber {
   func isUgly(_ n: Int) -> Bool {
     guard n > 0 else { return false }

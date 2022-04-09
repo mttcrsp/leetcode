@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/perfect-number/
 struct PerfectNumber {
   func checkPerfectNumber(_ number: Int) -> Bool {
     var sum = 0

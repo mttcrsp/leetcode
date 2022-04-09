@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/number-of-good-pairs/
 struct NumberOfGoodPairs {
   func numIdenticalPairs(_ numbers: [Int]) -> Int {
     var counts: [Int: Int] = [:]

@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/escape-the-ghosts/
 struct EscapeTheGhosts {
   func escapeGhosts(_ ghosts: [[Int]], _ target: [Int]) -> Bool {
     let yourDistance = distance(between: target, [0, 0])

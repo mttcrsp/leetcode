@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/two-city-scheduling/
 struct TwoCityScheduling {
   func twoCitySchedCost(_ costs: [[Int]]) -> Int {
     var costsWithDifferences = costs.map { cost in (difference: cost[0] - cost[1], priceForA: cost[0], priceForB: cost[1]) }

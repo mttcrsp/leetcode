@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/meeting-rooms/
 struct MeetingRooms {
   func canAttendMeetings(_ intervals: [[Int]]) -> Bool {
     let sortedIntervals = intervals.sorted { lhs, rhs in lhs[0] < rhs[0] }

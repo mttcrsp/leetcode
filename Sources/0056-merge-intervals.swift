@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/merge-intervals/
 struct MergeIntervals {
   func merge(_ intervals: [[Int]]) -> [[Int]] {
     let sortedIntervals = intervals.sorted { lhs, rhs in

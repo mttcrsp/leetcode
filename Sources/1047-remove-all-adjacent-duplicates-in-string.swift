@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/
 struct RemoveAllAdjacentDuplicatesInString {
   func removeDuplicates(_ S: String) -> String {
     var result = Array(S)

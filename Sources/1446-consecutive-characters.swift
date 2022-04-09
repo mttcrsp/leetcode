@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/consecutive-characters/
 struct ConsecutiveCharacters {
   func maxPower(_ string: String) -> Int {
     guard !string.isEmpty else { return 0 }

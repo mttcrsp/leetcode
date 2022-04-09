@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/binary-search/
 struct BinarySearch {
   func search(_ nums: [Int], _ target: Int) -> Int {
     var min = 0

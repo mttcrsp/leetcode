@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/find-lucky-integer-in-an-array/
 struct FindLuckyIntegerInAnArray {
   func findLucky(_ numbers: [Int]) -> Int {
     var counts: [Int: Int] = [:]

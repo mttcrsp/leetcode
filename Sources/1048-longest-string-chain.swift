@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/longest-string-chain/
 struct LongestStringChain {
   func longestStrChain(_ words: [String]) -> Int {
     var dictionary: [Int: Set<Node>] = [:]

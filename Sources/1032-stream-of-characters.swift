@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/stream-of-characters/
 class StreamChecker {
   private var letters: [Character] = []
   private let root = Node(" ")

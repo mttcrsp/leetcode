@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/read-n-characters-given-read4/
 class ReadNCharactersGivenRead4: Reader4 {
   func read(_ buffer: inout [Character], _ n: Int) -> Int {
     var buffer4 = [Character](repeating: "-", count: 4)

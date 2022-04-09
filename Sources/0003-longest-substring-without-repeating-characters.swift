@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/longest-substring-without-repeating-characters/
 struct LongestSubstringWithoutRepeatingCharacters {
   func lengthOfLongestSubstring(_ s: String) -> Int {
     var previousIndex: [Character: Int] = [:]

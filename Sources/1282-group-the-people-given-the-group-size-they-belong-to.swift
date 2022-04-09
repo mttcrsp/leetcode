@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/
 struct GroupThePeopleGivenTheGroupSizeTheyBelongTo {
   func groupThePeople(_ groupSizes: [Int]) -> [[Int]] {
     var result: [[Int]] = []

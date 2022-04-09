@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/find-good-days-to-rob-the-bank/
 struct FindGoodDaysToRobTheBank {
   func goodDaysToRobBank(_ security: [Int], _ time: Int) -> [Int] {
     if time == 0 {

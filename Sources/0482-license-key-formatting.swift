@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/license-key-formatting/
 struct LicenseKeyFormatting {
   func licenseKeyFormatting(_ S: String, _ K: Int) -> String {
     var alphanumericsCount = 0

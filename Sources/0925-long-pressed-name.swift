@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/long-pressed-name/
 struct LongPressedName {
   func isLongPressedName(_ name: String, _ typed: String) -> Bool {
     var i = 0

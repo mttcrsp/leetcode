@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/course-schedule-iv/
 struct CourseScheduleIv {
   func checkIfPrerequisite(_ numCourses: Int, _ prerequisites: [[Int]], _ queries: [[Int]]) -> [Bool] {
     let row = [Bool](repeating: false, count: numCourses)

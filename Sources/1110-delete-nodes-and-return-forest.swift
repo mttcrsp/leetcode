@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/delete-nodes-and-return-forest/
 struct DeleteNodesAndReturnForest {
   func delNodes(_ root: TreeNode?, _ toDelete: [Int]) -> [TreeNode?] {
     guard let firstToDelete = toDelete.first else { return [root] }

@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/valid-anagram/
 struct ValidAnagram {
   func isAnagram(_ s: String, _ t: String) -> Bool {
     var occurrences: [Character: Int] = [:]

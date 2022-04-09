@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/decrypt-string-from-alphabet-to-integer-mapping/
 struct DecryptStringFromAlphabetToIntegerMapping {
   func freqAlphabets(_ s: String) -> String {
     var string = Substring(s)

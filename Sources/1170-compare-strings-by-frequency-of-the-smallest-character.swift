@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/compare-strings-by-frequency-of-the-smallest-character/
 struct CompareStringsByFrequencyOfTheSmallestCharacter {
   func numSmallerByFrequency(_ queries: [String], _ words: [String]) -> [Int] { // [UInt]
     let queriesFrequencies = queries.map(frequencyOfSmallestCharacter)

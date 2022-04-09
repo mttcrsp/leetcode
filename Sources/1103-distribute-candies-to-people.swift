@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/distribute-candies-to-people/
 struct DistributeCandiesToPeople {
   func distributeCandies(_ candies: Int, _ people: Int) -> [Int] {
     if people == 1 { return [candies] }

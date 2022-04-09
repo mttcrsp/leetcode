@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/intersection-of-two-linked-lists/
 struct IntersectionOfTwoLinkedLists {
   func getIntersectionNode(_ headA: ListNode?, _ headB: ListNode?) -> ListNode? {
     guard let headA = headA, let headB = headB else {

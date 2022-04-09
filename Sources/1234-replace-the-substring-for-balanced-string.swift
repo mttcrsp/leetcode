@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/replace-the-substring-for-balanced-string/
 struct ReplaceTheSubstringForBalancedString {
   func balancedString(_ s: String) -> Int {
     let characters: [Character] = ["Q", "W", "E", "R"]

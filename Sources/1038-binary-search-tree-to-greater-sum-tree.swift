@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/
 struct BinarySearchTreeToGreaterSumTree {
   func bstToGst(_ root: TreeNode?) -> TreeNode? {
     guard let root = root else { return nil }

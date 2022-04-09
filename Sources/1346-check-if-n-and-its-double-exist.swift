@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/check-if-n-and-its-double-exist/
 struct CheckIfNAndItsDoubleExist {
   func checkIfExist(_ numbers: [Int]) -> Bool {
     var previouses: Set<Int> = []

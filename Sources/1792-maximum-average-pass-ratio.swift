@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/maximum-average-pass-ratio/
 import CoreFoundation
 
 struct MaximumAveragePassRatio {

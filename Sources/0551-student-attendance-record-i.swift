@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/student-attendance-record-i/
 struct StudentAttendanceRecordI {
   func checkRecord(_ attendance: String) -> Bool {
     let attendance = Array(attendance)

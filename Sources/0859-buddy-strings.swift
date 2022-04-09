@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/buddy-strings/
 struct BuddyStrings {
   func buddyStrings(_ a: String, _ b: String) -> Bool {
     guard a.count == b.count else {

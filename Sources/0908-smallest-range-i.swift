@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/smallest-range-i/
 struct SmallestRangeI {
   func smallestRangeI(_ A: [Int], _ K: Int) -> Int {
     var min = A[0]

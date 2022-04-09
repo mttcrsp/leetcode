@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/peeking-iterator/
 class PeekingIterator {
   private var iterator: IndexingIterator<[Int]>
   private var value: Int?

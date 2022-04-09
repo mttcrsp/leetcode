@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/is-subsequence/
 struct IsSubsequence {
   func isSubsequence(_ s: String, _ t: String) -> Bool {
     switch (s.isEmpty, t.isEmpty) {

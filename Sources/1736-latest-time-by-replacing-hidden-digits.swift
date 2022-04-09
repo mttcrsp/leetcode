@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/latest-time-by-replacing-hidden-digits/
 struct LatestTimeByReplacingHiddenDigits {
   func maximumTime(_ time: String) -> String {
     var time = Array(time)

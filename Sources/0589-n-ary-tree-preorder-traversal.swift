@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/n-ary-tree-preorder-traversal/
 struct NAryTreePreorderTraversal {
   func preorder(_ root: NaryTreeNode?) -> [Int] {
     var result: [Int] = []

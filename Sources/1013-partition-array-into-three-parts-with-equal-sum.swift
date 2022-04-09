@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/partition-array-into-three-parts-with-equal-sum/
 struct PartitionArrayIntoThreePartsWithEqualSum {
   func canThreePartsEqualSum(_ A: [Int]) -> Bool {
     var sum = 0

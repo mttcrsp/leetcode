@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/merge-two-binary-trees/
 struct MergeTwoBinaryTrees {
   func mergeTrees(_ t1: TreeNode?, _ t2: TreeNode?) -> TreeNode? {
     if t1 == nil { return t2 }

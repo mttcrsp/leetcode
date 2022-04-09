@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/count-odd-numbers-in-an-interval-range/
 struct CountOddNumbersInAnIntervalRange {
   func countOdds(_ low: Int, _ high: Int) -> Int {
     let oddLow = low - ((low & 1) ^ 1)

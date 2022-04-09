@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/rabbits-in-forest/
 struct RabbitsInForest {
   func numRabbits(_ answers: [Int]) -> Int {
     var matchedAnswers: [Int: Int] = [:]

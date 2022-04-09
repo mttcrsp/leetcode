@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/insert-delete-getrandom-o1/
 class RandomizedSet {
   private var store: Set<Int> = []
 

@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/minimum-index-sum-of-two-lists/
 struct MinimumIndexSumOfTwoLists {
   func findRestaurant(_ list1: [String], _ list2: [String]) -> [String] {
     var indices: [String: Int] = [:]

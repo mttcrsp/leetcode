@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/happy-number/
 struct HappyNumber {
   func isHappy(_ n: Int) -> Bool {
     guard n >= 0 else { return false }

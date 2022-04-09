@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/maximum-gap/
 import Foundation
 
 struct MaximumGap {

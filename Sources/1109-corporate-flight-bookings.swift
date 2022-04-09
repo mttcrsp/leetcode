@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/corporate-flight-bookings/
 struct CorporateFlightBookings {
   func corpFlightBookings(_ bookings: [[Int]], _ n: Int) -> [Int] {
     var openings: [Int: Int] = [:]

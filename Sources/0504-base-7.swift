@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/base-7/
 struct Base7 {
   func convertToBase7(_ num: Int) -> String {
     if num == 0 { return "0" }

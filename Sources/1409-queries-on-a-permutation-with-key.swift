@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/queries-on-a-permutation-with-key/
 struct QueriesOnAPermutationWithKey {
   func processQueries(_ queries: [Int], _ m: Int) -> [Int] {
     var state = Array(1 ... m)

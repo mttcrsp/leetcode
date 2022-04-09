@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/add-binary/
 struct AddBinary {
   func addBinary(_ a: String, _ b: String) -> String {
     let a = Array(a.reversed())

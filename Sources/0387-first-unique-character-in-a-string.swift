@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/first-unique-character-in-a-string/
 struct FirstUniqueCharacterInAString {
   func firstUniqChar(_ s: String) -> Int {
     var occurrences: [Character: Int] = [:]

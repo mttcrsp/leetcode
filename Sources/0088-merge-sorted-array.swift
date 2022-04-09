@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/merge-sorted-array/
 struct MergeSortedArray {
   func merge(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
     var i = m - 1

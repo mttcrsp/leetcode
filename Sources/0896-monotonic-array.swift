@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/monotonic-array/
 // You could achieve the same result with even less operations and no extra space
 struct MonotonicArray {
   func isMonotonic(_ A: [Int]) -> Bool {

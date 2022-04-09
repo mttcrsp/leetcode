@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/next-greater-element-i/
 struct NextGreaterElementI {
   func nextGreaterElement(_ numbers1: [Int], _ numbers2: [Int]) -> [Int] {
     var pending: [Int] = []

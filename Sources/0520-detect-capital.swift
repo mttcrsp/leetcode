@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/detect-capital/
 struct DetectCapital {
   func detectCapitalUse(_ word: String) -> Bool {
     for (offset, (lhs, rhs)) in zip(word, word.dropFirst()).enumerated() {

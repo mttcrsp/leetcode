@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/valid-perfect-square/
 struct ValidPerfectSquare {
   func isPerfectSquare(_ target: Int) -> Bool {
     var approximation = target

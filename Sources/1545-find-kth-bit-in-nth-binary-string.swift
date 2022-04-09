@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/find-kth-bit-in-nth-binary-string/
 struct FindKthBitInNthBinaryString {
   func findKthBit(_ n: Int, _ k: Int) -> Character {
     var progress = [false]

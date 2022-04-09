@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/ransom-note/
 struct RansomNote {
   func canConstruct(_ ransomNote: String, _ magazine: String) -> Bool {
     guard !ransomNote.isEmpty else {

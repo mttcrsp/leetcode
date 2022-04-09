@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/lru-cache/
 class LRUCache {
   private let capacity: Int
   private var nodes: [Int: Node<Pair>] = [:]

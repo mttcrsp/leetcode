@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/
 struct MaximumNumberOfOccurrencesOfASubstring {
   func maxFreq(_ s: String, _ maxLetters: Int, _ minSize: Int, _: Int) -> Int {
     let string = Array(s)

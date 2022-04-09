@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/flatten-nested-list-iterator/
 class NestedIterator {
   private var list: [Int]
 

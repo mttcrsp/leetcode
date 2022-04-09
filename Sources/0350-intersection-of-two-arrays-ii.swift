@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/intersection-of-two-arrays-ii/
 struct IntersectionOfTwoArraysIi {
   func intersect(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
     var occurrences1: [Int: Int] = [:]

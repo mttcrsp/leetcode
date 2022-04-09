@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/n-th-tribonacci-number/
 struct NThTribonacciNumber {
   func tribonacci(_ n: Int) -> Int {
     var table: [Int] = [0, 1, 1]

@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/longest-common-prefix/
 struct LongestCommonPrefix {
   func longestCommonPrefix(_ strings: [String]) -> String {
     let referenceString = strings[0]

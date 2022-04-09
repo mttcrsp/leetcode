@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/
 struct MinimumRemoveToMakeValidParentheses {
   func minRemoveToMakeValid(_ string: String) -> String {
     var stack: [(index: Int, character: Character)] = []

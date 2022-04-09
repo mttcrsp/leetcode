@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/contains-duplicate/
 struct ContainsDuplicate {
   func containsDuplicate(_ numbers: [Int]) -> Bool {
     var encountered: Set<Int> = []

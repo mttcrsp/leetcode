@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/find-common-characters/
 struct FindCommonCharacters {
   func commonChars(_ strings: [String]) -> [String] {
     var occurrencesInStrings = [[Character: Int]](repeating: [:], count: strings.count)

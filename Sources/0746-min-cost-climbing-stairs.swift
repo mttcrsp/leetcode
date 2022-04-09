@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/min-cost-climbing-stairs/
 struct MinCostClimbingStairs {
   func minCostClimbingStairs(_ costs: [Int]) -> Int {
     var dp = [0, 0]

@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/sentence-similarity-iii/
 struct SentenceSimilarityIii {
   func areSentencesSimilar(_ sentence1: String, _ sentence2: String) -> Bool {
     var words1 = ArraySlice(sentence1.split(separator: " "))

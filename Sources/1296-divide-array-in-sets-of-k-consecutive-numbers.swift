@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/divide-array-in-sets-of-k-consecutive-numbers/
 struct DivideArrayInSetsOfKConsecutiveNumbers {
   func isPossibleDivide(_ nums: [Int], _ k: Int) -> Bool {
     var counts: [Int: Int] = [:]
