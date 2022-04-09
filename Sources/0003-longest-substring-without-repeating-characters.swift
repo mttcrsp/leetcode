@@ -1,15 +1,15 @@
 struct LongestSubstringWithoutRepeatingCharacters {
   func lengthOfLongestSubstring(_ s: String) -> Int {
-    let characters = Array(s)
+    var previousIndex: [Character: Int] = [:]
+    var max = 0, start = 0
 
-    var max = 0
-    var rhs = 0
-
-    for lhs in characters.indices {
-      while rhs < characters.count, Set(characters[lhs ... rhs]).count >= rhs - lhs + 1 {
-        max = Swift.max(max, rhs - lhs + 1)
-        rhs += 1
+    for (i, char) in s.enumerated() {
+      if let j = previousIndex[char] {
+        start = Swift.max(start, j + 1)
       }
+
+      previousIndex[char] = i
+      max = Swift.max(max, i - start + 1)
     }
 
     return max

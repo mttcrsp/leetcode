@@ -32,4 +32,10 @@ final class LongestSubstringWithoutRepeatingCharactersTests: XCTestCase {
     let output = 3
     XCTAssertEqual(LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstring(input), output)
   }
+
+  func testLengthOfLongestSubstring6() {
+    let input = " "
+    let output = 1
+    XCTAssertEqual(LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstring(input), output)
+  }
 }
