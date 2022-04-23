@@ -20,7 +20,7 @@ final class PowerOfThreeTests: XCTestCase {
     let output = true
     XCTAssertEqual(PowerOfThree().isPowerOfThree(input), output)
   }
-  
+
   func testTestIspowerofthree4() {
     let input = 1
     let output = true
