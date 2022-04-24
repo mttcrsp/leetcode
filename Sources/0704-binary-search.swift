@@ -1,19 +1,16 @@
 /// https://leetcode.com/problems/binary-search/
 struct BinarySearch {
   func search(_ nums: [Int], _ target: Int) -> Int {
-    var min = 0
-    var max = nums.count
+    var lhs = 0, rhs = nums.count - 1
 
-    while min < max {
-      let index = min + (max - min) / 2
-      let value = nums[index]
-
-      if target < value {
-        max = index
-      } else if target > value {
-        min = index + 1
+    while lhs <= rhs {
+      let mid = (rhs + lhs + 1) / 2
+      if nums[mid] < target {
+        lhs = mid + 1
+      } else if nums[mid] > target {
+        rhs = mid - 1
       } else {
-        return index
+        return mid
       }
     }
 
