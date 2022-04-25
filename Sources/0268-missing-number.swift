@@ -1,14 +1,12 @@
 /// https://leetcode.com/problems/missing-number/
 struct MissingNumber {
   func missingNumber(_ numbers: [Int]) -> Int {
-    var actualSum = 0
-    for number in numbers {
-      actualSum += number
+    var actual = 0
+    var expect = numbers.count
+    for (i, number) in numbers.enumerated() {
+      actual ^= number
+      expect ^= i
     }
-
-    let n = numbers.count
-    let expectedSum = ((n * (n + 1)) / 2)
-
-    return expectedSum - actualSum
+    return actual ^ expect
   }
 }
