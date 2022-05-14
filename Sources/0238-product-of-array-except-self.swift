@@ -1,27 +1,20 @@
 /// https://leetcode.com/problems/product-of-array-except-self/
 struct ProductOfArrayExceptSelf {
   func productExceptSelf(_ numbers: [Int]) -> [Int] {
-    var foundZero = false
-    var product = 1
-    for number in numbers {
-      switch (number, foundZero) {
-      case (0, false):
-        foundZero = true
-      case (0, true):
-        return [Int](repeating: 0, count: numbers.count)
-      case (_, _):
-        product *= number
-      }
+    var result = [Int](repeating: 1, count: numbers.count)
+
+    var prefix = 1
+    for i in 0 ..< numbers.count {
+      result[i] = prefix
+      prefix *= numbers[i]
     }
 
-    if foundZero {
-      return numbers.map { number in
-        number == 0 ? product : 0
-      }
+    var postfix = 1
+    for i in stride(from: numbers.count - 1, to: -1, by: -1) {
+      result[i] *= postfix
+      postfix *= numbers[i]
     }
 
-    return numbers.map { number in
-      product / number
-    }
+    return result
   }
 }
