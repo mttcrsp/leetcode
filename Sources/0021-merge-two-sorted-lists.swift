@@ -1,30 +1,36 @@
 /// https://leetcode.com/problems/merge-two-sorted-lists/
 struct MergeTwoSortedLists {
-  func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
-    if l1 == nil { return l2 }
-    if l2 == nil { return l1 }
-
-    var l1 = l1
-    var l2 = l2
-    var curr: ListNode?
+  func mergeTwoLists(_ list1: ListNode?, _ list2: ListNode?) -> ListNode? {
     var head: ListNode?
-
-    while let node1 = l1, let node2 = l2 {
-      let next: ListNode
-      if node1.val < node2.val {
-        next = node1; l1 = node1.next
-      } else {
-        next = node2; l2 = node2.next
+    var list1 = list1
+    var list2 = list2
+    var mergedList: ListNode? {
+      didSet {
+        if head == nil {
+          head = mergedList
+        }
       }
-
-      head = head ?? next
-      curr?.next = next
-      curr = next
     }
 
-    if let node = l1 { curr?.next = node }
-    if let node = l2 { curr?.next = node }
+    let consume: (inout ListNode?) -> Void = { list in
+      mergedList?.next = list
+      mergedList = list
+      list = list?.next
+    }
 
-    return head
+    while true {
+      switch (list1, list2) {
+      case let (node1?, node2?) where node1.val < node2.val:
+        consume(&list1)
+      case (.some, .some):
+        consume(&list2)
+      case (.some, .none):
+        consume(&list1)
+      case (.none, .some):
+        consume(&list2)
+      case (nil, nil):
+        return head
+      }
+    }
   }
 }
