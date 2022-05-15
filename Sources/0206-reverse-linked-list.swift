@@ -3,12 +3,11 @@ struct ReverseLinkedList {
   func reverseList(_ head: ListNode?) -> ListNode? {
     var prev: ListNode?
     var curr: ListNode? = head
-    var next: ListNode? = head?.next
     while curr != nil {
-      next = curr?.next
+      let node = curr?.next
       curr?.next = prev
       prev = curr
-      curr = next
+      curr = node
     }
     return prev
   }
