@@ -1,35 +1,22 @@
 /// https://leetcode.com/problems/reorder-list/
 struct ReorderList {
   func reorderList(_ head: ListNode?) {
-    guard let head = head else { return }
-
-    var array: [ListNode] = []
-
-    func traverse(_ node: ListNode?) {
-      if let node = node {
-        array.append(node)
-        traverse(node.next)
-      }
+    var nodes: [ListNode] = []
+    var node = head
+    while let current = node {
+      nodes.append(current)
+      node = current.next
     }
 
-    traverse(head)
-
-    var list = array.removeFirst()
-    var i = 1
-
-    while !array.isEmpty {
-      let next = i & 1 == 0
-        ? array.removeFirst()
-        : array.removeLast()
-
-      list.next = next
-      list = next
-
-      i += 1
-
-      if array.isEmpty {
-        list.next = nil
+    node = head
+    for i in nodes.indices {
+      if i % 2 == 0 {
+        node?.next = nodes[nodes.count - 1 - (i / 2)]
+      } else {
+        node?.next = nodes[(i + 1) / 2]
       }
+      node = node?.next
     }
+    node?.next = nil
   }
 }
