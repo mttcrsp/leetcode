@@ -1,23 +1,22 @@
 /// https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 struct KthSmallestElementInABst {
   func kthSmallest(_ root: TreeNode?, _ k: Int) -> Int {
-    var count = 0
-    var result: Int?
+    var counter = 1
+    var value: Int!
 
     func visit(_ node: TreeNode?) {
-      if let node = node, count < k {
-        visit(node.left)
-        count += 1
-        if count == k {
-          result = node.val
-        }
-        visit(node.right)
+      guard let node = node, value == nil else { return }
+
+      visit(node.left)
+      if counter == k {
+        value = node.val
       }
+      counter += 1
+      visit(node.right)
     }
 
     visit(root)
 
-    precondition(result != nil, "Input BTS contains less that k elements")
-    return result!
+    return value
   }
 }
