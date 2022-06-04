@@ -6,9 +6,9 @@ struct ValidPalindrome {
     var lhs = s.startIndex
     var rhs = s.index(before: s.endIndex)
     while lhs < rhs {
-      if !s[lhs].isAlphanumeric {
+      if !(s[lhs].isLetter || s[lhs].isNumber) {
         lhs = s.index(after: lhs)
-      } else if !s[rhs].isAlphanumeric {
+      } else if !(s[rhs].isLetter || s[rhs].isNumber) {
         rhs = s.index(before: rhs)
       } else if s[lhs].lowercased() != s[rhs].lowercased() {
         return false
@@ -18,11 +18,5 @@ struct ValidPalindrome {
       }
     }
     return true
-  }
-}
-
-private extension Character {
-  var isAlphanumeric: Bool {
-    unicodeScalars.allSatisfy(CharacterSet.alphanumerics.contains)
   }
 }
