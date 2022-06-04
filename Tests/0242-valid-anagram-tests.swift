@@ -14,4 +14,10 @@ final class ValidAnagramTests: XCTestCase {
     let output = false
     XCTAssertEqual(ValidAnagram().isAnagram(input.0, input.1), output)
   }
+
+  func testIsAnagram3() {
+    let input = ("ab", "a")
+    let output = false
+    XCTAssertEqual(ValidAnagram().isAnagram(input.0, input.1), output)
+  }
 }
