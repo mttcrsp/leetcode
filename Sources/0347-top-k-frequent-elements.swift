@@ -15,6 +15,9 @@ struct TopKFrequentElements {
     for numbers in counts.reversed() where !numbers.isEmpty {
       for number in numbers where result.count < k {
         result.append(number)
+        if result.count == k {
+          return result
+        }
       }
     }
     return result
