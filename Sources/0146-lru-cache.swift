@@ -1,8 +1,10 @@
 /// https://leetcode.com/problems/lru-cache/
 class LRUCache {
-  private let capacity: Int
-  private var nodes: [Int: Node<Pair>] = [:]
-  private var list = DoubleLinkedList<Pair>()
+  let capacity: Int
+
+  private var head: Node?
+  private var tail: Node?
+  private var nodes: [Int: Node] = [:]
 
   init(_ capacity: Int) {
     self.capacity = capacity
@@ -10,72 +12,57 @@ class LRUCache {
 
   func get(_ key: Int) -> Int {
     if let node = nodes[key] {
-      list.remove(node)
-      list.setHead(node)
-      return node.value.value
+      remove(node)
+      append(node)
+      return node.val
+    } else {
+      return -1
     }
-
-    return -1
   }
 
-  func put(_ key: Int, _ value: Int) {
-    let node = Node(Pair(key: key, value: value))
-
+  func put(_ key: Int, _ val: Int) {
     if let node = nodes[key] {
-      list.remove(node)
-      nodes[key] = nil
-    }
+      remove(node)
+      append(node)
+      node.val = val
+    } else {
+      let node = Node(key, val)
+      nodes[key] = node
+      append(node)
 
-    if nodes.count + 1 > capacity {
-      let tail = list.tail!
-      list.remove(tail)
-      nodes[tail.value.key] = nil
+      if nodes.count > capacity, let head = head {
+        nodes[head.key] = nil
+        remove(head)
+      }
     }
-
-    list.setHead(node)
-    nodes[key] = node
   }
-}
 
-private struct Pair {
-  let key, value: Int
-}
-
-private final class DoubleLinkedList<Value> {
-  private(set) var head, tail: Node<Value>?
-
-  func setHead(_ node: Node<Value>) {
+  private func append(_ node: Node) {
     if head == nil {
       head = node
       tail = node
     } else {
-      head?.prev = node
-      node.next = head
-      head = node
+      node.prev = tail
+      tail?.next = node
+      tail = node
     }
   }
 
-  func remove(_ node: Node<Value>) {
-    if node === head {
-      head = node.next
-    }
-    if node === tail {
-      tail = node.prev
-    }
-
+  private func remove(_ node: Node) {
+    if node === head { head = node.next }
+    if node === tail { tail = node.prev }
     node.prev?.next = node.next
     node.next?.prev = node.prev
     node.prev = nil
     node.next = nil
   }
-}
 
-private final class Node<Value> {
-  var next, prev: Node?
-
-  let value: Value
-
-  init(_ value: Value) {
-    self.value = value
+  private final class Node {
+    var next, prev: Node?
+    var val, key: Int
+    init(_ key: Int, _ val: Int) {
+      self.key = key
+      self.val = val
+    }
   }
 }
