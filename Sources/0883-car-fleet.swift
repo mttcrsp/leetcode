@@ -12,28 +12,17 @@ struct CarFleet {
       lhs.position > rhs.position
     }
 
-    var precedingCar: Car?
     var fleets = 0
+    var previousTime: Double? {
+      didSet { fleets += 1 }
+    }
 
-    for car2 in cars {
-      guard let car1 = precedingCar else {
-        precedingCar = car2
-        fleets += 1
-        continue
-      }
-
-      guard car2.speed > car1.speed else {
-        precedingCar = car2
-        fleets += 1
-        continue
-      }
-
-      let time = (car1.position - car2.position) / (car2.speed - car1.speed)
-      let catchupPosition = (time * car2.speed) + car2.position
-      guard catchupPosition <= Double(target) else {
-        precedingCar = car2
-        fleets += 1
-        continue
+    for car in cars {
+      let time = (Double(target) - car.position) / car.speed
+      if let previousTime = previousTime, time <= previousTime {
+        // do nothing
+      } else {
+        previousTime = time
       }
     }
 
