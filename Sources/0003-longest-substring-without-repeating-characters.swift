@@ -1,18 +1,19 @@
 /// https://leetcode.com/problems/longest-substring-without-repeating-characters/
 struct LongestSubstringWithoutRepeatingCharacters {
   func lengthOfLongestSubstring(_ s: String) -> Int {
-    var previousIndex: [Character: Int] = [:]
-    var max = 0, start = 0
+    var lastCharacterIndices: [Character: Int] = [:]
+    var lastRepetitionIndex = -1
+    var maxLength = 0
 
-    for (i, char) in s.enumerated() {
-      if let j = previousIndex[char] {
-        start = Swift.max(start, j + 1)
+    for (index, character) in s.enumerated() {
+      if let repetitionIndex = lastCharacterIndices[character] {
+        lastRepetitionIndex = repetitionIndex
       }
 
-      previousIndex[char] = i
-      max = Swift.max(max, i - start + 1)
+      maxLength = max(maxLength, index - lastRepetitionIndex)
+      lastCharacterIndices[character] = index
     }
 
-    return max
+    return maxLength
   }
 }
