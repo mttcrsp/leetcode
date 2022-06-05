@@ -1,79 +1,44 @@
 /// https://leetcode.com/problems/rotting-oranges/
 struct RottingOranges {
   func orangesRotting(_ grid: [[Int]]) -> Int {
-    var fresh: Set<Position> = []
-    var rotten: Set<Position> = []
-    var states: [Position: State] = [:]
-
+    var fresh: Set<[Int]> = []
+    var frontier: [[Int]] = []
     for x in grid.indices {
       for y in grid[x].indices {
-        if let state = State(rawValue: grid[x][y]) {
-          let position = Position(x: x, y: y)
-
-          states[position] = state
-          switch state {
-          case .fresh:
-            fresh.insert(position)
-          case .rotten:
-            rotten.insert(position)
-          }
+        let state = grid[x][y]
+        if state == 1 {
+          fresh.insert([x, y])
+        } else if state == 2 {
+          frontier.append([x, y])
         }
       }
     }
 
-    var adjacency: [Position: Set<Position>] = [:]
-
-    for (position, state) in states {
-      for adjacent in position.adjacents {
-        if states[adjacent] != nil {
-          adjacency[position, default: []].insert(adjacent)
-        }
+    var iteration = 0
+    while !frontier.isEmpty {
+      var newFrontier: [[Int]] = []
+      for orange in frontier {
+        let x = orange[0], y = orange[1]
+        newFrontier.appendIfNotNil(fresh.remove([x - 1, y]))
+        newFrontier.appendIfNotNil(fresh.remove([x + 1, y]))
+        newFrontier.appendIfNotNil(fresh.remove([x, y + 1]))
+        newFrontier.appendIfNotNil(fresh.remove([x, y - 1]))
       }
+      frontier = newFrontier
 
-      if state == .fresh, adjacency[position] == nil {
-        return -1
+      if !newFrontier.isEmpty {
+        iteration += 1
       }
     }
 
-    var minute = 0
-
-    while !fresh.isEmpty {
-      if rotten.isEmpty {
-        return -1
-      }
-
-      var newRotten: Set<Position> = []
-      for position in rotten {
-        let adjacents = adjacency[position, default: []]
-        for adjacent in adjacents where fresh.contains(adjacent) {
-          newRotten.insert(adjacent)
-          fresh.remove(adjacent)
-        }
-      }
-
-      rotten = newRotten
-      minute += 1
-    }
-
-    return minute
+    return fresh.isEmpty ? iteration : -1
   }
 }
 
-private enum State: Int {
-  case fresh = 1, rotten = 2
-}
-
-private struct Position: Hashable {
-  let x, y: Int
-}
-
-extension Position {
-  var adjacents: Set<Position> {
-    [
-      Position(x: x + 1, y: y),
-      Position(x: x - 1, y: y),
-      Position(x: x, y: y + 1),
-      Position(x: x, y: y - 1),
-    ]
+private extension Array {
+  mutating func appendIfNotNil(_ element: Element?) {
+    if let element = element {
+      append(element)
+    }
   }
 }
