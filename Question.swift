@@ -35,19 +35,14 @@ struct Response: Codable {
 func main() async {
   let arguments = CommandLine.arguments
   guard arguments.count == 2 else {
-    preconditionFailure("USAGE: question <url>")
-  }
-
-  guard let url = URL(string: arguments[1]) else {
-    preconditionFailure("Expected a Leetcode question URL to be provided as the first parameter.")
+    preconditionFailure("USAGE: question <slug>")
   }
 
   guard let csrfToken = ProcessInfo.processInfo.environment["LEETCODE_CSRF_TOKEN"] else {
     preconditionFailure("Expected a Leetcode CSRF token to be provided as the environment variable LEETCODE_CSRF_TOKEN.")
   }
 
-  let questionTitleSlug = url.lastPathComponent
-
+  let questionTitleSlug = arguments[1]
   let parameters = "{\"operationName\":\"questionData\",\"variables\":{\"titleSlug\":\"\(questionTitleSlug)\"},\"query\":\"query questionData($titleSlug: String!) {\\n  question(titleSlug: $titleSlug) {\\n    questionId\\n    questionFrontendId\\n    boundTopicId\\n    title\\n    titleSlug\\n    content\\n    translatedTitle\\n    translatedContent\\n    isPaidOnly\\n    difficulty\\n    likes\\n    dislikes\\n    isLiked\\n    similarQuestions\\n    exampleTestcases\\n    categoryTitle\\n    contributors {\\n      username\\n      profileUrl\\n      avatarUrl\\n      __typename\\n    }\\n    topicTags {\\n      name\\n      slug\\n      translatedName\\n      __typename\\n    }\\n    companyTagStats\\n    codeSnippets {\\n      lang\\n      langSlug\\n      code\\n      __typename\\n    }\\n __typename\\n  }\\n}\\n\"}"
   let postData = parameters.data(using: .utf8)
   var request = URLRequest(url: URL(string: "https://leetcode.com/graphql")!, timeoutInterval: Double.infinity)
