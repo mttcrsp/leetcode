@@ -1,52 +1,53 @@
 class Trie {
-  private let root: Node = {
-    let node = Node()
-    node.isEndOfWord = true
-    return node
-  }()
+  private let root = Node()
 
   func insert(_ word: String) {
-    var node = root
+    var current = root
     for character in word {
-      let next: Node
-      if let existing = node.neighbours[character] {
-        next = existing
-      } else {
-        next = Node()
-        node.neighbours[character] = next
-      }
-      node = next
+      let i = character.alphabeticalValue
+      let node = current.children[i] ?? Node()
+      current.children[i] = node
+      current = node
     }
-    node.isEndOfWord = true
+    current.isTermination = true
   }
 
   func search(_ word: String) -> Bool {
-    var node = root
-    for character in word {
-      if let next = node.neighbours[character] {
-        node = next
-      } else {
-        return false
-      }
+    if let node = startsWith(word) {
+      return node.isTermination
+    } else {
+      return false
     }
-    return node.isEndOfWord
   }
 
   func startsWith(_ prefix: String) -> Bool {
-    var node = root
-    for character in prefix {
-      if let next = node.neighbours[character] {
-        node = next
-      } else {
-        return false
-      }
+    if let _ = startsWith(prefix) {
+      return true
+    } else {
+      return false
     }
-    return true
   }
 
-  private class Node {
-    var neighbours: [Character: Node] = [:]
-    var isEndOfWord = false
-    init() {}
+  private func startsWith(_ prefix: String) -> Node? {
+    var current = root
+    for character in prefix {
+      if let node = current.children[character.alphabeticalValue] {
+        current = node
+      } else {
+        return nil
+      }
+    }
+    return current
+  }
+
+  private final class Node {
+    var children = [Node?](repeating: nil, count: 26)
+    var isTermination = false
+  }
+}
+
+private extension Character {
+  var alphabeticalValue: Int {
+    Int(asciiValue! - 97)
   }
 }
