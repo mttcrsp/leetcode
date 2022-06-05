@@ -5,13 +5,11 @@ struct SameTree {
 
     while !stack.isEmpty {
       let (p, q) = stack.removeLast()
-      if p != nil || q != nil {
-        if p?.val != q?.val {
-          return false
-        } else {
-          stack.append((p?.left, q?.left))
-          stack.append((p?.right, q?.right))
-        }
+      if p?.val != q?.val {
+        return false
+      } else if p != nil {
+        stack.append((p?.left, q?.left))
+        stack.append((p?.right, q?.right))
       }
     }
 
