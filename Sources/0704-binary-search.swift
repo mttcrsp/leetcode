@@ -4,7 +4,7 @@ struct BinarySearch {
     var lhs = 0, rhs = nums.count - 1
 
     while lhs <= rhs {
-      let mid = (rhs + lhs + 1) / 2
+      let mid = (rhs + lhs) / 2
       if nums[mid] < target {
         lhs = mid + 1
       } else if nums[mid] > target {
