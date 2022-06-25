@@ -4,9 +4,7 @@ struct NumberOf1Bits {
     var n = n
     var weight = 0
     while n > 0 {
-      if n & 1 == 1 {
-        weight += 1
-      }
+      weight += n & 1
       n = n >> 1
     }
     return weight
