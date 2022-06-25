@@ -6,13 +6,13 @@ struct CountingBits {
     }
 
     var result = [Int](repeating: 0, count: n + 1)
-    var nearestPowerOf2 = 1
+    var j = 0
     for i in 1 ... n {
-      if nearestPowerOf2 * 2 == i {
-        nearestPowerOf2 = i
-      }
-      result[i] = result[i % nearestPowerOf2] + 1
+      j = i.nonzeroBitCount == 1 ? 0 : j
+      result[i] = result[j] + 1
+      j += 1
     }
+
     return result
   }
 }
