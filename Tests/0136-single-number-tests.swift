@@ -20,4 +20,10 @@ final class SingleNumberTests: XCTestCase {
     let output = 1
     XCTAssertEqual(SingleNumber().singleNumber(input), output)
   }
+
+  func testSingleNumber4() {
+    let input = [-1, 1, -1, 1, -2]
+    let output = -2
+    XCTAssertEqual(SingleNumber().singleNumber(input), output)
+  }
 }
