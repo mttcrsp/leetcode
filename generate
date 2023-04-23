@@ -8,7 +8,7 @@ struct Response: Codable {
     let question: Question
 
     struct Question: Codable {
-      let questionId: String
+      let questionFrontendId: String
       let title: String
       let titleSlug: String
       let content: String
@@ -105,9 +105,9 @@ func main() async {
   let questionSnippet = swiftSnippet.code
     .replacingOccurrences(of: "class Solution", with: "/// https://leetcode.com/problems/\(questionTitleSlug)/\nstruct \(questionStructName)")
 
-  var paddedQuestionId = question.questionId
-  if paddedQuestionId.count < 4 {
-    paddedQuestionId = String(repeating: "0", count: 4 - paddedQuestionId.count) + paddedQuestionId
+  var paddedQuestionFrontendId = question.questionFrontendId
+  if paddedQuestionFrontendId.count < 4 {
+    paddedQuestionFrontendId = String(repeating: "0", count: 4 - paddedQuestionFrontendId.count) + paddedQuestionFrontendId
   }
 
   let fileManager = FileManager.default
@@ -115,7 +115,7 @@ func main() async {
   let testsPath = path.appendingPathComponent("Tests")
   let sourcesPath = path.appendingPathComponent("Sources")
 
-  let sourceName = "\(paddedQuestionId)-\(questionTitleSlug).swift"
+  let sourceName = "\(paddedQuestionFrontendId)-\(questionTitleSlug).swift"
   let sourcePath = (sourcesPath as NSString).appendingPathComponent(sourceName)
   let sourceContents = Data(questionSnippet.utf8)
 
@@ -124,7 +124,7 @@ func main() async {
     : "0"
 
   let testFunctionName = "test\(questionFunctionName.capitalized)"
-  let testName = "\(paddedQuestionId)-\(questionTitleSlug)-tests.swift"
+  let testName = "\(paddedQuestionFrontendId)-\(questionTitleSlug)-tests.swift"
   let testPath = (testsPath as NSString).appendingPathComponent(testName)
   let testCases = minimumExampleTestCases.split(separator: "\n").enumerated().map { i, example -> String in
     var testCaseName = testFunctionName
