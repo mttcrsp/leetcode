@@ -1,32 +1,24 @@
 /// https://leetcode.com/problems/clone-graph/
 struct CloneGraph {
-  func cloneGraph(_ node: Node?) -> Node? {
-    guard let node = node else { return nil }
-
-    var dictionary: [Int: Node] = [:]
-    var stack: [Node] = [node]
-    while !stack.isEmpty {
-      let node = stack.removeLast()
-
-      let copy = dictionary[node.val] ?? Node(node.val)
-      dictionary[node.val] = copy
-
-      for neighbour in node.neighbors {
-        guard let neighbour = neighbour else { continue }
-
-        if dictionary[neighbour.val] == nil {
-          stack.append(neighbour)
+  func cloneGraph(_ head: Node?) -> Node? {
+    guard let head else { return nil }
+    
+    var nodes: [Int: Node] = [:]
+    var frontier: [Node] = [head]
+    while let node = frontier.popLast() {
+      nodes[node.val] = nodes[node.val] ?? Node(node.val)
+      for next in node.neighbors.compactMap({ $0 }) {
+        if nodes[next.val] == nil {
+          frontier.append(next)
         }
-
-        let neighbourCopy = dictionary[neighbour.val] ?? Node(neighbour.val)
-        dictionary[neighbour.val] = neighbourCopy
-        copy.neighbors.append(neighbourCopy)
+        nodes[next.val] = nodes[next.val] ?? Node(next.val)
+        nodes[node.val]!.neighbors.append(nodes[next.val]!)
       }
     }
-
-    return dictionary[node.val]
+    
+    return nodes[head.val]
   }
-
+  
   final class Node {
     var val: Int
     var neighbors: [Node?]
