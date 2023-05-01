@@ -5,43 +5,28 @@ struct NumberOfIslands {
       let x, y: Int
     }
     
-    var islandsCount = 0
-    var visited: Set<Coordinate> = []
+    var result = 0
+    var grid = grid
     
-    for x in grid.indices {
-      for y in grid[0].indices {
-        let coordinate = Coordinate(x: x, y: y)
-        
-        guard grid[x][y] == "1", !visited.contains(coordinate) else {
-          continue
-        }
-        
-        var stack: [Coordinate] = [coordinate]
-        while let current = stack.popLast() {
-          visited.insert(current)
-    
-          let neighbours: [Coordinate] = [
-            .init(x: current.x + 1, y: current.y),
-            .init(x: current.x - 1, y: current.y),
-            .init(x: current.x, y: current.y + 1),
-            .init(x: current.x, y: current.y - 1),
-          ]
-          
-          for next in neighbours {
-            if next.x >= 0, next.x < grid.count, next.y >= 0, next.y < grid[next.x].count {
-              if grid[next.x][next.y] == "1" {
-                if !visited.contains(next) {
-                  stack.append(next)
-                }
-              }
-            }
-          }
-        }
-        
-        islandsCount += 1
+    func eraseIsland(at x: Int, _ y: Int) {
+      if x >= 0, x < grid.count, y >= 0, y < grid[x].count, grid[x][y] == "1" {
+        grid[x][y] = "0"
+        eraseIsland(at: x + 1, y)
+        eraseIsland(at: x - 1, y)
+        eraseIsland(at: x, y + 1)
+        eraseIsland(at: x, y - 1)
       }
     }
     
-    return islandsCount
+    for x in grid.indices {
+      for y in grid[0].indices {
+        if grid[x][y] == "1" {
+          result += 1
+          eraseIsland(at: x, y)
+        }
+      }
+    }
+    
+    return result
   }
 }
