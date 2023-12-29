@@ -8,4 +8,10 @@ final class MinimumDepthOfBinaryTreeTests: XCTestCase {
     let output = 2
     XCTAssertEqual(MinimumDepthOfBinaryTree().minDepth(input), output)
   }
+
+  func testTestMindepth2() {
+    let input = TreeNode.makeTree(with: [1, 2, 3, 4, 5])
+    let output = 2
+    XCTAssertEqual(MinimumDepthOfBinaryTree().minDepth(input), output)
+  }
 }

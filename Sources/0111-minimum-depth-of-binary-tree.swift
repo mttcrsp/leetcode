@@ -3,18 +3,55 @@ struct MinimumDepthOfBinaryTree {
     func minDepth(_ root: TreeNode?) -> Int {
         guard let root else { return 0 }
 
-        var queue: [(TreeNode, Int)] = [(root, 1)]
+        let list = LinkedList<(TreeNode, Int)>()
+        list.append((root, 1))
+
         while true {
-            let (node, depth) = queue.removeFirst()
+            let (node, depth) = list.popFirst()!
 
             if node.left == nil, node.right == nil {
                 return depth
             }
             if let node = node.left {
-                queue.append((node, depth + 1))
+                list.append((node, depth + 1))
             }
             if let node = node.right {
-                queue.append((node, depth + 1))
+                list.append((node, depth + 1))
+            }
+        }
+    }
+
+    final class LinkedList<Element> {
+        var head: Node?
+        var tail: Node?
+
+        func append(_ element: Element) {
+            let node = Node(element: element)
+            if head == nil {
+                head = node
+            } else {
+                tail?.next = node
+            }
+            tail = node
+        }
+
+        func popFirst() -> Element? {
+            let element = head?.element
+            if tail === head {
+                head = nil
+                tail = nil
+            } else {
+                head = head?.next
+            }
+            return element
+        }
+
+        final class Node {
+            var element: Element
+            var next: Node?
+
+            init(element: Element) {
+                self.element = element
             }
         }
     }
