@@ -6,7 +6,7 @@ struct MaximumLengthOfSubarrayWithPositiveProduct {
       if number == 0 {
         slices.append([])
       } else {
-        slices[slices.count - 1].append(number)
+        slices[slices.count-1].append(number)
       }
     }
 
@@ -29,12 +29,12 @@ private struct Partition {
   }
 
   var maxLen: Int {
-    if negativeIndices.count % 2 == 0 {
+    if negativeIndices.count%2 == 0 {
       return count
     } else {
       let lhsIndex = negativeIndices.first!
       let rhsIndex = negativeIndices.last!
-      return max(count - lhsIndex - 1, rhsIndex)
+      return max(count-lhsIndex-1, rhsIndex)
     }
   }
 }

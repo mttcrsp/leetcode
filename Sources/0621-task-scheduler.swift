@@ -26,7 +26,7 @@ struct TaskScheduler {
     }
 
     let cooldownRequired = tasks.count
-    let cooldownNotRequired = (maxFrequency - 1) * (n + 1) + maxFrequencyCount
+    let cooldownNotRequired = (maxFrequency-1)*(n+1)+maxFrequencyCount
     return Swift.max(cooldownRequired, cooldownNotRequired)
   }
 }

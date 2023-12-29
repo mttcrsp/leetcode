@@ -10,11 +10,11 @@ struct AddTwoNumbers {
     while lhs != nil || rhs != nil {
       let lhsValue = lhs?.val ?? 0
       let rhsValue = rhs?.val ?? 0
-      let sum = lhsValue + rhsValue + remainder
-      let current = ListNode(sum % 10)
+      let sum = lhsValue+rhsValue+remainder
+      let current = ListNode(sum%10)
 
       initial = initial ?? current
-      remainder = sum / 10
+      remainder = sum/10
       node?.next = current
       node = current
 

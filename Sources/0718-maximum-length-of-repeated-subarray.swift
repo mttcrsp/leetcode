@@ -8,11 +8,10 @@ struct MaximumLengthOfRepeatedSubarray {
     for i in nums1.indices {
       for j in nums2.indices {
         if nums1[i] == nums2[j] {
-          let newValue: Int
-          if j > 0, i > 0 {
-            newValue = matrix[j - 1][i - 1] + 1
+          let newValue: Int = if j > 0, i > 0 {
+            matrix[j-1][i-1]+1
           } else {
-            newValue = 1
+            1
           }
           matrix[j][i] = newValue
           max = Swift.max(max, newValue)

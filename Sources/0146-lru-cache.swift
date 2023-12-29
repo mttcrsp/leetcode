@@ -30,7 +30,7 @@ class LRUCache {
       nodes[key] = node
       append(node)
 
-      if nodes.count > capacity, let head = head {
+      if nodes.count > capacity, let head {
         nodes[head.key] = nil
         remove(head)
       }

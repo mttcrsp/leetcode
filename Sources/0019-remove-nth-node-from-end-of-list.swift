@@ -11,11 +11,11 @@ struct RemoveNthNodeFromEndOfList {
       current = node.next
     }
 
-    let index = nodes.count - n
+    let index = nodes.count-n
     if index == 0 {
       return nodes[index].next
     } else {
-      nodes[index - 1].next = nodes[index].next
+      nodes[index-1].next = nodes[index].next
       return head
     }
   }

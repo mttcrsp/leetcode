@@ -4,7 +4,7 @@ class Codec {
     var values: [String] = []
 
     func visit(_ node: TreeNode?) {
-      guard let node = node else {
+      guard let node else {
         return values.append("n")
       }
 

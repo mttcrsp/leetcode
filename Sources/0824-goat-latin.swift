@@ -14,7 +14,7 @@ struct GoatLatin {
         words[index] += "\(initial)ma"
       }
 
-      words[index] += String(repeating: "a", count: index + 1)
+      words[index] += String(repeating: "a", count: index+1)
     }
 
     return words.joined(separator: " ")

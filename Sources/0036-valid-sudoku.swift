@@ -11,8 +11,9 @@ struct ValidSudoku {
           continue
         }
 
-        let squ = ((row / 3) * 3) + (col / 3)
-        if rows[row].isBitSet(at: i) ||
+        let squ = ((row/3)*3)+(col/3)
+        if
+          rows[row].isBitSet(at: i) ||
           cols[col].isBitSet(at: i) ||
           squs[squ].isBitSet(at: i)
         {

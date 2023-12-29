@@ -9,11 +9,11 @@ struct RabbitsInForest {
       case (0, _):
         count += 1
       case (_, .none):
-        matchedAnswers[answer] = answer; count += answer + 1
+        matchedAnswers[answer] = answer; count += answer+1
       case (_, .some(1)):
         matchedAnswers[answer] = nil
       case let (_, .some(count)):
-        matchedAnswers[answer] = count - 1
+        matchedAnswers[answer] = count-1
       }
     }
 

@@ -13,7 +13,7 @@ struct MaximizeSumOfArrayAfterKNegations {
     }
 
     // Consume remaining toggles on the smallest element
-    if toggles > 0, toggles % 2 == 1 {
+    if toggles > 0, toggles%2 == 1 {
       values.sort(); values[0] *= -1
     }
 

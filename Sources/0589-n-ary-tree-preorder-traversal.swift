@@ -4,7 +4,7 @@ struct NAryTreePreorderTraversal {
     var result: [Int] = []
 
     func visit(_ node: NaryTreeNode?) {
-      guard let node = node else { return }
+      guard let node else { return }
 
       result.append(node.val)
 

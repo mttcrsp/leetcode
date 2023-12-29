@@ -4,7 +4,7 @@ struct DeleteNodeInABst {
     var sorted: [TreeNode] = []
 
     func visit(_ node: TreeNode?) {
-      if let node = node {
+      if let node {
         visit(node.left)
         sorted.append(node)
         visit(node.right)
@@ -19,7 +19,7 @@ struct DeleteNodeInABst {
 
     for i in sorted.indices.dropLast() {
       sorted.last?.left = nil
-      sorted[i].right = sorted[i + 1]
+      sorted[i].right = sorted[i+1]
     }
 
     sorted.last?.left = nil

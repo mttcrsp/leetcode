@@ -4,7 +4,7 @@ struct RunningSumOf1DArray {
     var runningSum: [Int] = []
     for number in numbers {
       let previousSum = runningSum.last ?? 0
-      let currentSum = number + previousSum
+      let currentSum = number+previousSum
       runningSum.append(currentSum)
     }
     return runningSum

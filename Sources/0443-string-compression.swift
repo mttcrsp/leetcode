@@ -9,7 +9,7 @@ struct StringCompression {
         chars.remove(at: rhs)
         count += 1
       } else if count > 1 {
-        chars.insert(count, at: rhs + 1)
+        chars.insert(count, at: rhs+1)
         count = 1
       }
     }
@@ -22,7 +22,7 @@ struct StringCompression {
   }
 }
 
-private extension Array where Element == Character {
+private extension [Character] {
   mutating func insert(_ value: Int, at index: Index) {
     let valueString = String(describing: value)
     let valueCharacters = Array(valueString)

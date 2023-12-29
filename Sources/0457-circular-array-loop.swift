@@ -56,14 +56,14 @@ private struct Node: Hashable {
   }
 }
 
-private extension Array where Element == Int {
+private extension [Int] {
   func circularIndex(after index: Int) -> Int {
-    let next = index + self[index]
+    let next = index+self[index]
 
     if next >= count {
-      return next % count
+      return next%count
     } else if next < 0 {
-      return count - (abs(next) % count)
+      return count-(abs(next)%count)
     } else {
       return next
     }

@@ -16,8 +16,8 @@ struct AddBinary {
         sum += 1
       }
 
-      result.append("\(sum % 2)")
-      carry = sum / 2
+      result.append("\(sum%2)")
+      carry = sum/2
     }
 
     if carry == 1 {

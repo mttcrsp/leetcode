@@ -8,14 +8,14 @@ struct PascalsTriangleIi {
     for k in 2 ... rowIndex {
       var tail: Int?
       if k & 1 == 0 {
-        tail = firstHalf.last! * 2
+        tail = firstHalf.last!*2
       }
 
-      for i in stride(from: firstHalf.count - 1, to: 0, by: -1) {
-        firstHalf[i] = firstHalf[i] + firstHalf[i - 1]
+      for i in stride(from: firstHalf.count-1, to: 0, by: -1) {
+        firstHalf[i] = firstHalf[i]+firstHalf[i-1]
       }
 
-      if let tail = tail {
+      if let tail {
         firstHalf.append(tail)
       }
     }
@@ -26,6 +26,6 @@ struct PascalsTriangleIi {
       secondHalf.removeFirst()
     }
 
-    return firstHalf + secondHalf
+    return firstHalf+secondHalf
   }
 }

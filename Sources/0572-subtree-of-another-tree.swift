@@ -1,7 +1,7 @@
 /// https://leetcode.com/problems/subtree-of-another-tree/
 struct SubtreeOfAnotherTree {
   func isSubtree(_ root: TreeNode?, _ subRoot: TreeNode?) -> Bool {
-    guard let subRoot = subRoot else { return true }
+    guard let subRoot else { return true }
 
     var stack = [root]
     while !stack.isEmpty {

@@ -7,7 +7,7 @@ struct CheckIfAStringCanBreakAnotherString {
   }
 }
 
-private extension Array where Element == Character {
+private extension [Character] {
   func breaks(_ other: [Character]) -> Bool {
     zip(self, other).allSatisfy { lhs, rhs in
       lhs.asciiValue! >= rhs.asciiValue!

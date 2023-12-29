@@ -2,7 +2,7 @@
 struct CheckArrayFormationThroughConcatenation {
   func canFormArray(_ arr: [Int], _ pieces: [[Int]]) -> Bool {
     let piecesSet = Set(pieces)
-    
+
     var matched = 0
     var current: [Int] = []
     for element in arr {
@@ -12,7 +12,7 @@ struct CheckArrayFormationThroughConcatenation {
         current = []
       }
     }
-    
+
     return matched == arr.count
   }
 }

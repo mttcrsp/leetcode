@@ -12,7 +12,7 @@ struct MaximumNumberOfBalloons {
     let countO = occurrences["o"] ?? 0
     let countN = occurrences["n"] ?? 0
 
-    let normalizedCounts = [countB, countA, countL / 2, countO / 2, countN]
+    let normalizedCounts = [countB, countA, countL/2, countO/2, countN]
     return normalizedCounts.min() ?? 0
   }
 }

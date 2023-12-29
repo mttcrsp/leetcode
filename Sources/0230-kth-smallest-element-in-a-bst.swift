@@ -5,7 +5,7 @@ struct KthSmallestElementInABst {
     var value: Int!
 
     func visit(_ node: TreeNode?) {
-      guard let node = node, value == nil else { return }
+      guard let node, value == nil else { return }
 
       visit(node.left)
       if counter == k {

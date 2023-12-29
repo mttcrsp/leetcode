@@ -8,7 +8,7 @@ struct NumberOfGoodPairs {
 
     var result = 0
     for (_, count) in counts {
-      result += (count * (count - 1)) / 2
+      result += (count*(count-1))/2
     }
     return result
   }

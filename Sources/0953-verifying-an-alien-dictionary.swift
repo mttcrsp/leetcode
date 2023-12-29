@@ -7,11 +7,12 @@ struct VerifyingAnAlienDictionary {
     }
 
     outer: for i in words.indices.dropLast() {
-      let lhsWord = words[i], rhsWord = words[i + 1]
+      let lhsWord = words[i], rhsWord = words[i+1]
 
       for (lhsCharacter, rhsCharacter) in zip(lhsWord, rhsWord) where lhsCharacter != rhsCharacter {
-        guard let lhsIndex = alphabeticalIndex[lhsCharacter],
-              let rhsIndex = alphabeticalIndex[rhsCharacter]
+        guard
+          let lhsIndex = alphabeticalIndex[lhsCharacter],
+          let rhsIndex = alphabeticalIndex[rhsCharacter]
         else {
           preconditionFailure("Unknown character found")
         }

@@ -8,7 +8,7 @@ struct TopKFrequentElements {
 
     var counts = [[Int]](repeating: [], count: numbers.count)
     for (number, count) in occurrences {
-      counts[count - 1].append(number)
+      counts[count-1].append(number)
     }
 
     var result: [Int] = []

@@ -1,7 +1,7 @@
 /// https://leetcode.com/problems/sum-of-left-leaves/
 struct SumOfLeftLeaves {
   func sumOfLeftLeaves(_ root: TreeNode?) -> Int {
-    guard let root = root else { return 0 }
+    guard let root else { return 0 }
 
     var result = 0
     var stack: [(TreeNode, Bool)] = [(root, false)]

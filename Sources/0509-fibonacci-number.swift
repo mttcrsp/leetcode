@@ -9,7 +9,7 @@ struct FibonacciNumber {
     var minus1 = 1
 
     while iteration <= n {
-      let current = minus1 + minus2
+      let current = minus1+minus2
       minus2 = minus1
       minus1 = current
       iteration += 1

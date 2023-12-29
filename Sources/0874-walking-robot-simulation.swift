@@ -48,13 +48,13 @@ private extension Position {
   static let initial = Position(x: 0, y: 0)
 
   func next(in direction: Direction) -> Position {
-    let x = self.x + direction.adjustment.x
-    let y = self.y + direction.adjustment.y
+    let x = x+direction.adjustment.x
+    let y = y+direction.adjustment.y
     return .init(x: x, y: y)
   }
 
   var distance: Int {
-    (x * x) + (y * y)
+    (x*x)+(y*y)
   }
 
   init(obstacle: [Int]) {
@@ -69,28 +69,28 @@ private enum Direction {
 private extension Direction {
   var adjustment: (x: Int, y: Int) {
     switch self {
-    case .east: return (1, 0)
-    case .west: return (-1, 0)
-    case .north: return (0, 1)
-    case .south: return (0, -1)
+    case .east: (1, 0)
+    case .west: (-1, 0)
+    case .north: (0, 1)
+    case .south: (0, -1)
     }
   }
 
   var right: Direction {
     switch self {
-    case .north: return .east
-    case .east: return .south
-    case .south: return .west
-    case .west: return .north
+    case .north: .east
+    case .east: .south
+    case .south: .west
+    case .west: .north
     }
   }
 
   var left: Direction {
     switch self {
-    case .north: return .west
-    case .west: return .south
-    case .south: return .east
-    case .east: return .north
+    case .north: .west
+    case .west: .south
+    case .south: .east
+    case .east: .north
     }
   }
 }

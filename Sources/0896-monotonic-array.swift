@@ -30,11 +30,11 @@ struct MonotonicArray {
 
   private func compare(_ x: Int, _ y: Int) -> ComparisonResult {
     if x < y {
-      return .less
+      .less
     } else if x > y {
-      return .more
+      .more
     } else {
-      return .equal
+      .equal
     }
   }
 }

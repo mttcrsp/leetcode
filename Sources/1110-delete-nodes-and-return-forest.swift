@@ -7,7 +7,7 @@ struct DeleteNodesAndReturnForest {
     let toDelete = Set(toDelete)
 
     func collectForest(_ node: TreeNode?, parentVal: Int) {
-      guard let node = node else { return }
+      guard let node else { return }
 
       if toDelete.contains(parentVal), !toDelete.contains(node.val) {
         forest.append(node)
@@ -18,7 +18,7 @@ struct DeleteNodesAndReturnForest {
     }
 
     func removeDeleted(_ node: TreeNode?) {
-      guard let node = node else { return }
+      guard let node else { return }
 
       if let left = node.left, toDelete.contains(left.val) {
         node.left = nil

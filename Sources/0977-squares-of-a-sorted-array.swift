@@ -4,7 +4,7 @@ struct SquaresOfASortedArray {
     var positives: [Int] = []
     var negatives: [Int] = []
     for number in numbers {
-      let square = number * number
+      let square = number*number
       if number >= 0 {
         positives.append(square)
       } else {
@@ -13,7 +13,7 @@ struct SquaresOfASortedArray {
     }
 
     var i = 0
-    var j = negatives.count - 1
+    var j = negatives.count-1
     var result: [Int] = []
     while i < positives.count || j >= 0 {
       if i >= positives.count {

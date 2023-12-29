@@ -4,16 +4,16 @@ import Leetcode
 extension TreeNode {
   static func makeTree(with values: [Int?]) -> TreeNode? {
     let nodes = values.map { value -> TreeNode? in
-      if let value = value {
-        return TreeNode(value)
+      if let value {
+        TreeNode(value)
       } else {
-        return nil
+        nil
       }
     }
 
     for (i, node) in nodes.enumerated() {
-      let lhsIndex = (i * 2) + 1
-      let rhsIndex = (i * 2) + 2
+      let lhsIndex = (i*2)+1
+      let rhsIndex = (i*2)+2
       if nodes.indices.contains(lhsIndex) {
         node?.left = nodes[lhsIndex]
       }

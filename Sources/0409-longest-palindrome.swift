@@ -9,10 +9,10 @@ struct LongestPalindrome {
     var result = 0
     var containsOdd = false
     for (_, count) in occurrences {
-      result += count / 2
+      result += count/2
       containsOdd = containsOdd || count & 1 == 1
     }
 
-    return result * 2 + (containsOdd ? 1 : 0)
+    return result*2+(containsOdd ? 1 : 0)
   }
 }

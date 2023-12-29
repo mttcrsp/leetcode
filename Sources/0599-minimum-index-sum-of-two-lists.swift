@@ -12,7 +12,7 @@ struct MinimumIndexSumOfTwoLists {
         continue
       }
 
-      let newIndexSum = index1 + index2
+      let newIndexSum = index1+index2
       guard let (indexSum, restaurants) = min else {
         min = (newIndexSum, [restaurant]); continue
       }
@@ -20,7 +20,7 @@ struct MinimumIndexSumOfTwoLists {
       if newIndexSum < indexSum {
         min = (newIndexSum, [restaurant])
       } else if newIndexSum == indexSum {
-        min = (newIndexSum, [restaurant] + restaurants)
+        min = (newIndexSum, [restaurant]+restaurants)
       }
     }
 

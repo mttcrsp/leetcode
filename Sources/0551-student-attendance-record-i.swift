@@ -13,8 +13,8 @@ struct StudentAttendanceRecordI {
       case "A" where !wasAbsenceRecorded:
         wasAbsenceRecorded = true
       case "L":
-        let previousDay1 = day - 1
-        let previousDay2 = day - 2
+        let previousDay1 = day-1
+        let previousDay2 = day-2
         guard attendance.indices.contains(previousDay2) else { continue }
         let previousRecord1 = attendance[previousDay1]
         let previousRecord2 = attendance[previousDay2]

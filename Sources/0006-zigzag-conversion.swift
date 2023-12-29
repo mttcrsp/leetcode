@@ -21,14 +21,14 @@ struct ZigzagConversion {
 private extension Int {
   func next(upTo max: Int, isIncreasing: Bool) -> (value: Int, isIncreasing: Bool) {
     switch (isIncreasing, self) {
-    case (true, max - 1):
-      return (self - 1, false)
+    case (true, max-1):
+      (self-1, false)
     case (true, _):
-      return (self + 1, true)
+      (self+1, true)
     case (false, 0):
-      return (self + 1, true)
+      (self+1, true)
     case (false, _):
-      return (self - 1, false)
+      (self-1, false)
     }
   }
 }

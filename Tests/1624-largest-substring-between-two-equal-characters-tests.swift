@@ -20,7 +20,7 @@ final class LargestSubstringBetweenTwoEqualCharactersTests: XCTestCase {
     let output = -1
     XCTAssertEqual(LargestSubstringBetweenTwoEqualCharacters().maxLengthBetweenEqualCharacters(input), output)
   }
-  
+
   func testTestMaxlengthbetweenequalcharacters4() {
     let input = "cccccccccccc"
     let output = 10

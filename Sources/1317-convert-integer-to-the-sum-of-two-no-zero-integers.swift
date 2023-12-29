@@ -3,8 +3,8 @@ struct ConvertIntegerToTheSumOfTwoNoZeroIntegers {
   func getNoZeroIntegers(_ n: Int) -> [Int] {
     var i = 1
     while true {
-      if !(n - i).digits.contains(0) {
-        return [i, n - i]
+      if !(n-i).digits.contains(0) {
+        return [i, n-i]
       }
 
       repeat {
@@ -21,7 +21,7 @@ private extension Int {
     var remainder = self
 
     while remainder > 0 {
-      digits.insert(remainder % 10)
+      digits.insert(remainder%10)
       remainder /= 10
     }
 

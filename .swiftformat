@@ -1,9 +1,27 @@
---disable unusedArguments
+--acronyms ID,URL,UUID
+--conflictmarkers reject
+--enumnamespaces always
+--funcattributes same-line
 --header strip
+--hexliteralcase uppercase
 --ifdef no-indent
 --indent 2
+--lineaftermarks true
+--nospaceoperators +,-,*,/,%
+--stripunusedargs always
 --tabwidth 2
+--throwcapturing 
+--trailingclosures 
+--trimwhitespace always
+--typeattributes prev-line
+--varattributes same-line
+--voidtype void
 --wraparguments before-first
 --wrapcollections before-first
+--wraparguments before-first
 --wrapparameters before-first
---xcodeindentation enabled
+--wrapcollections before-first
+--closingparen balanced
+--wrapreturntype if-multiline
+--wrapconditions before-first
+--wraptypealiases before-first

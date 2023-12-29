@@ -18,7 +18,7 @@ struct RemoveCoveredIntervals {
   }
 }
 
-private extension Array where Element == Int {
+private extension [Int] {
   var lhs: Int { self[0] }
   var rhs: Int { self[1] }
 }

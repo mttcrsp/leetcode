@@ -4,9 +4,9 @@ struct FairCandySwap {
     let (aliceSum, aliceSet) = processSizes(aliceSizes)
     let (bobSum, bobSet) = processSizes(bobSizes)
 
-    let difference = bobSum - aliceSum
+    let difference = bobSum-aliceSum
     for aliceSize in aliceSet {
-      let targetBobSize = aliceSize + (difference / 2)
+      let targetBobSize = aliceSize+(difference/2)
       if bobSet.contains(targetBobSize) {
         return [aliceSize, targetBobSize]
       }

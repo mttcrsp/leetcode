@@ -5,7 +5,7 @@ struct LargestSubstringBetweenTwoEqualCharacters {
     var firstOccurrences: [Character: Int] = [:]
     for (index, character) in Array(s).enumerated() {
       if let firstOccurrence = firstOccurrences[character] {
-        max = Swift.max(max, index - firstOccurrence - 1)
+        max = Swift.max(max, index-firstOccurrence-1)
       } else {
         firstOccurrences[character] = index
       }

@@ -44,8 +44,8 @@ final class IntersectionOfTwoLinkedListsTests: XCTestCase {
 
   private func makeLists(withIntersection intersection: [ListNode], specificA: [ListNode], specificB: [ListNode]) -> (ListNode?, ListNode?) {
     (
-      makeList(from: specificA + intersection),
-      makeList(from: specificB + intersection)
+      makeList(from: specificA+intersection),
+      makeList(from: specificB+intersection)
     )
   }
 

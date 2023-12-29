@@ -4,7 +4,7 @@ struct MinimumDistanceBetweenBstNodes {
     var values: [Int] = []
 
     func visit(_ node: TreeNode?) {
-      guard let node = node else { return }
+      guard let node else { return }
       visit(node.left)
       values.append(node.val)
       visit(node.right)
@@ -14,7 +14,7 @@ struct MinimumDistanceBetweenBstNodes {
 
     var min = Int.max
     for (lhs, rhs) in zip(values, values.dropFirst()) {
-      let distance = rhs - lhs
+      let distance = rhs-lhs
       if distance < min { min = distance }
     }
     return min

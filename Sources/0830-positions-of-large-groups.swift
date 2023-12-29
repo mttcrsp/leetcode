@@ -13,7 +13,7 @@ struct PositionsOfLargeGroups {
       case let .some(g) where g.character == character:
         group?.count += 1
       case let .some(g) where g.count >= 3:
-        result.append([g.offset, g.offset + g.count - 1])
+        result.append([g.offset, g.offset+g.count-1])
         group = (character, offset, 1)
       case .some:
         group = (character, offset, 1)
@@ -21,7 +21,7 @@ struct PositionsOfLargeGroups {
     }
 
     if let g = group, g.count >= 3 {
-      result.append([g.offset, g.offset + g.count - 1])
+      result.append([g.offset, g.offset+g.count-1])
     }
 
     return result

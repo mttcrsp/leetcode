@@ -4,7 +4,7 @@ struct LargestNumber {
     guard !numbers.allSatisfy({ number in number == 0 }) else { return "0" }
 
     var strings = numbers.map { number in String(number) }
-    strings.sort { lhs, rhs in lhs + rhs > rhs + lhs }
+    strings.sort { lhs, rhs in lhs+rhs > rhs+lhs }
     return strings.joined()
   }
 }

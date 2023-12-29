@@ -22,7 +22,7 @@ final class GroupAnagramsTests: XCTestCase {
   }
 }
 
-private extension Array where Element == [String] {
+private extension [[String]] {
   var orderIrrelevant: Set<Set<String>> {
     Set(map(Set.init))
   }

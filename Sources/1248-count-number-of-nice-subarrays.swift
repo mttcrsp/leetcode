@@ -30,6 +30,6 @@ struct CountNumberOfNiceSubarrays {
 
 private extension Int {
   var isOdd: Bool {
-    self % 2 == 1
+    self%2 == 1
   }
 }

@@ -5,8 +5,8 @@ struct ContinuousSubarraySum {
     var runningSum = 0
 
     for (i, number) in numbers.enumerated() {
-      runningSum = (runningSum + number) % k
-      if let remainderIndex = remainder[runningSum], i - remainderIndex > 1 {
+      runningSum = (runningSum+number)%k
+      if let remainderIndex = remainder[runningSum], i-remainderIndex > 1 {
         return true
       } else if remainder[runningSum] == nil {
         remainder[runningSum] = i

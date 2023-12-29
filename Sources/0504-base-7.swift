@@ -7,12 +7,12 @@ struct Base7 {
     var remainder = abs(num)
     var result = ""
     while remainder != 0 {
-      result += "\(remainder % 7)"
+      result += "\(remainder%7)"
       remainder /= 7
     }
 
     if isNegative {
-      return "-" + result.reversed()
+      return "-"+result.reversed()
     } else {
       return String(result.reversed())
     }

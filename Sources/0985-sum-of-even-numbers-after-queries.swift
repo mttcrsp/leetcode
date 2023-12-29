@@ -13,7 +13,7 @@ struct SumOfEvenNumbersAfterQueries {
       let value = query[0]
       let index = query[1]
       let oldValue = current[index]
-      let newValue = current[index] + value
+      let newValue = current[index]+value
       current[index] = newValue
 
       switch (oldValue.isEven, newValue.isEven) {
@@ -30,5 +30,5 @@ struct SumOfEvenNumbersAfterQueries {
 }
 
 private extension Int {
-  var isEven: Bool { self % 2 == 0 }
+  var isEven: Bool { self%2 == 0 }
 }

@@ -4,7 +4,7 @@ struct AllElementsInTwoBinarySearchTrees {
     var halfSorted: [Int] = []
 
     func visit(_ node: TreeNode?) {
-      if let node = node {
+      if let node {
         visit(node.left)
         halfSorted.append(node.val)
         visit(node.right)

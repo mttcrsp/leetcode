@@ -19,7 +19,7 @@ final class ReadNCharactersGivenRead4Tests: XCTestCase {
     run(withString: "leetcode", count: 5, expectCount: 5)
   }
 
-  private func run(withString string: String, count: Int, expectCount: Int, file: StaticString = #filePath, line: UInt = #line) {
+  private func run(withString string: String, count: Int, expectCount: Int, file _: StaticString = #filePath, line _: UInt = #line) {
     var buffer = [Character](repeating: "-", count: count)
     let reader = ReadNCharactersGivenRead4(string: string)
     let actualCount = reader.read(&buffer, buffer.count)

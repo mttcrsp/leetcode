@@ -4,13 +4,13 @@ struct ReplaceElementsWithGreatestElementOnRightSide {
     var result = [Int](repeating: -1, count: arr.count)
     var max = Int.min
     for inverse in 1 ..< arr.count {
-      let i = arr.count - inverse
+      let i = arr.count-inverse
 
       if arr[i] > max {
         max = arr[i]
       }
 
-      result[i - 1] = max
+      result[i-1] = max
     }
     return result
   }

@@ -14,17 +14,17 @@ class Trie {
 
   func search(_ word: String) -> Bool {
     if let node = startsWith(word) {
-      return node.isTermination
+      node.isTermination
     } else {
-      return false
+      false
     }
   }
 
   func startsWith(_ prefix: String) -> Bool {
     if let _ = startsWith(prefix) {
-      return true
+      true
     } else {
-      return false
+      false
     }
   }
 
@@ -48,6 +48,6 @@ class Trie {
 
 private extension Character {
   var alphabeticalValue: Int {
-    Int(asciiValue! - 97)
+    Int(asciiValue!-97)
   }
 }

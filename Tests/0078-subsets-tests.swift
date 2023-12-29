@@ -4,14 +4,14 @@ import XCTest
 
 final class SubsetsTests: XCTestCase {
   func testTestSubsets1() {
-    let input = [1,2,3]
-    let output = [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+    let input = [1, 2, 3]
+    let output = [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
     XCTAssertEqual(Set(Subsets().subsets(input)), Set(output))
   }
 
   func testTestSubsets2() {
     let input = [0]
-    let output = [[],[0]]
+    let output = [[], [0]]
     XCTAssertEqual(Set(Subsets().subsets(input)), Set(output))
   }
 }

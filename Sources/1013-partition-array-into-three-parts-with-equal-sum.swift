@@ -8,20 +8,20 @@ struct PartitionArrayIntoThreePartsWithEqualSum {
       sums.append(sum)
     }
 
-    guard sum % 3 == 0 else {
+    guard sum%3 == 0 else {
       return false
     }
 
-    let partitionSum = sum / 3
+    let partitionSum = sum/3
 
     sums.removeAll { sum in
-      sum % partitionSum != 0
+      sum%partitionSum != 0
     }
 
     var targetSum = partitionSum
     for sum in sums where sum == targetSum {
       targetSum += partitionSum
     }
-    return targetSum == sum + partitionSum
+    return targetSum == sum+partitionSum
   }
 }

@@ -10,7 +10,7 @@ struct IntegerToEnglishWords {
     var value = value, components: [String] = []
 
     for group in Group.allCases {
-      let groupValue = value % 1000
+      let groupValue = value%1000
 
       if groupValue != 0 {
         var groupComponents = hundreds(groupValue)
@@ -29,22 +29,22 @@ struct IntegerToEnglishWords {
   private func hundreds(_ value: Int) -> [String] {
     precondition(value < 1000 && value >= 0, "\(#function) \(value)")
 
-    let digit1 = value % 10
-    let digit2 = (value / 10) % 10
-    let digit3 = (value / 100) % 10
+    let digit1 = value%10
+    let digit2 = (value/10)%10
+    let digit3 = (value/100)%10
 
     switch (digit3, digit2, digit1) {
     case (_, 0, 0): return [digit(digit3), "Hundred"]
-    case (0, _, _): return tens(value % 100)
-    case (_, _, _): return [digit(digit3), "Hundred"] + tens(value % 100)
+    case (0, _, _): return tens(value%100)
+    case (_, _, _): return [digit(digit3), "Hundred"]+tens(value%100)
     }
   }
 
   private func tens(_ value: Int) -> [String] {
     precondition(value < 100 && value >= 0, "\(#function) \(value)")
 
-    let digit1 = value % 10
-    let digit2 = (value / 10) % 10
+    let digit1 = value%10
+    let digit2 = (value/10)%10
 
     switch (digit2, digit1) {
     case (1, _): return [teen(digit1)]
@@ -112,10 +112,10 @@ struct IntegerToEnglishWords {
 
     var englishWord: String? {
       switch self {
-      case .hundreds: return nil
-      case .thousands: return "Thousand"
-      case .millions: return "Million"
-      case .billions: return "Billion"
+      case .hundreds: nil
+      case .thousands: "Thousand"
+      case .millions: "Million"
+      case .billions: "Billion"
       }
     }
   }

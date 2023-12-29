@@ -5,7 +5,7 @@ struct FlipBinaryTreeToMatchPreorderTraversal {
 
     var index = 0
     var swaps: [Int] = []
-    swaps.reserveCapacity(voyage.count / 2)
+    swaps.reserveCapacity(voyage.count/2)
 
     func visit(_ node: TreeNode) -> Bool {
       guard index < voyage.count, node.val == voyage[index] else { return false }

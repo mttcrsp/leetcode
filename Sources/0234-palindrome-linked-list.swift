@@ -1,7 +1,7 @@
 /// https://leetcode.com/problems/palindrome-linked-list/
 struct PalindromeLinkedList {
   func isPalindrome(_ head: ListNode?) -> Bool {
-    guard let head = head else { return true }
+    guard let head else { return true }
 
     var nodes: [ListNode] = [head]
     while let node = nodes.last?.next {
@@ -9,7 +9,7 @@ struct PalindromeLinkedList {
     }
 
     var i = 0
-    var j = nodes.count - 1
+    var j = nodes.count-1
     while i < j {
       if nodes[i].val != nodes[j].val {
         return false

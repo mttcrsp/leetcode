@@ -9,12 +9,12 @@ struct FourSum {
     // Can be optimized a lot but the complexity remains O(n³)
     var result: Set<[Int]> = []
     for indexA in 0 ..< numbers.count {
-      for indexB in indexA + 1 ..< numbers.count {
-        for indexC in indexB + 1 ..< numbers.count {
+      for indexB in indexA+1 ..< numbers.count {
+        for indexC in indexB+1 ..< numbers.count {
           let a = numbers[indexA]
           let b = numbers[indexB]
           let c = numbers[indexC]
-          let d = target - a - b - c
+          let d = target-a-b-c
 
           guard var countForTarget = counts[d] else { continue }
           if a == d { countForTarget -= 1 }

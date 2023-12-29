@@ -17,11 +17,11 @@ struct ArithmeticSubarrays {
         return true
       }
 
-      guard (max - min) % (range.count - 1) == 0 else {
+      guard (max-min)%(range.count-1) == 0 else {
         return false
       }
 
-      let distance = (max - min) / (range.count - 1)
+      let distance = (max-min)/(range.count-1)
       let expectedNumbers = stride(from: min, to: max, by: distance)
       return expectedNumbers.allSatisfy(numbers.contains)
     }

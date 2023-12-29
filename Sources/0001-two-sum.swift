@@ -6,7 +6,7 @@ struct TwoSum {
       if let j = complements[number] {
         return [j, i]
       } else {
-        complements[target - number] = i
+        complements[target-number] = i
       }
     }
     preconditionFailure("No solution found for numbers '\(numbers)' and target '\(target)'")

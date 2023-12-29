@@ -7,7 +7,7 @@ struct CountGoodNodesInBinaryTree {
     while !stack.isEmpty {
       let (node, pathMax) = stack.removeLast()
 
-      guard let node = node else {
+      guard let node else {
         continue
       }
 

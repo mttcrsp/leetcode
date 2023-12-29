@@ -9,7 +9,7 @@ private final class Solver {
   private var sortedValues: [Int] = []
 
   func getMinimumDifference(_ root: TreeNode?) -> Int {
-    guard let root = root else {
+    guard let root else {
       preconditionFailure("A BST with less than two nodes was provided")
     }
 
@@ -17,8 +17,8 @@ private final class Solver {
 
     var min = Int.max
     for (x, y) in zip(sortedValues, sortedValues.dropFirst()) {
-      if y - x < min {
-        min = y - x
+      if y-x < min {
+        min = y-x
 
         if min == 0 {
           return 0

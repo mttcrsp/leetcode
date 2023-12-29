@@ -5,11 +5,11 @@ struct CountingBits {
       return [0]
     }
 
-    var result = [Int](repeating: 0, count: n + 1)
+    var result = [Int](repeating: 0, count: n+1)
     var j = 0
     for i in 1 ... n {
       j = i.nonzeroBitCount == 1 ? 0 : j
-      result[i] = result[j] + 1
+      result[i] = result[j]+1
       j += 1
     }
 

@@ -10,14 +10,14 @@ struct PartitionEqualSubsetSum {
       return false
     }
 
-    let target = sum / 2
+    let target = sum/2
 
-    var partialSums = [Bool](repeating: false, count: target + 1)
+    var partialSums = [Bool](repeating: false, count: target+1)
     partialSums[0] = true
 
     for number in numbers {
       for i in stride(from: target, through: 1, by: -1) where i >= number {
-        partialSums[i] = partialSums[i] || partialSums[i - number]
+        partialSums[i] = partialSums[i] || partialSums[i-number]
       }
     }
 

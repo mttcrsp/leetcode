@@ -12,7 +12,7 @@ struct NThTribonacciNumber {
     }
 
     for i in 3 ... n {
-      table.append(table[i - 1] + table[i - 2] + table[i - 3])
+      table.append(table[i-1]+table[i-2]+table[i-3])
     }
 
     return table[n]

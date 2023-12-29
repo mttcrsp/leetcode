@@ -9,13 +9,13 @@ struct LongestRepeatingCharacterReplacement {
       count[lhsValue] += 1
 
       maxCount = max(maxCount, count[lhsValue])
-      while rhs - lhs + 1 - maxCount > k {
+      while rhs-lhs+1-maxCount > k {
         let rhsValue = characters[lhs].alphabeticalValue
         count[rhsValue] -= 1
         lhs += 1
       }
 
-      maxLength = max(maxLength, rhs - lhs + 1)
+      maxLength = max(maxLength, rhs-lhs+1)
     }
     return maxLength
   }
@@ -23,6 +23,6 @@ struct LongestRepeatingCharacterReplacement {
 
 private extension Character {
   var alphabeticalValue: Int {
-    Int(asciiValue! - Character("A").asciiValue!)
+    Int(asciiValue!-Character("A").asciiValue!)
   }
 }

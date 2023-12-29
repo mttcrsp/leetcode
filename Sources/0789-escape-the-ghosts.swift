@@ -9,6 +9,6 @@ struct EscapeTheGhosts {
   }
 
   private func distance(between a: [Int], _ b: [Int]) -> Int {
-    abs(a[0] - b[0]) + abs(a[1] - b[1])
+    abs(a[0]-b[0])+abs(a[1]-b[1])
   }
 }

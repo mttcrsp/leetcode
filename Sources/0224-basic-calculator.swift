@@ -22,15 +22,15 @@ struct BasicCalculator {
         frames.append((0, +))
       case .closeParenthesis:
         let solved = frames.removeLast()
-        let current = frames[frames.count - 1]
-        frames[frames.count - 1].result = current.operator(current.result, solved.result)
+        let current = frames[frames.count-1]
+        frames[frames.count-1].result = current.operator(current.result, solved.result)
       case .plus:
-        frames[frames.count - 1].operator = (+)
+        frames[frames.count-1].operator = (+)
       case .minus:
-        frames[frames.count - 1].operator = (-)
+        frames[frames.count-1].operator = (-)
       case let .number(number):
-        let current = frames[frames.count - 1]
-        frames[frames.count - 1].result = current.operator(current.result, number)
+        let current = frames[frames.count-1]
+        frames[frames.count-1].result = current.operator(current.result, number)
       }
     }
 
@@ -58,7 +58,7 @@ struct BasicCalculator {
         }
 
         if let previousToken = expression.last, case let .number(previousNumber) = previousToken {
-          expression[expression.count - 1] = .number((previousNumber * 10) + digit)
+          expression[expression.count-1] = .number((previousNumber*10)+digit)
         } else {
           expression.append(.number(digit))
         }

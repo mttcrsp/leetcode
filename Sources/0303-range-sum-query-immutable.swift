@@ -5,7 +5,7 @@ class NumArray {
   init(_ nums: [Int]) {
     var numbers: [Int] = nums
     for i in numbers.indices.dropFirst() {
-      numbers[i] += numbers[i - 1]
+      numbers[i] += numbers[i-1]
     }
 
     self.numbers = numbers
@@ -13,9 +13,9 @@ class NumArray {
 
   func sumRange(_ i: Int, _ j: Int) -> Int {
     if i == 0 {
-      return numbers[j]
+      numbers[j]
     } else {
-      return numbers[j] - numbers[i - 1]
+      numbers[j]-numbers[i-1]
     }
   }
 }

@@ -25,20 +25,20 @@ struct PushDominoes {
 
     while pushes.last?.direction == "R" {
       let push = pushes.removeLast()
-      setState("R", in: push.index + 1 ..< states.count)
+      setState("R", in: push.index+1 ..< states.count)
     }
 
     for i in pushes.indices.dropLast() {
       let lhs = pushes[i]
-      let rhs = pushes[i + 1]
+      let rhs = pushes[i+1]
 
       switch (lhs.direction, rhs.direction) {
       case ("L", "L"), ("R", "R"):
-        setState(lhs.direction, in: lhs.index + 1 ..< rhs.index)
+        setState(lhs.direction, in: lhs.index+1 ..< rhs.index)
       case ("R", "L"):
-        let distance = (rhs.index - lhs.index - 1) / 2
-        setState("R", in: lhs.index + 1 ..< lhs.index + distance + 1)
-        setState("L", in: rhs.index - distance ..< rhs.index)
+        let distance = (rhs.index-lhs.index-1)/2
+        setState("R", in: lhs.index+1 ..< lhs.index+distance+1)
+        setState("L", in: rhs.index-distance ..< rhs.index)
       default:
         continue
       }

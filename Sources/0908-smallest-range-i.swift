@@ -9,6 +9,6 @@ struct SmallestRangeI {
       if a > max { max = a }
     }
 
-    return Swift.max(0, max - min - (2 * K))
+    return Swift.max(0, max-min-(2*K))
   }
 }

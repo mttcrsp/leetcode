@@ -15,8 +15,8 @@ struct CorporateFlightBookings {
     var result: [Int] = []
     for i in 1 ... n {
       let opening = openings[i, default: 0]
-      let closing = closings[i - 1, default: 0]
-      count = count + opening - closing
+      let closing = closings[i-1, default: 0]
+      count = count+opening-closing
       result.append(count)
     }
     return result

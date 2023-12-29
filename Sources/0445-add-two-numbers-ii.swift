@@ -10,10 +10,10 @@ struct AddTwoNumbersIi {
     while reversed1 != nil || reversed2 != nil {
       let lhs = reversed1?.val ?? 0
       let rhs = reversed2?.val ?? 0
-      let val = lhs + rhs + carry
+      let val = lhs+rhs+carry
 
-      let node = ListNode(val % 10)
-      carry = val / 10
+      let node = ListNode(val%10)
+      carry = val/10
 
       if result == nil {
         result = node

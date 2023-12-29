@@ -4,10 +4,10 @@ struct BinaryTreeLevelOrderTraversalIi {
     var valuesForDepth: [Int: [Int]] = [:]
 
     func visit(_ node: TreeNode?, depth: Int) {
-      guard let node = node else { return }
+      guard let node else { return }
 
-      visit(node.left, depth: depth + 1)
-      visit(node.right, depth: depth + 1)
+      visit(node.left, depth: depth+1)
+      visit(node.right, depth: depth+1)
       valuesForDepth[depth, default: []].append(node.val)
     }
 

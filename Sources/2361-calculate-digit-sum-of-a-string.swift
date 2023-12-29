@@ -20,7 +20,7 @@ struct CalculateDigitSumOfAString {
   private func digitSum(_ substring: Substring) -> Int {
     var sum = 0
     for character in substring {
-      sum += Int(character.asciiValue!) - 48
+      sum += Int(character.asciiValue!)-48
     }
     return sum
   }

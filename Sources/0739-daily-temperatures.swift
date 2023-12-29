@@ -7,7 +7,7 @@ struct DailyTemperatures {
     for (day, temperature) in temperatures.enumerated() {
       while let previous = stack.last, previous.temperature < temperature {
         stack.removeLast()
-        result[previous.day] = day - previous.day
+        result[previous.day] = day-previous.day
       }
       stack.append((temperature, day))
     }

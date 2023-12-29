@@ -8,7 +8,7 @@ struct LargestOddNumberInString {
         preconditionFailure("Invalid character '\(character)' found")
       }
 
-      if digit % 2 == 1 {
+      if digit%2 == 1 {
         return String(num[num.startIndex ... i])
       }
     }

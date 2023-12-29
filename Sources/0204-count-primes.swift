@@ -8,12 +8,12 @@ struct CountPrimes {
 
     for x in 2 ... Int(Double(n).squareRoot()) {
       var i = 2
-      while i * x < n {
-        set.insert(i * x)
+      while i*x < n {
+        set.insert(i*x)
         i += 1
       }
     }
 
-    return n - set.count - 2
+    return n-set.count-2
   }
 }

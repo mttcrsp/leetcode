@@ -44,22 +44,22 @@ struct MaximumAveragePassRatio {
       let group = buffer[i]!.load(as: Group.self)
       result += group.percentage
     }
-    return result / Double(groups.count)
+    return result/Double(groups.count)
   }
 
   private struct Group {
     let pass, total: Int
 
     var percentage: Double {
-      Double(pass) / Double(total)
+      Double(pass)/Double(total)
     }
 
     var potential: Double {
-      addingBrilliantStudent().percentage - percentage
+      addingBrilliantStudent().percentage-percentage
     }
 
     func addingBrilliantStudent() -> Group {
-      Group(pass: pass + 1, total: total + 1)
+      Group(pass: pass+1, total: total+1)
     }
   }
 }

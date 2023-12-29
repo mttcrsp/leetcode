@@ -5,7 +5,7 @@ struct HouseRobber {
     var sumsMinus1 = 0
 
     for num in nums {
-      let take = sumsMinus2 + num
+      let take = sumsMinus2+num
       let skip = sumsMinus1
       let best = max(take, skip)
       sumsMinus2 = sumsMinus1

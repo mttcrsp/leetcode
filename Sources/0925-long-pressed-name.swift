@@ -6,7 +6,7 @@ struct LongPressedName {
     for character in typed {
       if i < name.count, character == name.character(at: i) {
         i += 1
-      } else if i <= 0 || i > name.count || character != name.character(at: i - 1) {
+      } else if i <= 0 || i > name.count || character != name.character(at: i-1) {
         return false
       }
     }

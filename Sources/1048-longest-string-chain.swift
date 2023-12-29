@@ -8,7 +8,7 @@ struct LongestStringChain {
 
     for nodes in dictionary.values {
       for node in nodes {
-        for potentialPredecessorNode in dictionary[node.word.count - 1] ?? [] {
+        for potentialPredecessorNode in dictionary[node.word.count-1] ?? [] {
           if potentialPredecessorNode.word.isPredecessor(of: node.word) {
             node.addPredecessor(potentialPredecessorNode)
           }
@@ -40,7 +40,7 @@ private final class Node: Hashable {
 
   var depth: Int {
     guard let depth = predecessors.map({ node in node.depth }).max() else { return 1 }
-    return depth + 1
+    return depth+1
   }
 
   func addPredecessor(_ predecessor: Node) {
@@ -58,7 +58,7 @@ private final class Node: Hashable {
 
 private extension String {
   func isPredecessor(of other: String) -> Bool {
-    guard count == other.count - 1 else { return false }
+    guard count == other.count-1 else { return false }
 
     var i = startIndex
     var j = other.startIndex

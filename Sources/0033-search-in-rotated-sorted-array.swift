@@ -2,9 +2,9 @@
 struct SearchInRotatedSortedArray {
   func search(_ nums: [Int], _ target: Int) -> Int {
     var lhs = 0
-    var rhs = nums.count - 1
-    while lhs < rhs - 1 {
-      let mid = (lhs + rhs + 1) / 2
+    var rhs = nums.count-1
+    while lhs < rhs-1 {
+      let mid = (lhs+rhs+1)/2
       if nums[mid] == target {
         return mid
       }
@@ -13,13 +13,13 @@ struct SearchInRotatedSortedArray {
         if nums[lhs] ... nums[mid] ~= target {
           rhs = mid
         } else {
-          lhs = mid + 1
+          lhs = mid+1
         }
       } else {
         if nums[mid] ... nums[rhs] ~= target {
           lhs = mid
         } else {
-          rhs = mid - 1
+          rhs = mid-1
         }
       }
     }

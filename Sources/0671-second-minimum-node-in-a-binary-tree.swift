@@ -1,7 +1,7 @@
 /// https://leetcode.com/problems/second-minimum-node-in-a-binary-tree/
 struct SecondMinimumNodeInABinaryTree {
   func findSecondMinimumValue(_ root: TreeNode?) -> Int {
-    guard let root = root else {
+    guard let root else {
       return -1
     }
 

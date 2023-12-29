@@ -3,7 +3,7 @@ struct ShiftingLetters {
   func shiftingLetters(_ s: String, _ shifts: [Int]) -> String {
     var shifts = shifts
     for i in shifts.indices.reversed().dropFirst() {
-      shifts[i] += shifts[i + 1]
+      shifts[i] += shifts[i+1]
     }
 
     var result = Array(s)
@@ -16,8 +16,8 @@ struct ShiftingLetters {
 
 private extension Character {
   func shifted(by shift: Int) -> Character {
-    let curr = (Int(asciiValue!) - 97) % 26
-    let next = ((curr + shift) % 26) + 97
+    let curr = (Int(asciiValue!)-97)%26
+    let next = ((curr+shift)%26)+97
     return Character(UnicodeScalar(next)!)
   }
 }

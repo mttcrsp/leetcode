@@ -19,10 +19,10 @@ struct RottingOranges {
       var newFrontier: [[Int]] = []
       for orange in frontier {
         let x = orange[0], y = orange[1]
-        newFrontier.appendIfNotNil(fresh.remove([x - 1, y]))
-        newFrontier.appendIfNotNil(fresh.remove([x + 1, y]))
-        newFrontier.appendIfNotNil(fresh.remove([x, y + 1]))
-        newFrontier.appendIfNotNil(fresh.remove([x, y - 1]))
+        newFrontier.appendIfNotNil(fresh.remove([x-1, y]))
+        newFrontier.appendIfNotNil(fresh.remove([x+1, y]))
+        newFrontier.appendIfNotNil(fresh.remove([x, y+1]))
+        newFrontier.appendIfNotNil(fresh.remove([x, y-1]))
       }
       frontier = newFrontier
 
@@ -37,7 +37,7 @@ struct RottingOranges {
 
 private extension Array {
   mutating func appendIfNotNil(_ element: Element?) {
-    if let element = element {
+    if let element {
       append(element)
     }
   }

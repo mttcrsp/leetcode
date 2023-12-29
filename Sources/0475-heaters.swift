@@ -30,6 +30,6 @@ struct Heaters {
 
 private extension Int {
   func distance(to other: Int) -> Int {
-    abs(self - other)
+    abs(self-other)
   }
 }

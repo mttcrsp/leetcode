@@ -22,7 +22,7 @@ struct StringToIntegerAtoi {
     var integer = 0
     while i < string.endIndex, digitCharacters.contains(string[i]) {
       var overflow = false
-      (integer, overflow) = integer.addingReportingOverflow(Int(string[i].asciiValue! - ("0" as Character).asciiValue!))
+      (integer, overflow) = integer.addingReportingOverflow(Int(string[i].asciiValue!-("0" as Character).asciiValue!))
       if overflow { return multiplier == 1 ? Int(Int32.max) : Int(Int32.min) }
       (integer, overflow) = integer.multipliedReportingOverflow(by: 10)
       if overflow { return multiplier == 1 ? Int(Int32.max) : Int(Int32.min) }

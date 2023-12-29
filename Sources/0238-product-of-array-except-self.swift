@@ -10,7 +10,7 @@ struct ProductOfArrayExceptSelf {
     }
 
     var postfix = 1
-    for i in stride(from: numbers.count - 1, to: -1, by: -1) {
+    for i in stride(from: numbers.count-1, to: -1, by: -1) {
       result[i] *= postfix
       postfix *= numbers[i]
     }

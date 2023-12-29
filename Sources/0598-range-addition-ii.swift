@@ -2,7 +2,7 @@
 struct RangeAdditionIi {
   func maxCount(_ m: Int, _ n: Int, _ ops: [[Int]]) -> Int {
     if ops.isEmpty {
-      return m * n
+      return m*n
     }
 
     var row = Int.max
@@ -11,6 +11,6 @@ struct RangeAdditionIi {
       row = min(row, op[0])
       col = min(col, op[1])
     }
-    return row * col
+    return row*col
   }
 }

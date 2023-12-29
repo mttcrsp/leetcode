@@ -8,7 +8,7 @@ struct BasicCalculatorIi {
       } else if let digit = Int(String(character)) {
         if case let .number(previous) = nodes.last?.symbol {
           nodes.removeLast()
-          nodes.append(Node(.number((previous * 10) + digit)))
+          nodes.append(Node(.number((previous*10)+digit)))
         } else {
           nodes.append(Node(.number(digit)))
         }
@@ -17,17 +17,18 @@ struct BasicCalculatorIi {
 
     for i in nodes.indices {
       if i != nodes.startIndex {
-        nodes[i].prev = nodes[i - 1]
+        nodes[i].prev = nodes[i-1]
       }
-      if i != nodes.endIndex - 1 {
-        nodes[i].next = nodes[i + 1]
+      if i != nodes.endIndex-1 {
+        nodes[i].next = nodes[i+1]
       }
     }
 
     let consume: (Node) -> Void = { node in
-      if case let .op(op) = node.symbol,
-         case let .number(lhs) = node.prev?.symbol,
-         case let .number(rhs) = node.next?.symbol
+      if
+        case let .op(op) = node.symbol,
+        case let .number(lhs) = node.prev?.symbol,
+        case let .number(rhs) = node.next?.symbol
       {
         node.prev?.symbol = .number(op.function(lhs, rhs))
         node.prev?.next = node.next?.next
@@ -77,13 +78,13 @@ struct BasicCalculatorIi {
       self.identifier = identifier
       switch identifier {
       case "+":
-        function = { $0 + $1 }
+        function = { $0+$1 }
       case "-":
-        function = { $0 - $1 }
+        function = { $0-$1 }
       case "*":
-        function = { $0 * $1 }
+        function = { $0*$1 }
       case "/":
-        function = { $0 / $1 }
+        function = { $0/$1 }
       default:
         return nil
       }

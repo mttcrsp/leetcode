@@ -3,9 +3,9 @@ struct PossibleBipartition {
   func possibleBipartition(_ n: Int, _ dislikes: [[Int]]) -> Bool {
     enum Color { case red, blue }
 
-    var colors = [Color?](repeating: nil, count: n + 1)
-    var explored = [Bool](repeating: false, count: n + 1)
-    var adjacency = [[Int]](repeating: [], count: n + 1)
+    var colors = [Color?](repeating: nil, count: n+1)
+    var explored = [Bool](repeating: false, count: n+1)
+    var adjacency = [[Int]](repeating: [], count: n+1)
 
     for dislike in dislikes {
       let vertex1 = dislike[0]

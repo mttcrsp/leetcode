@@ -8,12 +8,12 @@ struct DistributeCandiesToPeople {
     var currentCandiesCount = 1
     var personIndex = 0
 
-    while remainingCandies - currentCandiesCount > 0 { // 6 > 0
+    while remainingCandies-currentCandiesCount > 0 { // 6 > 0
       remainingCandies -= currentCandiesCount // 7 - 1
       distribution[personIndex] += currentCandiesCount
 
       currentCandiesCount += 1
-      personIndex = (personIndex + 1) % people
+      personIndex = (personIndex+1)%people
     }
 
     distribution[personIndex] += remainingCandies

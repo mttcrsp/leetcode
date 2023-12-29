@@ -1,8 +1,9 @@
 /// https://leetcode.com/problems/excel-sheet-column-title/
 struct ExcelSheetColumnTitle {
   func convertToTitle(_ n: Int) -> String {
-    guard let value1 = Character("A").asciiValue,
-          let value2 = Character("Z").asciiValue
+    guard
+      let value1 = Character("A").asciiValue,
+      let value2 = Character("Z").asciiValue
     else {
       preconditionFailure("Failed ASCII conversion")
     }
@@ -11,14 +12,14 @@ struct ExcelSheetColumnTitle {
       Character(UnicodeScalar(value))
     }
 
-    letters = [letters.last!] + letters.dropLast()
+    letters = [letters.last!]+letters.dropLast()
 
     let radix = letters.count
     var remainder = n
     var result = ""
 
     while remainder > 0 {
-      let index = remainder % radix
+      let index = remainder%radix
       result.insert(letters[index], at: result.startIndex)
       remainder /= radix
       if remainder == 1, index == 0 { break }

@@ -5,7 +5,7 @@ struct BinaryWatch {
 
     for hour in 0 ..< 12 {
       for minute in 0 ..< 60 {
-        if ((hour * 64) + minute).nonzeroBitCount == num {
+        if ((hour*64)+minute).nonzeroBitCount == num {
           let mm = minute < 10 ? "0\(minute)" : "\(minute)"
           result.append("\(hour):\(mm)")
         }

@@ -6,12 +6,12 @@ struct SubtractTheProductAndSumOfDigitsOfAnInteger {
     var sum = 0
 
     while number > 0 {
-      let digit = number % 10
+      let digit = number%10
       product *= digit
       sum += digit
       number /= 10
     }
 
-    return product - sum
+    return product-sum
   }
 }

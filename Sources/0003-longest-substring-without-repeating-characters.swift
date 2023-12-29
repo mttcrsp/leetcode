@@ -10,7 +10,7 @@ struct LongestSubstringWithoutRepeatingCharacters {
         lastRepetitionIndex = repetitionIndex
       }
 
-      maxLength = max(maxLength, index - lastRepetitionIndex)
+      maxLength = max(maxLength, index-lastRepetitionIndex)
       lastCharacterIndices[character] = index
     }
 

@@ -18,8 +18,8 @@ struct CarFleet {
     }
 
     for car in cars {
-      let time = (Double(target) - car.position) / car.speed
-      if let previousTime = previousTime, time <= previousTime {
+      let time = (Double(target)-car.position)/car.speed
+      if let previousTime, time <= previousTime {
         // do nothing
       } else {
         previousTime = time

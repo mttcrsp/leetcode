@@ -6,7 +6,7 @@ struct LicenseKeyFormatting {
     for character in S.reversed() where character != "-" {
       result.append(character.uppercased())
       alphanumericsCount += 1
-      if alphanumericsCount % K == 0 {
+      if alphanumericsCount%K == 0 {
         result.append("-")
       }
     }

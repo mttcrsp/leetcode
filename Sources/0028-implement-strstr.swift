@@ -11,7 +11,7 @@ struct ImplementStrstr {
     }
 
     let startIndex = haystack.startIndex
-    let endIndex = haystack.index(haystack.startIndex, offsetBy: haystack.count - needle.count)
+    let endIndex = haystack.index(haystack.startIndex, offsetBy: haystack.count-needle.count)
     for index in haystack[startIndex ... endIndex].indices {
       if haystack[index...].hasPrefix(needle) {
         return haystack.distance(from: haystack.startIndex, to: index)

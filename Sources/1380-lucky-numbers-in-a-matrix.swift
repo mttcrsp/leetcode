@@ -28,7 +28,7 @@ struct LuckyNumbersInAMatrix {
           max = row[columnIndex]
         }
       }
-      if let max = max, mins.contains(max) {
+      if let max, mins.contains(max) {
         return [max]
       }
     }

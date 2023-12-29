@@ -21,7 +21,7 @@ struct RansomNote {
       case (1, _):
         occurrences.removeValue(forKey: character)
       case (_, _):
-        occurrences[character] = count - 1
+        occurrences[character] = count-1
       }
     }
 

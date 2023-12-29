@@ -19,7 +19,7 @@ struct ArrayNesting {
         max = current
       }
 
-      let remaining = nums.count - visited.count
+      let remaining = nums.count-visited.count
       if max > remaining {
         break
       }

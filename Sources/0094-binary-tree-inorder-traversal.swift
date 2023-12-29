@@ -4,7 +4,7 @@ struct BinaryTreeInorderTraversal {
     var result: [Int] = []
 
     func visit(_ node: TreeNode?) {
-      guard let node = node else { return }
+      guard let node else { return }
       visit(node.left)
       result.append(node.val)
       visit(node.right)

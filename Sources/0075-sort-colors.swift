@@ -9,7 +9,7 @@ struct SortColors {
       }
 
       if number < 2, counts[2] > 0 {
-        let firstIndexOf2 = counts[0] + counts[1]
+        let firstIndexOf2 = counts[0]+counts[1]
         numbers.swapAt(i, firstIndexOf2)
       }
 

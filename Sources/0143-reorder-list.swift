@@ -10,10 +10,10 @@ struct ReorderList {
 
     node = head
     for i in nodes.indices {
-      if i % 2 == 0 {
-        node?.next = nodes[nodes.count - 1 - (i / 2)]
+      if i%2 == 0 {
+        node?.next = nodes[nodes.count-1-(i/2)]
       } else {
-        node?.next = nodes[(i + 1) / 2]
+        node?.next = nodes[(i+1)/2]
       }
       node = node?.next
     }

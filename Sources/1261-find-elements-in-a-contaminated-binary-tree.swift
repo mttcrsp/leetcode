@@ -7,14 +7,14 @@ class FindElements {
       let x = node.val
 
       if let left = node.left {
-        let value = 2 * x + 1
+        let value = 2*x+1
         left.val = value
         values.insert(value)
         visit(left)
       }
 
       if let right = node.right {
-        let value = 2 * x + 2
+        let value = 2*x+2
         right.val = value
         values.insert(value)
         visit(right)

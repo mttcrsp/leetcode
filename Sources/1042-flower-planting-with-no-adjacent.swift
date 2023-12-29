@@ -28,7 +28,7 @@ struct FlowerPlantingWithNoAdjacent {
 
     var gardens = [Int](repeating: 1, count: N)
     for (index, assignment) in assignments {
-      gardens[index - 1] = assignment
+      gardens[index-1] = assignment
     }
 
     return gardens

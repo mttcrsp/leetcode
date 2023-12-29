@@ -7,7 +7,7 @@ struct CompareStringsByFrequencyOfTheSmallestCharacter {
     for word in words {
       let frequency = frequencyOfSmallestCharacter(in: word)
       let oldCount = wordsFrequenciesCounts[frequency] ?? 0
-      let newCount = oldCount + 1
+      let newCount = oldCount+1
       wordsFrequenciesCounts[frequency] = newCount
     }
 

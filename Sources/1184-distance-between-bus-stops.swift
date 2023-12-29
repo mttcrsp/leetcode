@@ -7,12 +7,12 @@ struct DistanceBetweenBusStops {
     var i = start
     while i != destination {
       total1 += distance[i]
-      i = (i + 1) % distance.count
+      i = (i+1)%distance.count
     }
 
     while i != start, total2 < total1 {
       total2 += distance[i]
-      i = (i + 1) % distance.count
+      i = (i+1)%distance.count
     }
 
     return min(total1, total2)

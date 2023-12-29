@@ -38,7 +38,7 @@ class StreamChecker {
       return true
     }
 
-    let newSliceCount = slice.count - 1
+    let newSliceCount = slice.count-1
     let newSlice = slice.prefix(newSliceCount)
     return search(for: newSlice, from: child)
   }

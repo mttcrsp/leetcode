@@ -11,8 +11,8 @@ struct BestTimeToBuyAndSellStock {
     for price in prices.dropFirst() {
       if price < min {
         min = price
-      } else if price - min > difference {
-        difference = price - min
+      } else if price-min > difference {
+        difference = price-min
       }
     }
 

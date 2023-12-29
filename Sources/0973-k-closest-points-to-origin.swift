@@ -8,8 +8,8 @@ struct KClosestPointsToOrigin {
   }
 }
 
-private extension Array where Element == Int {
+private extension [Int] {
   func distanceFromOrigin() -> Int {
-    (self[0] * self[0]) + (self[1] * self[1])
+    (self[0]*self[0])+(self[1]*self[1])
   }
 }

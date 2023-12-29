@@ -21,12 +21,12 @@ struct HappyNumber {
       var sumOfSquaredDigits = 0
 
       while remainder >= 10 {
-        let digit = remainder % 10
-        sumOfSquaredDigits += digit * digit
+        let digit = remainder%10
+        sumOfSquaredDigits += digit*digit
         remainder /= 10
       }
 
-      sumOfSquaredDigits += remainder * remainder
+      sumOfSquaredDigits += remainder*remainder
       current = sumOfSquaredDigits
     }
   }

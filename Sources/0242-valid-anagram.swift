@@ -20,6 +20,6 @@ struct ValidAnagram {
 
 private extension Character {
   var alphabeticalValue: Int {
-    Int(asciiValue! - 97)
+    Int(asciiValue!-97)
   }
 }

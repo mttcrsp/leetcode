@@ -9,8 +9,8 @@ struct LongestHarmoniousSubsequence {
     let sortedNumbers = counts.keys.sorted()
 
     var max = 0
-    for (lhs, rhs) in zip(sortedNumbers, sortedNumbers.dropFirst()) where rhs - lhs == 1 {
-      max = Swift.max(max, counts[lhs]! + counts[rhs]!)
+    for (lhs, rhs) in zip(sortedNumbers, sortedNumbers.dropFirst()) where rhs-lhs == 1 {
+      max = Swift.max(max, counts[lhs]!+counts[rhs]!)
     }
     return max
   }

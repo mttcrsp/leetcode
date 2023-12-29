@@ -5,12 +5,12 @@ struct CoinChange {
       return 0
     }
 
-    var amounts = [Int](repeating: amount + 1, count: amount + 1)
+    var amounts = [Int](repeating: amount+1, count: amount+1)
     amounts[0] = 0
 
     for i in 1 ... amount {
       for coin in coins where coin <= i {
-        amounts[i] = min(amounts[i], amounts[i - coin] + 1)
+        amounts[i] = min(amounts[i], amounts[i-coin]+1)
       }
     }
 

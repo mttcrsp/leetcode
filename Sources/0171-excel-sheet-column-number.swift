@@ -8,7 +8,7 @@ struct ExcelSheetColumnNumber {
     var result: Double = 0
 
     for (offset, character) in string.reversed().enumerated() {
-      result += pow(base, Double(offset)) * character.excelValue
+      result += pow(base, Double(offset))*character.excelValue
     }
 
     return Int(result)
@@ -17,7 +17,7 @@ struct ExcelSheetColumnNumber {
 
 private extension Character {
   var excelValue: Double {
-    Double(asciiValue! - Character.firstExcelCharacter.asciiValue!) + 1
+    Double(asciiValue!-Character.firstExcelCharacter.asciiValue!)+1
   }
 
   static var firstExcelCharacter: Character {

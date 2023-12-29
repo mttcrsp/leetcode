@@ -8,7 +8,7 @@ struct MaximumNumberOfOccurrencesOfASubstring {
     for upperbound in string.indices {
       letters[string[upperbound], default: 0] += 1
 
-      let lowerbound = upperbound - minSize + 1
+      let lowerbound = upperbound-minSize+1
       guard lowerbound >= 0 else { continue }
 
       if letters.count <= maxLetters {
@@ -16,7 +16,7 @@ struct MaximumNumberOfOccurrencesOfASubstring {
         occurrences[substring, default: 0] += 1
       }
 
-      let updated = letters[string[lowerbound], default: 0] - 1
+      let updated = letters[string[lowerbound], default: 0]-1
       letters[string[lowerbound]] = updated == 0 ? nil : updated
     }
 

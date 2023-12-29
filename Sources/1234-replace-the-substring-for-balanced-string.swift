@@ -8,12 +8,12 @@ struct ReplaceTheSubstringForBalancedString {
       occurrences[character, default: 0] += 1
     }
 
-    let expectedOccurrences = s.count / 4
+    let expectedOccurrences = s.count/4
     for character in characters {
       let characterOccurrences = occurrences[character, default: 0]
       let hasTooManyOccurrences = characterOccurrences > expectedOccurrences
       if hasTooManyOccurrences {
-        occurrences[character] = characterOccurrences - expectedOccurrences
+        occurrences[character] = characterOccurrences-expectedOccurrences
       } else {
         occurrences[character] = nil
       }
@@ -31,15 +31,15 @@ struct ReplaceTheSubstringForBalancedString {
     for upperbound in string.indices {
       let upperboundCharacter = string[upperbound]
       if let count = occurrences[upperboundCharacter] {
-        occurrences[upperboundCharacter] = count - 1
+        occurrences[upperboundCharacter] = count-1
       }
 
       while occurrences.values.allSatisfy({ $0 <= 0 }) {
-        min = Swift.min(min, upperbound - lowerbound + 1)
+        min = Swift.min(min, upperbound-lowerbound+1)
 
         let lowerboundCharacter = string[lowerbound]
         if let count = occurrences[lowerboundCharacter] {
-          occurrences[lowerboundCharacter] = count + 1
+          occurrences[lowerboundCharacter] = count+1
         }
 
         lowerbound += 1

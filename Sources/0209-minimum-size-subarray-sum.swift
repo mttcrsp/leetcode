@@ -7,7 +7,7 @@ struct MinimumSizeSubarraySum {
     for j in nums.indices {
       sum += nums[j]
       while sum >= s {
-        min = Swift.min(min ?? Int.max, j - i + 1)
+        min = Swift.min(min ?? Int.max, j-i+1)
         sum -= nums[i]
         i += 1
       }

@@ -5,13 +5,13 @@ struct LargestTimeForGivenDigits {
     var maxTime: (hh: Int, mm: Int)?
 
     for permutation in A.makePermutations() {
-      let hh = (permutation[0] * 10) + permutation[1]
+      let hh = (permutation[0]*10)+permutation[1]
       guard hh < 24 else { continue }
 
-      let mm = (permutation[2] * 10) + permutation[3]
+      let mm = (permutation[2]*10)+permutation[3]
       guard mm < 59 else { continue }
 
-      let minutes = (hh * 60) + mm
+      let minutes = (hh*60)+mm
       guard minutes > maxMinutes else { continue }
 
       maxTime = (hh, mm)
@@ -36,14 +36,14 @@ private extension Collection {
         return
       }
 
-      for i in 0 ..< n - 1 {
-        heap(n - 1)
+      for i in 0 ..< n-1 {
+        heap(n-1)
 
-        let j = (n % 2 == 1) ? 0 : i
-        scratch.swapAt(j, n - 1)
+        let j = (n%2 == 1) ? 0 : i
+        scratch.swapAt(j, n-1)
       }
 
-      heap(n - 1)
+      heap(n-1)
     }
 
     heap(scratch.count)

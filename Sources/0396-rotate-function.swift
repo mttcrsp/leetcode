@@ -6,13 +6,13 @@ struct RotateFunction {
     var sum = 0
     var current = 0
     for (offset, value) in A.enumerated() {
-      current += value * offset
+      current += value*offset
       sum += value
     }
 
     var max = current
     for value in A.dropFirst().reversed() {
-      current = current + (sum - value) - (value * (A.count - 1))
+      current = current+(sum-value)-(value*(A.count-1))
 
       if current > max {
         max = current

@@ -2,7 +2,7 @@
 struct ReverseOnlyLetters {
   func reverseOnlyLetters(_ S: String) -> String {
     var result = Array(S)
-    var left = 0, right = result.count - 1
+    var left = 0, right = result.count-1
 
     while left < right {
       let leftValid = result[left].isLetter

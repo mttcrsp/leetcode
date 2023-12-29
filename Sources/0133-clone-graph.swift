@@ -2,7 +2,7 @@
 struct CloneGraph {
   func cloneGraph(_ head: Node?) -> Node? {
     guard let head else { return nil }
-    
+
     var nodes: [Int: Node] = [:]
     var frontier: [Node] = [head]
     while let node = frontier.popLast() {
@@ -15,10 +15,10 @@ struct CloneGraph {
         nodes[node.val]!.neighbors.append(nodes[next.val]!)
       }
     }
-    
+
     return nodes[head.val]
   }
-  
+
   final class Node {
     var val: Int
     var neighbors: [Node?]

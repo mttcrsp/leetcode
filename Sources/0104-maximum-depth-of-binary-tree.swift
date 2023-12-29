@@ -6,10 +6,10 @@ struct MaximumDepthOfBinaryTree {
 
     while !stack.isEmpty {
       let (node, depth) = stack.removeFirst()
-      if let node = node {
+      if let node {
         maxDepth = max(maxDepth, depth)
-        stack.append((node.left, depth + 1))
-        stack.append((node.right, depth + 1))
+        stack.append((node.left, depth+1))
+        stack.append((node.right, depth+1))
       }
     }
 

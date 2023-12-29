@@ -7,20 +7,20 @@ struct SearchA2DMatrix {
     let n = firstRow.count
 
     var min = 0
-    var max = (m * n) - 1
+    var max = (m*n)-1
 
     while min <= max {
-      let index = (min + max) / 2
-      let x = index / n
-      let y = index % n
+      let index = (min+max)/2
+      let x = index/n
+      let y = index%n
       let value = matrix[x][y]
 
       if value == target {
         return true
       } else if value < target {
-        min = index + 1
+        min = index+1
       } else if value > target {
-        max = index - 1
+        max = index-1
       }
     }
 

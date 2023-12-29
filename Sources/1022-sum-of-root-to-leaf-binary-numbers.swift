@@ -5,7 +5,7 @@ struct SumOfRootToLeafBinaryNumbers {
     var current = 0
 
     func visit(_ node: TreeNode?) {
-      guard let node = node else { return }
+      guard let node else { return }
 
       current = (current << 1) | node.val
       defer {

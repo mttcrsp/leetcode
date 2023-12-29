@@ -17,9 +17,9 @@ struct PascalsTriangle {
       return pyramid
     }
 
-    for row in 1 ..< numRows - 1 {
+    for row in 1 ..< numRows-1 {
       for (column, (lhs, rhs)) in zip(pyramid[row], pyramid[row].dropFirst()).enumerated() {
-        pyramid[row + 1][column + 1] = lhs + rhs
+        pyramid[row+1][column+1] = lhs+rhs
       }
     }
 

@@ -13,10 +13,11 @@ struct BoatsToSavePeople {
       lhs.key < rhs.key
     }
 
-    while let (fatWeight, fatCount) = sortedCountsForWeight.last,
-          let (thinWeight, thinCount) = sortedCountsForWeight.first
+    while
+      let (fatWeight, fatCount) = sortedCountsForWeight.last,
+      let (thinWeight, thinCount) = sortedCountsForWeight.first
     {
-      if fatWeight + thinWeight > limit {
+      if fatWeight+thinWeight > limit {
         numberOfBoats += fatCount
         sortedCountsForWeight.removeLast()
       } else if thinCount > fatCount {
@@ -25,11 +26,11 @@ struct BoatsToSavePeople {
         sortedCountsForWeight.removeLast()
       } else if fatCount > thinCount {
         numberOfBoats += thinCount
-        sortedCountsForWeight[sortedCountsForWeight.count - 1].value -= thinCount
+        sortedCountsForWeight[sortedCountsForWeight.count-1].value -= thinCount
         sortedCountsForWeight.removeFirst()
       } else if thinCount == fatCount {
         if thinWeight == fatWeight {
-          numberOfBoats += (fatCount / 2) + (fatCount % 2)
+          numberOfBoats += (fatCount/2)+(fatCount%2)
           sortedCountsForWeight.removeLast()
         } else {
           numberOfBoats += fatCount

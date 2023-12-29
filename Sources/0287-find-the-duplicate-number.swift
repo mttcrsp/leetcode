@@ -6,7 +6,8 @@ struct FindTheDuplicateNumber {
     repeat {
       slow = numbers[slow]
       fast = numbers[numbers[fast]]
-    } while slow != fast
+    } while
+      slow != fast
 
     var slow2 = 0
     repeat {
