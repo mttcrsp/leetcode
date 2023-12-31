@@ -1,25 +1,21 @@
 /// https://leetcode.com/problems/find-the-distinct-difference-array/
 struct FindTheDistinctDifferenceArray {
   func distinctDifferenceArray(_ nums: [Int]) -> [Int] {
-    var prefixDistinct: Set<Int> = []
-    var suffixDistinct: Set<Int> = []
-    var prefixCounts: [Int] = []
-    var suffixCounts: [Int] = []
-    for i in nums.indices {
-      prefixDistinct.insert(nums[i])
-      prefixCounts.append(prefixDistinct.count)
-      suffixDistinct.insert(nums[nums.count-i-1])
-      suffixCounts.append(suffixDistinct.count)
+    var suffix: [Int: Int] = [:]
+    for num in nums {
+      suffix[num, default: 0] += 1
     }
 
-    let totalDistinct = prefixDistinct.count
-    var distinceDifferences: [Int] = []
-    for i in nums.indices.dropLast() {
-      let distinctDifference = prefixCounts[i]-suffixCounts.reversed()[i+1]
-      distinceDifferences.append(distinctDifference)
+    var prefix: [Int: Int] = [:]
+    var result: [Int] = []
+    for num in nums {
+      prefix[num, default: 0] += 1
+      suffix[num, default: 0] -= 1
+      if suffix[num] == 0 {
+        suffix.removeValue(forKey: num)
+      }
+      result.append(prefix.count-suffix.count)
     }
-    distinceDifferences.append(totalDistinct)
-
-    return distinceDifferences
+    return result
   }
 }
