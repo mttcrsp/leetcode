@@ -107,7 +107,7 @@ func main() async {
 
   var paddedQuestionFrontendId = question.questionFrontendId
   if paddedQuestionFrontendId.count < 4 {
-    paddedQuestionFrontendId = String(repeating: "0", count: 4 - paddedQuestionFrontendId.count) + paddedQuestionFrontendId
+    paddedQuestionFrontendId = String(repeating: "0", count: 4-paddedQuestionFrontendId.count)+paddedQuestionFrontendId
   }
 
   let fileManager = FileManager.default
@@ -129,7 +129,7 @@ func main() async {
   let testCases = minimumExampleTestCases.split(separator: "\n").enumerated().map { i, example -> String in
     var testCaseName = testFunctionName
     let testCaseNameInitial = testCaseName.removeFirst()
-    testCaseName = "test\(testCaseNameInitial.uppercased())\(testCaseName)\(i + 1)"
+    testCaseName = "test\(testCaseNameInitial.uppercased())\(testCaseName)\(i+1)"
     return """
       func \(testCaseName)() {
         let input = \(example)
@@ -150,8 +150,9 @@ func main() async {
     """.utf8
   )
 
-  guard fileManager.createFile(atPath: sourcePath, contents: sourceContents),
-        fileManager.createFile(atPath: testPath, contents: testContents)
+  guard
+    fileManager.createFile(atPath: sourcePath, contents: sourceContents),
+    fileManager.createFile(atPath: testPath, contents: testContents)
   else {
     fatalError("Unable to generate files for the specified question.")
   }
