@@ -3,17 +3,16 @@ struct DeleteTheMiddleNodeOfALinkedList {
   func deleteMiddle(_ head: ListNode?) -> ListNode? {
     guard head?.next != nil else { return nil }
 
-    var nodes: [ListNode] = []
-    var node = head
-    while let current = node {
-      nodes.append(current)
-      node = node?.next
+    var slow = head
+    var fast = head
+    var prev: ListNode?
+    while fast?.next != nil {
+      fast = fast?.next?.next
+      prev = slow
+      slow = slow?.next
     }
 
-    let mid = nodes.count/2
-    let middleNode = nodes[mid]
-    let middleNodePrev = nodes[mid-1]
-    middleNodePrev.next = middleNode.next
+    prev?.next = slow?.next
     return head
   }
 }
