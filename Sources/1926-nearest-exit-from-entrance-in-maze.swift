@@ -1,3 +1,5 @@
+import Collections
+
 /// https://leetcode.com/problems/nearest-exit-from-entrance-in-maze/
 struct NearestExitFromEntranceInMaze {
   func nearestExit(_ maze: [[Character]], _ entrance: [Int]) -> Int {
@@ -10,11 +12,9 @@ struct NearestExitFromEntranceInMaze {
     }
 
     let entrance = Coordinate(x: entrance[1], y: entrance[0])
-    let queue = Queue<(Coordinate, Int)>()
-    queue.push((entrance, 0))
-
+    var queue: Deque = [(entrance, 0)]
     var visited: Set<Coordinate> = []
-    while let (position, distance) = queue.pop() {
+    while let (position, distance) = queue.popFirst() {
       guard !visited.contains(position) else { continue }
       visited.insert(position)
 
@@ -23,47 +23,12 @@ struct NearestExitFromEntranceInMaze {
         if !isInside(neighbour), position != entrance {
           return distance
         } else if isInside(neighbour), location(at: neighbour) == "." {
-          queue.push((neighbour, distance+1))
+          queue.append((neighbour, distance+1))
         }
       }
     }
 
     return -1
-  }
-
-  class Queue<Value> {
-    var head: Node?
-    var tail: Node?
-
-    func push(_ value: Value) {
-      let node = Node(value)
-      if head == nil {
-        head = node
-        tail = node
-      } else {
-        tail?.next = node
-        tail = tail?.next
-      }
-    }
-
-    func pop() -> Value? {
-      let value = head?.value
-      if tail === head {
-        head = nil
-        tail = nil
-      } else {
-        head = head?.next
-      }
-      return value
-    }
-
-    class Node {
-      let value: Value
-      var next: Node?
-      init(_ value: Value) {
-        self.value = value
-      }
-    }
   }
 
   struct Coordinate: Hashable {
