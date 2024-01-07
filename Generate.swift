@@ -138,7 +138,11 @@ let testContents = Data("""
   """.utf8
 )
 
+let commitPath = URL(filePath: "/tmp/leetcode-commit-message.txt").path
+let commitContents = Data("\(question.questionFrontendId). \(question.title)".utf8)
+
 guard
   fileManager.createFile(atPath: sourcePath, contents: sourceContents),
-  fileManager.createFile(atPath: testPath, contents: testContents)
+  fileManager.createFile(atPath: testPath, contents: testContents),
+  fileManager.createFile(atPath: commitPath, contents: commitContents)
 else { fatalError("Unable to generate files for the specified question.") }
