@@ -1,23 +1,15 @@
 /// https://leetcode.com/problems/range-sum-of-bst/
 struct RangeSumOfBst {
   func rangeSumBST(_ root: TreeNode?, _ low: Int, _ high: Int) -> Int {
-    guard let root else { return 0 }
-
+    let range = low ... high
     var sum = 0
-    var unvisited = [root]
-    while !unvisited.isEmpty {
-      let node = unvisited.removeLast()
-      if node.val >= low, node.val <= high {
-        sum += node.val
-      }
-      if let left = node.left {
-        unvisited.append(left)
-      }
-      if let right = node.right {
-        unvisited.append(right)
-      }
+    func visit(_ node: TreeNode?) {
+      guard let node else { return }
+      sum += range.contains(node.val) ? node.val : 0
+      visit(node.left)
+      visit(node.right)
     }
-
+    visit(root)
     return sum
   }
 }
