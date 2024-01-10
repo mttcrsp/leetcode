@@ -1,31 +1,27 @@
+import Collections
 @testable
 import Leetcode
 
 extension TreeNode {
-  static func makeTree(with values: [Int?]) -> TreeNode? {
-    let nodes = values.map { value -> TreeNode? in
-      if let value {
-        TreeNode(value)
-      } else {
-        nil
-      }
-    }
+  convenience init?(_ values: [Int?]) {
+    var values = Deque(values)
 
-    for (i, node) in nodes.enumerated() {
-      let lhsIndex = (i*2)+1
-      let rhsIndex = (i*2)+2
-      if nodes.indices.contains(lhsIndex) {
-        node?.left = nodes[lhsIndex]
-      }
-      if nodes.indices.contains(rhsIndex) {
-        node?.right = nodes[rhsIndex]
-      }
-    }
+    guard case let first?? = values.popFirst()
+    else { return nil }
+    self.init(first)
 
-    if let node = nodes.first {
-      return node
-    } else {
-      return nil
+    var queue: Deque = [self]
+    while let node = queue.popFirst(), !values.isEmpty {
+      if case let val?? = values.popFirst() {
+        let child = TreeNode(val)
+        node.left = child
+        queue.append(child)
+      }
+      if case let val?? = values.popFirst() {
+        let child = TreeNode(val)
+        node.right = child
+        queue.append(child)
+      }
     }
   }
 }

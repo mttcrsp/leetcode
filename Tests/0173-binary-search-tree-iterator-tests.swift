@@ -4,7 +4,7 @@ import XCTest
 
 final class BinarySearchTreeIteratorTests: XCTestCase {
   func testBstIterator1() {
-    let iterator = BSTIterator(TreeNode.makeTree(with: [7, 3, 15, nil, nil, 9, 20]))
+    let iterator = BSTIterator(TreeNode([7, 3, 15, nil, nil, 9, 20]))
     XCTAssertEqual(iterator.next(), 3)
     XCTAssertEqual(iterator.next(), 7)
     XCTAssertTrue(iterator.hasNext())
