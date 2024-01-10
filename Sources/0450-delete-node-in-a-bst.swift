@@ -1,30 +1,27 @@
 /// https://leetcode.com/problems/delete-node-in-a-bst/
 struct DeleteNodeInABst {
-  func deleteNode(_ node: TreeNode?, _ key: Int) -> TreeNode? {
-    var sorted: [TreeNode] = []
+  func deleteNode(_ root: TreeNode?, _ key: Int) -> TreeNode? {
+    guard let root else { return nil }
 
-    func visit(_ node: TreeNode?) {
-      if let node {
-        visit(node.left)
-        sorted.append(node)
-        visit(node.right)
+    if key < root.val {
+      root.left = deleteNode(root.left, key)
+    } else if key > root.val {
+      root.right = deleteNode(root.right, key)
+    } else {
+      if root.left == nil {
+        return root.right
+      } else if root.right == nil {
+        return root.left
+      } else {
+        var successor = root.right!
+        while let node = successor.left {
+          successor = node
+        }
+        root.val = successor.val
+        root.right = deleteNode(root.right, root.val)
       }
     }
 
-    visit(node)
-
-    sorted.removeAll { node in
-      node.val == key
-    }
-
-    for i in sorted.indices.dropLast() {
-      sorted.last?.left = nil
-      sorted[i].right = sorted[i+1]
-    }
-
-    sorted.last?.left = nil
-    sorted.last?.right = nil
-
-    return sorted.first
+    return root
   }
 }
