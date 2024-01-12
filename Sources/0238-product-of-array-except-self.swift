@@ -1,18 +1,18 @@
 /// https://leetcode.com/problems/product-of-array-except-self/
 struct ProductOfArrayExceptSelf {
-  func productExceptSelf(_ numbers: [Int]) -> [Int] {
-    var result = [Int](repeating: 1, count: numbers.count)
+  func productExceptSelf(_ nums: [Int]) -> [Int] {
+    var result = [Int](repeating: 1, count: nums.count)
+    var prefixProduct = 1
+    var suffixProduct = 1
 
-    var prefix = 1
-    for i in 0 ..< numbers.count {
-      result[i] = prefix
-      prefix *= numbers[i]
+    for i in nums.indices {
+      result[i] = prefixProduct
+      prefixProduct *= nums[i]
     }
 
-    var postfix = 1
-    for i in stride(from: numbers.count-1, to: -1, by: -1) {
-      result[i] *= postfix
-      postfix *= numbers[i]
+    for i in nums.indices.reversed() {
+      result[i] *= suffixProduct
+      suffixProduct *= nums[i]
     }
 
     return result
