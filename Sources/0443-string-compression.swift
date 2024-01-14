@@ -1,31 +1,27 @@
 /// https://leetcode.com/problems/string-compression/
 struct StringCompression {
   func compress(_ chars: inout [Character]) -> Int {
-    let indices = chars.indices
+    var compressedIndex = 0
+    var index = 0
+    while index < chars.count {
+      let character = chars[index]
 
-    var count = 1
-    for (lhs, rhs) in zip(indices, indices.dropFirst()).reversed() {
-      if chars[lhs] == chars[rhs] {
-        chars.remove(at: rhs)
+      var count = 0
+      while index < chars.count, chars[index] == character {
+        index += 1
         count += 1
-      } else if count > 1 {
-        chars.insert(count, at: rhs+1)
-        count = 1
+      }
+
+      chars[compressedIndex] = character
+      compressedIndex += 1
+      if count > 1 {
+        for digit in String(count) {
+          chars[compressedIndex] = digit
+          compressedIndex += 1
+        }
       }
     }
 
-    if count > 1 {
-      chars.insert(count, at: 1)
-    }
-
-    return chars.count
-  }
-}
-
-private extension [Character] {
-  mutating func insert(_ value: Int, at index: Index) {
-    let valueString = String(describing: value)
-    let valueCharacters = Array(valueString)
-    insert(contentsOf: valueCharacters, at: index)
+    return compressedIndex
   }
 }
