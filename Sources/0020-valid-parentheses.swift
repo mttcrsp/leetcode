@@ -5,7 +5,7 @@ struct ValidParentheses {
     let closing: [Character: Character] = [
       ")": "(", "]": "[", "}": "{",
     ]
-    
+
     var stack: [Character] = []
     for character in s {
       if opening.contains(character) {
