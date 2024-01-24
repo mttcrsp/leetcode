@@ -1,28 +1,34 @@
 /// https://leetcode.com/problems/remove-nodes-from-linked-list/
 struct RemoveNodesFromLinkedList {
   func removeNodes(_ head: ListNode?) -> ListNode? {
-    var values: [Int] = []
-    var node = head
-    while let current = node {
-      values.append(current.val)
-      node = node?.next
-    }
+    let tail = reverseNodes(head)
 
-    for i in values.indices.dropLast().reversed() {
-      if values[i] < values[i+1] {
-        values.remove(at: i)
+    var lhs = tail
+    var mid = tail?.next
+    var rhs = tail?.next?.next
+    while mid != nil {
+      if mid != nil, lhs != nil, mid!.val < lhs!.val {
+        lhs?.next = rhs
+      } else {
+        lhs = lhs?.next
       }
+
+      mid = mid?.next
+      rhs = rhs?.next
     }
 
-    var nodes: [ListNode] = []
-    for value in values {
-      nodes.append(ListNode(value))
-    }
+    return reverseNodes(tail)
+  }
 
-    for i in nodes.indices.dropLast() {
-      nodes[i].next = nodes[i+1]
+  func reverseNodes(_ head: ListNode?) -> ListNode? {
+    var prev: ListNode?
+    var curr: ListNode? = head
+    while curr != nil {
+      let node = curr?.next
+      curr?.next = prev
+      prev = curr
+      curr = node
     }
-
-    return nodes.first
+    return prev
   }
 }
