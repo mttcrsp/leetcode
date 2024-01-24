@@ -79,7 +79,7 @@ for rhsIndex in questionStructName.indices.dropFirst().reversed() {
   }
 }
 
-let questionFunctionNameRegex = try! NSRegularExpression(pattern: #"func (?<target>\w+)\("#)
+let questionFunctionNameRegex = try! NSRegularExpression(pattern: #"func (?<target>\w+)[ ]*\("#)
 
 let stringRange = NSRange(location: 0, length: swiftSnippet.code.utf16.count)
 guard let matchRange = questionFunctionNameRegex.firstMatch(in: swiftSnippet.code, range: stringRange)
