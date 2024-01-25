@@ -16,4 +16,4 @@ struct RansomNote {
 
     return true
   }
-  }
+}
