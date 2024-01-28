@@ -65,7 +65,7 @@ struct Templates {
   func prefixSum(_ arr: [Int]) -> [Int] {
     var prefix = [arr[0]]
     for i in arr.indices.dropFirst() {
-      prefix.append(prefix[-1]+arr[i])
+      prefix.append(prefix[i-1]+arr[i])
     }
 
     return prefix
