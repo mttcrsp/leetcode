@@ -2,27 +2,31 @@
 struct EvaluateReversePolishNotation {
   func evalRPN(_ tokens: [String]) -> Int {
     var stack: [Int] = []
-
-    func perform(_ operation: (Int, Int) -> Int) {
-      let rhs = stack.removeLast()
-      let lhs = stack.removeLast()
-      stack.append(operation(lhs, rhs))
-    }
-
     for token in tokens {
-      if let integer = Int(token) {
-        stack.append(integer)
-      } else if token == "+" {
-        perform(+)
-      } else if token == "-" {
-        perform(-)
-      } else if token == "*" {
-        perform(*)
-      } else if token == "/" {
-        perform(/)
+      if let operation = Operation(rawValue: token) {
+        let rhs = stack.removeLast()
+        let lhs = stack.removeLast()
+        stack.append(operation.perform(lhs, rhs))
+      } else if let value = Int(token) {
+        stack.append(value)
       }
     }
+    return stack[0]
+  }
 
-    return stack.last!
+  enum Operation: String {
+    case addition = "+"
+    case subtraction = "-"
+    case multiplication = "*"
+    case division = "/"
+
+    var perform: (Int, Int) -> Int {
+      switch self {
+      case .addition: (+)
+      case .subtraction: (-)
+      case .multiplication: (*)
+      case .division: (/)
+      }
+    }
   }
 }
