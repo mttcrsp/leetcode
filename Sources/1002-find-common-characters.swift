@@ -1,26 +1,42 @@
 /// https://leetcode.com/problems/find-common-characters/
 struct FindCommonCharacters {
-  func commonChars(_ strings: [String]) -> [String] {
-    var occurrencesInStrings = [[Character: Int]](repeating: [:], count: strings.count)
-    for (index, string) in strings.enumerated() {
-      for character in string {
-        occurrencesInStrings[index][character, default: 0] += 1
+  func commonChars(_ words: [String]) -> [String] {
+    guard let first = words.first else { return [] }
+
+    var commonFreqs = frequencies(in: first)
+    for word in words.dropFirst() {
+      commonFreqs.intersect(frequencies(in: word))
+    }
+
+    var commonChars: [String] = []
+    for (character, count) in commonFreqs {
+      for _ in 0 ..< count {
+        commonChars.append(String(character))
       }
     }
 
-    var charactersCounts: [Character: [Int]] = [:]
-    for occurrences in occurrencesInStrings {
-      for (character, count) in occurrences {
-        charactersCounts[character, default: []].append(count)
-      }
+    return commonChars
+  }
+
+  private func frequencies(in word: String) -> [Character: Int] {
+    var frequencies: [Character: Int] = [:]
+    for character in word {
+      frequencies[character, default: 0] += 1
     }
 
-    var result: [String] = []
-    for (character, counts) in charactersCounts {
-      if counts.count == strings.count, let min = counts.min() {
-        result.append(contentsOf: [String](repeating: "\(character)", count: min))
+    return frequencies
+  }
+}
+
+private extension [Character: Int] {
+  mutating func intersect(_ other: [Character: Int]) {
+    for (character, characterCount) in self {
+      let otherCount = other[character, default: 0]
+      if otherCount > 0 {
+        self[character] = Swift.min(characterCount, otherCount)
+      } else {
+        self[character] = nil
       }
     }
-    return result
   }
 }
