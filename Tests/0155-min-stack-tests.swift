@@ -3,7 +3,7 @@ import Leetcode
 import XCTest
 
 final class MinStackTests: XCTestCase {
-  func testTestPush1() {
+  func testPush1() {
     let minStack = MinStack()
     minStack.push(-2)
     minStack.push(0)

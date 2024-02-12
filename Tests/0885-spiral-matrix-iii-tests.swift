@@ -3,13 +3,13 @@ import Leetcode
 import XCTest
 
 final class SpiralMatrixIiiTests: XCTestCase {
-  func testTestSpiralmatrixiii1() {
+  func testSpiralmatrixiii1() {
     let input = (1, 4, 0, 0)
     let output = [[0, 0], [0, 1], [0, 2], [0, 3]]
     XCTAssertEqual(SpiralMatrixIii().spiralMatrixIII(input.0, input.1, input.2, input.3), output)
   }
 
-  func testTestSpiralmatrixiii5() {
+  func testSpiralmatrixiii5() {
     let input = (5, 6, 1, 4)
     let output = [[1, 4], [1, 5], [2, 5], [2, 4], [2, 3], [1, 3], [0, 3], [0, 4], [0, 5], [3, 5], [3, 4], [3, 3], [3, 2], [2, 2], [1, 2], [0, 2], [4, 5], [4, 4], [4, 3], [4, 2], [4, 1], [3, 1], [2, 1], [1, 1], [0, 1], [4, 0], [3, 0], [2, 0], [1, 0], [0, 0]]
     XCTAssertEqual(SpiralMatrixIii().spiralMatrixIII(input.0, input.1, input.2, input.3), output)

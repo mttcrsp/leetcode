@@ -3,7 +3,7 @@ import Leetcode
 import XCTest
 
 final class ReorderListTests: XCTestCase {
-  func testTestReorderlist1() {
+  func testReorderlist1() {
     let input = [1, 2, 3, 4]
     let head = ListNode.makeList(input)
     ReorderList().reorderList(head)
@@ -14,7 +14,7 @@ final class ReorderListTests: XCTestCase {
     XCTAssertNil(head?.next?.next?.next?.next)
   }
 
-  func testTestReorderlist2() {
+  func testReorderlist2() {
     let input = [1, 2, 3, 4, 5]
     let head = ListNode.makeList(input)
     ReorderList().reorderList(head)
@@ -26,7 +26,7 @@ final class ReorderListTests: XCTestCase {
     XCTAssertNil(head?.next?.next?.next?.next?.next)
   }
 
-  func testTestReorderlist3() {
+  func testReorderlist3() {
     let input = [1]
     let head = ListNode.makeList(input)
     ReorderList().reorderList(head)

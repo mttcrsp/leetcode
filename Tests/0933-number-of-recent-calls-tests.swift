@@ -3,7 +3,7 @@ import Leetcode
 import XCTest
 
 final class NumberOfRecentCallsTests: XCTestCase {
-  func testTestPing1() {
+  func testPing1() {
     let counter = RecentCounter()
     XCTAssertEqual(counter.ping(1), 1)
     XCTAssertEqual(counter.ping(100), 2)

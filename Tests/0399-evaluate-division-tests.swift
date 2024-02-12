@@ -3,7 +3,7 @@ import Leetcode
 import XCTest
 
 final class EvaluateDivisionTests: XCTestCase {
-  func testTestCalcequation1() {
+  func testCalcequation1() {
     let input = (
       [["a", "b"], ["b", "c"]],
       [2.0, 3.0],
@@ -16,7 +16,7 @@ final class EvaluateDivisionTests: XCTestCase {
     }
   }
 
-  func testTestCalcequation2() {
+  func testCalcequation2() {
     let input = (
       [["a", "b"], ["b", "c"], ["bc", "cd"]],
       [1.5, 2.5, 5.0],
@@ -29,7 +29,7 @@ final class EvaluateDivisionTests: XCTestCase {
     }
   }
 
-  func testTestCalcequation3() {
+  func testCalcequation3() {
     let input = (
       [["a", "b"]],
       [0.5],
@@ -42,7 +42,7 @@ final class EvaluateDivisionTests: XCTestCase {
     }
   }
 
-  func testTestCalcequation4() {
+  func testCalcequation4() {
     let input = (
       [["a", "b"], ["c", "b"], ["d", "b"], ["w", "x"], ["y", "x"], ["z", "x"], ["w", "d"]],
       [2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0],

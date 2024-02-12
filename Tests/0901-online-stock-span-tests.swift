@@ -3,7 +3,7 @@ import Leetcode
 import XCTest
 
 final class OnlineStockSpanTests: XCTestCase {
-  func testTestNext1() {
+  func testNext1() {
     let spanner = StockSpanner()
     XCTAssertEqual(spanner.next(100), 1)
     XCTAssertEqual(spanner.next(80), 1)

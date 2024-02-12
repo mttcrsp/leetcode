@@ -3,7 +3,7 @@ import Leetcode
 import XCTest
 
 final class DesignAddAndSearchWordsDataStructureTests: XCTestCase {
-  func testTestAddword1() {
+  func testAddword1() {
     let dictionary = WordDictionary()
     dictionary.addWord("bad")
     dictionary.addWord("dad")

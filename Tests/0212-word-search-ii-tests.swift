@@ -3,7 +3,7 @@ import Leetcode
 import XCTest
 
 final class WordSearchIiTests: XCTestCase {
-  func testTestFindwords1() {
+  func testFindwords1() {
     let input = (
       [
         ["o", "a", "a", "n"],
@@ -17,7 +17,7 @@ final class WordSearchIiTests: XCTestCase {
     XCTAssertEqual(Set(WordSearchIi().findWords(input.0, input.1)), Set(output))
   }
 
-  func testTestFindwords2() {
+  func testFindwords2() {
     let input = (
       [
         ["a", "b"],
@@ -29,7 +29,7 @@ final class WordSearchIiTests: XCTestCase {
     XCTAssertEqual(Set(WordSearchIi().findWords(input.0, input.1)), Set(output))
   }
 
-  func testTestFindwords3() {
+  func testFindwords3() {
     let input = (
       [
         ["o", "a", "a", "n"],

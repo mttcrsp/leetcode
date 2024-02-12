@@ -3,37 +3,37 @@ import Leetcode
 import XCTest
 
 final class ValidParenthesesTests: XCTestCase {
-  func testTestIsvalid1() {
+  func testIsvalid1() {
     let input = "()"
     let output = true
     XCTAssertEqual(ValidParentheses().isValid(input), output)
   }
 
-  func testTestIsvalid2() {
+  func testIsvalid2() {
     let input = "()[]{}"
     let output = true
     XCTAssertEqual(ValidParentheses().isValid(input), output)
   }
 
-  func testTestIsvalid3() {
+  func testIsvalid3() {
     let input = "(]"
     let output = false
     XCTAssertEqual(ValidParentheses().isValid(input), output)
   }
 
-  func testTestIsvalid4() {
+  func testIsvalid4() {
     let input = "{[()()]}"
     let output = true
     XCTAssertEqual(ValidParentheses().isValid(input), output)
   }
 
-  func testTestIsvalid5() {
+  func testIsvalid5() {
     let input = "())"
     let output = false
     XCTAssertEqual(ValidParentheses().isValid(input), output)
   }
 
-  func testTestIsvalid6() {
+  func testIsvalid6() {
     let input = "((()"
     let output = false
     XCTAssertEqual(ValidParentheses().isValid(input), output)

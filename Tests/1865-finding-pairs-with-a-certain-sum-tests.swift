@@ -3,7 +3,7 @@ import Leetcode
 import XCTest
 
 final class FindingPairsWithACertainSumTests: XCTestCase {
-  func testTestAdd1() {
+  func testAdd1() {
     let pairs = FindSumPairs(
       [1, 1, 2, 2, 2, 3],
       [1, 4, 5, 2, 5, 4]

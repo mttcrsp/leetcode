@@ -3,7 +3,7 @@ import Leetcode
 import XCTest
 
 final class MaximumProfitInJobSchedulingTests: XCTestCase {
-  func testTestJobscheduling1() {
+  func testJobscheduling1() {
     let input = (
       [1, 2, 3, 3],
       [3, 4, 5, 6],
@@ -13,7 +13,7 @@ final class MaximumProfitInJobSchedulingTests: XCTestCase {
     XCTAssertEqual(MaximumProfitInJobScheduling().jobScheduling(input.0, input.1, input.2), output)
   }
 
-  func testTestJobscheduling2() {
+  func testJobscheduling2() {
     let input = (
       [1, 2, 3, 4, 6],
       [3, 5, 10, 6, 9],
@@ -23,7 +23,7 @@ final class MaximumProfitInJobSchedulingTests: XCTestCase {
     XCTAssertEqual(MaximumProfitInJobScheduling().jobScheduling(input.0, input.1, input.2), output)
   }
 
-  func testTestJobscheduling3() {
+  func testJobscheduling3() {
     let input = (
       [1, 1, 1],
       [2, 3, 4],
@@ -33,7 +33,7 @@ final class MaximumProfitInJobSchedulingTests: XCTestCase {
     XCTAssertEqual(MaximumProfitInJobScheduling().jobScheduling(input.0, input.1, input.2), output)
   }
 
-  func testTestJobscheduling4() {
+  func testJobscheduling4() {
     let input = (
       [4, 2, 4, 8, 2],
       [5, 5, 5, 10, 8],

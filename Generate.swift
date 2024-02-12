@@ -111,11 +111,10 @@ let minimumExampleTestCases = !question.exampleTestcases.isEmpty
   ? question.exampleTestcases
   : "0"
 
-let testFunctionName = "test\(questionFunctionName.capitalized)"
 let testName = "\(paddedQuestionFrontendId)-\(questionTitleSlug)-tests.swift"
 let testPath = (testsPath as NSString).appendingPathComponent(testName)
 let testCases = minimumExampleTestCases.split(separator: "\n").enumerated().map { i, example -> String in
-  var testCaseName = testFunctionName
+  var testCaseName = questionFunctionName
   let testCaseNameInitial = testCaseName.removeFirst()
   testCaseName = "test\(testCaseNameInitial.uppercased())\(testCaseName)\(i+1)"
   return """

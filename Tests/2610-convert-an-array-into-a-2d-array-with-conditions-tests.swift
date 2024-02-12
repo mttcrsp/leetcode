@@ -3,7 +3,7 @@ import Leetcode
 import XCTest
 
 final class ConvertAnArrayIntoA2DArrayWithConditionsTests: XCTestCase {
-  func testTestFindmatrix1() {
+  func testFindmatrix1() {
     let input = [1, 3, 4, 1, 2, 3, 1]
     let output = [[1, 3, 4, 2], [1, 3], [1]]
     XCTAssertEqual(
@@ -12,7 +12,7 @@ final class ConvertAnArrayIntoA2DArrayWithConditionsTests: XCTestCase {
     )
   }
 
-  func testTestFindmatrix2() {
+  func testFindmatrix2() {
     let input = [1, 2, 3, 4]
     let output = [[4, 3, 2, 1]]
     XCTAssertEqual(

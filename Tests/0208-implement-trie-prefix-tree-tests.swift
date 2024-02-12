@@ -3,7 +3,7 @@ import Leetcode
 import XCTest
 
 final class ImplementTriePrefixTreeTests: XCTestCase {
-  func testTestInsert1() {
+  func testInsert1() {
     let trie = Trie()
     trie.insert("apple")
     XCTAssertTrue(trie.search("apple"))

@@ -3,13 +3,13 @@ import Leetcode
 import XCTest
 
 final class RedistributeCharactersToMakeAllStringsEqualTests: XCTestCase {
-  func testTestMakeequal1() {
+  func testMakeequal1() {
     let input = ["abc", "aabc", "bc"]
     let output = true
     XCTAssertEqual(RedistributeCharactersToMakeAllStringsEqual().makeEqual(input), output)
   }
 
-  func testTestMakeequal2() {
+  func testMakeequal2() {
     let input = ["ab", "a"]
     let output = false
     XCTAssertEqual(RedistributeCharactersToMakeAllStringsEqual().makeEqual(input), output)

@@ -3,7 +3,7 @@ import Leetcode
 import XCTest
 
 final class SameTreeTests: XCTestCase {
-  func testTestIssametree1() {
+  func testIssametree1() {
     let input = ([1, 2, 3], [1, 2, 3])
     let output = true
     let lhs = TreeNode(input.0)
@@ -11,7 +11,7 @@ final class SameTreeTests: XCTestCase {
     XCTAssertEqual(SameTree().isSameTree(lhs, rhs), output)
   }
 
-  func testTestIssametree3() {
+  func testIssametree3() {
     let input = ([1, 2], [1, nil, 2])
     let output = false
     let lhs = TreeNode(input.0)
@@ -19,7 +19,7 @@ final class SameTreeTests: XCTestCase {
     XCTAssertEqual(SameTree().isSameTree(lhs, rhs), output)
   }
 
-  func testTestIssametree5() {
+  func testIssametree5() {
     let input = ([1, 2, 1], [1, 1, 2])
     let output = false
     let lhs = TreeNode(input.0)

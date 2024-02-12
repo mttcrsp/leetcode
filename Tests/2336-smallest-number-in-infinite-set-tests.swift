@@ -3,7 +3,7 @@ import Leetcode
 import XCTest
 
 final class SmallestNumberInInfiniteSetTests: XCTestCase {
-  func testTestPopsmallest1() {
+  func testPopsmallest1() {
     let input = (
       ["SmallestInfiniteSet", "addBack", "popSmallest", "popSmallest", "popSmallest", "addBack", "popSmallest", "popSmallest", "popSmallest"],
       [[], [2], [], [], [], [1], [], [], []]

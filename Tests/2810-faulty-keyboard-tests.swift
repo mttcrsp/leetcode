@@ -3,43 +3,43 @@ import Leetcode
 import XCTest
 
 final class FaultyKeyboardTests: XCTestCase {
-  func testTestFinalstring1() {
+  func testFinalstring1() {
     let input = "string"
     let output = "rtsng"
     XCTAssertEqual(FaultyKeyboard().finalString(input), output)
   }
 
-  func testTestFinalstring2() {
+  func testFinalstring2() {
     let input = "poiinter"
     let output = "ponter"
     XCTAssertEqual(FaultyKeyboard().finalString(input), output)
   }
 
-  func testTestFinalstring3() {
+  func testFinalstring3() {
     let input = "something"
     let output = "htemosng"
     XCTAssertEqual(FaultyKeyboard().finalString(input), output)
   }
 
-  func testTestFinalstring4() {
+  func testFinalstring4() {
     let input = "finalfailed"
     let output = "aflanfled"
     XCTAssertEqual(FaultyKeyboard().finalString(input), output)
   }
 
-  func testTestFinalstring5() {
+  func testFinalstring5() {
     let input = "asiiiasiiidf"
     let output = "saasdf"
     XCTAssertEqual(FaultyKeyboard().finalString(input), output)
   }
 
-  func testTestFinalstring6() {
+  func testFinalstring6() {
     let input = "asikjdfhaskiiildfihaiii"
     let output = "ahksahfdjkasldf"
     XCTAssertEqual(FaultyKeyboard().finalString(input), output)
   }
 
-  func testTestFinalstring7() {
+  func testFinalstring7() {
     let input = "abicdief"
     let output = "dcabef"
     XCTAssertEqual(FaultyKeyboard().finalString(input), output)

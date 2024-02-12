@@ -3,25 +3,25 @@ import Leetcode
 import XCTest
 
 final class PowerOfThreeTests: XCTestCase {
-  func testTestIspowerofthree1() {
+  func testIspowerofthree1() {
     let input = 27
     let output = true
     XCTAssertEqual(PowerOfThree().isPowerOfThree(input), output)
   }
 
-  func testTestIspowerofthree2() {
+  func testIspowerofthree2() {
     let input = 0
     let output = false
     XCTAssertEqual(PowerOfThree().isPowerOfThree(input), output)
   }
 
-  func testTestIspowerofthree3() {
+  func testIspowerofthree3() {
     let input = 9
     let output = true
     XCTAssertEqual(PowerOfThree().isPowerOfThree(input), output)
   }
 
-  func testTestIspowerofthree4() {
+  func testIspowerofthree4() {
     let input = 1
     let output = true
     XCTAssertEqual(PowerOfThree().isPowerOfThree(input), output)

@@ -3,67 +3,67 @@ import Leetcode
 import XCTest
 
 final class RemoveLetterToEqualizeFrequencyTests: XCTestCase {
-  func testTestEqualfrequency1() {
+  func testEqualFrequency1() {
     let input = "abcc"
     let output = true
     XCTAssertEqual(RemoveLetterToEqualizeFrequency().equalFrequency(input), output)
   }
 
-  func testTestEqualfrequency2() {
+  func testEqualFrequency2() {
     let input = "aazz"
     let output = false
     XCTAssertEqual(RemoveLetterToEqualizeFrequency().equalFrequency(input), output)
   }
 
-  func testTestEqualfrequency3() {
+  func testEqualFrequency3() {
     let input = "ddaccb"
     let output = false
     XCTAssertEqual(RemoveLetterToEqualizeFrequency().equalFrequency(input), output)
   }
 
-  func testTestEqualfrequency4() {
+  func testEqualFrequency4() {
     let input = "cccaa"
     let output = true
     XCTAssertEqual(RemoveLetterToEqualizeFrequency().equalFrequency(input), output)
   }
 
-  func testTestEqualfrequency5() {
+  func testEqualFrequency5() {
     let input = "aa"
     let output = true
     XCTAssertEqual(RemoveLetterToEqualizeFrequency().equalFrequency(input), output)
   }
 
-  func testTestEqualfrequency6() {
+  func testEqualFrequency6() {
     let input = "bac"
     let output = true
     XCTAssertEqual(RemoveLetterToEqualizeFrequency().equalFrequency(input), output)
   }
 
-  func testTestEqualfrequency7() {
+  func testEqualFrequency7() {
     let input = "bac"
     let output = true
     XCTAssertEqual(RemoveLetterToEqualizeFrequency().equalFrequency(input), output)
   }
 
-  func testTestEqualfrequency8() {
+  func testEqualFrequency8() {
     let input = "aachqpawxanqdkcdycjkewbmiavafhrzzfxrolfbqvywqoiqzdgopjngpgnwiguitudbawbyxputjafdkfgrojdokj"
     let output = false
     XCTAssertEqual(RemoveLetterToEqualizeFrequency().equalFrequency(input), output)
   }
 
-  func testTestEqualfrequency9() {
+  func testEqualFrequency9() {
     let input = "zz"
     let output = true
     XCTAssertEqual(RemoveLetterToEqualizeFrequency().equalFrequency(input), output)
   }
 
-  func testTestEqualfrequency10() {
+  func testEqualFrequency10() {
     let input = "aazz"
     let output = false
     XCTAssertEqual(RemoveLetterToEqualizeFrequency().equalFrequency(input), output)
   }
 
-  func testTestEqualfrequency11() {
+  func testEqualFrequency11() {
     let input = "cccd"
     let output = true
     XCTAssertEqual(RemoveLetterToEqualizeFrequency().equalFrequency(input), output)
