@@ -10,17 +10,25 @@ final class MyQueue {
 
   func pop() -> Int {
     let otherStack = Stack<Int>()
-    while stack.count > 1 { otherStack.push(stack.pop()) }
+    while stack.count > 1 {
+      otherStack.push(stack.pop())
+    }
     let value = stack.pop()
-    while !otherStack.isEmpty { stack.push(otherStack.pop()) }
+    while !otherStack.isEmpty {
+      stack.push(otherStack.pop())
+    }
     return value
   }
 
   func peek() -> Int {
     let otherStack = Stack<Int>()
-    while stack.count > 1 { otherStack.push(stack.pop()) }
+    while stack.count > 1 {
+      otherStack.push(stack.pop())
+    }
     let value = stack.peek()
-    while !otherStack.isEmpty { stack.push(otherStack.pop()) }
+    while !otherStack.isEmpty {
+      stack.push(otherStack.pop())
+    }
     return value
   }
 
