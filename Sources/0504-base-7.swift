@@ -1,20 +1,16 @@
 /// https://leetcode.com/problems/base-7/
 struct Base7 {
   func convertToBase7(_ num: Int) -> String {
-    if num == 0 { return "0" }
-    let isNegative = num < 0
-
+    var i = 1
     var remainder = abs(num)
-    var result = ""
-    while remainder != 0 {
-      result += "\(remainder%7)"
+    var value = 0
+    while remainder > 0 {
+      value += (remainder%7)*i
       remainder /= 7
+      i *= 10
     }
 
-    if isNegative {
-      return "-"+result.reversed()
-    } else {
-      return String(result.reversed())
-    }
+    let signum = num < 0 ? "-" : ""
+    return "\(signum)\(value)"
   }
 }
