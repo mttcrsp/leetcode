@@ -1,22 +1,14 @@
 /// https://leetcode.com/problems/long-pressed-name/
 struct LongPressedName {
   func isLongPressedName(_ name: String, _ typed: String) -> Bool {
-    var i = 0
-
-    for character in typed {
-      if i < name.count, character == name.character(at: i) {
-        i += 1
-      } else if i <= 0 || i > name.count || character != name.character(at: i-1) {
+    var nameIndex = name.startIndex
+    for typedIndex in typed.indices {
+      if nameIndex < name.endIndex, name[nameIndex] == typed[typedIndex] {
+        nameIndex = name.index(after: nameIndex)
+      } else if typedIndex == typed.startIndex || typed[typedIndex] != typed[typed.index(before: typedIndex)] {
         return false
       }
     }
-
-    return i == name.count
-  }
-}
-
-private extension String {
-  func character(at integerIndex: Int) -> Character { // only safe of ascii strings
-    self[index(startIndex, offsetBy: integerIndex)]
+    return nameIndex == name.endIndex
   }
 }
