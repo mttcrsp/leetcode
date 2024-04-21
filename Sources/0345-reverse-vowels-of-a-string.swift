@@ -6,22 +6,20 @@ struct ReverseVowelsOfAString {
       "A", "E", "I", "O", "U",
     ]
 
-    var s = s
-    var lhs = s.startIndex
-    var rhs = s.index(before: s.endIndex)
-    while lhs < rhs {
-      let lhsChar = s[lhs]
-      let rhsChar = s[rhs]
-      guard vowels.contains(lhsChar)
-      else { lhs = s.index(after: lhs); continue }
-      guard vowels.contains(rhsChar)
-      else { rhs = s.index(before: rhs); continue }
-      s.replaceSubrange(lhs ... lhs, with: [rhsChar])
-      s.replaceSubrange(rhs ... rhs, with: [lhsChar])
-      lhs = s.index(after: lhs)
-      rhs = s.index(before: rhs)
+    var index = s.endIndex
+    var result = ""
+    for var character in s {
+      if vowels.contains(character) {
+        index = s.index(before: index)
+        while !vowels.contains(s[index]) {
+          index = s.index(before: index)
+        }
+        character = s[index]
+      }
+
+      result.append(character)
     }
 
-    return s
+    return result
   }
 }
