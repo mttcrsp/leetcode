@@ -1,22 +1,21 @@
 /// https://leetcode.com/problems/rabbits-in-forest/
 struct RabbitsInForest {
   func numRabbits(_ answers: [Int]) -> Int {
-    var matchedAnswers: [Int: Int] = [:]
-    var count = 0
-
+    var counts: [Int: Int] = [:]
     for answer in answers {
-      switch (answer, matchedAnswers[answer]) {
-      case (0, _):
-        count += 1
-      case (_, .none):
-        matchedAnswers[answer] = answer; count += answer+1
-      case (_, .some(1)):
-        matchedAnswers[answer] = nil
-      case let (_, .some(count)):
-        matchedAnswers[answer] = count-1
-      }
+      counts[answer+1, default: 0] += 1
     }
 
-    return count
+    var total = 0
+    for (groupSize, count) in counts {
+      var groups = count/groupSize
+      if count%groupSize > 0 {
+        groups += 1
+      }
+
+      total += groups*groupSize
+    }
+
+    return total
   }
 }
