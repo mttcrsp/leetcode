@@ -1,62 +1,30 @@
 /// https://leetcode.com/problems/implement-queue-using-stacks/
 final class MyQueue {
-  private var stack = Stack<Int>()
+  private var stack: [Int] = []
 
   init() {}
 
-  func push(_ value: Int) {
-    stack.push(value)
+  func push(_ x: Int) {
+    var tmp: [Int] = []
+    while !stack.isEmpty {
+      tmp.append(stack.removeLast())
+    }
+
+    stack.append(x)
+    while !tmp.isEmpty {
+      stack.append(tmp.removeLast())
+    }
   }
 
   func pop() -> Int {
-    let otherStack = Stack<Int>()
-    while stack.count > 1 {
-      otherStack.push(stack.pop())
-    }
-    let value = stack.pop()
-    while !otherStack.isEmpty {
-      stack.push(otherStack.pop())
-    }
-    return value
+    stack.removeLast()
   }
 
   func peek() -> Int {
-    let otherStack = Stack<Int>()
-    while stack.count > 1 {
-      otherStack.push(stack.pop())
-    }
-    let value = stack.peek()
-    while !otherStack.isEmpty {
-      stack.push(otherStack.pop())
-    }
-    return value
+    stack.last!
   }
 
   func empty() -> Bool {
     stack.isEmpty
-  }
-}
-
-private final class Stack<T> {
-  private var array: [T] = []
-
-  func push(_ value: T) {
-    array.append(value)
-  }
-
-  func pop() -> T {
-    array.removeLast()
-  }
-
-  func peek() -> T {
-    array.last!
-  }
-
-  var count: Int {
-    array.count
-  }
-
-  var isEmpty: Bool {
-    array.isEmpty
   }
 }
