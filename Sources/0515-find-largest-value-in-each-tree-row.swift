@@ -3,21 +3,28 @@ struct FindLargestValueInEachTreeRow {
   func largestValues(_ root: TreeNode?) -> [Int] {
     guard let root else { return [] }
 
-    var largestValues: [Int] = []
-    var stack = [(root, 0)]
-    while let (node, row) = stack.popLast() {
-      if row < largestValues.count {
-        largestValues[row] = max(largestValues[row], node.val)
-      } else {
-        largestValues.append(node.val)
-      }
+    var result: [Int] = []
+    var frontier = [root]
+    while !frontier.isEmpty {
+      var max: Int!
+      defer { result.append(max) }
 
-      for child in [node.left, node.right] {
-        guard let child else { continue }
-        stack.append((child, row+1))
+      var nextFrontier: [TreeNode] = []
+      defer { frontier = nextFrontier }
+
+      for node in frontier {
+        if max == nil || max < node.val {
+          max = node.val
+        }
+        if let child = node.left {
+          nextFrontier.append(child)
+        }
+        if let child = node.right {
+          nextFrontier.append(child)
+        }
       }
     }
 
-    return largestValues
+    return result
   }
 }
