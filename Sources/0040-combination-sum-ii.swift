@@ -4,26 +4,26 @@ struct CombinationSumIi {
     let candidates = candidates.sorted()
 
     var result: [[Int]] = []
-    var current: [Int] = []
-    var currentDifference = target
-    func backtrack(_ index: Int) {
-      if currentDifference == 0 {
-        result.append(current)
-      } else if currentDifference > 0 {
+    var combination: [Int] = []
+    var sum = 0
+    func visit(_ index: Int) {
+      if sum == target {
+        result.append(combination)
+      } else if sum < target {
         var prev = -1
         for i in index ..< candidates.count {
           guard candidates[i] != prev else { continue }
-          current.append(candidates[i])
-          currentDifference -= candidates[i]
-          backtrack(i+1)
-          currentDifference += candidates[i]
-          current.removeLast()
+          combination.append(candidates[i])
+          sum += candidates[i]
+          visit(i+1)
+          sum -= candidates[i]
+          combination.removeLast()
           prev = candidates[i]
         }
       }
     }
 
-    backtrack(0)
+    visit(0)
     return result
   }
 }
