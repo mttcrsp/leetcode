@@ -1,26 +1,23 @@
 /// https://leetcode.com/problems/partition-equal-subset-sum/
 struct PartitionEqualSubsetSum {
-  func canPartition(_ numbers: [Int]) -> Bool {
-    var sum = 0
-    for number in numbers {
-      sum += number
-    }
-
-    if sum & 1 == 1 {
+  func canPartition(_ nums: [Int]) -> Bool {
+    let sum = nums.reduce(0, +)
+    guard sum%2 == 0 else {
       return false
     }
 
     let target = sum/2
-
-    var partialSums = [Bool](repeating: false, count: target+1)
-    partialSums[0] = true
-
-    for number in numbers {
-      for i in stride(from: target, through: 1, by: -1) where i >= number {
-        partialSums[i] = partialSums[i] || partialSums[i-number]
+    var dp: Set<Int> = [0]
+    for num in nums {
+      var next: Set<Int> = []
+      for sum in dp {
+        guard sum != target else { return true }
+        next.insert(sum+num)
       }
+
+      dp.formUnion(next)
     }
 
-    return partialSums[target]
+    return dp.contains(target)
   }
 }
