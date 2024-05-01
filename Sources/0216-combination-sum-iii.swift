@@ -1,21 +1,26 @@
 /// https://leetcode.com/problems/combination-sum-iii/
 struct CombinationSumIii {
   func combinationSum3(_ k: Int, _ n: Int) -> [[Int]] {
-    var combinations: [[Int]] = []
+    let candidates = Array(1 ... 9)
 
-    func visit(_ nums: [Int].SubSequence, _ k: Int, _ n: Int, _ path: [Int] = []) {
-      if k < 0 || n < 0 {
-        return
-      } else if k == 0, n == 0 {
-        combinations.append(path)
-      } else {
-        for i in nums.indices {
-          visit(nums[(i+1)...], k-1, n-nums[i], path+[nums[i]])
+    var result: [[Int]] = []
+    var combination: [Int] = []
+    var sum = 0
+    func visit(_ index: Int) {
+      if sum == n, combination.count == k {
+        result.append(combination)
+      } else if sum < n, combination.count < k {
+        for i in index ..< candidates.count {
+          combination.append(candidates[i])
+          sum += candidates[i]
+          visit(i+1)
+          sum -= candidates[i]
+          combination.removeLast()
         }
       }
     }
-    visit(Array(1 ... 9)[0 ..< 9], k, n)
 
-    return combinations
+    visit(0)
+    return result
   }
 }
