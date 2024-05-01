@@ -1,93 +1,63 @@
 /// https://leetcode.com/problems/basic-calculator-ii/
 struct BasicCalculatorIi {
   func calculate(_ s: String) -> Int {
-    var nodes: [Node] = []
+    var tokens: [Token] = []
     for character in s {
-      if let op = Operator(identifier: character) {
-        nodes.append(Node(.op(op)))
-      } else if let digit = Int(String(character)) {
-        if case let .number(previous) = nodes.last?.symbol {
-          nodes.removeLast()
-          nodes.append(Node(.number((previous*10)+digit)))
+      switch character {
+      case " ": continue
+      case "+": tokens.append(.op(character, +))
+      case "-": tokens.append(.op(character, -))
+      case "*": tokens.append(.op(character, *))
+      case "/": tokens.append(.op(character, /))
+      default:
+        guard let value = Int(String(character)) else { continue }
+        if case let .number(previous) = tokens.last {
+          tokens[tokens.count-1] = .number((previous*10)+value)
         } else {
-          nodes.append(Node(.number(digit)))
+          tokens.append(.number(value))
         }
       }
     }
 
-    for i in nodes.indices {
-      if i != nodes.startIndex {
-        nodes[i].prev = nodes[i-1]
-      }
-      if i != nodes.endIndex-1 {
-        nodes[i].next = nodes[i+1]
+    let nodes = tokens.map(Node.init)
+    for i in nodes.indices.dropLast() {
+      nodes[i].next = nodes[i+1]
+    }
+
+    for operationIDs in [["*", "/"], ["+", "-"]] as [[Character]] {
+      var node = nodes.first
+      while let current = node {
+        if
+          case let .number(value1) = current.val,
+          case let .number(value2) = current.next?.next?.val,
+          case let .op(id, fn) = current.next?.val,
+          operationIDs.contains(id)
+        {
+          current.val = .number(fn(value1, value2))
+          current.next = current.next?.next?.next
+        } else {
+          node = current.next
+        }
       }
     }
 
-    let consume: (Node) -> Void = { node in
-      if
-        case let .op(op) = node.symbol,
-        case let .number(lhs) = node.prev?.symbol,
-        case let .number(rhs) = node.next?.symbol
-      {
-        node.prev?.symbol = .number(op.function(lhs, rhs))
-        node.prev?.next = node.next?.next
-        node.next?.next?.prev = node.prev
-      }
-    }
-
-    for node in nodes {
-      if case let .op(op) = node.symbol, op.identifier == "*" || op.identifier == "/" {
-        consume(node)
-      }
-    }
-
-    for node in nodes {
-      if case let .op(op) = node.symbol, op.identifier == "+" || op.identifier == "-" {
-        consume(node)
-      }
-    }
-
-    if case let .number(number) = nodes.first?.symbol {
-      return number
+    if case let .number(result) = nodes.first?.val {
+      return result
     } else {
       return 0
     }
   }
 
-  private class Node {
-    var symbol: Symbol
-    var prev: Node?
-    var next: Node?
-
-    init(_ symbol: Symbol) {
-      self.symbol = symbol
-    }
-  }
-
-  private enum Symbol {
+  enum Token {
+    case op(Character, (Int, Int) -> Int)
     case number(Int)
-    case op(Operator)
   }
 
-  private struct Operator {
-    let identifier: Character
-    let function: (Int, Int) -> Int
-
-    init?(identifier: Character) {
-      self.identifier = identifier
-      switch identifier {
-      case "+":
-        function = { $0+$1 }
-      case "-":
-        function = { $0-$1 }
-      case "*":
-        function = { $0*$1 }
-      case "/":
-        function = { $0/$1 }
-      default:
-        return nil
-      }
+  class Node {
+    var val: Token
+    var next: Node?
+    init(_ val: Token) {
+      self.val = val
     }
   }
 }
