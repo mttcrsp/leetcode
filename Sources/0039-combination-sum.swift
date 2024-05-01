@@ -2,19 +2,23 @@
 struct CombinationSum {
   func combinationSum(_ candidates: [Int], _ target: Int) -> [[Int]] {
     var result: [[Int]] = []
-
-    func visit(offset: Int = 0, combination: [Int] = [], total: Int = 0) {
-      if total == target {
+    var combination: [Int] = []
+    var sum = 0
+    func visit(_ index: Int) {
+      if sum == target {
         result.append(combination)
-      } else if offset < candidates.count, total < target {
-        let newValue = candidates[offset]
-        visit(offset: offset, combination: combination+[newValue], total: total+newValue)
-        visit(offset: offset+1, combination: combination, total: total)
+      } else if index < candidates.count, sum < target {
+        let newValue = candidates[index]
+        combination.append(newValue)
+        sum += newValue
+        visit(index)
+        sum -= newValue
+        combination.removeLast()
+        visit(index+1)
       }
     }
 
-    visit()
-
+    visit(0)
     return result
   }
 }
