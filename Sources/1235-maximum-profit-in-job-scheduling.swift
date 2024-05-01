@@ -4,7 +4,7 @@ struct MaximumProfitInJobScheduling {
     var jobs: [Int: [Job]] = [:]
     for ((startTime, endTime), profit) in zip(zip(startTime, endTime), profit) {
       jobs[endTime, default: []].append(
-        Job(startTime: startTime, endTime: endTime, profit: profit)
+        Job(startTime: startTime, profit: profit)
       )
     }
 
@@ -43,7 +43,6 @@ struct MaximumProfitInJobScheduling {
 
   struct Job {
     let startTime: Int
-    let endTime: Int
     let profit: Int
   }
 }
