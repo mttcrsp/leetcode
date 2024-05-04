@@ -2,13 +2,14 @@
 struct ReverseLinkedList {
   func reverseList(_ head: ListNode?) -> ListNode? {
     var prev: ListNode?
-    var curr: ListNode? = head
+    var curr = head
     while curr != nil {
-      let node = curr?.next
+      let next = curr?.next
       curr?.next = prev
       prev = curr
-      curr = node
+      curr = next
     }
+
     return prev
   }
 }
