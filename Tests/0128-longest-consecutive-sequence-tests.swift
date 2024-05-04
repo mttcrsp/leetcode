@@ -20,4 +20,10 @@ final class LongestConsecutiveSequenceTests: XCTestCase {
     let output = 0
     XCTAssertEqual(LongestConsecutiveSequence().longestConsecutive(input), output)
   }
+
+  func testLongestconsecutive4() {
+    let input = [1, 2, 0, 1]
+    let output = 3
+    XCTAssertEqual(LongestConsecutiveSequence().longestConsecutive(input), output)
+  }
 }

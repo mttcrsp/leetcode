@@ -1,16 +1,22 @@
 /// https://leetcode.com/problems/longest-consecutive-sequence/
 struct LongestConsecutiveSequence {
-  func longestConsecutive(_ numbers: [Int]) -> Int {
-    let numbers = Set(numbers)
+  func longestConsecutive(_ nums: [Int]) -> Int {
+    guard !nums.isEmpty else { return 0 }
 
-    var max = 0
-    for number in numbers where !numbers.contains(number-1) {
-      var count = 1
-      while numbers.contains(number+count) {
-        count += 1
+    let nums = nums.sorted()
+    var longest = 1
+    var current = 1
+    for i in nums.indices.dropFirst() {
+      if nums[i] == nums[i-1]+1 {
+        current += 1
+        longest = max(longest, current)
+      } else if nums[i] == nums[i-1] {
+        continue
+      } else {
+        current = 1
       }
-      max = Swift.max(max, count)
     }
-    return max
+
+    return longest
   }
 }
