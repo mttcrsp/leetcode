@@ -1,10 +1,11 @@
 /// https://leetcode.com/problems/contains-duplicate/
 struct ContainsDuplicate {
-  func containsDuplicate(_ numbers: [Int]) -> Bool {
-    var encountered: Set<Int> = []
-    for number in numbers {
-      guard !encountered.contains(number) else { return true }
-      encountered.insert(number)
+  func containsDuplicate(_ nums: [Int]) -> Bool {
+    var known: Set<Int> = []
+    for nums in nums {
+      if !known.insert(nums).inserted {
+        return true
+      }
     }
     return false
   }
