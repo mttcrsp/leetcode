@@ -1,17 +1,16 @@
 /// https://leetcode.com/problems/hamming-distance/
 struct HammingDistance {
   func hammingDistance(_ x: Int, _ y: Int) -> Int {
-    var result = 0
+    var distance = 0
     var x = x
     var y = y
-
     while x > 0 || y > 0 {
-      let isLeastSignificantBitDifferent = x%2 != y%2
-      if isLeastSignificantBitDifferent { result += 1 }
+      if x & 1 != y & 1 {
+        distance += 1
+      }
       x = x >> 1
       y = y >> 1
     }
-
-    return result
+    return distance
   }
 }
