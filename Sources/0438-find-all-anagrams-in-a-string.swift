@@ -30,7 +30,7 @@ struct FindAllAnagramsInAString {
   }
 }
 
-extension [Character: Int] {
+private extension [Character: Int] {
   mutating func increment(_ key: Character) {
     let oldValue = self[key, default: 0]
     let newValue = oldValue+1
