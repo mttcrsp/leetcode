@@ -20,4 +20,10 @@ final class SearchInRotatedSortedArrayTests: XCTestCase {
     let output = -1
     XCTAssertEqual(SearchInRotatedSortedArray().search(input.0, input.1), output)
   }
+
+  func testSearch4() {
+    let input = ([1, 3, 5], 3)
+    let output = 1
+    XCTAssertEqual(SearchInRotatedSortedArray().search(input.0, input.1), output)
+  }
 }
