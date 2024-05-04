@@ -32,4 +32,10 @@ final class LongestRepeatingCharacterReplacementTests: XCTestCase {
     let output = 6
     XCTAssertEqual(LongestRepeatingCharacterReplacement().characterReplacement(input.0, input.1), output)
   }
+
+  func testCharacterReplacement6() {
+    let input = ("BAAAB", 2)
+    let output = 5
+    XCTAssertEqual(LongestRepeatingCharacterReplacement().characterReplacement(input.0, input.1), output)
+  }
 }
