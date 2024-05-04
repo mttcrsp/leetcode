@@ -1,18 +1,15 @@
 /// https://leetcode.com/problems/license-key-formatting/
 struct LicenseKeyFormatting {
-  func licenseKeyFormatting(_ S: String, _ K: Int) -> String {
-    var alphanumericsCount = 0
+  func licenseKeyFormatting(_ s: String, _ k: Int) -> String {
     var result = ""
-    for character in S.reversed() where character != "-" {
-      result.append(character.uppercased())
-      alphanumericsCount += 1
-      if alphanumericsCount%K == 0 {
+    var groupCount = 0
+    for character in s.reversed() where character != "-" {
+      if groupCount == 0, !result.isEmpty {
         result.append("-")
       }
-    }
-
-    if result.last == "-" {
-      result.removeLast()
+      result.append(character.uppercased())
+      groupCount += 1
+      groupCount %= k
     }
 
     return String(result.reversed())
