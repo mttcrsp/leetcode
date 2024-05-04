@@ -1,5 +1,3 @@
-import Foundation
-
 /// https://leetcode.com/problems/valid-palindrome/
 struct ValidPalindrome {
   func isPalindrome(_ s: String) -> Bool {
