@@ -1,21 +1,20 @@
 /// https://leetcode.com/problems/subtree-of-another-tree/
 struct SubtreeOfAnotherTree {
   func isSubtree(_ root: TreeNode?, _ subRoot: TreeNode?) -> Bool {
-    guard let subRoot else { return true }
+    guard let root
+    else { return false }
 
-    var stack = [root]
-    while !stack.isEmpty {
-      guard let node = stack.removeLast() else {
-        continue
-      }
+    guard !isSameTree(root, subRoot)
+    else { return true }
 
-      if node.val == subRoot.val, SameTree().isSameTree(node, subRoot) {
-        return true
-      }
+    return
+      isSubtree(root.left, subRoot) ||
+      isSubtree(root.right, subRoot)
+  }
 
-      stack.append(node.left)
-      stack.append(node.right)
-    }
-    return false
+  private func isSameTree(_ lhs: TreeNode?, _ rhs: TreeNode?) -> Bool {
+    guard lhs != nil || rhs != nil else { return true }
+    guard lhs?.val == rhs?.val else { return false }
+    return isSameTree(lhs?.left, rhs?.left) && isSameTree(lhs?.right, rhs?.right)
   }
 }
