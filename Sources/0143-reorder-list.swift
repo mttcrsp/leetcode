@@ -1,21 +1,34 @@
 /// https://leetcode.com/problems/reorder-list/
 struct ReorderList {
   func reorderList(_ head: ListNode?) {
-    var nodes: [ListNode] = []
-    var node = head
-    while let current = node {
-      nodes.append(current)
-      node = current.next
+    var fast = head
+    var slow = head
+    while fast?.next != nil {
+      fast = fast?.next?.next
+      slow = slow?.next
     }
 
-    node = head
-    for i in nodes.indices {
-      if i%2 == 0 {
-        node?.next = nodes[nodes.count-1-(i/2)]
-      } else {
-        node?.next = nodes[(i+1)/2]
-      }
-      node = node?.next
+    var prev: ListNode?
+    var curr = slow
+    while curr != nil {
+      let next = curr?.next
+      curr?.next = prev
+      prev = curr
+      curr = next
+    }
+
+    var lhs = head
+    var rhs = prev
+    var node: ListNode?
+    while lhs != nil, rhs != nil {
+      let lhsNext = lhs?.next
+      let rhsNext = rhs?.next
+      node?.next = lhs
+      node = lhs
+      node?.next = rhs
+      node = rhs
+      lhs = lhsNext
+      rhs = rhsNext
     }
     node?.next = nil
   }
