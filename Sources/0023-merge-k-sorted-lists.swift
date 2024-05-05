@@ -1,45 +1,37 @@
-import Collections
-
 /// https://leetcode.com/problems/merge-k-sorted-lists/
 struct MergeKSortedLists {
   func mergeKLists(_ lists: [ListNode?]) -> ListNode? {
-    let containers = lists.compactMap { list in
-      if let list {
-        Container(node: list)
-      } else {
-        nil
-      }
+    var head: ListNode?
+    for list in lists {
+      head = mergeLists(head, list)
     }
+    return head
+  }
 
-    var heap = Heap(containers)
+  func mergeLists(_ lhs: ListNode?, _ rhs: ListNode?) -> ListNode? {
+    var lhs = lhs
+    var rhs = rhs
     var head: ListNode?
     var curr: ListNode? {
       didSet { head = head ?? curr }
     }
 
-    while let minContainer = heap.popMin() {
-      curr?.next = minContainer.node
-      curr = minContainer.node
-      if let next = minContainer.node.next {
-        heap.insert(Container(node: next))
+    func consume(_ list: inout ListNode?) {
+      curr?.next = list
+      curr = list
+      list = list?.next
+    }
+
+    loop: while true {
+      switch (lhs, rhs) {
+      case let (node1?, node2?) where node1.val < node2.val: consume(&lhs)
+      case (.some, .some): consume(&rhs)
+      case (.none, .some): consume(&rhs)
+      case (.some, .none): consume(&lhs)
+      case (.none, .none): break loop
       }
     }
 
     return head
-  }
-
-  private final class Container: Equatable, Comparable {
-    var node: ListNode
-    init(node: ListNode) {
-      self.node = node
-    }
-
-    static func == (_ lhs: Container, _ rhs: Container) -> Bool {
-      lhs.node.val == rhs.node.val
-    }
-
-    static func < (_ lhs: Container, _ rhs: Container) -> Bool {
-      lhs.node.val < rhs.node.val
-    }
   }
 }
