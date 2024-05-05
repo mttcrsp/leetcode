@@ -23,4 +23,10 @@ final class RemoveNthNodeFromEndOfListTests: XCTestCase {
     let output = RemoveNthNodeFromEndOfList().removeNthFromEnd(input.0, input.1)
     XCTAssertEqual(output?.val, 1)
   }
+
+  func testRemoveNthFromEnd4() {
+    let input = (ListNode.makeList([1, 2]), 2)
+    let output = RemoveNthNodeFromEndOfList().removeNthFromEnd(input.0, input.1)
+    XCTAssertEqual(output?.val, 2)
+  }
 }
