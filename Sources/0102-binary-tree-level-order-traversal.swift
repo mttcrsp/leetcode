@@ -2,19 +2,21 @@
 struct BinaryTreeLevelOrderTraversal {
   func levelOrder(_ root: TreeNode?) -> [[Int]] {
     guard let root else { return [] }
-
-    var frontier: [TreeNode] = [root]
     var result: [[Int]] = []
-
-    while !frontier.isEmpty {
-      result.append(frontier.map(\.val))
-
-      var nextFrontier: [TreeNode] = []
-      for node in frontier {
-        if let node = node.left { nextFrontier.append(node) }
-        if let node = node.right { nextFrontier.append(node) }
+    var stack = [(root, 0)]
+    while let (node, level) = stack.popLast() {
+      if level == result.count {
+        result.append([node.val])
+      } else {
+        result[level].append(node.val)
       }
-      frontier = nextFrontier
+
+      if let child = node.right {
+        stack.append((child, level+1))
+      }
+      if let child = node.left {
+        stack.append((child, level+1))
+      }
     }
 
     return result
