@@ -16,4 +16,11 @@ final class KthSmallestElementInABstTests: XCTestCase {
     let tree = TreeNode(input.0)
     XCTAssertEqual(KthSmallestElementInABst().kthSmallest(tree, input.1), output)
   }
+
+  func testKthsmallest3() {
+    let input = ([1, nil, 2], 2)
+    let output = 2
+    let tree = TreeNode(input.0)
+    XCTAssertEqual(KthSmallestElementInABst().kthSmallest(tree, input.1), output)
+  }
 }
