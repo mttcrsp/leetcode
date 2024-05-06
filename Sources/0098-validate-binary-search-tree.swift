@@ -1,20 +1,18 @@
 /// https://leetcode.com/problems/validate-binary-search-tree/
 struct ValidateBinarySearchTree {
   func isValidBST(_ root: TreeNode?) -> Bool {
-    var stack: [(TreeNode?, Int, Int)] = [(root, Int.min, Int.max)]
+    func visit(_ node: TreeNode?, _ lhs: Int, _ rhs: Int) -> Bool {
+      guard let node
+      else { return true }
 
-    while !stack.isEmpty {
-      let (node, lowerbound, upperbound) = stack.removeLast()
-      guard let node else { continue }
+      guard lhs < node.val, node.val < rhs
+      else { return false }
 
-      if lowerbound+1 <= upperbound-1, lowerbound+1 ... upperbound-1 ~= node.val {
-        stack.append((node.left, lowerbound, node.val))
-        stack.append((node.right, node.val, upperbound))
-      } else {
-        return false
-      }
+      return
+        visit(node.left, lhs, node.val) &&
+        visit(node.right, node.val, rhs)
     }
 
-    return true
+    return visit(root, .min, .max)
   }
 }
