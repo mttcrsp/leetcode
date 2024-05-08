@@ -11,12 +11,12 @@ struct Response: Codable {
       let questionFrontendId: String
       let title: String
       let titleSlug: String
-      let content: String
+      let content: String?
       let difficulty: String
       let exampleTestcases: String
       let categoryTitle: String
       let topicTags: [TopicTag]
-      let codeSnippets: [CodeSnippet]
+      let codeSnippets: [CodeSnippet]?
 
       struct TopicTag: Codable {
         let name: String
@@ -66,32 +66,6 @@ else { fatalError("Unexpected response received: '\(httpResponse.statusCode)'") 
 let decoder = JSONDecoder()
 let decoded = try decoder.decode(Response.self, from: data)
 let question = decoded.data.question
-guard let swiftSnippet = question.codeSnippets.first(where: { $0.langSlug == "swift" })
-else { fatalError("No Swift specific code snippet found.") }
-
-var questionStructName = questionTitleSlug.capitalized
-for rhsIndex in questionStructName.indices.dropFirst().reversed() {
-  let lhsIndex = questionStructName.index(before: rhsIndex)
-  let rhs = questionStructName[rhsIndex]
-  let lhs = questionStructName[lhsIndex]
-  if lhs == "-" {
-    questionStructName.replaceSubrange(lhsIndex ... rhsIndex, with: rhs.uppercased())
-  }
-}
-
-let questionFunctionNameRegex = try! NSRegularExpression(pattern: #"func (?<target>\w+)[ ]*\("#)
-
-let stringRange = NSRange(location: 0, length: swiftSnippet.code.utf16.count)
-guard let matchRange = questionFunctionNameRegex.firstMatch(in: swiftSnippet.code, range: stringRange)
-else { fatalError("No function name found in code snippet.") }
-
-let groupRange = matchRange.range(withName: "target")
-guard let swiftGroupRange = Range(groupRange, in: swiftSnippet.code)
-else { fatalError("No function name found in code snippet.") }
-
-let questionFunctionName = swiftSnippet.code[swiftGroupRange]
-let questionSnippet = swiftSnippet.code
-  .replacingOccurrences(of: "class Solution", with: "/// https://leetcode.com/problems/\(questionTitleSlug)/\nstruct \(questionStructName)")
 
 var paddedQuestionFrontendId = question.questionFrontendId
 if paddedQuestionFrontendId.count < 4 {
@@ -100,42 +74,71 @@ if paddedQuestionFrontendId.count < 4 {
 
 let fileManager = FileManager.default
 let path = fileManager.currentDirectoryPath as NSString
-let testsPath = path.appendingPathComponent("Tests")
-let sourcesPath = path.appendingPathComponent("Sources")
 
+let sourcesPath = path.appendingPathComponent("Sources")
 let sourceName = "\(paddedQuestionFrontendId)-\(questionTitleSlug).swift"
 let sourcePath = (sourcesPath as NSString).appendingPathComponent(sourceName)
-let sourceContents = Data(questionSnippet.utf8)
 
-let minimumExampleTestCases = !question.exampleTestcases.isEmpty
-  ? question.exampleTestcases
-  : "0"
-
+let testsPath = path.appendingPathComponent("Tests")
 let testName = "\(paddedQuestionFrontendId)-\(questionTitleSlug)-tests.swift"
 let testPath = (testsPath as NSString).appendingPathComponent(testName)
-let testCases = minimumExampleTestCases.split(separator: "\n").enumerated().map { i, example -> String in
-  var testCaseName = questionFunctionName
-  let testCaseNameInitial = testCaseName.removeFirst()
-  testCaseName = "test\(testCaseNameInitial.uppercased())\(testCaseName)\(i+1)"
-  return """
-    func \(testCaseName)() {
-      let input = \(example)
-      let output = 0
-      XCTAssertEqual(\(questionStructName)().\(questionFunctionName)(input), output)
+
+var sourceContents = Data()
+var testContents = Data()
+if let swiftSnippet = question.codeSnippets?.first(where: { $0.langSlug == "swift" }) {
+  var questionStructName = questionTitleSlug.capitalized
+  for rhsIndex in questionStructName.indices.dropFirst().reversed() {
+    let lhsIndex = questionStructName.index(before: rhsIndex)
+    let rhs = questionStructName[rhsIndex]
+    let lhs = questionStructName[lhsIndex]
+    if lhs == "-" {
+      questionStructName.replaceSubrange(lhsIndex ... rhsIndex, with: rhs.uppercased())
     }
-  """
-}.joined(separator: "\n\n")
-
-let testContents = Data("""
-  @testable
-  import Leetcode
-  import XCTest
-
-  final class \(questionStructName)Tests: XCTestCase {
-  \(testCases)
   }
-  """.utf8
-)
+
+  let questionFunctionNameRegex = try! NSRegularExpression(pattern: #"func (?<target>\w+)[ ]*\("#)
+
+  let stringRange = NSRange(location: 0, length: swiftSnippet.code.utf16.count)
+  guard let matchRange = questionFunctionNameRegex.firstMatch(in: swiftSnippet.code, range: stringRange)
+  else { fatalError("No function name found in code snippet.") }
+
+  let groupRange = matchRange.range(withName: "target")
+  guard let swiftGroupRange = Range(groupRange, in: swiftSnippet.code)
+  else { fatalError("No function name found in code snippet.") }
+
+  let questionFunctionName = swiftSnippet.code[swiftGroupRange]
+  let questionSnippet = swiftSnippet.code
+    .replacingOccurrences(of: "class Solution", with: "/// https://leetcode.com/problems/\(questionTitleSlug)/\nstruct \(questionStructName)")
+  sourceContents = Data(questionSnippet.utf8)
+
+  let minimumExampleTestCases = !question.exampleTestcases.isEmpty
+    ? question.exampleTestcases
+    : "0"
+
+  let testCases = minimumExampleTestCases.split(separator: "\n").enumerated().map { i, example -> String in
+    var testCaseName = questionFunctionName
+    let testCaseNameInitial = testCaseName.removeFirst()
+    testCaseName = "test\(testCaseNameInitial.uppercased())\(testCaseName)\(i+1)"
+    return """
+      func \(testCaseName)() {
+        let input = \(example)
+        let output = 0
+        XCTAssertEqual(\(questionStructName)().\(questionFunctionName)(input), output)
+      }
+    """
+  }.joined(separator: "\n\n")
+
+  testContents = Data("""
+    @testable
+    import Leetcode
+    import XCTest
+
+    final class \(questionStructName)Tests: XCTestCase {
+    \(testCases)
+    }
+    """.utf8
+  )
+}
 
 let commitPath = URL(filePath: "/tmp/leetcode-commit-message.txt").path
 let commitContents = Data("\(question.questionFrontendId). \(question.title)".utf8)
