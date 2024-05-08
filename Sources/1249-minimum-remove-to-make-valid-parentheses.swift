@@ -1,26 +1,31 @@
 /// https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/
 struct MinimumRemoveToMakeValidParentheses {
-  func minRemoveToMakeValid(_ string: String) -> String {
-    var stack: [(index: Int, character: Character)] = []
-    for (i, character) in string.enumerated() {
+  func minRemoveToMakeValid(_ s: String) -> String {
+    var result = ""
+    var unmatched: [String.Index] = []
+    var index = s.startIndex
+    while index < s.endIndex {
+      defer { index = s.index(after: index) }
+
+      let character = s[index]
       switch character {
       case "(":
-        stack.append((i, character))
+        unmatched.append(result.endIndex)
+        result.append(character)
       case ")":
-        if stack.last?.character == "(" {
-          stack.removeLast()
-        } else {
-          stack.append((i, character))
+        if !unmatched.isEmpty {
+          unmatched.removeLast()
+          result.append(character)
         }
-      default:
-        continue
+      case _:
+        result.append(character)
       }
     }
 
-    var result = Array(string)
-    for (index, _) in stack.reversed() {
+    for index in unmatched.reversed() {
       result.remove(at: index)
     }
-    return String(result)
+
+    return result
   }
 }
