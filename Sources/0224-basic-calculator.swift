@@ -42,16 +42,11 @@ struct BasicCalculator {
     var expression: Expression = []
     for character in string {
       switch character {
-      case " ":
-        continue
-      case "+":
-        expression.append(.plus)
-      case "-":
-        expression.append(.minus)
-      case "(":
-        expression.append(.openParenthesis)
-      case ")":
-        expression.append(.closeParenthesis)
+      case " ": continue
+      case "+": expression.append(.plus)
+      case "-": expression.append(.minus)
+      case "(": expression.append(.openParenthesis)
+      case ")": expression.append(.closeParenthesis)
       case _:
         guard let digit = Int(String(character)) else {
           continue
