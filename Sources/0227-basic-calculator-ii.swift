@@ -1,63 +1,37 @@
 /// https://leetcode.com/problems/basic-calculator-ii/
 struct BasicCalculatorIi {
   func calculate(_ s: String) -> Int {
-    var tokens: [Token] = []
-    for character in s {
-      switch character {
-      case " ": continue
-      case "+": tokens.append(.op(character, +))
-      case "-": tokens.append(.op(character, -))
-      case "*": tokens.append(.op(character, *))
-      case "/": tokens.append(.op(character, /))
-      default:
-        guard let value = Int(String(character)) else { continue }
-        if case let .number(previous) = tokens.last {
-          tokens[tokens.count-1] = .number((previous*10)+value)
-        } else {
-          tokens.append(.number(value))
+    let operators: Set<Character> = ["+", "-", "*", "/"]
+
+    var result = 0
+    var previous = 0
+    var `operator`: Character = "+"
+    var index = s.startIndex
+    while index < s.endIndex {
+      let character = s[index]
+      if Int(String(character)) != nil {
+        var number = 0
+        while index < s.endIndex, let digit = Int(String(s[index])) {
+          number = 10*number+digit
+          index = s.index(after: index)
         }
-      }
-    }
+        index = s.index(before: index)
 
-    let nodes = tokens.map(Node.init)
-    for i in nodes.indices.dropLast() {
-      nodes[i].next = nodes[i+1]
-    }
-
-    for operationIDs in [["*", "/"], ["+", "-"]] as [[Character]] {
-      var node = nodes.first
-      while let current = node {
-        if
-          case let .number(value1) = current.val,
-          case let .number(value2) = current.next?.next?.val,
-          case let .op(id, fn) = current.next?.val,
-          operationIDs.contains(id)
-        {
-          current.val = .number(fn(value1, value2))
-          current.next = current.next?.next?.next
-        } else {
-          node = current.next
+        let tmp = result
+        switch `operator` {
+        case "+": result = result+number; previous = tmp
+        case "-": result = result-number; previous = tmp
+        case "*": result = previous+((result-previous)*number)
+        case "/": result = previous+((result-previous)/number)
+        default: assertionFailure("unexpected operator '\(`operator`)'")
         }
+      } else if operators.contains(character) {
+        `operator` = character
       }
+
+      index = s.index(after: index)
     }
 
-    if case let .number(result) = nodes.first?.val {
-      return result
-    } else {
-      return 0
-    }
-  }
-
-  enum Token {
-    case op(Character, (Int, Int) -> Int)
-    case number(Int)
-  }
-
-  class Node {
-    var val: Token
-    var next: Node?
-    init(_ val: Token) {
-      self.val = val
-    }
+    return result
   }
 }
