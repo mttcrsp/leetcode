@@ -1,22 +1,28 @@
+import Collections
+
 /// https://leetcode.com/problems/binary-tree-right-side-view/
 struct BinaryTreeRightSideView {
   func rightSideView(_ root: TreeNode?) -> [Int] {
-    var rightSideView: [Int] = []
+    guard let root else { return [] }
 
-    func postOrderVisit(_ node: TreeNode?, at level: Int) {
-      guard let node else { return }
-
-      if level < rightSideView.count {
-        rightSideView[level] = node.val
-      } else {
-        rightSideView.insert(node.val, at: level)
+    var result: [Int] = []
+    var queue: Deque = [root]
+    while !queue.isEmpty {
+      let levelCount = queue.count
+      for i in 0 ..< levelCount {
+        let node = queue.removeFirst()
+        if i == levelCount-1 {
+          result.append(node.val)
+        }
+        if let child = node.left {
+          queue.append(child)
+        }
+        if let child = node.right {
+          queue.append(child)
+        }
       }
-      postOrderVisit(node.left, at: level+1)
-      postOrderVisit(node.right, at: level+1)
     }
 
-    postOrderVisit(root, at: 0)
-
-    return rightSideView
+    return result
   }
 }
