@@ -1,25 +1,34 @@
+import Collections
+
 /// https://leetcode.com/problems/top-k-frequent-elements/
 struct TopKFrequentElements {
-  func topKFrequent(_ numbers: [Int], _ k: Int) -> [Int] {
-    var occurrences: [Int: Int] = [:]
-    for number in numbers {
-      occurrences[number, default: 0] += 1
+  func topKFrequent(_ nums: [Int], _ k: Int) -> [Int] {
+    var counts: [Int: Int] = [:]
+    for num in nums {
+      counts[num, default: 0] += 1
     }
 
-    var counts = [[Int]](repeating: [], count: numbers.count)
-    for (number, count) in occurrences {
-      counts[count-1].append(number)
+    var heap: Heap<Count> = []
+    for (num, count) in counts {
+      heap.insert(.init(num: num, count: count))
+      if heap.count > k {
+        _ = heap.removeMin()
+      }
     }
 
     var result: [Int] = []
-    for numbers in counts.reversed() where !numbers.isEmpty {
-      for number in numbers where result.count < k {
-        result.append(number)
-        if result.count == k {
-          return result
-        }
-      }
+    while let count = heap.popMax() {
+      result.append(count.num)
     }
+
     return result
+  }
+
+  struct Count: Comparable {
+    let num: Int
+    let count: Int
+    static func < (_ lhs: Count, _ rhs: Count) -> Bool {
+      lhs.count < rhs.count
+    }
   }
 }
