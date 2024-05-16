@@ -1,41 +1,19 @@
 /// https://leetcode.com/problems/merge-intervals/
 struct MergeIntervals {
   func merge(_ intervals: [[Int]]) -> [[Int]] {
-    let sortedIntervals = intervals.sorted { lhs, rhs in
-      lhs.start < rhs.start
+    let intervals = intervals.sorted { lhs, rhs in
+      lhs[0] < rhs[0]
     }
 
-    var result: [Interval] = []
-    for interval in sortedIntervals {
-      guard let previousInterval = result.last else {
-        result.append(interval)
-        continue
-      }
-
-      let isOverlapping = interval.start <= previousInterval.end
-      if isOverlapping {
-        let newIntervalStart = previousInterval.start
-        let newIntervalEnd = max(interval.end, previousInterval.end)
-        let newInterval = [newIntervalStart, newIntervalEnd]
-        result.removeLast()
-        result.append(newInterval)
+    var result: [[Int]] = []
+    for curr in intervals {
+      if let prev = result.last, curr[0] <= prev[1] {
+        result[result.count-1][1] = max(curr[1], prev[1])
       } else {
-        result.append(interval)
+        result.append(curr)
       }
     }
 
     return result
-  }
-}
-
-private typealias Interval = [Int]
-
-private extension Interval {
-  var start: Int {
-    self[0]
-  }
-
-  var end: Int {
-    self[1]
   }
 }
