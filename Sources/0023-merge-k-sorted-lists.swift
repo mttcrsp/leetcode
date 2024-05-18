@@ -1,34 +1,45 @@
 /// https://leetcode.com/problems/merge-k-sorted-lists/
 struct MergeKSortedLists {
   func mergeKLists(_ lists: [ListNode?]) -> ListNode? {
-    var head: ListNode?
-    for list in lists {
-      head = mergeLists(head, list)
+    var lists = lists
+    while lists.count > 1 {
+      var newLists: [ListNode?] = []
+      for i in stride(from: 0, to: lists.count, by: 2) {
+        if i+1 < lists.count {
+          newLists.append(mergeLists(lists[i], lists[i+1]))
+        } else {
+          newLists.append(lists[i])
+        }
+      }
+      lists = newLists
     }
-    return head
+
+    if let result = lists.first {
+      return result
+    } else {
+      return nil
+    }
   }
 
   func mergeLists(_ lhs: ListNode?, _ rhs: ListNode?) -> ListNode? {
     var lhs = lhs
     var rhs = rhs
     var head: ListNode?
-    var curr: ListNode? {
-      didSet { head = head ?? curr }
-    }
+    var tail: ListNode? { didSet { head = head ?? tail } }
 
     func consume(_ list: inout ListNode?) {
-      curr?.next = list
-      curr = list
+      tail?.next = list
+      tail = list
       list = list?.next
     }
 
-    loop: while true {
-      switch (lhs, rhs) {
-      case let (node1?, node2?) where node1.val < node2.val: consume(&lhs)
-      case (.some, .some): consume(&rhs)
-      case (.none, .some): consume(&rhs)
-      case (.some, .none): consume(&lhs)
-      case (.none, .none): break loop
+    while lhs != nil || rhs != nil {
+      let lhsVal = lhs?.val ?? .max
+      let rhsVal = rhs?.val ?? .max
+      if lhsVal < rhsVal {
+        consume(&lhs)
+      } else {
+        consume(&rhs)
       }
     }
 

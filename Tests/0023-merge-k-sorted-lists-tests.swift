@@ -20,4 +20,10 @@ final class MergeKSortedListsTests: XCTestCase {
     let output: ListNode? = nil
     XCTAssertEqual(MergeKSortedLists().mergeKLists(input), output)
   }
+
+  func testMergeKLists4() {
+    let input = [[], [1]].map(ListNode.init)
+    let output = ListNode([1])
+    XCTAssertEqual(MergeKSortedLists().mergeKLists(input), output)
+  }
 }
