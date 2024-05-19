@@ -7,12 +7,12 @@ struct BusRoutes {
 
     let routes = routes.map(Set.init)
 
-    var adjacencyList: [Int: Set<Int>] = [:]
+    var graph: [Int: Set<Int>] = [:]
     for i in 0 ..< routes.count-1 {
       for j in i+1 ..< routes.count {
         if !routes[i].isDisjoint(with: routes[j]) {
-          adjacencyList[i, default: []].insert(j)
-          adjacencyList[j, default: []].insert(i)
+          graph[i, default: []].insert(j)
+          graph[j, default: []].insert(i)
         }
       }
     }
@@ -33,7 +33,7 @@ struct BusRoutes {
         return distance
       }
 
-      for next in adjacencyList[id, default: []] {
+      for next in graph[id, default: []] {
         frontier.append((next, distance+1))
       }
     }

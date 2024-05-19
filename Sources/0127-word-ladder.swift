@@ -12,14 +12,14 @@ struct WordLadder {
       }
     }
 
-    var adjacencyList: [String: Set<String>] = [:]
+    var graph: [String: Set<String>] = [:]
     for (_, wordList) in patterns where wordList.count > 1 {
       for i in wordList.indices {
         for j in wordList.indices where i != j {
           let wordI = wordList[i]
           let wordJ = wordList[j]
-          adjacencyList[wordI, default: []].insert(wordJ)
-          adjacencyList[wordJ, default: []].insert(wordI)
+          graph[wordI, default: []].insert(wordJ)
+          graph[wordJ, default: []].insert(wordI)
         }
       }
     }
@@ -34,7 +34,7 @@ struct WordLadder {
         return length
       }
 
-      for neighbour in adjacencyList[word, default: []] {
+      for neighbour in graph[word, default: []] {
         queue.append((neighbour, length+1))
       }
     }

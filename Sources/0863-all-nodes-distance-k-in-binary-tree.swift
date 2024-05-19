@@ -4,17 +4,17 @@ struct AllNodesDistanceKInBinaryTree {
     guard let root, let target
     else { return [] }
 
-    var adjacencyList: [Int: [Int]] = [:]
-    func populateAdjacencyList(_ node: TreeNode = root) {
+    var graph: [Int: [Int]] = [:]
+    func populategraph(_ node: TreeNode = root) {
       for child in [node.left, node.right] {
         if let child {
-          adjacencyList[child.val, default: []].append(node.val)
-          adjacencyList[node.val, default: []].append(child.val)
-          populateAdjacencyList(child)
+          graph[child.val, default: []].append(node.val)
+          graph[node.val, default: []].append(child.val)
+          populategraph(child)
         }
       }
     }
-    populateAdjacencyList()
+    populategraph()
 
     var k = k
     var visited: Set<Int> = []
@@ -22,7 +22,7 @@ struct AllNodesDistanceKInBinaryTree {
     while !frontier.isEmpty, k > 0 {
       var newFrontier: Set<Int> = []
       for element in frontier {
-        for neighbour in adjacencyList[element, default: []] {
+        for neighbour in graph[element, default: []] {
           if !visited.contains(neighbour) {
             newFrontier.insert(neighbour)
           }

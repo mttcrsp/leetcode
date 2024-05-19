@@ -3,12 +3,12 @@ import Collections
 /// https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/
 struct AmountOfTimeForBinaryTreeToBeInfected {
   func amountOfTime(_ root: TreeNode?, _ start: Int) -> Int {
-    var adjacencyList: [Int: Set<Int>] = [:]
+    var graph: [Int: Set<Int>] = [:]
     var stack = [(root?.left, root), (root?.right, root)]
     while let (node, parent) = stack.popLast() {
       guard let node, let parent else { continue }
-      adjacencyList[node.val, default: []].insert(parent.val)
-      adjacencyList[parent.val, default: []].insert(node.val)
+      graph[node.val, default: []].insert(parent.val)
+      graph[parent.val, default: []].insert(node.val)
       stack.append((node.left, node))
       stack.append((node.right, node))
     }
@@ -21,7 +21,7 @@ struct AmountOfTimeForBinaryTreeToBeInfected {
       visited.insert(val)
 
       lastMinute = max(lastMinute, minute)
-      for neighbor in adjacencyList[val, default: []] {
+      for neighbor in graph[val, default: []] {
         queue.append((neighbor, minute+1))
       }
     }

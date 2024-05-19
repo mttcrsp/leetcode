@@ -1,10 +1,10 @@
 /// https://leetcode.com/problems/find-if-path-exists-in-graph/
 struct FindIfPathExistsInGraph {
   func validPath(_ n: Int, _ edges: [[Int]], _ source: Int, _ destination: Int) -> Bool {
-    var adjacency: [Int: Set<Int>] = [:]
+    var graph: [Int: Set<Int>] = [:]
     for edge in edges {
-      adjacency[edge[0], default: []].insert(edge[1])
-      adjacency[edge[1], default: []].insert(edge[0])
+      graph[edge[0], default: []].insert(edge[1])
+      graph[edge[1], default: []].insert(edge[0])
     }
 
     var visited: Set<Int> = []
@@ -16,7 +16,7 @@ struct FindIfPathExistsInGraph {
         return true
       }
 
-      for neighbour in adjacency[vertex, default: []] {
+      for neighbour in graph[vertex, default: []] {
         if !visited.contains(neighbour) {
           frontier.insert(neighbour)
         }

@@ -18,12 +18,12 @@ struct MinimumGeneticMutation {
     var bank = bank
     bank.append(startGene)
 
-    var adjancencyList: [String: Set<String>] = [:]
+    var graph: [String: Set<String>] = [:]
     for i in 0 ..< bank.count-1 {
       for j in i+1 ..< bank.count {
         if isMutation(bank[i], bank[j]) {
-          adjancencyList[bank[i], default: []].insert(bank[j])
-          adjancencyList[bank[j], default: []].insert(bank[i])
+          graph[bank[i], default: []].insert(bank[j])
+          graph[bank[j], default: []].insert(bank[i])
         }
       }
     }
@@ -35,7 +35,7 @@ struct MinimumGeneticMutation {
       visited.insert(gene)
 
       guard gene != endGene else { return distance }
-      for next in adjancencyList[gene, default: []] {
+      for next in graph[gene, default: []] {
         frontier.append((next, distance+1))
       }
     }
