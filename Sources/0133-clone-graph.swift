@@ -1,25 +1,28 @@
+import Collections
+
 /// https://leetcode.com/problems/clone-graph/
 struct CloneGraph {
-  func cloneGraph(_ head: Node?) -> Node? {
-    guard let head else { return nil }
+  func cloneGraph(_ node: Node?) -> Node? {
+    guard let node else { return nil }
 
-    var nodes: [Int: Node] = [:]
-    var frontier: [Node] = [head]
-    while let node = frontier.popLast() {
-      nodes[node.val] = nodes[node.val] ?? Node(node.val)
-      for next in node.neighbors.compactMap({ $0 }) {
-        if nodes[next.val] == nil {
-          frontier.append(next)
+    var visited: [Int: Node] = [node.val: Node(node.val)]
+    var queue: Deque<Node> = [node]
+    while let node = queue.popFirst() {
+      for neighbor in node.neighbors.compactMap({ $0 }) {
+        if visited[neighbor.val] == nil {
+          visited[neighbor.val] = Node(neighbor.val)
+          queue.append(neighbor)
         }
-        nodes[next.val] = nodes[next.val] ?? Node(next.val)
-        nodes[node.val]!.neighbors.append(nodes[next.val]!)
+
+        visited[node.val]?.neighbors
+          .append(visited[neighbor.val])
       }
     }
 
-    return nodes[head.val]
+    return visited[node.val]
   }
 
-  final class Node {
+  class Node {
     var val: Int
     var neighbors: [Node?]
     init(_ val: Int) {
