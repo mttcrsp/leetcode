@@ -2,29 +2,26 @@
 struct VerifyingAnAlienDictionary {
   func isAlienSorted(_ words: [String], _ order: String) -> Bool {
     var alphabeticalIndex: [Character: Int] = [:]
-    for (i, character) in order.enumerated() {
-      alphabeticalIndex[character] = i
+    for (index, character) in order.enumerated() {
+      alphabeticalIndex[character] = index
     }
 
-    outer: for i in words.indices.dropLast() {
-      let lhsWord = words[i], rhsWord = words[i+1]
-
-      for (lhsCharacter, rhsCharacter) in zip(lhsWord, rhsWord) where lhsCharacter != rhsCharacter {
-        guard
-          let lhsIndex = alphabeticalIndex[lhsCharacter],
-          let rhsIndex = alphabeticalIndex[rhsCharacter]
-        else {
-          preconditionFailure("Unknown character found")
-        }
-
-        if lhsIndex < rhsIndex {
-          continue outer
-        } else if lhsIndex > rhsIndex {
-          return false
-        }
+    func isAlienSorted(_ lhs: String, _ rhs: String) -> Bool {
+      var lhsIndex = lhs.startIndex
+      var rhsIndex = rhs.startIndex
+      while lhsIndex < lhs.endIndex, rhsIndex < rhs.endIndex {
+        let lhsWeight = alphabeticalIndex[lhs[lhsIndex]]!
+        let rhsWeight = alphabeticalIndex[rhs[rhsIndex]]!
+        guard lhsWeight == rhsWeight
+        else { return lhsWeight < rhsWeight }
+        lhsIndex = lhs.index(after: lhsIndex)
+        rhsIndex = rhs.index(after: rhsIndex)
       }
+      return lhs.count <= rhs.count
+    }
 
-      if lhsWord.count > rhsWord.count {
+    for i in words.indices.dropFirst() {
+      if !isAlienSorted(words[i-1], words[i]) {
         return false
       }
     }
