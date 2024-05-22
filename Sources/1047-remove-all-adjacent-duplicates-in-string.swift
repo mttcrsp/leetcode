@@ -1,19 +1,15 @@
 /// https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/
 struct RemoveAllAdjacentDuplicatesInString {
-  func removeDuplicates(_ S: String) -> String {
-    var result = Array(S)
-    var index = result.count-1
-
-    while index > 0 {
-      if result[index] == result[index-1] {
-        result.remove(at: index)
-        result.remove(at: index-1)
-        index = min(index+1, result.count-1)
+  func removeDuplicates(_ s: String) -> String {
+    var result = ""
+    for character in s {
+      if result.last == character {
+        result.removeLast()
       } else {
-        index -= 1
+        result.append(character)
       }
     }
 
-    return String(result)
+    return result
   }
 }
