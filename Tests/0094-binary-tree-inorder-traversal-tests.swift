@@ -4,8 +4,8 @@ import XCTest
 
 final class BinaryTreeInorderTraversalTests: XCTestCase {
   func testInordertraversal1() {
-    let input = TreeNode([1, 3, 2])
-    let output = [3, 1, 2]
+    let input = TreeNode([1, nil, 2, 3])
+    let output = [1, 3, 2]
     XCTAssertEqual(BinaryTreeInorderTraversal().inorderTraversal(input), output)
   }
 

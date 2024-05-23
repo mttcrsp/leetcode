@@ -3,14 +3,18 @@ struct BinaryTreeInorderTraversal {
   func inorderTraversal(_ root: TreeNode?) -> [Int] {
     var result: [Int] = []
 
-    func visit(_ node: TreeNode?) {
-      guard let node else { return }
-      visit(node.left)
-      result.append(node.val)
-      visit(node.right)
-    }
+    var stack: [TreeNode] = []
+    var current = root
+    while !stack.isEmpty || current != nil {
+      while current != nil {
+        stack.append(current!)
+        current = current?.left
+      }
 
-    visit(root)
+      let node = stack.removeLast()
+      result.append(node.val)
+      current = node.right
+    }
 
     return result
   }
