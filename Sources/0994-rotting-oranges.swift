@@ -1,44 +1,46 @@
 /// https://leetcode.com/problems/rotting-oranges/
 struct RottingOranges {
   func orangesRotting(_ grid: [[Int]]) -> Int {
-    var fresh: Set<[Int]> = []
-    var frontier: [[Int]] = []
-    for x in grid.indices {
-      for y in grid[x].indices {
-        let state = grid[x][y]
-        if state == 1 {
-          fresh.insert([x, y])
-        } else if state == 2 {
-          frontier.append([x, y])
+    let directions = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+    var grid = grid
+    let rows = grid.count
+    let cols = grid[0].count
+
+    var freshCount = 0
+    var frontier: Set<[Int]> = []
+    for row in grid.indices {
+      for col in grid[row].indices {
+        let slot = [row, col]
+        switch grid[row][col] {
+        case 2: frontier.insert(slot)
+        case 1: freshCount += 1
+        case _: continue
         }
       }
     }
 
-    var iteration = 0
-    while !frontier.isEmpty {
-      var newFrontier: [[Int]] = []
-      for orange in frontier {
-        let x = orange[0], y = orange[1]
-        newFrontier.appendIfNotNil(fresh.remove([x-1, y]))
-        newFrontier.appendIfNotNil(fresh.remove([x+1, y]))
-        newFrontier.appendIfNotNil(fresh.remove([x, y+1]))
-        newFrontier.appendIfNotNil(fresh.remove([x, y-1]))
+    var minute = 0
+    while freshCount > 0, !frontier.isEmpty {
+      var newFrontier: Set<[Int]> = []
+      for slot in frontier {
+        for direction in directions {
+          var nextSlot = slot
+          nextSlot[0] += direction[0]
+          nextSlot[1] += direction[1]
+          guard
+            nextSlot[0] >= 0, nextSlot[0] < rows,
+            nextSlot[1] >= 0, nextSlot[1] < cols,
+            grid[nextSlot[0]][nextSlot[1]] == 1
+          else { continue }
+          grid[nextSlot[0]][nextSlot[1]] = 2
+          freshCount -= 1
+          newFrontier.insert(nextSlot)
+        }
       }
       frontier = newFrontier
-
-      if !newFrontier.isEmpty {
-        iteration += 1
-      }
+      minute += 1
     }
 
-    return fresh.isEmpty ? iteration : -1
-  }
-}
-
-private extension Array {
-  mutating func appendIfNotNil(_ element: Element?) {
-    if let element {
-      append(element)
-    }
+    return freshCount == 0 ? minute : -1
   }
 }
