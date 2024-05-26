@@ -8,7 +8,7 @@ struct KthLargestElementInAnArray {
       if heap.count < k {
         heap.insert(num)
       } else {
-        if let min = heap.min(), num > min {
+        if let min = heap.min, num > min {
           _ = heap.removeMin()
           heap.insert(num)
         }

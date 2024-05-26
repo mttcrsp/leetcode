@@ -3,8 +3,8 @@ import Collections
 class MedianFinder {
   private(set) var smallHeap: Heap<Double> = []
   private(set) var largeHeap: Heap<Double> = []
-  private var smallMax: Double { smallHeap.max() ?? -.infinity }
-  private var largeMin: Double { largeHeap.min() ?? +.infinity }
+  private var smallMax: Double { smallHeap.max ?? -.infinity }
+  private var largeMin: Double { largeHeap.min ?? +.infinity }
   private var areCountsBalanced: Bool { abs(smallHeap.count-largeHeap.count) < 2 }
   private var areValuesBalanced: Bool { smallMax <= largeMin }
 
