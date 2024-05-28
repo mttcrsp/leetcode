@@ -1,33 +1,38 @@
 /// https://leetcode.com/problems/number-of-provinces/
 struct NumberOfProvinces {
   func findCircleNum(_ isConnected: [[Int]]) -> Int {
-    var adj: [Int: Set<Int>] = [:]
-    for i in isConnected.indices {
-      for j in isConnected[i].indices where i != j {
-        if isConnected[j][i] == 1 {
-          adj[i, default: []].insert(j)
-          adj[j, default: []].insert(i)
+    let unionFind = UnionFind(count: isConnected.count)
+    for i in 0 ..< isConnected.count-1 {
+      for j in i+1 ..< isConnected.count {
+        if isConnected[i][j] == 1 {
+          unionFind.union(i, j)
         }
       }
     }
 
-    var visited: Set<Int> = []
-    var provinces = 0
-    for city in isConnected.indices {
-      guard !visited.contains(city) else { continue }
-      provinces += 1
+    return Set(unionFind.root).count
+  }
 
-      var queue: Set<Int> = [city]
-      while let city = queue.popFirst() {
-        visited.insert(city)
+  final class UnionFind {
+    var root: [Int]
 
-        for neighbour in adj[city, default: []] {
-          guard !visited.contains(neighbour) else { continue }
-          queue.insert(neighbour)
+    init(count: Int) {
+      root = Array(0 ..< count)
+    }
+
+    func find(_ x: Int) -> Int {
+      root[x]
+    }
+
+    func union(_ x: Int, _ y: Int) {
+      let rootX = find(x)
+      let rootY = find(y)
+      guard rootX != rootY else { return }
+      for i in root.indices {
+        if root[i] == rootY {
+          root[i] = rootX
         }
       }
     }
-
-    return provinces
   }
 }
