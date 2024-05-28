@@ -1,28 +1,38 @@
 /// https://leetcode.com/problems/find-if-path-exists-in-graph/
 struct FindIfPathExistsInGraph {
   func validPath(_ n: Int, _ edges: [[Int]], _ source: Int, _ destination: Int) -> Bool {
-    var graph: [Int: Set<Int>] = [:]
+    let unionFind = UnionFind(count: n)
     for edge in edges {
-      graph[edge[0], default: []].insert(edge[1])
-      graph[edge[1], default: []].insert(edge[0])
+      unionFind.union(edge[0], edge[1])
     }
 
-    var visited: Set<Int> = []
-    var frontier: Set<Int> = [source]
-    while let vertex = frontier.popFirst() {
-      visited.insert(vertex)
+    return unionFind.find(source) == unionFind.find(destination)
+  }
 
-      if vertex == destination {
-        return true
-      }
+  class UnionFind {
+    private var root: [Int]
+    private var rank: [Int]
 
-      for neighbour in graph[vertex, default: []] {
-        if !visited.contains(neighbour) {
-          frontier.insert(neighbour)
-        }
-      }
+    init(count: Int) {
+      root = Array(0 ..< count)
+      rank = [Int](repeating: 0, count: count)
     }
 
-    return false
+    func find(_ x: Int) -> Int {
+      guard root[x] != x else { return x }
+      root[x] = find(root[x])
+      return root[x]
+    }
+
+    func union(_ x: Int, _ y: Int) {
+      var rootX = find(x)
+      var rootY = find(y)
+      guard rootX != rootY else { return }
+      if rank[rootX] > rank[rootY] {
+        swap(&rootX, &rootY)
+      }
+      rank[rootY] += rank[rootX]
+      root[rootX] = rootY
+    }
   }
 }
