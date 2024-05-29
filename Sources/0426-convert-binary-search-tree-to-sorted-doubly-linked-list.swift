@@ -3,16 +3,21 @@ struct ConvertBinarySearchTreeToSortedDoublyLinkedList {
   func treeToDoublyList(_ root: Node?) -> Node? {
     var head: Node?
     var prev: Node?
-    func visit(_ curr: Node? = root) {
-      guard let curr else { return }
-      visit(curr.left)
-      prev?.right = curr
-      curr.left = prev
-      prev = curr
-      head = head ?? curr
-      visit(curr.right)
+    var stack: [Node] = []
+    var curr: Node? = root
+    while !stack.isEmpty || curr != nil {
+      if let node = curr {
+        stack.append(node)
+        curr = node.left
+      } else {
+        let node = stack.removeLast()
+        prev?.right = node
+        node.left = prev
+        prev = node
+        head = head ?? node
+        curr = node.right
+      }
     }
-    visit()
 
     prev?.right = head
     head?.left = prev
