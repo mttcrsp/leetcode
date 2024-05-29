@@ -1,3 +1,4 @@
+/// https://leetcode.com/problems/nested-list-weight-sum/
 class NestedListWeightSum {
   func depthSum(_ nestedList: [NestedInteger]) -> Int {
     var sum = 0
