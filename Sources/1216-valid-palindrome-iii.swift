@@ -1,5 +1,3 @@
-import Collections
-
 /// https://leetcode.com/problems/valid-palindrome-iii/
 struct ValidPalindromeIii {
   func isValidPalindrome(_ s: String, _ k: Int) -> Bool {
