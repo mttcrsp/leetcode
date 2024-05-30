@@ -1,4 +1,5 @@
-class Solution {
+/// https://leetcode.com/problems/robot-room-cleaner/
+struct RobotRoomCleaner {
   func cleanRoom(_ robot: Robot) {
     func goBack() {
       robot.turnRight()
