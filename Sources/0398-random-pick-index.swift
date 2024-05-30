@@ -1,4 +1,3 @@
-
 /// https://leetcode.com/problems/random-pick-index/
 struct RandomPickIndex {
   private let indices: [Int: [Int]]
