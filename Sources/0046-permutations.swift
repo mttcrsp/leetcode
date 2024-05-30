@@ -2,19 +2,19 @@
 struct Permutations {
   func permute(_ nums: [Int]) -> [[Int]] {
     var result: [[Int]] = []
-    var stack: [([Int], Set<Int>)] = [([], Set(nums))]
+    var permutation: [Int] = []
+    func backtrack() {
+      if permutation.count == nums.count {
+        return result.append(permutation)
+      }
 
-    while let (permutation, unused) = stack.popLast() {
-      if unused.isEmpty {
-        result.append(permutation)
-      } else {
-        for element in unused {
-          let newUnused = unused.subtracting([element])
-          let newPermutation = permutation+[element]
-          stack.append((newPermutation, newUnused))
-        }
+      for num in nums where !permutation.contains(num) {
+        permutation.append(num)
+        backtrack()
+        permutation.removeLast()
       }
     }
+    backtrack()
 
     return result
   }
