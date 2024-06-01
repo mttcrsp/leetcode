@@ -1,15 +1,14 @@
 /// https://leetcode.com/problems/subtract-the-product-and-sum-of-digits-of-an-integer/
 struct SubtractTheProductAndSumOfDigitsOfAnInteger {
   func subtractProductAndSum(_ n: Int) -> Int {
-    var number = n
-    var product = 1
     var sum = 0
-
-    while number > 0 {
-      let digit = number%10
-      product *= digit
+    var product = 1
+    var remaining = n
+    while remaining > 0 {
+      let digit = remaining%10
       sum += digit
-      number /= 10
+      product *= digit
+      remaining /= 10
     }
 
     return product-sum

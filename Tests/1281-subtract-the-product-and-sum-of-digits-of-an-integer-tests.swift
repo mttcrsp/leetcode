@@ -14,4 +14,10 @@ final class SubtractTheProductAndSumOfDigitsOfAnIntegerTests: XCTestCase {
     let output = 21
     XCTAssertEqual(SubtractTheProductAndSumOfDigitsOfAnInteger().subtractProductAndSum(input), output)
   }
+
+  func testSubtractProductAndSum3() {
+    let input = 114
+    let output = -2
+    XCTAssertEqual(SubtractTheProductAndSumOfDigitsOfAnInteger().subtractProductAndSum(input), output)
+  }
 }
