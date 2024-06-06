@@ -1,20 +1,17 @@
 /// https://leetcode.com/problems/kth-missing-positive-number/
 struct KthMissingPositiveNumber {
   func findKthPositive(_ arr: [Int], _ k: Int) -> Int {
-    if k < arr[0] {
-      return k
-    }
-
-    var counter = arr[0]-1
-    for i in arr.indices.dropFirst() {
-      let lhs = arr[i-1]
-      let rhs = arr[i]
-      counter += rhs-lhs-1
-      if counter >= k {
-        return rhs-1-(counter-k)
+    var lhs = 0
+    var rhs = arr.count-1
+    while lhs <= rhs {
+      let mid = (lhs+rhs)/2
+      if arr[mid]-mid-1 < k {
+        lhs = mid+1
+      } else {
+        rhs = mid-1
       }
     }
 
-    return arr[arr.count-1]+(k-counter)
+    return lhs+k
   }
 }
