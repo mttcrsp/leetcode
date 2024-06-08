@@ -1,5 +1,6 @@
 import Collections
 
+/// https://leetcode.com/problems/find-median-from-data-stream/
 class MedianFinder {
   private(set) var smallHeap: Heap<Double> = []
   private(set) var largeHeap: Heap<Double> = []
