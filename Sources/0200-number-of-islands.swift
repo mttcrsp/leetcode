@@ -1,3 +1,5 @@
+import Collections
+
 /// https://leetcode.com/problems/number-of-islands/
 struct NumberOfIslands {
   func numIslands(_ grid: [[Character]]) -> Int {
@@ -12,9 +14,9 @@ struct NumberOfIslands {
         if grid[row][col] == "1" {
           islandsCount += 1
 
-          var queue: [[Int]] = [[row, col]]
+          var queue: Deque<[Int]> = [[row, col]]
+          grid[row][col] = "0"
           while let slot = queue.popLast() {
-            grid[slot[0]][slot[1]] = "0"
             for direction in directions {
               var nextSlot = slot
               nextSlot[0] += direction[0]
@@ -24,6 +26,7 @@ struct NumberOfIslands {
                 nextSlot[1] >= 0, nextSlot[1] < cols,
                 grid[nextSlot[0]][nextSlot[1]] == "1"
               else { continue }
+              grid[nextSlot[0]][nextSlot[1]] = "0"
               queue.append(nextSlot)
             }
           }
