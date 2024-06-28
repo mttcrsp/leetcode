@@ -1,20 +1,16 @@
 /// https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
 struct PopulatingNextRightPointersInEachNode {
   func connect(_ root: Node?) -> Node? {
-    guard let root else { return nil }
-
-    var curr: Node? = root
-    var next: Node? = root.left
-    while curr != nil, next != nil {
-      curr?.left?.next = curr?.right
-      if curr?.next != nil {
-        curr?.right?.next = curr?.next?.left
-      }
-
-      curr = curr?.next
+    var curr = root
+    var next = root?.left
+    while curr != nil || next != nil {
       if curr == nil {
         curr = next
-        next = next?.left
+        next = curr?.left
+      } else {
+        curr?.left?.next = curr?.right
+        curr?.right?.next = curr?.next?.left
+        curr = curr?.next
       }
     }
 
