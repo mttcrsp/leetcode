@@ -20,4 +20,10 @@ final class ValidWordAbbreviationTests: XCTestCase {
     let output = false
     XCTAssertEqual(ValidWordAbbreviation().validWordAbbreviation(input.0, input.1), output)
   }
+
+  func testValidWordAbbreviation4() {
+    let input = ("internationalization", "i5a11o1")
+    let output = true
+    XCTAssertEqual(ValidWordAbbreviation().validWordAbbreviation(input.0, input.1), output)
+  }
 }

@@ -1,35 +1,31 @@
 /// https://leetcode.com/problems/valid-word-abbreviation/
 struct ValidWordAbbreviation {
   func validWordAbbreviation(_ word: String, _ abbr: String) -> Bool {
-    let word = Array(word)
-    let abbr = Array(abbr)
-    var wordIndex = 0
-    var abbrIndex = 0
-    var abbrCharacter: Character { abbr[abbrIndex] }
-    var wordCharacter: Character { word[wordIndex] }
-    while wordIndex < word.count, abbrIndex < abbr.count {
-      var skip: Int?
-      while abbrIndex < abbr.count, let number = Int(String(abbrCharacter)) {
-        abbrIndex += 1
-        if let previousNumber = skip {
-          skip = previousNumber*10+number
-        } else if number != 0 {
-          skip = number
-        } else {
-          return false
-        }
+    let word = Array(word), abbr = Array(abbr)
+    var wordIndex = word.startIndex
+    var abbrIndex = abbr.startIndex
+    var wordChar: Character { word[wordIndex] }
+    var abbrChar: Character { abbr[abbrIndex] }
+    while wordIndex < word.endIndex, abbrIndex < abbr.endIndex {
+      var numberFound = false
+      var number = 0
+      while abbrIndex < abbr.endIndex, let digit = Int(String(abbrChar)) {
+        if !numberFound, digit == 0 { return false }
+        numberFound = true
+        number = (number*10)+digit
+        abbrIndex = abbr.index(after: abbrIndex)
       }
 
-      if let skip {
-        wordIndex += skip
-      } else if wordCharacter == abbrCharacter {
-        abbrIndex += 1
-        wordIndex += 1
-      } else {
+      if numberFound {
+        wordIndex = abbr.index(wordIndex, offsetBy: number)
+      } else if wordChar == abbrChar {
+        wordIndex = word.index(after: wordIndex)
+        abbrIndex = abbr.index(after: abbrIndex)
+      } else { // wordChar != abbrChar
         return false
       }
     }
 
-    return wordIndex == word.endIndex && abbrIndex == abbr.count
+    return wordIndex == word.endIndex && abbrIndex == abbr.endIndex
   }
 }
