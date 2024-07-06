@@ -7,33 +7,20 @@ class InsertIntoASortedCircularLinkedList {
       return node
     }
 
-    var prev = head
-    var curr = head.next!
-    var didInsert = false
-    while true {
-      if
-        (prev.val <= insertVal && insertVal <= curr.val)
-        || (curr.val < prev.val && insertVal < curr.val)
-        || (curr.val < prev.val && insertVal > prev.val)
-      {
-        let node = Node(insertVal)
-        node.next = curr
-        prev.next = node
-        didInsert = true
-        break
-      }
+    var prev: Node! = head
+    var curr: Node! = head.next
+    repeat {
+      let inBetween = prev.val <= insertVal && insertVal <= curr.val
+      let isMax = prev.val > curr.val && insertVal >= prev.val
+      let isMin = prev.val > curr.val && insertVal <= curr.val
+      if inBetween || isMax || isMin { break }
+      curr = curr.next
+      prev = prev.next
+    } while prev !== head
 
-      prev = prev.next!
-      curr = curr.next!
-      if prev === head { break }
-    }
-
-    if !didInsert {
-      let node = Node(insertVal)
-      node.next = curr
-      prev.next = node
-    }
-
+    let node = Node(insertVal)
+    node.next = curr
+    prev.next = node
     return head
   }
 
