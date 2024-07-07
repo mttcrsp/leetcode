@@ -1,32 +1,34 @@
 /// https://leetcode.com/problems/copy-list-with-random-pointer/
 struct CopyListWithRandomPointer {
   func copyRandomList(_ head: Node?) -> Node? {
-    var node = head
-    while node != nil {
-      let copy = Node(node!.val)
-      copy.next = node?.next
-      node?.next = copy
-      node = copy.next
+    var current = head
+    while let node = current {
+      let next = node.next
+      let copy = Node(node.val)
+      copy.next = next
+      node.next = copy
+      current = next
     }
 
-    node = head
-    while node != nil {
-      node?.next?.random = node?.random?.next
-      node = node?.next?.next
+    current = head
+    while let node = current {
+      let next = node.next?.next
+      let copy = node.next
+      copy?.random = node.random?.next
+      current = next
     }
 
-    let copyHead = head?.next
-
-    node = head
-    while node != nil {
-      let next = node?.next?.next
-      let copy = node?.next
-      node?.next = next
+    let headCopy = head?.next
+    current = head
+    while let node = current {
+      let next = node.next?.next
+      let copy = node.next
       copy?.next = next?.next
-      node = next
+      node.next = next
+      current = next
     }
 
-    return copyHead
+    return headCopy
   }
 
   class Node {
