@@ -1,14 +1,14 @@
 /// https://leetcode.com/problems/subarray-sum-equals-k/
 struct SubarraySumEqualsK {
-  func subarraySum(_ numbers: [Int], _ k: Int) -> Int {
-    var sum = 0
-    var count = 0
-    var counts = [0: 1]
-    for number in numbers {
-      sum += number
-      count += counts[sum-k, default: 0]
-      counts[sum, default: 0] += 1
+  func subarraySum(_ nums: [Int], _ k: Int) -> Int {
+    var result = 0
+    var prefixSum = 0
+    var prefixSumCount = [0: 1]
+    for num in nums {
+      prefixSum += num
+      result += prefixSumCount[prefixSum-k, default: 0]
+      prefixSumCount[prefixSum, default: 0] += 1
     }
-    return count
+    return result
   }
 }
