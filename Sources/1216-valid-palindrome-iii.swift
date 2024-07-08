@@ -2,31 +2,28 @@
 struct ValidPalindromeIii {
   func isValidPalindrome(_ s: String, _ k: Int) -> Bool {
     let s = Array(s)
+
     var memo: Set<[Int]> = []
-    func visit(_ lhs: Int = 0, _ rhs: Int = s.count-1, _ remaining: Int = k) -> Bool {
-      guard !memo.contains([lhs, rhs, remaining])
-      else { return false }
+    func dfs(_ lhs: Int = 0, _ rhs: Int = s.count-1, _ k: Int = k) -> Bool {
+      guard !memo.contains([lhs, rhs, k]), k >= 0 else { return false }
 
-      guard remaining >= 0
-      else { return false }
-
-      guard lhs < rhs
-      else { return true }
-
-      let result = if s[lhs] == s[rhs] {
-        visit(lhs+1, rhs-1, remaining)
-      } else {
-        visit(lhs+1, rhs, remaining-1) ||
-          visit(lhs, rhs-1, remaining-1)
+      var lhs = lhs
+      var rhs = rhs
+      while lhs < rhs {
+        if s[lhs] == s[rhs] {
+          lhs += 1
+          rhs -= 1
+        } else {
+          guard !dfs(lhs+1, rhs, k-1) else { return true }
+          guard !dfs(lhs, rhs-1, k-1) else { return true }
+          memo.insert([lhs, rhs, k])
+          return false
+        }
       }
 
-      if !result {
-        memo.insert([lhs, rhs, remaining])
-      }
-
-      return result
+      return true
     }
 
-    return visit()
+    return dfs()
   }
 }
