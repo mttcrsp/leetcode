@@ -4,25 +4,25 @@ struct ExclusiveTimeOfFunctions {
     var times = [Int](repeating: 0, count: n)
     var stack: [Int] = []
     var previousTimestamp = 0
-    for rawValue in logs {
-      let components = rawValue.components(separatedBy: ":")
+    for log in logs {
+      let components = log.components(separatedBy: ":")
+      let function = Int(components[0])!
+      let timestampType = components[1]
+      let timestamp = Int(components[2])!
 
-      let currentID = Int(components[0])!
-      let currentType = components[1]
-      let currentTimestamp = Int(components[2])!
-
-      switch currentType {
+      switch timestampType {
       case "start":
-        if let previousID = stack.last {
-          times[previousID] += currentTimestamp-previousTimestamp
+        if let previousFunction = stack.last {
+          times[previousFunction] += timestamp-previousTimestamp
         }
-        stack.append(currentID)
-        previousTimestamp = currentTimestamp
+        stack.append(function)
+        previousTimestamp = timestamp
 
       case "end":
-        times[stack.removeLast()] += currentTimestamp-previousTimestamp+1
+        times[function] += timestamp-previousTimestamp+1
+        stack.removeLast()
         if !stack.isEmpty {
-          previousTimestamp = currentTimestamp+1
+          previousTimestamp = timestamp+1
         }
 
       default:
