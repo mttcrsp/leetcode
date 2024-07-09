@@ -5,17 +5,17 @@ struct IntervalListIntersections {
     var j = 0
     var result: [[Int]] = []
     while i < firstList.count, j < secondList.count {
-      let si = firstList[i][0]
-      let sj = secondList[j][0]
-      let ei = firstList[i][1]
-      let ej = secondList[j][1]
-      let sMax = max(si, sj)
-      let eMin = min(ei, ej)
-      if sMax <= eMin {
-        result.append([sMax, eMin])
+      let startI = firstList[i][0]
+      let startJ = secondList[j][0]
+      let endI = firstList[i][1]
+      let endJ = secondList[j][1]
+      let maxStart = max(startI, startJ)
+      let minEnd = min(endI, endJ)
+      if maxStart <= minEnd {
+        result.append([maxStart, minEnd])
       }
 
-      if ei < ej {
+      if endI < endJ {
         i += 1
       } else {
         j += 1
