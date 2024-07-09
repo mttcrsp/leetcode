@@ -1,3 +1,5 @@
+import Collections
+
 /// https://leetcode.com/problems/accounts-merge/
 struct AccountsMerge {
   func accountsMerge(_ accounts: [[String]]) -> [[String]] {
@@ -15,12 +17,12 @@ struct AccountsMerge {
     var attributedEmails: Set<String> = []
     for (source, _) in graph where !attributedEmails.contains(source) {
       var emails: Set<String> = [source]
-      var frontier = graph[source, default: []]
-      while let email = frontier.popFirst() {
+      var queue = Deque(graph[source, default: []])
+      while let email = queue.popFirst() {
         guard !attributedEmails.contains(email) else { continue }
         emails.insert(email)
         attributedEmails.insert(email)
-        frontier.formUnion(graph[email, default: []])
+        queue.append(contentsOf: graph[email, default: []])
       }
 
       let name = names[source]!
