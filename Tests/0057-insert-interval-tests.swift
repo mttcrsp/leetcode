@@ -14,4 +14,10 @@ final class InsertIntervalTests: XCTestCase {
     let output = [[1, 2], [3, 10], [12, 16]]
     XCTAssertEqual(InsertInterval().insert(input.0, input.1), output)
   }
+
+  func testInsert3() {
+    let input = ([[1, 5]], [2, 7])
+    let output = [[1, 7]]
+    XCTAssertEqual(InsertInterval().insert(input.0, input.1), output)
+  }
 }
