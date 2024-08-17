@@ -1,33 +1,27 @@
 /// https://leetcode.com/problems/wildcard-matching/
 struct WildcardMatching {
   func isMatch(_ s: String, _ p: String) -> Bool {
-    let s = Array(s)
-    let p = Array(p)
-
-    var memo: [[Int]: Bool] = [:]
-    func isMatch(_ indexS: Int, _ indexP: Int) -> Bool {
-      guard indexP < p.count else {
-        return indexS == s.count
-      }
-
-      let memoKey = [indexS, indexP]
-      if let result = memo[memoKey] {
-        return result
-      }
-
-      let result = if p[indexP] == "*" {
-        isMatch(indexS, indexP+1)
-          || (indexS < s.count && isMatch(indexS+1, indexP))
+    var indexS = s.startIndex
+    var indexP = p.startIndex
+    var indexStar: String.Index?
+    var tmpIndexS: String.Index?
+    while indexS < s.endIndex {
+      if indexP < p.endIndex, p[indexP] == "?" || p[indexP] == s[indexS] {
+        indexS = s.index(after: indexS)
+        indexP = p.index(after: indexP)
+      } else if indexP < p.endIndex, p[indexP] == "*" {
+        indexStar = indexP
+        tmpIndexS = indexS
+        indexP = p.index(after: indexP)
+      } else if let indexStar {
+        indexP = p.index(after: indexStar)
+        indexS = s.index(after: tmpIndexS!)
+        tmpIndexS = indexS
       } else {
-        indexS < s.count
-          && (p[indexP] == "?" || p[indexP] == s[indexS])
-          && isMatch(indexS+1, indexP+1)
+        return false
       }
-
-      memo[memoKey] = result
-      return result
     }
 
-    return isMatch(0, 0)
+    return p[indexP ..< p.endIndex].allSatisfy { $0 == "*" }
   }
 }
