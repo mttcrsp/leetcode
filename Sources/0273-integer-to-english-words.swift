@@ -1,122 +1,43 @@
 /// https://leetcode.com/problems/integer-to-english-words/
 struct IntegerToEnglishWords {
-  func numberToWords(_ value: Int) -> String {
-    numberToWordsArray(value).joined(separator: " ")
-  }
+  func numberToWords(_ num: Int) -> String {
+    if num == 0 { return "Zero" }
 
-  private func numberToWordsArray(_ value: Int) -> [String] {
-    guard value != 0 else { return [digit(value)] }
+    let ones = [nil, "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"]
+    let tens = [nil, nil, "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"]
+    let thousands = [nil, "Thousand", "Million", "Billion"]
 
-    var value = value, components: [String] = []
-
-    for group in Group.allCases {
-      let groupValue = value%1000
-
-      if groupValue != 0 {
-        var groupComponents = hundreds(groupValue)
-        if let groupEnglishWord = group.englishWord {
-          groupComponents.append(groupEnglishWord)
-        }
-        components.insert(contentsOf: groupComponents, at: 0)
+    var num = num
+    var result: [String?] = []
+    var groupIndex = 0
+    while num > 0 {
+      defer {
+        num /= 1000
+        groupIndex += 1
       }
 
-      value /= 1000
-    }
+      guard num%1000 != 0 else { continue }
 
-    return components
-  }
-
-  private func hundreds(_ value: Int) -> [String] {
-    precondition(value < 1000 && value >= 0, "\(#function) \(value)")
-
-    let digit1 = value%10
-    let digit2 = (value/10)%10
-    let digit3 = (value/100)%10
-
-    switch (digit3, digit2, digit1) {
-    case (_, 0, 0): return [digit(digit3), "Hundred"]
-    case (0, _, _): return tens(value%100)
-    case (_, _, _): return [digit(digit3), "Hundred"]+tens(value%100)
-    }
-  }
-
-  private func tens(_ value: Int) -> [String] {
-    precondition(value < 100 && value >= 0, "\(#function) \(value)")
-
-    let digit1 = value%10
-    let digit2 = (value/10)%10
-
-    switch (digit2, digit1) {
-    case (1, _): return [teen(digit1)]
-    case (0, _): return [digit(digit1)]
-    case (_, 0): return [roundTen(digit2)]
-    case (_, _): return [roundTen(digit2), digit(digit1)]
-    }
-  }
-
-  private func roundTen(_ value: Int) -> String {
-    precondition(value < 10 && value > 0, "\(#function) \(value)")
-
-    switch value {
-    case 1: return "Ten"
-    case 2: return "Twenty"
-    case 3: return "Thirty"
-    case 4: return "Forty"
-    case 5: return "Fifty"
-    case 6: return "Sixty"
-    case 7: return "Seventy"
-    case 8: return "Eighty"
-    case 9: return "Ninety"
-    default: fatalError()
-    }
-  }
-
-  private func teen(_ value: Int) -> String {
-    precondition(value < 10 && value >= 0, "\(#function) \(value)")
-
-    switch value {
-    case 0: return "Ten"
-    case 1: return "Eleven"
-    case 2: return "Twelve"
-    case 3: return "Thirteen"
-    case 4: return "Fourteen"
-    case 5: return "Fifteen"
-    case 6: return "Sixteen"
-    case 7: return "Seventeen"
-    case 8: return "Eighteen"
-    case 9: return "Nineteen"
-    default: fatalError()
-    }
-  }
-
-  private func digit(_ value: Int) -> String {
-    precondition(value < 10 && value >= 0, "\(#function) \(value)")
-
-    switch value {
-    case 0: return "Zero"
-    case 1: return "One"
-    case 2: return "Two"
-    case 3: return "Three"
-    case 4: return "Four"
-    case 5: return "Five"
-    case 6: return "Six"
-    case 7: return "Seven"
-    case 8: return "Eight"
-    case 9: return "Nine"
-    default: fatalError()
-    }
-  }
-
-  private enum Group: CaseIterable {
-    case hundreds, thousands, millions, billions
-
-    var englishWord: String? {
-      switch self {
-      case .hundreds: nil
-      case .thousands: "Thousand"
-      case .millions: "Million"
-      case .billions: "Billion"
+      var part = num%1000
+      var group: [String?] = []
+      if part >= 100 {
+        group += [ones[part/100], "Hundred"]
+        part %= 100
       }
+
+      if part >= 20 {
+        group += [tens[part/10]]
+        part %= 10
+      }
+
+      if part >= 0 {
+        group += [ones[part]]
+      }
+
+      group += [thousands[groupIndex]]
+      result = group+result
     }
+
+    return result.compactMap { $0 }.joined(separator: " ")
   }
 }
