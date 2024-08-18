@@ -1,14 +1,14 @@
 /// https://leetcode.com/problems/two-sum/
 struct TwoSum {
-  func twoSum(_ numbers: [Int], _ target: Int) -> [Int] {
-    var complements: [Int: Int] = [:]
-    for (i, number) in numbers.enumerated() {
-      if let j = complements[number] {
-        return [j, i]
+  func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+    var indices: [Int: Int] = [:]
+    for (index, num) in nums.enumerated() {
+      if let complementIndex = indices[target-num] {
+        return [complementIndex, index]
       } else {
-        complements[target-number] = i
+        indices[num] = index
       }
     }
-    preconditionFailure("No solution found for numbers '\(numbers)' and target '\(target)'")
+    preconditionFailure("Complement not found")
   }
 }
