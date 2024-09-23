@@ -60,7 +60,7 @@ struct ValidNumber {
       return isValid ? index : nil
     }
 
-    var index = s.startIndex, isValid = false
+    var index = s.startIndex
     if let nextIndex = scanDecimal(index) {
       index = nextIndex
     } else if let nextIndex = scanInteger(index) {
