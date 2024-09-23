@@ -1,39 +1,26 @@
-import Foundation
-
 /// https://leetcode.com/problems/minimum-time-difference/
-@available(macOS 10.15, *)
 struct MinimumTimeDifference {
   func findMinDifference(_ timePoints: [String]) -> Int {
-    var minutes = [Bool](repeating: false, count: 24*60)
-    for string in timePoints {
-      let scanner = Scanner(string: string)
-      guard 
-        let hh = scanner.scanInt(),
-        let _ = scanner.scanString(":"),
-        let mm = scanner.scanInt()
-      else { continue }
-
-      let absoluteMinutesValue = hh*60+mm
-      guard !minutes[absoluteMinutesValue] else { return 0 }
-      minutes[absoluteMinutesValue] = true
+    var minutes: [Int] = timePoints.compactMap { string in
+      let components = string.components(separatedBy: ":")
+      guard
+        components.count == 2,
+        let hh = Int(components[0]),
+        let mm = Int(components[1])
+      else { return nil }
+      return hh*60+mm
     }
 
-    var firstIndex: Int?
-    var lastIndex: Int?
-    var minDifference = Int.max
-    for i in minutes.indices where minutes[i] {
-      firstIndex = firstIndex ?? i
+    minutes.sort()
 
-      if let lastIndex {
-        minDifference = min(minDifference, i-lastIndex)
-      }
-      lastIndex = i
+    guard let first = minutes.first, let last = minutes.last
+    else { return -1 }
+
+    var minDifference = (60*24)+first-last
+    for i in minutes.indices.dropFirst() {
+      minDifference = min(minDifference, minutes[i]-minutes[i-1])
     }
 
-    if let firstIndex, let lastIndex {
-      return min(minDifference, minutes.count-lastIndex+firstIndex)
-    } else {
-      return minDifference
-    }
+    return minDifference
   }
 }
