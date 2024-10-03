@@ -3,21 +3,14 @@ import Collections
 /// https://leetcode.com/problems/kth-largest-element-in-an-array/
 struct KthLargestElementInAnArray {
   func findKthLargest(_ nums: [Int], _ k: Int) -> Int {
-    var heap: Heap<Int> = []
+    var buffer: Heap<Int> = []
     for num in nums {
-      if heap.count < k {
-        heap.insert(num)
-      } else {
-        if let min = heap.min, num > min {
-          _ = heap.removeMin()
-          heap.insert(num)
-        }
+      buffer.insert(num)
+      if buffer.count > k {
+        buffer.removeMin()
       }
     }
 
-    for _ in 1 ..< k {
-      _ = heap.removeMax()
-    }
-    return heap.removeMax()
+    return buffer.removeMin()
   }
 }
