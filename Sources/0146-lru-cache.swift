@@ -4,65 +4,60 @@ class LRUCache {
 
   private var head: Node?
   private var tail: Node?
-  private var nodes: [Int: Node] = [:]
+  private var dictionary: [Int: Node] = [:]
 
   init(_ capacity: Int) {
     self.capacity = capacity
   }
 
   func get(_ key: Int) -> Int {
-    if let node = nodes[key] {
-      remove(node)
-      append(node)
-      return node.val
-    } else {
-      return -1
+    guard let node = dictionary[key] else { return -1 }
+    remove(node)
+    prepend(node)
+    return node.value
+  }
+
+  func put(_ key: Int, _ value: Int) {
+    let node = dictionary[key] ?? Node(key: key, value: value)
+    node.value = value
+    remove(node)
+    prepend(node)
+    dictionary[key] = node
+
+    if dictionary.count > capacity, let tail {
+      dictionary[tail.key] = nil
+      remove(tail)
     }
   }
 
-  func put(_ key: Int, _ val: Int) {
-    if let node = nodes[key] {
-      remove(node)
-      append(node)
-      node.val = val
+  private func prepend(_ node: Node) {
+    if let head {
+      head.prev = node
+      node.next = head
+      self.head = node
     } else {
-      let node = Node(key, val)
-      nodes[key] = node
-      append(node)
-
-      if nodes.count > capacity, let head {
-        nodes[head.key] = nil
-        remove(head)
-      }
-    }
-  }
-
-  private func append(_ node: Node) {
-    if head == nil {
       head = node
-      tail = node
-    } else {
-      node.prev = tail
-      tail?.next = node
       tail = node
     }
   }
 
   private func remove(_ node: Node) {
-    if node === head { head = node.next }
-    if node === tail { tail = node.prev }
+    if node === head { head = head?.next }
+    if node === tail { tail = tail?.prev }
     node.prev?.next = node.next
     node.next?.prev = node.prev
     node.prev = nil
     node.next = nil
   }
 
-  private final class Node {
-    var next, prev: Node?
-    var val, key: Int
-    init(_ key: Int, _ val: Int) {
+  class Node {
+    let key: Int
+    var value: Int
+    var prev: Node?
+    var next: Node?
+    init(key: Int, value: Int) {
       self.key = key
-      self.val = val
+      self.value = value
     }
   }
 }
