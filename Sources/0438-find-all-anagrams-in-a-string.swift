@@ -1,45 +1,33 @@
 /// https://leetcode.com/problems/find-all-anagrams-in-a-string/
 struct FindAllAnagramsInAString {
-  func findAnagrams(_ string: String, _ pattern: String) -> [Int] {
-    if string.count < pattern.count {
-      return []
+  func findAnagrams(_ s: String, _ p: String) -> [Int] {
+    let s = Array(s)
+    let p = Array(p)
+
+    var countsS: [Character: Int] = [:]
+    var countsP: [Character: Int] = [:]
+    for character in p {
+      countsP[character, default: 0] += 1
     }
 
-    var counts: [Character: Int] = [:]
-    for character in pattern {
-      counts.increment(character)
-    }
+    var result: [Int] = []
+    for (index, character) in s.enumerated() {
+      countsS[character, default: 0] += 1
 
-    let patternLength = pattern.count
-    let s = Array(string)
-
-    var anagramIndices: [Int] = []
-    for (i, character) in s.enumerated() {
-      counts.decrement(character)
-
-      if i-patternLength >= 0 {
-        counts.increment(s[i-patternLength])
+      if index >= p.count {
+        let removedCharacter = s[index-p.count]
+        if countsS[removedCharacter, default: 0] > 1 {
+          countsS[removedCharacter, default: 0] -= 1
+        } else {
+          countsS[removedCharacter] = nil
+        }
       }
 
-      if i-patternLength+1 >= 0, counts.count == 0 {
-        anagramIndices.append(i-patternLength+1)
+      if countsS == countsP {
+        result.append(index-p.count+1)
       }
     }
 
-    return anagramIndices
-  }
-}
-
-private extension [Character: Int] {
-  mutating func increment(_ key: Character) {
-    let oldValue = self[key, default: 0]
-    let newValue = oldValue+1
-    self[key] = newValue == 0 ? nil : newValue
-  }
-
-  mutating func decrement(_ key: Character) {
-    let oldValue = self[key, default: 0]
-    let newValue = oldValue-1
-    self[key] = newValue == 0 ? nil : newValue
+    return result
   }
 }
