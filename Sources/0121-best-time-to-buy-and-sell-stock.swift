@@ -1,21 +1,17 @@
 /// https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 struct BestTimeToBuyAndSellStock {
   func maxProfit(_ prices: [Int]) -> Int {
-    guard let first = prices.first else {
-      return 0
-    }
+    guard var minPrice = prices.first else { return 0 }
 
-    var difference = 0
-    var min = first
-
+    var maxProfit = 0
     for price in prices.dropFirst() {
-      if price < min {
-        min = price
-      } else if price-min > difference {
-        difference = price-min
+      if price < minPrice {
+        minPrice = price
+      } else {
+        maxProfit = max(maxProfit, price-minPrice)
       }
     }
 
-    return difference
+    return maxProfit
   }
 }
