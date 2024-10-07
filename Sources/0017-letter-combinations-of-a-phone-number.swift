@@ -3,28 +3,27 @@ struct LetterCombinationsOfAPhoneNumber {
   func letterCombinations(_ digits: String) -> [String] {
     guard !digits.isEmpty else { return [] }
 
-    let mapping: [Character: [Character]] = [
-      "2": ["a", "b", "c"],
-      "3": ["d", "e", "f"],
-      "4": ["g", "h", "i"],
-      "5": ["j", "k", "l"],
-      "6": ["m", "n", "o"],
-      "7": ["p", "q", "r", "s"],
-      "8": ["t", "u", "v"],
-      "9": ["w", "x", "y", "z"],
+    let letters: [Character: String] = [
+      "2": "abc", "3": "def", "4": "ghi",
+      "5": "jkl", "6": "mno", "7": "pqrs",
+      "8": "tuv", "9": "wxyz",
     ]
 
-    var strings = [""]
-    for digit in digits {
-      var newStrings: [String] = []
-      for character in mapping[digit, default: []] {
-        for var newString in strings {
-          newString.append(character)
-          newStrings.append(newString)
+    var combinations: [String] = []
+    var combination = ""
+    func backtrack(from index: String.Index) {
+      if index == digits.endIndex {
+        combinations.append(combination)
+      } else {
+        for character in letters[digits[index], default: ""] {
+          combination.append(character)
+          backtrack(from: digits.index(after: index))
+          combination.removeLast()
         }
       }
-      strings = newStrings
     }
-    return strings
+
+    backtrack(from: digits.startIndex)
+    return combinations
   }
 }
