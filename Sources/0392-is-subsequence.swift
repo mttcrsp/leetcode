@@ -1,16 +1,15 @@
 /// https://leetcode.com/problems/is-subsequence/
 struct IsSubsequence {
   func isSubsequence(_ s: String, _ t: String) -> Bool {
-    var sIndex = s.startIndex
-    var tIndex = t.startIndex
-    while sIndex < s.endIndex, tIndex < t.endIndex {
-      if s[sIndex] == t[tIndex] {
-        sIndex = s.index(after: sIndex)
-        tIndex = t.index(after: tIndex)
-      } else {
-        tIndex = t.index(after: tIndex)
+    var indexS = s.startIndex
+    var indexT = t.startIndex
+    while indexS < s.endIndex, indexT < t.endIndex {
+      if s[indexS] == t[indexT] {
+        indexS = s.index(after: indexS)
       }
+      indexT = t.index(after: indexT)
     }
-    return sIndex == s.endIndex
+
+    return indexS == s.endIndex
   }
 }
