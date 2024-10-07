@@ -10,24 +10,24 @@ struct MedianOfTwoSortedArrays {
     var lhs = 0
     var rhs = n
     while true {
-      let partition1 = (lhs+rhs)/2
-      let partition2 = (n+m+1)/2-partition1
+      let countFrom1 = (lhs+rhs)/2
+      let countFrom2 = (n+m+1)/2-countFrom1
 
-      let maxLeft1 = partition1 == 0 ? Int.min : nums1[partition1-1]
-      let maxLeft2 = partition2 == 0 ? Int.min : nums2[partition2-1]
-      let minRight1 = partition1 == n ? Int.max : nums1[partition1]
-      let minRight2 = partition2 == m ? Int.max : nums2[partition2]
+      let left1 = countFrom1 == 0 ? Int.min : nums1[countFrom1-1]
+      let left2 = countFrom2 == 0 ? Int.min : nums2[countFrom2-1]
+      let right1 = countFrom1 == n ? Int.max : nums1[countFrom1]
+      let right2 = countFrom2 == m ? Int.max : nums2[countFrom2]
 
-      if maxLeft1 <= minRight2, maxLeft2 <= minRight1 {
+      if left1 <= right2, left2 <= right1 {
         if (n+m)%2 == 0 {
-          return (Double(max(maxLeft1, maxLeft2))+Double(min(minRight1, minRight2)))/2
+          return (Double(max(left1, left2))+Double(min(right1, right2)))/2
         } else {
-          return Double(max(maxLeft1, maxLeft2))
+          return Double(max(left1, left2))
         }
-      } else if maxLeft1 > minRight2 {
-        rhs = partition1-1
+      } else if left1 > right2 {
+        rhs = countFrom1-1
       } else {
-        lhs = partition1+1
+        lhs = countFrom1+1
       }
     }
   }
