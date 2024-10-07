@@ -15,18 +15,16 @@ struct DiagonalTraverse {
       let (row, col) = coordinate
       if row >= 0, row < rows, col >= 0, col < cols {
         result.append(mat[row][col])
-        switch direction {
-        case .topRight:
-          coordinate = (row-1, col+1)
-        case .bottomLeft:
-          coordinate = (row+1, col-1)
+        coordinate = switch direction {
+        case .topRight: (row-1, col+1)
+        case .bottomLeft: (row+1, col-1)
         }
       } else {
-        switch direction {
-        case .topRight:
-          coordinate = col < cols ? (row+1, col) : (row+2, col-1)
-        case .bottomLeft:
-          coordinate = row < rows ? (row, col+1) : (row-1, col+2)
+        coordinate = switch direction {
+        case .topRight where col < cols: (row+1, col)
+        case .topRight: (row+2, col-1)
+        case .bottomLeft where row < rows: (row, col+1)
+        case .bottomLeft: (row-1, col+2)
         }
         direction = direction.opposite
       }
