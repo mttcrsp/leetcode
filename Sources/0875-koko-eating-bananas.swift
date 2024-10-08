@@ -1,22 +1,26 @@
 /// https://leetcode.com/problems/koko-eating-bananas/
 struct KokoEatingBananas {
   func minEatingSpeed(_ piles: [Int], _ h: Int) -> Int {
-    let maxPile = Double(piles.max() ?? 0)
-    let maxHoursPerPile = (Double(h)/Double(piles.count)).rounded(.down)
-    var rhs = Int((maxPile/maxHoursPerPile).rounded(.down))
+    guard let maxPile = piles.max() else { return -1 }
+
     var lhs = 1
-    while lhs <= rhs {
+    var rhs = maxPile
+    while lhs < rhs {
       let mid = (lhs+rhs)/2
-      let midHours = piles.reduce(0) { total, pile in
-        var pileHours = pile/mid
-        pileHours += pile%mid == 0 ? 0 : 1
-        return total+pileHours
+
+      var hours = 0
+      for pile in piles {
+        if mid >= pile {
+          hours += 1
+        } else {
+          hours += Int((Double(pile)/Double(mid)).rounded(.up))
+        }
       }
 
-      if midHours > h {
+      if hours > h {
         lhs = mid+1
       } else {
-        rhs = mid-1
+        rhs = mid
       }
     }
 
