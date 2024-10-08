@@ -8,7 +8,7 @@ struct LongestPalindromicSubstring {
       var lhs = index
       var rhs = index
       while lhs >= 0, rhs < s.count, s[lhs] == s[rhs] {
-        if rhs-lhs+1 > longest.count { longest = s[lhs...rhs] }
+        if rhs-lhs+1 > longest.count { longest = s[lhs ... rhs] }
         lhs -= 1
         rhs += 1
       }
@@ -17,7 +17,7 @@ struct LongestPalindromicSubstring {
         lhs = index
         rhs = index+1
         while lhs >= 0, rhs < s.count, s[lhs] == s[rhs] {
-          if rhs-lhs+1 > longest.count { longest = s[lhs...rhs] }
+          if rhs-lhs+1 > longest.count { longest = s[lhs ... rhs] }
           lhs -= 1
           rhs += 1
         }

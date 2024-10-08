@@ -10,11 +10,7 @@ struct KokoEatingBananas {
 
       var hours = 0
       for pile in piles {
-        if mid >= pile {
-          hours += 1
-        } else {
-          hours += Int((Double(pile)/Double(mid)).rounded(.up))
-        }
+        hours += Int((Double(pile)/Double(mid)).rounded(.up))
       }
 
       if hours > h {
