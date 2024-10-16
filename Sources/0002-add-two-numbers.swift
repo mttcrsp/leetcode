@@ -1,35 +1,31 @@
 /// https://leetcode.com/problems/add-two-numbers/
 struct AddTwoNumbers {
   func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
-    var lhs = l1
-    var rhs = l2
-    var initial: ListNode?
-    var node: ListNode?
-    var remainder = 0
-
-    while lhs != nil || rhs != nil {
-      let lhsValue = lhs?.val ?? 0
-      let rhsValue = rhs?.val ?? 0
-      let sum = lhsValue+rhsValue+remainder
-      let current = ListNode(sum%10)
-
-      initial = initial ?? current
-      remainder = sum/10
-      node?.next = current
-      node = current
-
-      lhs = lhs?.next
-      rhs = rhs?.next
-
-      if remainder == 0, lhs == nil || rhs == nil {
-        node?.next = lhs ?? rhs; break
-      }
+    var head: ListNode?
+    var tail: ListNode?
+    func append(_ val: Int) {
+      let node = ListNode(val)
+      head = head ?? node
+      tail?.next = node
+      tail = node
     }
 
-    if remainder > 0 {
-      node?.next = ListNode(remainder)
+    var carry = 0
+    var l1 = l1
+    var l2 = l2
+    while l1 != nil || l2 != nil {
+      var val = carry
+      val += l1?.val ?? 0
+      val += l2?.val ?? 0
+      carry = val/10
+      append(val%10)
+      l1 = l1?.next
+      l2 = l2?.next
+    }
+    if carry > 0 {
+      append(carry)
     }
 
-    return initial
+    return head
   }
 }
