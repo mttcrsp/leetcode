@@ -1,21 +1,19 @@
 /// https://leetcode.com/problems/longest-common-prefix/
 struct LongestCommonPrefix {
-  func longestCommonPrefix(_ strings: [String]) -> String {
-    let referenceString = strings[0]
+  func longestCommonPrefix(_ strs: [String]) -> String {
+    guard let first = strs.first else { return "" }
 
-    if strings.count == 1 {
-      return referenceString
-    }
-
-    for index in referenceString.indices {
-      let referenceCharacter = referenceString[index]
-      for string in strings.dropFirst() {
-        if index >= string.endIndex || string[index] != referenceCharacter {
-          return String(referenceString[referenceString.startIndex ..< index])
+    var result = ""
+    for index in first.indices {
+      for str in strs.dropFirst() {
+        if index == str.endIndex || str[index] != first[index] {
+          return result
         }
       }
+
+      result.append(first[index])
     }
 
-    return referenceString
+    return result
   }
 }
