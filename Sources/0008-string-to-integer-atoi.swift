@@ -1,38 +1,45 @@
 /// https://leetcode.com/problems/string-to-integer-atoi/
-import Foundation
-
 struct StringToIntegerAtoi {
-  func myAtoi(_ string: String) -> Int {
-    var i = string.startIndex
-    while i < string.endIndex, string[i] == " " {
-      i = string.index(after: i)
+  func myAtoi(_ s: String) -> Int {
+    var i = s.startIndex
+    while i < s.endIndex, s[i] == " " {
+      i = s.index(after: i)
     }
 
-    guard i < string.endIndex else { return 0 }
-
-    var multiplier = 1
-    switch string[i] {
-    case "-": i = string.index(after: i); multiplier = -1
-    case "+": i = string.index(after: i)
-    default: break
+    var sign: Int32 = 1
+    if i < s.endIndex {
+      if s[i] == "+" {
+        i = s.index(after: i)
+      } else if s[i] == "-" {
+        sign = -1
+        i = s.index(after: i)
+      }
     }
 
-    let digitCharacters: Set<Character> = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
-
-    var integer = 0
-    while i < string.endIndex, digitCharacters.contains(string[i]) {
-      var overflow = false
-      (integer, overflow) = integer.addingReportingOverflow(Int(string[i].asciiValue!-("0" as Character).asciiValue!))
-      if overflow { return multiplier == 1 ? Int(Int32.max) : Int(Int32.min) }
-      (integer, overflow) = integer.multipliedReportingOverflow(by: 10)
-      if overflow { return multiplier == 1 ? Int(Int32.max) : Int(Int32.min) }
-      i = string.index(after: i)
+    while i < s.endIndex, s[i] == "0" {
+      i = s.index(after: i)
     }
 
-    integer /= 10
-    integer *= multiplier
-    integer = min(Int(Int32.max), integer)
-    integer = max(Int(Int32.min), integer)
-    return integer
+    let characterToDigit: [Character: Int32] = [
+      "1": 1, "2": 2, "3": 3, "4": 4, "5": 5,
+      "6": 6, "7": 7, "8": 8, "9": 9, "0": 0,
+    ]
+
+    var overflow = false
+    var value: Int32 = 0
+    while i < s.endIndex {
+      guard let digit = characterToDigit[s[i]] else { break }
+      (value, overflow) = value.multipliedReportingOverflow(by: 10)
+      guard !overflow else { break }
+      (value, overflow) = value.addingReportingOverflow(digit*sign)
+      guard !overflow else { break }
+      i = s.index(after: i)
+    }
+
+    if overflow {
+      return sign == 1 ? Int(Int32.max) : Int(Int32.min)
+    } else {
+      return Int(value)
+    }
   }
 }
