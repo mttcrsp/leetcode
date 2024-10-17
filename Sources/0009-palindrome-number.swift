@@ -1,30 +1,17 @@
 /// https://leetcode.com/problems/palindrome-number/
 struct PalindromeNumber {
   func isPalindrome(_ x: Int) -> Bool {
-    if x < 0 {
-      return false
-    } else if x == 0 {
-      return true
+    if x < 0 { return false }
+    if x != 0 && x%10 == 0 { return false }
+
+    var reversed = 0
+    var original = x
+    while reversed < original {
+      reversed *= 10
+      reversed += original%10
+      original /= 10
     }
 
-    var digits: [Int] = []
-    var x = x
-    while x > 0 {
-      digits.append(x%10)
-      x /= 10
-    }
-
-    var lhs = 0
-    var rhs = digits.count-1
-    while lhs < rhs {
-      if digits[lhs] != digits[rhs] {
-        return false
-      }
-
-      lhs += 1
-      rhs -= 1
-    }
-
-    return true
+    return original == reversed || original == reversed/10
   }
 }
