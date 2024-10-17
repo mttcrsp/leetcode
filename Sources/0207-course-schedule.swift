@@ -17,10 +17,7 @@ struct CourseSchedule {
       }
     }
 
-    var visited: Set<Int> = []
     while let src = roots.popFirst() {
-      visited.insert(src)
-
       for dst in dsts[src, default: []] {
         dsts[src, default: []].remove(dst)
         srcs[dst, default: []].remove(src)
