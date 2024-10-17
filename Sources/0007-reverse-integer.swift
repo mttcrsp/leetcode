@@ -1,6 +1,4 @@
 /// https://leetcode.com/problems/reverse-integer/
-import Foundation
-
 struct ReverseInteger {
   func reverse(_ x: Int) -> Int {
     var overflow = false
