@@ -1,20 +1,20 @@
 /// https://leetcode.com/problems/rotate-image/
 struct RotateImage {
   func rotate(_ matrix: inout [[Int]]) {
-    var left = 0, right = matrix.count-1
+    let rows = matrix.count
+    let cols = matrix[0].count
 
-    while left < right {
-      for i in 0 ..< right-left {
-        let top = left, bottom = right
-        let topLeft = matrix[top][left+i]
-        matrix[top][left+i] = matrix[bottom-i][left]
-        matrix[bottom-i][left] = matrix[bottom][right-i]
-        matrix[bottom][right-i] = matrix[top+i][right]
-        matrix[top+i][right] = topLeft
+    for row in 0 ..< rows/2 {
+      matrix.swapAt(row, rows-1-row)
+    }
+
+    for row in 0 ..< rows {
+      for col in row+1 ..< cols {
+        let a = matrix[row][col]
+        let b = matrix[col][row]
+        matrix[row][col] = b
+        matrix[col][row] = a
       }
-
-      left += 1
-      right -= 1
     }
   }
 }
