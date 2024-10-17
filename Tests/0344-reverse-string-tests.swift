@@ -1,21 +1,22 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class ReverseStringTests: XCTestCase {
-  func testReverseString1() {
+@Suite
+struct ReverseStringTests {
+  @Test func testReverseString1() {
     var input: [Character] = ["h", "e", "l", "l", "o"]
     ReverseString().reverseString(&input)
 
     let output: [Character] = ["o", "l", "l", "e", "h"]
-    XCTAssertEqual(input, output)
+    #expect(input == output)
   }
 
-  func testReverseString2() {
+  @Test func testReverseString2() {
     var input: [Character] = ["H", "a", "n", "n", "a", "h"]
     ReverseString().reverseString(&input)
 
     let output: [Character] = ["h", "a", "n", "n", "a", "H"]
-    XCTAssertEqual(input, output)
+    #expect(input == output)
   }
 }

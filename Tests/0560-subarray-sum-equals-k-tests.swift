@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class SubarraySumEqualsKTests: XCTestCase {
-  func testSubarraysum1() {
+@Suite
+struct SubarraySumEqualsKTests {
+  @Test func testSubarraysum1() {
     let input = ([1, 1, 1], 2)
     let output = 2
-    XCTAssertEqual(SubarraySumEqualsK().subarraySum(input.0, input.1), output)
+    #expect(SubarraySumEqualsK().subarraySum(input.0, input.1) == output)
   }
 
-  func testSubarraysum3() {
+  @Test func testSubarraysum3() {
     let input = ([1, 2, 3], 3)
     let output = 2
-    XCTAssertEqual(SubarraySumEqualsK().subarraySum(input.0, input.1), output)
+    #expect(SubarraySumEqualsK().subarraySum(input.0, input.1) == output)
   }
 }

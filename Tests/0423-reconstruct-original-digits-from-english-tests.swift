@@ -1,29 +1,30 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class ReconstructOriginalDigitsFromEnglishTests: XCTestCase {
-  func testOriginaldigits1() {
+@Suite
+struct ReconstructOriginalDigitsFromEnglishTests {
+  @Test func testOriginaldigits1() {
     let input = "owoztneoer"
     let output = "012"
-    XCTAssertEqual(ReconstructOriginalDigitsFromEnglish().originalDigits(input), output)
+    #expect(ReconstructOriginalDigitsFromEnglish().originalDigits(input) == output)
   }
 
-  func testOriginaldigits2() {
+  @Test func testOriginaldigits2() {
     let input = "fviefuro"
     let output = "45"
-    XCTAssertEqual(ReconstructOriginalDigitsFromEnglish().originalDigits(input), output)
+    #expect(ReconstructOriginalDigitsFromEnglish().originalDigits(input) == output)
   }
 
-  func testOriginaldigits3() {
+  @Test func testOriginaldigits3() {
     let input = "oneonezerozerooneone"
     let output = "001111"
-    XCTAssertEqual(ReconstructOriginalDigitsFromEnglish().originalDigits(input), output)
+    #expect(ReconstructOriginalDigitsFromEnglish().originalDigits(input) == output)
   }
 
-  func testOriginaldigits4() {
+  @Test func testOriginaldigits4() {
     let input = "nnei"
     let output = "9"
-    XCTAssertEqual(ReconstructOriginalDigitsFromEnglish().originalDigits(input), output)
+    #expect(ReconstructOriginalDigitsFromEnglish().originalDigits(input) == output)
   }
 }

@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class ContinuousSubarraySumTests: XCTestCase {
-  func testChecksubarraysum1() {
+@Suite
+struct ContinuousSubarraySumTests {
+  @Test func testChecksubarraysum1() {
     let input = ([23, 2, 4, 6, 7], 6)
     let output = true
-    XCTAssertEqual(ContinuousSubarraySum().checkSubarraySum(input.0, input.1), output)
+    #expect(ContinuousSubarraySum().checkSubarraySum(input.0, input.1) == output)
   }
 
-  func testChecksubarraysum5() {
+  @Test func testChecksubarraysum5() {
     let input = ([23, 2, 6, 4, 7], 13)
     let output = false
-    XCTAssertEqual(ContinuousSubarraySum().checkSubarraySum(input.0, input.1), output)
+    #expect(ContinuousSubarraySum().checkSubarraySum(input.0, input.1) == output)
   }
 }

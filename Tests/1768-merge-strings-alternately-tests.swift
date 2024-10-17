@@ -1,23 +1,24 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class MergeStringsAlternatelyTests: XCTestCase {
-  func testMergealternately1() {
+@Suite
+struct MergeStringsAlternatelyTests {
+  @Test func testMergealternately1() {
     let input = ("abc", "pqr")
     let output = "apbqcr"
-    XCTAssertEqual(MergeStringsAlternately().mergeAlternately(input.0, input.1), output)
+    #expect(MergeStringsAlternately().mergeAlternately(input.0, input.1) == output)
   }
 
-  func testMergealternately3() {
+  @Test func testMergealternately3() {
     let input = ("ab", "pqrs")
     let output = "apbqrs"
-    XCTAssertEqual(MergeStringsAlternately().mergeAlternately(input.0, input.1), output)
+    #expect(MergeStringsAlternately().mergeAlternately(input.0, input.1) == output)
   }
 
-  func testMergealternately5() {
+  @Test func testMergealternately5() {
     let input = ("abcd", "pq")
     let output = "apbqcd"
-    XCTAssertEqual(MergeStringsAlternately().mergeAlternately(input.0, input.1), output)
+    #expect(MergeStringsAlternately().mergeAlternately(input.0, input.1) == output)
   }
 }

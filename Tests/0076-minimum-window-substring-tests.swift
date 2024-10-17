@@ -1,23 +1,24 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class MinimumWindowSubstringTests: XCTestCase {
-  func testMinWindow1() {
+@Suite
+struct MinimumWindowSubstringTests {
+  @Test func testMinWindow1() {
     let input = ("ADOBECODEBANC", "ABC")
     let output = "BANC"
-    XCTAssertEqual(MinimumWindowSubstring().minWindow(input.0, input.1), output)
+    #expect(MinimumWindowSubstring().minWindow(input.0, input.1) == output)
   }
 
-  func testMinWindow2() {
+  @Test func testMinWindow2() {
     let input = ("a", "a")
     let output = "a"
-    XCTAssertEqual(MinimumWindowSubstring().minWindow(input.0, input.1), output)
+    #expect(MinimumWindowSubstring().minWindow(input.0, input.1) == output)
   }
 
-  func testMinWindow3() {
+  @Test func testMinWindow3() {
     let input = ("a", "aa")
     let output = ""
-    XCTAssertEqual(MinimumWindowSubstring().minWindow(input.0, input.1), output)
+    #expect(MinimumWindowSubstring().minWindow(input.0, input.1) == output)
   }
 }

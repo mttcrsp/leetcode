@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class FindPeakElementTests: XCTestCase {
-  func testFindpeakelement1() {
+@Suite
+struct FindPeakElementTests {
+  @Test func testFindpeakelement1() {
     let input = [1, 2, 3, 1]
     let output = 2
-    XCTAssertEqual(FindPeakElement().findPeakElement(input), output)
+    #expect(FindPeakElement().findPeakElement(input) == output)
   }
 
-  func testFindpeakelement2() {
+  @Test func testFindpeakelement2() {
     let input = [1, 2, 1, 3, 5, 6, 4]
     let output = 5
-    XCTAssertEqual(FindPeakElement().findPeakElement(input), output)
+    #expect(FindPeakElement().findPeakElement(input) == output)
   }
 }

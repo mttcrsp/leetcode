@@ -1,46 +1,31 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class AddTwoNumbersIiTests: XCTestCase {
-  func testAddTwoNumbers1() {
-    let input = (
-      ListNode.makeList([0]),
-      ListNode.makeList([0])
-    )
-    let actual = AddTwoNumbersIi().addTwoNumbers(input.0, input.1)?.makeArray() ?? []
-    let expected = [0]
-    XCTAssertEqual(actual, expected)
+@Suite
+struct AddTwoNumbersIiTests {
+  @Test func testAddTwoNumbers1() {
+    let input = (ListNode.makeList([0]), ListNode.makeList([0]))
+    let output = [0]
+    #expect(AddTwoNumbersIi().addTwoNumbers(input.0, input.1)?.makeArray() ?? [] == output)
   }
 
-  func testAddTwoNumbers2() {
-    let input = (
-      ListNode.makeList([5]),
-      ListNode.makeList([5])
-    )
-    let actual = AddTwoNumbersIi().addTwoNumbers(input.0, input.1)?.makeArray() ?? []
-    let expected = [1, 0]
-    XCTAssertEqual(actual, expected)
+  @Test func testAddTwoNumbers2() {
+    let input = (ListNode.makeList([5]), ListNode.makeList([5]))
+    let output = [1, 0]
+    #expect(AddTwoNumbersIi().addTwoNumbers(input.0, input.1)?.makeArray() ?? [] == output)
   }
 
-  func testAddTwoNumbers3() {
-    let input = (
-      ListNode.makeList([9, 8, 7]),
-      ListNode.makeList([9, 8])
-    )
-    let actual = AddTwoNumbersIi().addTwoNumbers(input.0, input.1)?.makeArray() ?? []
-    let expected = [1, 0, 8, 5]
-    XCTAssertEqual(actual, expected)
+  @Test func testAddTwoNumbers3() {
+    let input = (ListNode.makeList([9, 8, 7]), ListNode.makeList([9, 8]))
+    let output = [1, 0, 8, 5]
+    #expect(AddTwoNumbersIi().addTwoNumbers(input.0, input.1)?.makeArray() ?? [] == output)
   }
 
-  func testAddTwoNumbers4() {
-    let input = (
-      ListNode.makeList([7, 2, 4, 3]),
-      ListNode.makeList([5, 6, 4])
-    )
-    let actual = AddTwoNumbersIi().addTwoNumbers(input.0, input.1)?.makeArray() ?? []
-    let expected = [7, 8, 0, 7]
-    XCTAssertEqual(actual, expected)
+  @Test func testAddTwoNumbers4() {
+    let input = (ListNode.makeList([7, 2, 4, 3]), ListNode.makeList([5, 6, 4]))
+    let output = [7, 8, 0, 7]
+    #expect(AddTwoNumbersIi().addTwoNumbers(input.0, input.1)?.makeArray() ?? [] == output)
   }
 }
 

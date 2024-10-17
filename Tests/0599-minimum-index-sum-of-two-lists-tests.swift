@@ -1,50 +1,51 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class MinimumIndexSumOfTwoListsTests: XCTestCase {
-  func testFindRestaurant1() {
+@Suite
+struct MinimumIndexSumOfTwoListsTests {
+  @Test func testFindRestaurant1() {
     let input = (
       ["Shogun", "Tapioca Express", "Burger King", "KFC"],
       ["Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun"]
     )
     let output = ["Shogun"]
-    XCTAssertEqual(Set(MinimumIndexSumOfTwoLists().findRestaurant(input.0, input.1)), Set(output))
+    #expect(Set(MinimumIndexSumOfTwoLists().findRestaurant(input.0, input.1)) == Set(output))
   }
 
-  func testFindRestaurant2() {
+  @Test func testFindRestaurant2() {
     let input = (
       ["Shogun", "Tapioca Express", "Burger King", "KFC"],
       ["KFC", "Shogun", "Burger King"]
     )
     let output = ["Shogun"]
-    XCTAssertEqual(Set(MinimumIndexSumOfTwoLists().findRestaurant(input.0, input.1)), Set(output))
+    #expect(Set(MinimumIndexSumOfTwoLists().findRestaurant(input.0, input.1)) == Set(output))
   }
 
-  func testFindRestaurant3() {
+  @Test func testFindRestaurant3() {
     let input = (
       ["Shogun", "Tapioca Express", "Burger King", "KFC"],
       ["KFC", "Burger King", "Tapioca Express", "Shogun"]
     )
     let output = ["KFC", "Burger King", "Tapioca Express", "Shogun"]
-    XCTAssertEqual(Set(MinimumIndexSumOfTwoLists().findRestaurant(input.0, input.1)), Set(output))
+    #expect(Set(MinimumIndexSumOfTwoLists().findRestaurant(input.0, input.1)) == Set(output))
   }
 
-  func testFindRestaurant4() {
+  @Test func testFindRestaurant4() {
     let input = (
       ["Shogun", "Tapioca Express", "Burger King", "KFC"],
       ["KNN", "KFC", "Burger King", "Tapioca Express", "Shogun"]
     )
     let output = ["KFC", "Burger King", "Tapioca Express", "Shogun"]
-    XCTAssertEqual(Set(MinimumIndexSumOfTwoLists().findRestaurant(input.0, input.1)), Set(output))
+    #expect(Set(MinimumIndexSumOfTwoLists().findRestaurant(input.0, input.1)) == Set(output))
   }
 
-  func testFindRestaurant5() {
+  @Test func testFindRestaurant5() {
     let input = (
       ["KFC"],
       ["KFC"]
     )
     let output = ["KFC"]
-    XCTAssertEqual(Set(MinimumIndexSumOfTwoLists().findRestaurant(input.0, input.1)), Set(output))
+    #expect(Set(MinimumIndexSumOfTwoLists().findRestaurant(input.0, input.1)) == Set(output))
   }
 }

@@ -1,28 +1,29 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class ReverseLinkedListTests: XCTestCase {
-  func testReverseList1() {
+@Suite
+struct ReverseLinkedListTests {
+  @Test func testReverseList1() {
     let input = ListNode.makeList([1, 2, 3, 4, 5])
     let output = ReverseLinkedList().reverseList(input)
-    XCTAssertEqual(output?.val, 5)
-    XCTAssertEqual(output?.next?.val, 4)
-    XCTAssertEqual(output?.next?.next?.val, 3)
-    XCTAssertEqual(output?.next?.next?.next?.val, 2)
-    XCTAssertEqual(output?.next?.next?.next?.next?.val, 1)
+    #expect(output?.val == 5)
+    #expect(output?.next?.val == 4)
+    #expect(output?.next?.next?.val == 3)
+    #expect(output?.next?.next?.next?.val == 2)
+    #expect(output?.next?.next?.next?.next?.val == 1)
   }
 
-  func testReverseList2() {
+  @Test func testReverseList2() {
     let input = ListNode.makeList([1, 2])
     let output = ReverseLinkedList().reverseList(input)
-    XCTAssertEqual(output?.val, 2)
-    XCTAssertEqual(output?.next?.val, 1)
+    #expect(output?.val == 2)
+    #expect(output?.next?.val == 1)
   }
 
-  func testReverseList3() {
+  @Test func testReverseList3() {
     let input = ListNode.makeList([])
     let output = ReverseLinkedList().reverseList(input)
-    XCTAssertNil(output)
+    #expect(output == nil)
   }
 }

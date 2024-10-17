@@ -1,16 +1,17 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class OnlineStockSpanTests: XCTestCase {
-  func testNext1() {
+@Suite
+struct OnlineStockSpanTests {
+  @Test func testNext1() {
     let spanner = StockSpanner()
-    XCTAssertEqual(spanner.next(100), 1)
-    XCTAssertEqual(spanner.next(80), 1)
-    XCTAssertEqual(spanner.next(60), 1)
-    XCTAssertEqual(spanner.next(70), 2)
-    XCTAssertEqual(spanner.next(60), 1)
-    XCTAssertEqual(spanner.next(75), 4)
-    XCTAssertEqual(spanner.next(85), 6)
+    #expect(spanner.next(100) == 1)
+    #expect(spanner.next(80) == 1)
+    #expect(spanner.next(60) == 1)
+    #expect(spanner.next(70) == 2)
+    #expect(spanner.next(60) == 1)
+    #expect(spanner.next(75) == 4)
+    #expect(spanner.next(85) == 6)
   }
 }

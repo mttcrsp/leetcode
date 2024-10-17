@@ -1,13 +1,14 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class MovingAverageTests: XCTestCase {
-  func testMovingAverage1() {
+@Suite
+struct MovingAverageTests {
+  @Test func testMovingAverage1() {
     let movingAverage = MovingAverage(3)
-    XCTAssertEqual(movingAverage.next(1), 1)
-    XCTAssertEqual(movingAverage.next(10), 5.5)
-    XCTAssertEqual(movingAverage.next(3), 4.66667, accuracy: 0.00001)
-    XCTAssertEqual(movingAverage.next(5), 6)
+    #expect(movingAverage.next(1) == 1)
+    #expect(movingAverage.next(10) == 5.5)
+    #expect(movingAverage.next(3) == 4.66667)
+    #expect(movingAverage.next(5) == 6)
   }
 }

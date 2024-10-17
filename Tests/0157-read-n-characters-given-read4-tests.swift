@@ -1,21 +1,22 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class ReadNCharactersGivenRead4Tests: XCTestCase {
-  func testRead1() {
+@Suite
+struct ReadNCharactersGivenRead4Tests {
+  @Test func testRead1() {
     run(withString: "abc", count: 4, expectCount: 3)
   }
 
-  func testRead2() {
+  @Test func testRead2() {
     run(withString: "abcde", count: 5, expectCount: 5)
   }
 
-  func testRead3() {
+  @Test func testRead3() {
     run(withString: "abcdABCD1234", count: 12, expectCount: 12)
   }
 
-  func testRead4() {
+  @Test func testRead4() {
     run(withString: "leetcode", count: 5, expectCount: 5)
   }
 
@@ -25,7 +26,7 @@ final class ReadNCharactersGivenRead4Tests: XCTestCase {
     let actualCount = reader.read(&buffer, buffer.count)
     let actualOutput = Array(buffer.prefix(actualCount))
     let expectOutput = Array(string.prefix(count))
-    XCTAssertEqual(actualCount, expectCount)
-    XCTAssertEqual(actualOutput, expectOutput)
+    #expect(actualCount == expectCount)
+    #expect(actualOutput == expectOutput)
   }
 }

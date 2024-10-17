@@ -1,29 +1,30 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class ConstructTheRectangleTests: XCTestCase {
-  func testConstructrectangle1() {
+@Suite
+struct ConstructTheRectangleTests {
+  @Test func testConstructrectangle1() {
     let input = 4
     let output = [2, 2]
-    XCTAssertEqual(ConstructTheRectangle().constructRectangle(input), output)
+    #expect(ConstructTheRectangle().constructRectangle(input) == output)
   }
 
-  func testConstructrectangle2() {
+  @Test func testConstructrectangle2() {
     let input = 37
     let output = [37, 1]
-    XCTAssertEqual(ConstructTheRectangle().constructRectangle(input), output)
+    #expect(ConstructTheRectangle().constructRectangle(input) == output)
   }
 
-  func testConstructrectangle3() {
+  @Test func testConstructrectangle3() {
     let input = 122_122
     let output = [427, 286]
-    XCTAssertEqual(ConstructTheRectangle().constructRectangle(input), output)
+    #expect(ConstructTheRectangle().constructRectangle(input) == output)
   }
 
-  func testConstructrectangle4() {
+  @Test func testConstructrectangle4() {
     let input = 1
     let output = [1, 1]
-    XCTAssertEqual(ConstructTheRectangle().constructRectangle(input), output)
+    #expect(ConstructTheRectangle().constructRectangle(input) == output)
   }
 }

@@ -1,23 +1,24 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class LongestPalindromeTests: XCTestCase {
-  func testLongestPalindrome1() {
+@Suite
+struct LongestPalindromeTests {
+  @Test func testLongestPalindrome1() {
     let input = "abccccdd"
     let output = 7
-    XCTAssertEqual(LongestPalindrome().longestPalindrome(input), output)
+    #expect(LongestPalindrome().longestPalindrome(input) == output)
   }
 
-  func testLongestPalindrome2() {
+  @Test func testLongestPalindrome2() {
     let input = "aabccccdd"
     let output = 9
-    XCTAssertEqual(LongestPalindrome().longestPalindrome(input), output)
+    #expect(LongestPalindrome().longestPalindrome(input) == output)
   }
 
-  func testLongestPalindrome3() {
+  @Test func testLongestPalindrome3() {
     let input = ""
     let output = 0
-    XCTAssertEqual(LongestPalindrome().longestPalindrome(input), output)
+    #expect(LongestPalindrome().longestPalindrome(input) == output)
   }
 }

@@ -1,41 +1,42 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class AngleBetweenHandsOfAClockTests: XCTestCase {
-  func testAngleClock1() {
+@Suite
+struct AngleBetweenHandsOfAClockTests {
+  @Test func testAngleClock1() {
     let input = (12, 30)
     let output = 165.0
-    XCTAssertEqual(AngleBetweenHandsOfAClock().angleClock(input.0, input.1), output)
+    #expect(AngleBetweenHandsOfAClock().angleClock(input.0, input.1) == output)
   }
 
-  func testAngleClock2() {
+  @Test func testAngleClock2() {
     let input = (3, 30)
     let output = 75.0
-    XCTAssertEqual(AngleBetweenHandsOfAClock().angleClock(input.0, input.1), output)
+    #expect(AngleBetweenHandsOfAClock().angleClock(input.0, input.1) == output)
   }
 
-  func testAngleClock3() {
+  @Test func testAngleClock3() {
     let input = (3, 15)
     let output = 7.5
-    XCTAssertEqual(AngleBetweenHandsOfAClock().angleClock(input.0, input.1), output)
+    #expect(AngleBetweenHandsOfAClock().angleClock(input.0, input.1) == output)
   }
 
-  func testAngleClock4() {
+  @Test func testAngleClock4() {
     let input = (4, 50)
     let output = 155.0
-    XCTAssertEqual(AngleBetweenHandsOfAClock().angleClock(input.0, input.1), output)
+    #expect(AngleBetweenHandsOfAClock().angleClock(input.0, input.1) == output)
   }
 
-  func testAngleClock5() {
+  @Test func testAngleClock5() {
     let input = (12, 0)
     let output = 0.0
-    XCTAssertEqual(AngleBetweenHandsOfAClock().angleClock(input.0, input.1), output)
+    #expect(AngleBetweenHandsOfAClock().angleClock(input.0, input.1) == output)
   }
 
-  func testAngleClock6() {
+  @Test func testAngleClock6() {
     let input = (1, 57)
     let output = 76.5
-    XCTAssertEqual(AngleBetweenHandsOfAClock().angleClock(input.0, input.1), output)
+    #expect(AngleBetweenHandsOfAClock().angleClock(input.0, input.1) == output)
   }
 }

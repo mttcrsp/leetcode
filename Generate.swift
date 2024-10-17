@@ -69,7 +69,7 @@ let question = decoded.data.question
 
 var paddedQuestionFrontendId = question.questionFrontendId
 if paddedQuestionFrontendId.count < 4 {
-  paddedQuestionFrontendId = String(repeating: "0", count: 4-paddedQuestionFrontendId.count)+paddedQuestionFrontendId
+  paddedQuestionFrontendId = String(repeating: "0", count: 4 - paddedQuestionFrontendId.count)+paddedQuestionFrontendId
 }
 
 let fileManager = FileManager.default
@@ -120,10 +120,10 @@ if let swiftSnippet = question.codeSnippets?.first(where: { $0.langSlug == "swif
     let testCaseNameInitial = testCaseName.removeFirst()
     testCaseName = "test\(testCaseNameInitial.uppercased())\(testCaseName)\(i+1)"
     return """
-      func \(testCaseName)() {
+      @Test func \(testCaseName)() {
         let input = \(example)
         let output = 0
-        XCTAssertEqual(\(questionStructName)().\(questionFunctionName)(input), output)
+        #expect(\(questionStructName)().\(questionFunctionName)(input) == output)
       }
     """
   }.joined(separator: "\n\n")
@@ -131,9 +131,10 @@ if let swiftSnippet = question.codeSnippets?.first(where: { $0.langSlug == "swif
   testContents = Data("""
     @testable
     import Leetcode
-    import XCTest
+    import Testing
 
-    final class \(questionStructName)Tests: XCTestCase {
+    @Suite
+    struct \(questionStructName)Tests {
     \(testCases)
     }
     """.utf8

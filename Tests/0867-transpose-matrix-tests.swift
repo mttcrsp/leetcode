@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class TransposeMatrixTests: XCTestCase {
-  func testTranspose1() {
+@Suite
+struct TransposeMatrixTests {
+  @Test func testTranspose1() {
     let input = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     let output = [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
-    XCTAssertEqual(TransposeMatrix().transpose(input), output)
+    #expect(TransposeMatrix().transpose(input) == output)
   }
 
-  func testTranspose2() {
+  @Test func testTranspose2() {
     let input = [[1, 2, 3], [4, 5, 6]]
     let output = [[1, 4], [2, 5], [3, 6]]
-    XCTAssertEqual(TransposeMatrix().transpose(input), output)
+    #expect(TransposeMatrix().transpose(input) == output)
   }
 }

@@ -1,23 +1,24 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class LongPressedNameTests: XCTestCase {
-  func testIsLongPressedName1() {
+@Suite
+struct LongPressedNameTests {
+  @Test func testIsLongPressedName1() {
     let input = ("alex", "aaleex")
     let output = true
-    XCTAssertEqual(LongPressedName().isLongPressedName(input.0, input.1), output)
+    #expect(LongPressedName().isLongPressedName(input.0, input.1) == output)
   }
 
-  func testIsLongPressedName2() {
+  @Test func testIsLongPressedName2() {
     let input = ("saeed", "ssaaedd")
     let output = false
-    XCTAssertEqual(LongPressedName().isLongPressedName(input.0, input.1), output)
+    #expect(LongPressedName().isLongPressedName(input.0, input.1) == output)
   }
 
-  func testIsLongPressedName3() {
+  @Test func testIsLongPressedName3() {
     let input = ("a", "aaaaaaaaaaa")
     let output = true
-    XCTAssertEqual(LongPressedName().isLongPressedName(input.0, input.1), output)
+    #expect(LongPressedName().isLongPressedName(input.0, input.1) == output)
   }
 }

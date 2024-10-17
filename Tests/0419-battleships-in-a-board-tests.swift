@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class BattleshipsInABoardTests: XCTestCase {
-  func testCountBattleships1() {
+@Suite
+struct BattleshipsInABoardTests {
+  @Test func testCountBattleships1() {
     let input: [[Character]] = [["X", ".", ".", "X"], [".", ".", ".", "X"], [".", ".", ".", "X"]]
     let output = 2
-    XCTAssertEqual(BattleshipsInABoard().countBattleships(input), output)
+    #expect(BattleshipsInABoard().countBattleships(input) == output)
   }
 
-  func testCountBattleships2() {
+  @Test func testCountBattleships2() {
     let input: [[Character]] = [["."]]
     let output = 0
-    XCTAssertEqual(BattleshipsInABoard().countBattleships(input), output)
+    #expect(BattleshipsInABoard().countBattleships(input) == output)
   }
 }

@@ -1,35 +1,36 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class HappyNumberTests: XCTestCase {
-  func testIsHappy1() {
+@Suite
+struct HappyNumberTests {
+  @Test func testIsHappy1() {
     let input = 19
     let output = true
-    XCTAssertEqual(HappyNumber().isHappy(input), output)
+    #expect(HappyNumber().isHappy(input) == output)
   }
 
-  func testIsHappy2() {
+  @Test func testIsHappy2() {
     let input = 25
     let output = false
-    XCTAssertEqual(HappyNumber().isHappy(input), output)
+    #expect(HappyNumber().isHappy(input) == output)
   }
 
-  func testIsHappy3() {
+  @Test func testIsHappy3() {
     let input = 0
     let output = false
-    XCTAssertEqual(HappyNumber().isHappy(input), output)
+    #expect(HappyNumber().isHappy(input) == output)
   }
 
-  func testIsHappy4() {
+  @Test func testIsHappy4() {
     let input = 9
     let output = false
-    XCTAssertEqual(HappyNumber().isHappy(input), output)
+    #expect(HappyNumber().isHappy(input) == output)
   }
 
-  func testIsHappy5() {
+  @Test func testIsHappy5() {
     let input = 7
     let output = true
-    XCTAssertEqual(HappyNumber().isHappy(input), output)
+    #expect(HappyNumber().isHappy(input) == output)
   }
 }

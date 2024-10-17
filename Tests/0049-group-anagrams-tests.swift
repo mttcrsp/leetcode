@@ -1,24 +1,25 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class GroupAnagramsTests: XCTestCase {
-  func testGroupanagrams1() {
+@Suite
+struct GroupAnagramsTests {
+  @Test func testGroupanagrams1() {
     let input = ["eat", "tea", "tan", "ate", "nat", "bat"]
     let output = [["bat"], ["nat", "tan"], ["ate", "eat", "tea"]]
-    XCTAssertEqual(GroupAnagrams().groupAnagrams(input).orderIrrelevant, output.orderIrrelevant)
+    #expect(GroupAnagrams().groupAnagrams(input).orderIrrelevant == output.orderIrrelevant)
   }
 
-  func testGroupanagrams2() {
+  @Test func testGroupanagrams2() {
     let input = [""]
     let output = [[""]]
-    XCTAssertEqual(GroupAnagrams().groupAnagrams(input).orderIrrelevant, output.orderIrrelevant)
+    #expect(GroupAnagrams().groupAnagrams(input).orderIrrelevant == output.orderIrrelevant)
   }
 
-  func testGroupanagrams3() {
+  @Test func testGroupanagrams3() {
     let input = ["a"]
     let output = [["a"]]
-    XCTAssertEqual(GroupAnagrams().groupAnagrams(input).orderIrrelevant, output.orderIrrelevant)
+    #expect(GroupAnagrams().groupAnagrams(input).orderIrrelevant == output.orderIrrelevant)
   }
 }
 

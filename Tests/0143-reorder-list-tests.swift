@@ -1,36 +1,37 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class ReorderListTests: XCTestCase {
-  func testReorderlist1() {
+@Suite
+struct ReorderListTests {
+  @Test func testReorderlist1() {
     let input = [1, 2, 3, 4]
     let head = ListNode.makeList(input)
     ReorderList().reorderList(head)
-    XCTAssertEqual(head?.val, 1)
-    XCTAssertEqual(head?.next?.val, 4)
-    XCTAssertEqual(head?.next?.next?.val, 2)
-    XCTAssertEqual(head?.next?.next?.next?.val, 3)
-    XCTAssertNil(head?.next?.next?.next?.next)
+    #expect(head?.val == 1)
+    #expect(head?.next?.val == 4)
+    #expect(head?.next?.next?.val == 2)
+    #expect(head?.next?.next?.next?.val == 3)
+    #expect(head?.next?.next?.next?.next == nil)
   }
 
-  func testReorderlist2() {
+  @Test func testReorderlist2() {
     let input = [1, 2, 3, 4, 5]
     let head = ListNode.makeList(input)
     ReorderList().reorderList(head)
-    XCTAssertEqual(head?.val, 1)
-    XCTAssertEqual(head?.next?.val, 5)
-    XCTAssertEqual(head?.next?.next?.val, 2)
-    XCTAssertEqual(head?.next?.next?.next?.val, 4)
-    XCTAssertEqual(head?.next?.next?.next?.next?.val, 3)
-    XCTAssertNil(head?.next?.next?.next?.next?.next)
+    #expect(head?.val == 1)
+    #expect(head?.next?.val == 5)
+    #expect(head?.next?.next?.val == 2)
+    #expect(head?.next?.next?.next?.val == 4)
+    #expect(head?.next?.next?.next?.next?.val == 3)
+    #expect(head?.next?.next?.next?.next?.next == nil)
   }
 
-  func testReorderlist3() {
+  @Test func testReorderlist3() {
     let input = [1]
     let head = ListNode.makeList(input)
     ReorderList().reorderList(head)
-    XCTAssertEqual(head?.val, 1)
-    XCTAssertNil(head?.next)
+    #expect(head?.val == 1)
+    #expect(head?.next == nil)
   }
 }

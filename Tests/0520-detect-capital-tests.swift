@@ -1,89 +1,90 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class DetectCapitalTests: XCTestCase {
-  func testDetectCapitalUse1() {
+@Suite
+struct DetectCapitalTests {
+  @Test func testDetectCapitalUse1() {
     let input = "facebook"
     let output = true
-    XCTAssertEqual(DetectCapital().detectCapitalUse(input), output)
+    #expect(DetectCapital().detectCapitalUse(input) == output)
   }
 
-  func testDetectCapitalUse2() {
+  @Test func testDetectCapitalUse2() {
     let input = "Facebook"
     let output = true
-    XCTAssertEqual(DetectCapital().detectCapitalUse(input), output)
+    #expect(DetectCapital().detectCapitalUse(input) == output)
   }
 
-  func testDetectCapitalUse3() {
+  @Test func testDetectCapitalUse3() {
     let input = "FACEBOOK"
     let output = true
-    XCTAssertEqual(DetectCapital().detectCapitalUse(input), output)
+    #expect(DetectCapital().detectCapitalUse(input) == output)
   }
 
-  func testDetectCapitalUse4() {
+  @Test func testDetectCapitalUse4() {
     let input = "Fb"
     let output = true
-    XCTAssertEqual(DetectCapital().detectCapitalUse(input), output)
+    #expect(DetectCapital().detectCapitalUse(input) == output)
   }
 
-  func testDetectCapitalUse5() {
+  @Test func testDetectCapitalUse5() {
     let input = "Fb"
     let output = true
-    XCTAssertEqual(DetectCapital().detectCapitalUse(input), output)
+    #expect(DetectCapital().detectCapitalUse(input) == output)
   }
 
-  func testDetectCapitalUse6() {
+  @Test func testDetectCapitalUse6() {
     let input = "F"
     let output = true
-    XCTAssertEqual(DetectCapital().detectCapitalUse(input), output)
+    #expect(DetectCapital().detectCapitalUse(input) == output)
   }
 
-  func testDetectCapitalUse7() {
+  @Test func testDetectCapitalUse7() {
     let input = "Fb"
     let output = true
-    XCTAssertEqual(DetectCapital().detectCapitalUse(input), output)
+    #expect(DetectCapital().detectCapitalUse(input) == output)
   }
 
-  func testDetectCapitalUse8() {
+  @Test func testDetectCapitalUse8() {
     let input = "bF"
     let output = false
-    XCTAssertEqual(DetectCapital().detectCapitalUse(input), output)
+    #expect(DetectCapital().detectCapitalUse(input) == output)
   }
 
-  func testDetectCapitalUse9() {
+  @Test func testDetectCapitalUse9() {
     let input = "fACEBOOK"
     let output = false
-    XCTAssertEqual(DetectCapital().detectCapitalUse(input), output)
+    #expect(DetectCapital().detectCapitalUse(input) == output)
   }
 
-  func testDetectCapitalUse10() {
+  @Test func testDetectCapitalUse10() {
     let input = "facebooK"
     let output = false
-    XCTAssertEqual(DetectCapital().detectCapitalUse(input), output)
+    #expect(DetectCapital().detectCapitalUse(input) == output)
   }
 
-  func testDetectCapitalUse11() {
+  @Test func testDetectCapitalUse11() {
     let input = "fAcebook"
     let output = false
-    XCTAssertEqual(DetectCapital().detectCapitalUse(input), output)
+    #expect(DetectCapital().detectCapitalUse(input) == output)
   }
 
-  func testDetectCapitalUse12() {
+  @Test func testDetectCapitalUse12() {
     let input = "faceboOk"
     let output = false
-    XCTAssertEqual(DetectCapital().detectCapitalUse(input), output)
+    #expect(DetectCapital().detectCapitalUse(input) == output)
   }
 
-  func testDetectCapitalUse13() {
+  @Test func testDetectCapitalUse13() {
     let input = "fAcEbOoK"
     let output = false
-    XCTAssertEqual(DetectCapital().detectCapitalUse(input), output)
+    #expect(DetectCapital().detectCapitalUse(input) == output)
   }
 
-  func testDetectCapitalUse14() {
+  @Test func testDetectCapitalUse14() {
     let input = "FaCeBoOk"
     let output = false
-    XCTAssertEqual(DetectCapital().detectCapitalUse(input), output)
+    #expect(DetectCapital().detectCapitalUse(input) == output)
   }
 }

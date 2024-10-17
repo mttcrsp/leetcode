@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class ImplementTriePrefixTreeTests: XCTestCase {
-  func testInsert1() {
+@Suite
+struct ImplementTriePrefixTreeTests {
+  @Test func testInsert1() {
     let trie = Trie()
     trie.insert("apple")
-    XCTAssertTrue(trie.search("apple"))
-    XCTAssertTrue(trie.search("apple"))
-    XCTAssertFalse(trie.search("app"))
-    XCTAssertTrue(trie.startsWith("app"))
+    #expect(trie.search("apple"))
+    #expect(trie.search("apple"))
+    #expect(!trie.search("app"))
+    #expect(trie.startsWith("app"))
 
     trie.insert("app")
-    XCTAssertTrue(trie.search("app"))
+    #expect(trie.search("app"))
   }
 }

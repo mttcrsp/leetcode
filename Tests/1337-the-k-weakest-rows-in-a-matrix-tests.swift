@@ -1,9 +1,10 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class TheKWeakestRowsInAMatrixTests: XCTestCase {
-  func testKWeakestRows1() {
+@Suite
+struct TheKWeakestRowsInAMatrixTests {
+  @Test func testKWeakestRows1() {
     let input = (
       [
         [1, 1, 0, 0, 0],
@@ -15,10 +16,10 @@ final class TheKWeakestRowsInAMatrixTests: XCTestCase {
       3
     )
     let output = [2, 0, 3]
-    XCTAssertEqual(Set(TheKWeakestRowsInAMatrix().kWeakestRows(input.0, input.1)), Set(output))
+    #expect(Set(TheKWeakestRowsInAMatrix().kWeakestRows(input.0, input.1)) == Set(output))
   }
 
-  func testKWeakestRows2() {
+  @Test func testKWeakestRows2() {
     let input = (
       [
         [1, 0, 0, 0],
@@ -29,10 +30,10 @@ final class TheKWeakestRowsInAMatrixTests: XCTestCase {
       2
     )
     let output = [0, 2]
-    XCTAssertEqual(TheKWeakestRowsInAMatrix().kWeakestRows(input.0, input.1), output)
+    #expect(TheKWeakestRowsInAMatrix().kWeakestRows(input.0, input.1) == output)
   }
 
-  func testKWeakestRows3() {
+  @Test func testKWeakestRows3() {
     let input = (
       [
         [0, 0, 0, 0, 0],
@@ -44,10 +45,10 @@ final class TheKWeakestRowsInAMatrixTests: XCTestCase {
       3
     )
     let output = [0, 1, 2]
-    XCTAssertEqual(Set(TheKWeakestRowsInAMatrix().kWeakestRows(input.0, input.1)), Set(output))
+    #expect(Set(TheKWeakestRowsInAMatrix().kWeakestRows(input.0, input.1)) == Set(output))
   }
 
-  func testKWeakestRows4() {
+  @Test func testKWeakestRows4() {
     let input = (
       [
         [1, 1, 1, 1, 1, 1],
@@ -57,6 +58,6 @@ final class TheKWeakestRowsInAMatrixTests: XCTestCase {
       1
     )
     let output = [0]
-    XCTAssertEqual(Set(TheKWeakestRowsInAMatrix().kWeakestRows(input.0, input.1)), Set(output))
+    #expect(Set(TheKWeakestRowsInAMatrix().kWeakestRows(input.0, input.1)) == Set(output))
   }
 }

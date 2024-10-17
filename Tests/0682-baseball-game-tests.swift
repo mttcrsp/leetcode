@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class BaseballGameTests: XCTestCase {
-  func testCalPoints1() {
+@Suite
+struct BaseballGameTests {
+  @Test func testCalPoints1() {
     let input = ["5", "2", "C", "D", "+"]
     let output = 30
-    XCTAssertEqual(BaseballGame().calPoints(input), output)
+    #expect(BaseballGame().calPoints(input) == output)
   }
 
-  func testCalPoints2() {
+  @Test func testCalPoints2() {
     let input = ["5", "-2", "4", "C", "D", "9", "+", "+"]
     let output = 27
-    XCTAssertEqual(BaseballGame().calPoints(input), output)
+    #expect(BaseballGame().calPoints(input) == output)
   }
 }

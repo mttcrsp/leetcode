@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class FirstBadVersionTests: XCTestCase {
-  func testIsBadVersion1() {
+@Suite
+struct FirstBadVersionTests {
+  @Test func testIsBadVersion1() {
     let input = (5, 4)
     let output = 4
-    XCTAssertEqual(FirstBadVersion(firstBadVersion: input.1).firstBadVersion(input.0), output)
+    #expect(FirstBadVersion(firstBadVersion: input.1).firstBadVersion(input.0) == output)
   }
 
-  func testIsBadVersion2() {
+  @Test func testIsBadVersion2() {
     let input = (1, 1)
     let output = 1
-    XCTAssertEqual(FirstBadVersion(firstBadVersion: input.1).firstBadVersion(input.0), output)
+    #expect(FirstBadVersion(firstBadVersion: input.1).firstBadVersion(input.0) == output)
   }
 }

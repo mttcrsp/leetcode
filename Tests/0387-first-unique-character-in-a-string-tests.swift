@@ -1,23 +1,24 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class FirstUniqueCharacterInAStringTests: XCTestCase {
-  func testFirstUniqChar1() {
+@Suite
+struct FirstUniqueCharacterInAStringTests {
+  @Test func testFirstUniqChar1() {
     let input = "leetcode"
     let output = 0
-    XCTAssertEqual(FirstUniqueCharacterInAString().firstUniqChar(input), output)
+    #expect(FirstUniqueCharacterInAString().firstUniqChar(input) == output)
   }
 
-  func testFirstUniqChar2() {
+  @Test func testFirstUniqChar2() {
     let input = "loveleetcode"
     let output = 2
-    XCTAssertEqual(FirstUniqueCharacterInAString().firstUniqChar(input), output)
+    #expect(FirstUniqueCharacterInAString().firstUniqChar(input) == output)
   }
 
-  func testFirstUniqChar3() {
+  @Test func testFirstUniqChar3() {
     let input = "aabb"
     let output = -1
-    XCTAssertEqual(FirstUniqueCharacterInAString().firstUniqChar(input), output)
+    #expect(FirstUniqueCharacterInAString().firstUniqChar(input) == output)
   }
 }

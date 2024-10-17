@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class WordLadderTests: XCTestCase {
-  func testLadderLength1() {
+@Suite
+struct WordLadderTests {
+  @Test func testLadderLength1() {
     let input = ("hit", "cog", ["hot", "dot", "dog", "lot", "log", "cog"])
     let output = 5
-    XCTAssertEqual(WordLadder().ladderLength(input.0, input.1, input.2), output)
+    #expect(WordLadder().ladderLength(input.0, input.1, input.2) == output)
   }
 
-  func testLadderLength2() {
+  @Test func testLadderLength2() {
     let input = ("hit", "cog", ["hot", "dot", "dog", "lot", "log"])
     let output = 0
-    XCTAssertEqual(WordLadder().ladderLength(input.0, input.1, input.2), output)
+    #expect(WordLadder().ladderLength(input.0, input.1, input.2) == output)
   }
 }

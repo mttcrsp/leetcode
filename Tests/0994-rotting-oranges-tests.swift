@@ -1,41 +1,42 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class RottingOrangesTests: XCTestCase {
-  func testOrangesRotting1() {
+@Suite
+struct RottingOrangesTests {
+  @Test func testOrangesRotting1() {
     let input = [[2, 1, 1], [1, 1, 0], [0, 1, 1]]
     let output = 4
-    XCTAssertEqual(RottingOranges().orangesRotting(input), output)
+    #expect(RottingOranges().orangesRotting(input) == output)
   }
 
-  func testOrangesRotting2() {
+  @Test func testOrangesRotting2() {
     let input = [[1], [1], [1], [1]]
     let output = -1
-    XCTAssertEqual(RottingOranges().orangesRotting(input), output)
+    #expect(RottingOranges().orangesRotting(input) == output)
   }
 
-  func testOrangesRotting3() {
+  @Test func testOrangesRotting3() {
     let input = [[0, 2]]
     let output = 0
-    XCTAssertEqual(RottingOranges().orangesRotting(input), output)
+    #expect(RottingOranges().orangesRotting(input) == output)
   }
 
-  func testOrangesRotting4() {
+  @Test func testOrangesRotting4() {
     let input = [[2, 1, 1], [0, 1, 1], [1, 0, 1]]
     let output = -1
-    XCTAssertEqual(RottingOranges().orangesRotting(input), output)
+    #expect(RottingOranges().orangesRotting(input) == output)
   }
 
-  func testOrangesRotting5() {
+  @Test func testOrangesRotting5() {
     let input = [[0]]
     let output = 0
-    XCTAssertEqual(RottingOranges().orangesRotting(input), output)
+    #expect(RottingOranges().orangesRotting(input) == output)
   }
 
-  func testOrangesRotting6() {
+  @Test func testOrangesRotting6() {
     let input = [[2], [2], [1], [0], [1], [1]]
     let output = -1
-    XCTAssertEqual(RottingOranges().orangesRotting(input), output)
+    #expect(RottingOranges().orangesRotting(input) == output)
   }
 }

@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class CountSquareSubmatricesWithAllOnesTests: XCTestCase {
-  func testCountSquares1() {
+@Suite
+struct CountSquareSubmatricesWithAllOnesTests {
+  @Test func testCountSquares1() {
     let input = [[0, 1, 1, 1], [1, 1, 1, 1], [0, 1, 1, 1]]
     let output = 15
-    XCTAssertEqual(CountSquareSubmatricesWithAllOnes().countSquares(input), output)
+    #expect(CountSquareSubmatricesWithAllOnes().countSquares(input) == output)
   }
 
-  func testCountSquares2() {
+  @Test func testCountSquares2() {
     let input = [[1, 0, 1], [1, 1, 0], [1, 1, 0]]
     let output = 7
-    XCTAssertEqual(CountSquareSubmatricesWithAllOnes().countSquares(input), output)
+    #expect(CountSquareSubmatricesWithAllOnes().countSquares(input) == output)
   }
 }

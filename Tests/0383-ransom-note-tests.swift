@@ -1,23 +1,24 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class RansomNoteTests: XCTestCase {
-  func testCanconstruct1() {
+@Suite
+struct RansomNoteTests {
+  @Test func testCanconstruct1() {
     let input = ("a", "b")
     let output = false
-    XCTAssertEqual(RansomNote().canConstruct(input.0, input.1), output)
+    #expect(RansomNote().canConstruct(input.0, input.1) == output)
   }
 
-  func testCanconstruct2() {
+  @Test func testCanconstruct2() {
     let input = ("aa", "ab")
     let output = false
-    XCTAssertEqual(RansomNote().canConstruct(input.0, input.1), output)
+    #expect(RansomNote().canConstruct(input.0, input.1) == output)
   }
 
-  func testCanconstruct3() {
+  @Test func testCanconstruct3() {
     let input = ("aa", "aab")
     let output = true
-    XCTAssertEqual(RansomNote().canConstruct(input.0, input.1), output)
+    #expect(RansomNote().canConstruct(input.0, input.1) == output)
   }
 }

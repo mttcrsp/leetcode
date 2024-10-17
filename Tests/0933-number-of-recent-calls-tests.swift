@@ -1,13 +1,14 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class NumberOfRecentCallsTests: XCTestCase {
-  func testPing1() {
+@Suite
+struct NumberOfRecentCallsTests {
+  @Test func testPing1() {
     let counter = RecentCounter()
-    XCTAssertEqual(counter.ping(1), 1)
-    XCTAssertEqual(counter.ping(100), 2)
-    XCTAssertEqual(counter.ping(3001), 3)
-    XCTAssertEqual(counter.ping(3002), 3)
+    #expect(counter.ping(1) == 1)
+    #expect(counter.ping(100) == 2)
+    #expect(counter.ping(3001) == 3)
+    #expect(counter.ping(3002) == 3)
   }
 }

@@ -1,27 +1,28 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class LowestCommonAncestorOfABinarySearchTreeTests: XCTestCase {
-  func testLowestcommonancestor1() {
+@Suite
+struct LowestCommonAncestorOfABinarySearchTreeTests {
+  @Test func testLowestcommonancestor1() {
     let tree = TreeNode([6, 2, 8, 0, 4, 7, 9, nil, nil, 3, 5])
     let input = (tree, tree?.find(2), tree?.find(8))
     let output = 6
-    XCTAssertEqual(LowestCommonAncestorOfABinarySearchTree().lowestCommonAncestor(input.0, input.1, input.2)?.val, output)
+    #expect(LowestCommonAncestorOfABinarySearchTree().lowestCommonAncestor(input.0, input.1, input.2)?.val == output)
   }
 
-  func testLowestcommonancestor4() {
+  @Test func testLowestcommonancestor4() {
     let tree = TreeNode([6, 2, 8, 0, 4, 7, 9, nil, nil, 3, 5])
     let input = (tree, tree?.find(2), tree?.find(4))
     let output = 2
-    XCTAssertEqual(LowestCommonAncestorOfABinarySearchTree().lowestCommonAncestor(input.0, input.1, input.2)?.val, output)
+    #expect(LowestCommonAncestorOfABinarySearchTree().lowestCommonAncestor(input.0, input.1, input.2)?.val == output)
   }
 
-  func testLowestcommonancestor7() {
+  @Test func testLowestcommonancestor7() {
     let tree = TreeNode([2, 1])
     let input = (tree, tree?.find(2), tree?.find(1))
     let output = 2
-    XCTAssertEqual(LowestCommonAncestorOfABinarySearchTree().lowestCommonAncestor(input.0, input.1, input.2)?.val, output)
+    #expect(LowestCommonAncestorOfABinarySearchTree().lowestCommonAncestor(input.0, input.1, input.2)?.val == output)
   }
 }
 

@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class DiameterOfBinaryTreeTests: XCTestCase {
-  func testDiameterOfBinaryTree1() {
+@Suite
+struct DiameterOfBinaryTreeTests {
+  @Test func testDiameterOfBinaryTree1() {
     let input = TreeNode([1, 2, 3, 4, 5])
     let output = 3
-    XCTAssertEqual(DiameterOfBinaryTree().diameterOfBinaryTree(input), output)
+    #expect(DiameterOfBinaryTree().diameterOfBinaryTree(input) == output)
   }
 
-  func testDiameterOfBinaryTree2() {
+  @Test func testDiameterOfBinaryTree2() {
     let input = TreeNode([1, 2])
     let output = 1
-    XCTAssertEqual(DiameterOfBinaryTree().diameterOfBinaryTree(input), output)
+    #expect(DiameterOfBinaryTree().diameterOfBinaryTree(input) == output)
   }
 }

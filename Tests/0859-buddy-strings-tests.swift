@@ -1,35 +1,36 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class BuddyStringsTests: XCTestCase {
-  func testBuddyStrings1() {
+@Suite
+struct BuddyStringsTests {
+  @Test func testBuddyStrings1() {
     let input = ("ab", "ba")
     let output = true
-    XCTAssertEqual(BuddyStrings().buddyStrings(input.0, input.1), output)
+    #expect(BuddyStrings().buddyStrings(input.0, input.1) == output)
   }
 
-  func testBuddyStrings2() {
+  @Test func testBuddyStrings2() {
     let input = ("ab", "ab")
     let output = false
-    XCTAssertEqual(BuddyStrings().buddyStrings(input.0, input.1), output)
+    #expect(BuddyStrings().buddyStrings(input.0, input.1) == output)
   }
 
-  func testBuddyStrings3() {
+  @Test func testBuddyStrings3() {
     let input = ("aa", "aa")
     let output = true
-    XCTAssertEqual(BuddyStrings().buddyStrings(input.0, input.1), output)
+    #expect(BuddyStrings().buddyStrings(input.0, input.1) == output)
   }
 
-  func testBuddyStrings4() {
+  @Test func testBuddyStrings4() {
     let input = ("aaaaaaabc", "aaaaaaacb")
     let output = true
-    XCTAssertEqual(BuddyStrings().buddyStrings(input.0, input.1), output)
+    #expect(BuddyStrings().buddyStrings(input.0, input.1) == output)
   }
 
-  func testBuddyStrings5() {
+  @Test func testBuddyStrings5() {
     let input = ("ab", "babbb")
     let output = false
-    XCTAssertEqual(BuddyStrings().buddyStrings(input.0, input.1), output)
+    #expect(BuddyStrings().buddyStrings(input.0, input.1) == output)
   }
 }

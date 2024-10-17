@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class LongestPalindromicSubstringTests: XCTestCase {
-  func testLongestPalindrome1() {
+@Suite
+struct LongestPalindromicSubstringTests {
+  @Test func testLongestPalindrome1() {
     let input = "babad"
     let output = "bab"
-    XCTAssertEqual(LongestPalindromicSubstring().longestPalindrome(input), output)
+    #expect(LongestPalindromicSubstring().longestPalindrome(input) == output)
   }
 
-  func testLongestPalindrome2() {
+  @Test func testLongestPalindrome2() {
     let input = "cbbd"
     let output = "bb"
-    XCTAssertEqual(LongestPalindromicSubstring().longestPalindrome(input), output)
+    #expect(LongestPalindromicSubstring().longestPalindrome(input) == output)
   }
 }

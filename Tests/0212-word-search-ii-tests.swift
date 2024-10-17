@@ -1,9 +1,10 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class WordSearchIiTests: XCTestCase {
-  func testFindwords1() {
+@Suite
+struct WordSearchIiTests {
+  @Test func testFindwords1() {
     let input = (
       [
         ["o", "a", "a", "n"],
@@ -14,10 +15,10 @@ final class WordSearchIiTests: XCTestCase {
       ["oath", "pea", "eat", "rain"]
     )
     let output = ["eat", "oath"]
-    XCTAssertEqual(Set(WordSearchIi().findWords(input.0, input.1)), Set(output))
+    #expect(Set(WordSearchIi().findWords(input.0, input.1)) == Set(output))
   }
 
-  func testFindwords2() {
+  @Test func testFindwords2() {
     let input = (
       [
         ["a", "b"],
@@ -26,10 +27,10 @@ final class WordSearchIiTests: XCTestCase {
       ["abcb"]
     )
     let output = [] as [String]
-    XCTAssertEqual(Set(WordSearchIi().findWords(input.0, input.1)), Set(output))
+    #expect(Set(WordSearchIi().findWords(input.0, input.1)) == Set(output))
   }
 
-  func testFindwords3() {
+  @Test func testFindwords3() {
     let input = (
       [
         ["o", "a", "a", "n"],
@@ -40,6 +41,6 @@ final class WordSearchIiTests: XCTestCase {
       ["oath", "pea", "eat", "rain", "hklf", "hf"]
     )
     let output = ["oath", "eat", "hklf", "hf"]
-    XCTAssertEqual(Set(WordSearchIi().findWords(input.0, input.1)), Set(output))
+    #expect(Set(WordSearchIi().findWords(input.0, input.1)) == Set(output))
   }
 }

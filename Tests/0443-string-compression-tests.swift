@@ -1,33 +1,34 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class StringCompressionTests: XCTestCase {
-  func testCompress1() {
+@Suite
+struct StringCompressionTests {
+  @Test func testCompress1() {
     var input: [Character] = ["a", "a", "b", "b", "c", "c", "c"]
     let output: [Character] = ["a", "2", "b", "2", "c", "3"]
     let newCount = StringCompression().compress(&input)
-    XCTAssertEqual(Array(input[0 ..< newCount]), output)
+    #expect(Array(input[0 ..< newCount]) == output)
   }
 
-  func testCompress2() {
+  @Test func testCompress2() {
     var input: [Character] = ["a"]
     let output: [Character] = ["a"]
     let newCount = StringCompression().compress(&input)
-    XCTAssertEqual(Array(input[0 ..< newCount]), output)
+    #expect(Array(input[0 ..< newCount]) == output)
   }
 
-  func testCompress3() {
+  @Test func testCompress3() {
     var input: [Character] = ["a", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b"]
     let output: [Character] = ["a", "b", "1", "2"]
     let newCount = StringCompression().compress(&input)
-    XCTAssertEqual(Array(input[0 ..< newCount]), output)
+    #expect(Array(input[0 ..< newCount]) == output)
   }
 
-  func testCompress4() {
+  @Test func testCompress4() {
     var input: [Character] = ["b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "a"]
     let output: [Character] = ["b", "1", "2", "a"]
     let newCount = StringCompression().compress(&input)
-    XCTAssertEqual(Array(input[0 ..< newCount]), output)
+    #expect(Array(input[0 ..< newCount]) == output)
   }
 }

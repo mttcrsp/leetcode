@@ -1,29 +1,30 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class LargestSubstringBetweenTwoEqualCharactersTests: XCTestCase {
-  func testMaxlengthbetweenequalcharacters1() {
+@Suite
+struct LargestSubstringBetweenTwoEqualCharactersTests {
+  @Test func testMaxlengthbetweenequalcharacters1() {
     let input = "aa"
     let output = 0
-    XCTAssertEqual(LargestSubstringBetweenTwoEqualCharacters().maxLengthBetweenEqualCharacters(input), output)
+    #expect(LargestSubstringBetweenTwoEqualCharacters().maxLengthBetweenEqualCharacters(input) == output)
   }
 
-  func testMaxlengthbetweenequalcharacters2() {
+  @Test func testMaxlengthbetweenequalcharacters2() {
     let input = "abca"
     let output = 2
-    XCTAssertEqual(LargestSubstringBetweenTwoEqualCharacters().maxLengthBetweenEqualCharacters(input), output)
+    #expect(LargestSubstringBetweenTwoEqualCharacters().maxLengthBetweenEqualCharacters(input) == output)
   }
 
-  func testMaxlengthbetweenequalcharacters3() {
+  @Test func testMaxlengthbetweenequalcharacters3() {
     let input = "cbzxy"
     let output = -1
-    XCTAssertEqual(LargestSubstringBetweenTwoEqualCharacters().maxLengthBetweenEqualCharacters(input), output)
+    #expect(LargestSubstringBetweenTwoEqualCharacters().maxLengthBetweenEqualCharacters(input) == output)
   }
 
-  func testMaxlengthbetweenequalcharacters4() {
+  @Test func testMaxlengthbetweenequalcharacters4() {
     let input = "cccccccccccc"
     let output = 10
-    XCTAssertEqual(LargestSubstringBetweenTwoEqualCharacters().maxLengthBetweenEqualCharacters(input), output)
+    #expect(LargestSubstringBetweenTwoEqualCharacters().maxLengthBetweenEqualCharacters(input) == output)
   }
 }

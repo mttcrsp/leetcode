@@ -1,33 +1,34 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class MoveZeroesTests: XCTestCase {
-  func testMoveZeroes1() {
+@Suite
+struct MoveZeroesTests {
+  @Test func testMoveZeroes1() {
     var input = [0, 1, 0, 3, 12]
     let output = [1, 3, 12, 0, 0]
     MoveZeroes().moveZeroes(&input)
-    XCTAssertEqual(input, output)
+    #expect(input == output)
   }
 
-  func testMoveZeroes2() {
+  @Test func testMoveZeroes2() {
     var input = [0]
     let output = [0]
     MoveZeroes().moveZeroes(&input)
-    XCTAssertEqual(input, output)
+    #expect(input == output)
   }
 
-  func testMoveZeroes3() {
+  @Test func testMoveZeroes3() {
     var input = [] as [Int]
     let output = [] as [Int]
     MoveZeroes().moveZeroes(&input)
-    XCTAssertEqual(input, output)
+    #expect(input == output)
   }
 
-  func testMoveZeroes4() {
+  @Test func testMoveZeroes4() {
     var input = [0, 0, 0, 1, 2] as [Int]
     let output = [1, 2, 0, 0, 0] as [Int]
     MoveZeroes().moveZeroes(&input)
-    XCTAssertEqual(input, output)
+    #expect(input == output)
   }
 }

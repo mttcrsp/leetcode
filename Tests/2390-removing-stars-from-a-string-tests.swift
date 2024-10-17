@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class RemovingStarsFromAStringTests: XCTestCase {
-  func testRemovestars1() {
+@Suite
+struct RemovingStarsFromAStringTests {
+  @Test func testRemovestars1() {
     let input = "leet**cod*e"
     let output = "lecoe"
-    XCTAssertEqual(RemovingStarsFromAString().removeStars(input), output)
+    #expect(RemovingStarsFromAString().removeStars(input) == output)
   }
 
-  func testRemovestars2() {
+  @Test func testRemovestars2() {
     let input = "erase*****"
     let output = ""
-    XCTAssertEqual(RemovingStarsFromAString().removeStars(input), output)
+    #expect(RemovingStarsFromAString().removeStars(input) == output)
   }
 }

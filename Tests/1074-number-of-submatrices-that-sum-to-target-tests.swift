@@ -1,23 +1,24 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class NumberOfSubmatricesThatSumToTargetTests: XCTestCase {
-  func testNumsubmatrixsumtarget1() {
+@Suite
+struct NumberOfSubmatricesThatSumToTargetTests {
+  @Test func testNumsubmatrixsumtarget1() {
     let input = ([[0, 1, 0], [1, 1, 1], [0, 1, 0]], 0)
     let output = 4
-    XCTAssertEqual(NumberOfSubmatricesThatSumToTarget().numSubmatrixSumTarget(input.0, input.1), output)
+    #expect(NumberOfSubmatricesThatSumToTarget().numSubmatrixSumTarget(input.0, input.1) == output)
   }
 
-  func testNumsubmatrixsumtarget3() {
+  @Test func testNumsubmatrixsumtarget3() {
     let input = ([[1, -1], [-1, 1]], 0)
     let output = 5
-    XCTAssertEqual(NumberOfSubmatricesThatSumToTarget().numSubmatrixSumTarget(input.0, input.1), output)
+    #expect(NumberOfSubmatricesThatSumToTarget().numSubmatrixSumTarget(input.0, input.1) == output)
   }
 
-  func testNumsubmatrixsumtarget5() {
+  @Test func testNumsubmatrixsumtarget5() {
     let input = ([[904]], 0)
     let output = 0
-    XCTAssertEqual(NumberOfSubmatricesThatSumToTarget().numSubmatrixSumTarget(input.0, input.1), output)
+    #expect(NumberOfSubmatricesThatSumToTarget().numSubmatrixSumTarget(input.0, input.1) == output)
   }
 }

@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class EditDistanceTests: XCTestCase {
-  func testMinDistance1() {
+@Suite
+struct EditDistanceTests {
+  @Test func testMinDistance1() {
     let input = ("horse", "ros")
     let output = 3
-    XCTAssertEqual(EditDistance().minDistance(input.0, input.1), output)
+    #expect(EditDistance().minDistance(input.0, input.1) == output)
   }
 
-  func testMinDistance2() {
+  @Test func testMinDistance2() {
     let input = ("intention", "execution")
     let output = 5
-    XCTAssertEqual(EditDistance().minDistance(input.0, input.1), output)
+    #expect(EditDistance().minDistance(input.0, input.1) == output)
   }
 }

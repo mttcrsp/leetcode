@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class ReverseVowelsOfAStringTests: XCTestCase {
-  func testReversevowels1() {
+@Suite
+struct ReverseVowelsOfAStringTests {
+  @Test func testReversevowels1() {
     let input = "hello"
     let output = "holle"
-    XCTAssertEqual(ReverseVowelsOfAString().reverseVowels(input), output)
+    #expect(ReverseVowelsOfAString().reverseVowels(input) == output)
   }
 
-  func testReversevowels2() {
+  @Test func testReversevowels2() {
     let input = "leetcode"
     let output = "leotcede"
-    XCTAssertEqual(ReverseVowelsOfAString().reverseVowels(input), output)
+    #expect(ReverseVowelsOfAString().reverseVowels(input) == output)
   }
 }

@@ -1,23 +1,24 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class PalindromeNumberTests: XCTestCase {
-  func testIsPalindrome1() {
+@Suite
+struct PalindromeNumberTests {
+  @Test func testIsPalindrome1() {
     let input = 121
     let output = true
-    XCTAssertEqual(PalindromeNumber().isPalindrome(input), output)
+    #expect(PalindromeNumber().isPalindrome(input) == output)
   }
 
-  func testIsPalindrome2() {
+  @Test func testIsPalindrome2() {
     let input = -121
     let output = false
-    XCTAssertEqual(PalindromeNumber().isPalindrome(input), output)
+    #expect(PalindromeNumber().isPalindrome(input) == output)
   }
 
-  func testIsPalindrome3() {
+  @Test func testIsPalindrome3() {
     let input = 10
     let output = false
-    XCTAssertEqual(PalindromeNumber().isPalindrome(input), output)
+    #expect(PalindromeNumber().isPalindrome(input) == output)
   }
 }

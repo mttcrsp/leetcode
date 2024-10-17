@@ -1,9 +1,10 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class LinkedListCycleTests: XCTestCase {
-  func testHasCycle1() {
+@Suite
+struct LinkedListCycleTests {
+  @Test func testHasCycle1() {
     let node1 = ListNode(3)
     let node2 = ListNode(2)
     let node3 = ListNode(0)
@@ -15,10 +16,10 @@ final class LinkedListCycleTests: XCTestCase {
     node4.next = node2
 
     let output = true
-    XCTAssertEqual(LinkedListCycle().hasCycle(node1), output)
+    #expect(LinkedListCycle().hasCycle(node1) == output)
   }
 
-  func testHasCycle2() {
+  @Test func testHasCycle2() {
     let node1 = ListNode(1)
     let node2 = ListNode(2)
 
@@ -26,13 +27,13 @@ final class LinkedListCycleTests: XCTestCase {
     node2.next = node1
 
     let output = true
-    XCTAssertEqual(LinkedListCycle().hasCycle(node1), output)
+    #expect(LinkedListCycle().hasCycle(node1) == output)
   }
 
-  func testHasCycle3() {
+  @Test func testHasCycle3() {
     let node1 = ListNode(1)
 
     let output = false
-    XCTAssertEqual(LinkedListCycle().hasCycle(node1), output)
+    #expect(LinkedListCycle().hasCycle(node1) == output)
   }
 }

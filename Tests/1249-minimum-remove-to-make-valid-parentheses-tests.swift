@@ -1,35 +1,36 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class MinimumRemoveToMakeValidParenthesesTests: XCTestCase {
-  func testMinRemoveToMakeValid1() {
+@Suite
+struct MinimumRemoveToMakeValidParenthesesTests {
+  @Test func testMinRemoveToMakeValid1() {
     let input = "lee(t(c)o)de)"
     let output = "lee(t(c)o)de"
-    XCTAssertEqual(MinimumRemoveToMakeValidParentheses().minRemoveToMakeValid(input), output)
+    #expect(MinimumRemoveToMakeValidParentheses().minRemoveToMakeValid(input) == output)
   }
 
-  func testMinRemoveToMakeValid2() {
+  @Test func testMinRemoveToMakeValid2() {
     let input = "a)b(c)d"
     let output = "ab(c)d"
-    XCTAssertEqual(MinimumRemoveToMakeValidParentheses().minRemoveToMakeValid(input), output)
+    #expect(MinimumRemoveToMakeValidParentheses().minRemoveToMakeValid(input) == output)
   }
 
-  func testMinRemoveToMakeValid3() {
+  @Test func testMinRemoveToMakeValid3() {
     let input = "))(("
     let output = ""
-    XCTAssertEqual(MinimumRemoveToMakeValidParentheses().minRemoveToMakeValid(input), output)
+    #expect(MinimumRemoveToMakeValidParentheses().minRemoveToMakeValid(input) == output)
   }
 
-  func testMinRemoveToMakeValid4() {
+  @Test func testMinRemoveToMakeValid4() {
     let input = "(a(b(c)d)"
     let output = "a(b(c)d)"
-    XCTAssertEqual(MinimumRemoveToMakeValidParentheses().minRemoveToMakeValid(input), output)
+    #expect(MinimumRemoveToMakeValidParentheses().minRemoveToMakeValid(input) == output)
   }
 
-  func testMinRemoveToMakeValid5() {
+  @Test func testMinRemoveToMakeValid5() {
     let input = "(()))()()()))"
     let output = "(())()()()"
-    XCTAssertEqual(MinimumRemoveToMakeValidParentheses().minRemoveToMakeValid(input), output)
+    #expect(MinimumRemoveToMakeValidParentheses().minRemoveToMakeValid(input) == output)
   }
 }

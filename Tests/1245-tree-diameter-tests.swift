@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class TreeDiameterTests: XCTestCase {
-  func testTreeDiameter1() {
+@Suite
+struct TreeDiameterTests {
+  @Test func testTreeDiameter1() {
     let input = [[0, 1], [0, 2]]
     let output = 2
-    XCTAssertEqual(TreeDiameter().treeDiameter(input), output)
+    #expect(TreeDiameter().treeDiameter(input) == output)
   }
 
-  func testTreeDiameter2() {
+  @Test func testTreeDiameter2() {
     let input = [[0, 1], [1, 2], [2, 3], [1, 4], [4, 5]]
     let output = 4
-    XCTAssertEqual(TreeDiameter().treeDiameter(input), output)
+    #expect(TreeDiameter().treeDiameter(input) == output)
   }
 }

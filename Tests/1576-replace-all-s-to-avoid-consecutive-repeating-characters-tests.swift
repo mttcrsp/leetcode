@@ -1,38 +1,39 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class ReplaceAllSToAvoidConsecutiveRepeatingCharactersTests: XCTestCase {
+@Suite
+struct ReplaceAllSToAvoidConsecutiveRepeatingCharactersTests {
   private let solver = ReplaceAllSToAvoidConsecutiveRepeatingCharacters()
 
-  func testModifyString1() {
+  @Test func testModifyString1() {
     let input = "?zs"
     let output = solver.modifyString(input)
-    XCTAssert(validate(output), output)
+    #expect(validate(output))
   }
 
-  func testModifyString2() {
+  @Test func testModifyString2() {
     let input = "ubv?w"
     let output = solver.modifyString(input)
-    XCTAssert(validate(output), output)
+    #expect(validate(output))
   }
 
-  func testModifyString3() {
+  @Test func testModifyString3() {
     let input = "j?qg??b"
     let output = solver.modifyString(input)
-    XCTAssert(validate(output), output)
+    #expect(validate(output))
   }
 
-  func testModifyString4() {
+  @Test func testModifyString4() {
     let input = "??yw?ipkj?"
     let output = solver.modifyString(input)
-    XCTAssert(validate(output), output)
+    #expect(validate(output))
   }
 
-  func testModifyString5() {
+  @Test func testModifyString5() {
     let input = "a?b"
     let output = solver.modifyString(input)
-    XCTAssert(validate(output), output)
+    #expect(validate(output))
   }
 
   private func validate(_ output: String) -> Bool {

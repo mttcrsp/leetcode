@@ -1,23 +1,24 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class PermutationInStringTests: XCTestCase {
-  func testCheckinclusion1() {
+@Suite
+struct PermutationInStringTests {
+  @Test func testCheckinclusion1() {
     let input = ("ab", "eidbaooo")
     let output = true
-    XCTAssertEqual(PermutationInString().checkInclusion(input.0, input.1), output)
+    #expect(PermutationInString().checkInclusion(input.0, input.1) == output)
   }
 
-  func testCheckinclusion2() {
+  @Test func testCheckinclusion2() {
     let input = ("ab", "eidboaoo")
     let output = false
-    XCTAssertEqual(PermutationInString().checkInclusion(input.0, input.1), output)
+    #expect(PermutationInString().checkInclusion(input.0, input.1) == output)
   }
 
-  func testCheckinclusion3() {
+  @Test func testCheckinclusion3() {
     let input = ("ab", "eidba")
     let output = true
-    XCTAssertEqual(PermutationInString().checkInclusion(input.0, input.1), output)
+    #expect(PermutationInString().checkInclusion(input.0, input.1) == output)
   }
 }

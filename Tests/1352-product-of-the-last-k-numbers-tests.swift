@@ -1,19 +1,20 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class ProductOfTheLastKNumbersTests: XCTestCase {
-  func testAdd1() {
+@Suite
+struct ProductOfTheLastKNumbersTests {
+  @Test func testAdd1() {
     let product = ProductOfNumbers()
     product.add(3)
     product.add(0)
     product.add(2)
     product.add(5)
     product.add(4)
-    XCTAssertEqual(product.getProduct(2), 20)
-    XCTAssertEqual(product.getProduct(3), 40)
-    XCTAssertEqual(product.getProduct(4), 0)
+    #expect(product.getProduct(2) == 20)
+    #expect(product.getProduct(3) == 40)
+    #expect(product.getProduct(4) == 0)
     product.add(8)
-    XCTAssertEqual(product.getProduct(2), 32)
+    #expect(product.getProduct(2) == 32)
   }
 }

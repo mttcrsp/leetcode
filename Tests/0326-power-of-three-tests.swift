@@ -1,29 +1,30 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class PowerOfThreeTests: XCTestCase {
-  func testIspowerofthree1() {
+@Suite
+struct PowerOfThreeTests {
+  @Test func testIspowerofthree1() {
     let input = 27
     let output = true
-    XCTAssertEqual(PowerOfThree().isPowerOfThree(input), output)
+    #expect(PowerOfThree().isPowerOfThree(input) == output)
   }
 
-  func testIspowerofthree2() {
+  @Test func testIspowerofthree2() {
     let input = 0
     let output = false
-    XCTAssertEqual(PowerOfThree().isPowerOfThree(input), output)
+    #expect(PowerOfThree().isPowerOfThree(input) == output)
   }
 
-  func testIspowerofthree3() {
+  @Test func testIspowerofthree3() {
     let input = 9
     let output = true
-    XCTAssertEqual(PowerOfThree().isPowerOfThree(input), output)
+    #expect(PowerOfThree().isPowerOfThree(input) == output)
   }
 
-  func testIspowerofthree4() {
+  @Test func testIspowerofthree4() {
     let input = 1
     let output = true
-    XCTAssertEqual(PowerOfThree().isPowerOfThree(input), output)
+    #expect(PowerOfThree().isPowerOfThree(input) == output)
   }
 }

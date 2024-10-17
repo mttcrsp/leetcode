@@ -1,35 +1,36 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class AddDigitsTests: XCTestCase {
-  func testAddDigits1() {
+@Suite
+struct AddDigitsTests {
+  @Test func testAddDigits1() {
     let input = 38
     let output = 2
-    XCTAssertEqual(AddDigits().addDigits(input), output)
+    #expect(AddDigits().addDigits(input) == output)
   }
 
-  func testAddDigits2() {
+  @Test func testAddDigits2() {
     let input = 0
     let output = 0
-    XCTAssertEqual(AddDigits().addDigits(input), output)
+    #expect(AddDigits().addDigits(input) == output)
   }
 
-  func testAddDigits3() {
+  @Test func testAddDigits3() {
     let input = 9
     let output = 9
-    XCTAssertEqual(AddDigits().addDigits(input), output)
+    #expect(AddDigits().addDigits(input) == output)
   }
 
-  func testAddDigits4() {
+  @Test func testAddDigits4() {
     let input = 10
     let output = 1
-    XCTAssertEqual(AddDigits().addDigits(input), output)
+    #expect(AddDigits().addDigits(input) == output)
   }
 
-  func testAddDigits5() {
+  @Test func testAddDigits5() {
     let input = 999
     let output = 9
-    XCTAssertEqual(AddDigits().addDigits(input), output)
+    #expect(AddDigits().addDigits(input) == output)
   }
 }

@@ -1,23 +1,24 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class ValidPalindromeIiTests: XCTestCase {
-  func testValidPalindrome1() {
+@Suite
+struct ValidPalindromeIiTests {
+  @Test func testValidPalindrome1() {
     let input = "aba"
     let output = true
-    XCTAssertEqual(ValidPalindromeIi().validPalindrome(input), output)
+    #expect(ValidPalindromeIi().validPalindrome(input) == output)
   }
 
-  func testValidPalindrome2() {
+  @Test func testValidPalindrome2() {
     let input = "abca"
     let output = true
-    XCTAssertEqual(ValidPalindromeIi().validPalindrome(input), output)
+    #expect(ValidPalindromeIi().validPalindrome(input) == output)
   }
 
-  func testValidPalindrome3() {
+  @Test func testValidPalindrome3() {
     let input = "abc"
     let output = false
-    XCTAssertEqual(ValidPalindromeIi().validPalindrome(input), output)
+    #expect(ValidPalindromeIi().validPalindrome(input) == output)
   }
 }

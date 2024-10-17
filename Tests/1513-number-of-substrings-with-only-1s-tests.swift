@@ -1,23 +1,24 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class NumberOfSubstringsWithOnly1STests: XCTestCase {
-  func testNumSub1() {
+@Suite
+struct NumberOfSubstringsWithOnly1STests {
+  @Test func testNumSub1() {
     let input = "0110111"
     let output = 9
-    XCTAssertEqual(NumberOfSubstringsWithOnly1S().numSub(input), output)
+    #expect(NumberOfSubstringsWithOnly1S().numSub(input) == output)
   }
 
-  func testNumSub2() {
+  @Test func testNumSub2() {
     let input = "101"
     let output = 2
-    XCTAssertEqual(NumberOfSubstringsWithOnly1S().numSub(input), output)
+    #expect(NumberOfSubstringsWithOnly1S().numSub(input) == output)
   }
 
-  func testNumSub3() {
+  @Test func testNumSub3() {
     let input = "111111"
     let output = 21
-    XCTAssertEqual(NumberOfSubstringsWithOnly1S().numSub(input), output)
+    #expect(NumberOfSubstringsWithOnly1S().numSub(input) == output)
   }
 }

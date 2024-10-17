@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class FindResultantArrayAfterRemovingAnagramsTests: XCTestCase {
-  func testRemoveAnagrams1() {
+@Suite
+struct FindResultantArrayAfterRemovingAnagramsTests {
+  @Test func testRemoveAnagrams1() {
     let input = ["abba", "baba", "bbaa", "cd", "cd"]
     let output = ["abba", "cd"]
-    XCTAssertEqual(FindResultantArrayAfterRemovingAnagrams().removeAnagrams(input), output)
+    #expect(FindResultantArrayAfterRemovingAnagrams().removeAnagrams(input) == output)
   }
 
-  func testRemoveAnagrams2() {
+  @Test func testRemoveAnagrams2() {
     let input = ["a", "b", "c", "d", "e"]
     let output = ["a", "b", "c", "d", "e"]
-    XCTAssertEqual(FindResultantArrayAfterRemovingAnagrams().removeAnagrams(input), output)
+    #expect(FindResultantArrayAfterRemovingAnagrams().removeAnagrams(input) == output)
   }
 }

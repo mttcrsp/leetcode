@@ -1,11 +1,12 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class CodecTests: XCTestCase {
-  func testCodec1() {
+@Suite
+struct CodecTests {
+  @Test func testCodec1() {
     let codec = Codec271()
     let input = ["Hello", "World"]
-    XCTAssertEqual(codec.decode(codec.encode(input)), input)
+    #expect(codec.decode(codec.encode(input)) == input)
   }
 }

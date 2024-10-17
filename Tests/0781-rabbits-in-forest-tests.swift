@@ -1,29 +1,30 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class RabbitsInForestTests: XCTestCase {
-  func testNumRabbits1() {
+@Suite
+struct RabbitsInForestTests {
+  @Test func testNumRabbits1() {
     let input = [1, 1, 2]
     let output = 5
-    XCTAssertEqual(RabbitsInForest().numRabbits(input), output)
+    #expect(RabbitsInForest().numRabbits(input) == output)
   }
 
-  func testNumRabbits2() {
+  @Test func testNumRabbits2() {
     let input = [10, 10, 10]
     let output = 11
-    XCTAssertEqual(RabbitsInForest().numRabbits(input), output)
+    #expect(RabbitsInForest().numRabbits(input) == output)
   }
 
-  func testNumRabbits3() {
+  @Test func testNumRabbits3() {
     let input = [1, 1, 1, 2]
     let output = 7
-    XCTAssertEqual(RabbitsInForest().numRabbits(input), output)
+    #expect(RabbitsInForest().numRabbits(input) == output)
   }
 
-  func testNumRabbits4() {
+  @Test func testNumRabbits4() {
     let input = [0, 0]
     let output = 2
-    XCTAssertEqual(RabbitsInForest().numRabbits(input), output)
+    #expect(RabbitsInForest().numRabbits(input) == output)
   }
 }

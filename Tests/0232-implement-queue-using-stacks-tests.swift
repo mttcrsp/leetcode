@@ -1,44 +1,45 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class ImplementQueueUsingStacksTests: XCTestCase {
-  func testMyQueue1() {
+@Suite
+struct ImplementQueueUsingStacksTests {
+  @Test func testMyQueue1() {
     let queue = MyQueue()
     queue.push(1)
     queue.push(2)
-    XCTAssertEqual(queue.peek(), 1)
-    XCTAssertEqual(queue.pop(), 1)
-    XCTAssertEqual(queue.empty(), false)
+    #expect(queue.peek() == 1)
+    #expect(queue.pop() == 1)
+    #expect(!queue.empty())
   }
 
-  func testMyQueue2() {
+  @Test func testMyQueue2() {
     let queue = MyQueue()
     queue.push(1)
-    XCTAssertEqual(queue.peek(), 1)
-    XCTAssertEqual(queue.empty(), false)
-    XCTAssertEqual(queue.pop(), 1)
-    XCTAssertEqual(queue.empty(), true)
+    #expect(queue.peek() == 1)
+    #expect(!queue.empty())
+    #expect(queue.pop() == 1)
+    #expect(queue.empty())
 
     queue.push(1)
     queue.push(2)
-    XCTAssertEqual(queue.peek(), 1)
-    XCTAssertEqual(queue.empty(), false)
-    XCTAssertEqual(queue.pop(), 1)
-    XCTAssertEqual(queue.empty(), false)
-    XCTAssertEqual(queue.pop(), 2)
-    XCTAssertEqual(queue.empty(), true)
+    #expect(queue.peek() == 1)
+    #expect(!queue.empty())
+    #expect(queue.pop() == 1)
+    #expect(!queue.empty())
+    #expect(queue.pop() == 2)
+    #expect(queue.empty())
 
     queue.push(1)
     queue.push(2)
     queue.push(3)
-    XCTAssertEqual(queue.peek(), 1)
-    XCTAssertEqual(queue.empty(), false)
-    XCTAssertEqual(queue.pop(), 1)
-    XCTAssertEqual(queue.empty(), false)
-    XCTAssertEqual(queue.pop(), 2)
-    XCTAssertEqual(queue.empty(), false)
-    XCTAssertEqual(queue.pop(), 3)
-    XCTAssertEqual(queue.empty(), true)
+    #expect(queue.peek() == 1)
+    #expect(!queue.empty())
+    #expect(queue.pop() == 1)
+    #expect(!queue.empty())
+    #expect(queue.pop() == 2)
+    #expect(!queue.empty())
+    #expect(queue.pop() == 3)
+    #expect(queue.empty())
   }
 }

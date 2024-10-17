@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class ConvertSortedArrayToBinarySearchTreeTests: XCTestCase {
-  func testSortedarraytobst1() {
+@Suite
+struct ConvertSortedArrayToBinarySearchTreeTests {
+  @Test func testSortedarraytobst1() {
     let input = [-10, -3, 0, 5, 9]
     let output = TreeNode([0, -10, 5, nil, -3, nil, 9])
-    XCTAssertEqual(ConvertSortedArrayToBinarySearchTree().sortedArrayToBST(input), output)
+    #expect(ConvertSortedArrayToBinarySearchTree().sortedArrayToBST(input) == output)
   }
 
-  func testSortedarraytobst2() {
+  @Test func testSortedarraytobst2() {
     let input = [1, 3]
     let output = TreeNode([1, nil, 3])
-    XCTAssertEqual(ConvertSortedArrayToBinarySearchTree().sortedArrayToBST(input), output)
+    #expect(ConvertSortedArrayToBinarySearchTree().sortedArrayToBST(input) == output)
   }
 }

@@ -1,33 +1,34 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class RotateImageTests: XCTestCase {
-  func testRotate1() {
+@Suite
+struct RotateImageTests {
+  @Test func testRotate1() {
     var input = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     let output = [[7, 4, 1], [8, 5, 2], [9, 6, 3]]
     RotateImage().rotate(&input)
-    XCTAssertEqual(input, output)
+    #expect(input == output)
   }
 
-  func testRotate2() {
+  @Test func testRotate2() {
     var input = [[5, 1, 9, 11], [2, 4, 8, 10], [13, 3, 6, 7], [15, 14, 12, 16]]
     let output = [[15, 13, 2, 5], [14, 3, 4, 1], [12, 6, 8, 9], [16, 7, 10, 11]]
     RotateImage().rotate(&input)
-    XCTAssertEqual(input, output)
+    #expect(input == output)
   }
 
-  func testRotate3() {
+  @Test func testRotate3() {
     var input = [[1]]
     let output = [[1]]
     RotateImage().rotate(&input)
-    XCTAssertEqual(input, output)
+    #expect(input == output)
   }
 
-  func testRotate4() {
+  @Test func testRotate4() {
     var input = [[1, 2], [3, 4]]
     let output = [[3, 1], [4, 2]]
     RotateImage().rotate(&input)
-    XCTAssertEqual(input, output)
+    #expect(input == output)
   }
 }

@@ -1,9 +1,10 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class ValidSudokuTests: XCTestCase {
-  func testIsValidSudoku1() {
+@Suite
+struct ValidSudokuTests {
+  @Test func testIsValidSudoku1() {
     let input: [[Character]] = [
       ["5", "3", ".", ".", "7", ".", ".", ".", "."],
       ["6", ".", ".", "1", "9", "5", ".", ".", "."],
@@ -16,10 +17,10 @@ final class ValidSudokuTests: XCTestCase {
       [".", ".", ".", ".", "8", ".", ".", "7", "9"],
     ]
     let output = true
-    XCTAssertEqual(ValidSudoku().isValidSudoku(input), output)
+    #expect(ValidSudoku().isValidSudoku(input) == output)
   }
 
-  func testIsValidSudoku2() {
+  @Test func testIsValidSudoku2() {
     let input: [[Character]] = [
       ["8", "3", ".", ".", "7", ".", ".", ".", "."],
       ["6", ".", ".", "1", "9", "5", ".", ".", "."],
@@ -32,6 +33,6 @@ final class ValidSudokuTests: XCTestCase {
       [".", ".", ".", ".", "8", ".", ".", "7", "9"],
     ]
     let output = false
-    XCTAssertEqual(ValidSudoku().isValidSudoku(input), output)
+    #expect(ValidSudoku().isValidSudoku(input) == output)
   }
 }

@@ -1,23 +1,24 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class PalindromePermutationTests: XCTestCase {
-  func testCanPermutePalindrome1() {
+@Suite
+struct PalindromePermutationTests {
+  @Test func testCanPermutePalindrome1() {
     let input = "code"
     let output = false
-    XCTAssertEqual(PalindromePermutation().canPermutePalindrome(input), output)
+    #expect(PalindromePermutation().canPermutePalindrome(input) == output)
   }
 
-  func testCanPermutePalindrome2() {
+  @Test func testCanPermutePalindrome2() {
     let input = "aab"
     let output = true
-    XCTAssertEqual(PalindromePermutation().canPermutePalindrome(input), output)
+    #expect(PalindromePermutation().canPermutePalindrome(input) == output)
   }
 
-  func testCanPermutePalindrome3() {
+  @Test func testCanPermutePalindrome3() {
     let input = "carerac"
     let output = true
-    XCTAssertEqual(PalindromePermutation().canPermutePalindrome(input), output)
+    #expect(PalindromePermutation().canPermutePalindrome(input) == output)
   }
 }

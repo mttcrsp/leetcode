@@ -1,18 +1,19 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class BinarySearchTreeIteratorTests: XCTestCase {
-  func testBstIterator1() {
+@Suite
+struct BinarySearchTreeIteratorTests {
+  @Test func testBstIterator1() {
     let iterator = BSTIterator(TreeNode([7, 3, 15, nil, nil, 9, 20]))
-    XCTAssertEqual(iterator.next(), 3)
-    XCTAssertEqual(iterator.next(), 7)
-    XCTAssertTrue(iterator.hasNext())
-    XCTAssertEqual(iterator.next(), 9)
-    XCTAssertTrue(iterator.hasNext())
-    XCTAssertEqual(iterator.next(), 15)
-    XCTAssertTrue(iterator.hasNext())
-    XCTAssertEqual(iterator.next(), 20)
-    XCTAssertFalse(iterator.hasNext())
+    #expect(iterator.next() == 3)
+    #expect(iterator.next() == 7)
+    #expect(iterator.hasNext())
+    #expect(iterator.next() == 9)
+    #expect(iterator.hasNext())
+    #expect(iterator.next() == 15)
+    #expect(iterator.hasNext())
+    #expect(iterator.next() == 20)
+    #expect(!iterator.hasNext())
   }
 }

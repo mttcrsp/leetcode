@@ -1,16 +1,17 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class DesignAddAndSearchWordsDataStructureTests: XCTestCase {
-  func testAddword1() {
+@Suite
+struct DesignAddAndSearchWordsDataStructureTests {
+  @Test func testAddword1() {
     let dictionary = WordDictionary()
     dictionary.addWord("bad")
     dictionary.addWord("dad")
     dictionary.addWord("mad")
-    XCTAssertFalse(dictionary.search("pad"))
-    XCTAssertTrue(dictionary.search("bad"))
-    XCTAssertTrue(dictionary.search(".ad"))
-    XCTAssertTrue(dictionary.search("b.."))
+    #expect(!dictionary.search("pad"))
+    #expect(dictionary.search("bad"))
+    #expect(dictionary.search(".ad"))
+    #expect(dictionary.search("b.."))
   }
 }

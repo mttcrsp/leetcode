@@ -1,9 +1,10 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class SmallestNumberInInfiniteSetTests: XCTestCase {
-  func testPopsmallest1() {
+@Suite
+struct SmallestNumberInInfiniteSetTests {
+  @Test func testPopsmallest1() {
     let input = (
       ["SmallestInfiniteSet", "addBack", "popSmallest", "popSmallest", "popSmallest", "addBack", "popSmallest", "popSmallest", "popSmallest"],
       [[], [2], [], [], [], [1], [], [], []]
@@ -16,7 +17,7 @@ final class SmallestNumberInInfiniteSetTests: XCTestCase {
       case "addBack":
         infiniteSet.addBack(args[0])
       case "popSmallest":
-        XCTAssertEqual(infiniteSet.popSmallest(), output)
+        #expect(infiniteSet.popSmallest() == output)
       default:
         continue
       }

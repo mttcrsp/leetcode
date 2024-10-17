@@ -1,25 +1,26 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class NumberOf1BitsTests: XCTestCase {
+@Suite
+struct NumberOf1BitsTests {
   // swiftformat:disable numberFormatting
-  func testHammingweight1() {
+  @Test func testHammingweight1() {
     let input = 0b00000000000000000000000000001011
     let output = 3
-    XCTAssertEqual(NumberOf1Bits().hammingWeight(input), output)
+    #expect(NumberOf1Bits().hammingWeight(input) == output)
   }
 
-  func testHammingweight2() {
+  @Test func testHammingweight2() {
     let input = 0b00000000000000000000000010000000
     let output = 1
-    XCTAssertEqual(NumberOf1Bits().hammingWeight(input), output)
+    #expect(NumberOf1Bits().hammingWeight(input) == output)
   }
 
-  func testHammingweight3() {
+  @Test func testHammingweight3() {
     let input = 0b11111111111111111111111111111101
     let output = 31
-    XCTAssertEqual(NumberOf1Bits().hammingWeight(input), output)
+    #expect(NumberOf1Bits().hammingWeight(input) == output)
   }
   // swiftformat:enable numberFormatting
 }

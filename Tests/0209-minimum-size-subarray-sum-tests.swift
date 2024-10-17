@@ -1,41 +1,42 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class MinimumSizeSubarraySumTests: XCTestCase {
-  func testMinSubArrayLen1() {
+@Suite
+struct MinimumSizeSubarraySumTests {
+  @Test func testMinSubArrayLen1() {
     let input = (7, [2, 3, 1, 2, 4, 3])
     let output = 2
-    XCTAssertEqual(MinimumSizeSubarraySum().minSubArrayLen(input.0, input.1), output)
+    #expect(MinimumSizeSubarraySum().minSubArrayLen(input.0, input.1) == output)
   }
 
-  func testMinSubArrayLen2() {
+  @Test func testMinSubArrayLen2() {
     let input = (10, [2, 2, 2, 2, 2, 2, 2, 4, 6, 2, 2, 2])
     let output = 2
-    XCTAssertEqual(MinimumSizeSubarraySum().minSubArrayLen(input.0, input.1), output)
+    #expect(MinimumSizeSubarraySum().minSubArrayLen(input.0, input.1) == output)
   }
 
-  func testMinSubArrayLen3() {
+  @Test func testMinSubArrayLen3() {
     let input = (10, [2, 2, 2, 2, 2, 2, 11, 4, 6, 2, 2, 2])
     let output = 1
-    XCTAssertEqual(MinimumSizeSubarraySum().minSubArrayLen(input.0, input.1), output)
+    #expect(MinimumSizeSubarraySum().minSubArrayLen(input.0, input.1) == output)
   }
 
-  func testMinSubArrayLen4() {
+  @Test func testMinSubArrayLen4() {
     let input = (10, [1, 1, 1, 1, 1, 1, 1, 1, 1])
     let output = 0
-    XCTAssertEqual(MinimumSizeSubarraySum().minSubArrayLen(input.0, input.1), output)
+    #expect(MinimumSizeSubarraySum().minSubArrayLen(input.0, input.1) == output)
   }
 
-  func testMinSubArrayLen5() {
+  @Test func testMinSubArrayLen5() {
     let input = (10, [100])
     let output = 1
-    XCTAssertEqual(MinimumSizeSubarraySum().minSubArrayLen(input.0, input.1), output)
+    #expect(MinimumSizeSubarraySum().minSubArrayLen(input.0, input.1) == output)
   }
 
-  func testMinSubArrayLen6() {
+  @Test func testMinSubArrayLen6() {
     let input = (10, [] as [Int])
     let output = 0
-    XCTAssertEqual(MinimumSizeSubarraySum().minSubArrayLen(input.0, input.1), output)
+    #expect(MinimumSizeSubarraySum().minSubArrayLen(input.0, input.1) == output)
   }
 }

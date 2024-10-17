@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class PushDominoesTests: XCTestCase {
-  func testPushdominoes1() {
+@Suite
+struct PushDominoesTests {
+  @Test func testPushdominoes1() {
     let input = ".L.R...LR..L.."
     let output = "LL.RR.LLRRLL.."
-    XCTAssertEqual(PushDominoes().pushDominoes(input), output)
+    #expect(PushDominoes().pushDominoes(input) == output)
   }
 
-  func testPushdominoes2() {
+  @Test func testPushdominoes2() {
     let input = "RR.L"
     let output = "RR.L"
-    XCTAssertEqual(PushDominoes().pushDominoes(input), output)
+    #expect(PushDominoes().pushDominoes(input) == output)
   }
 }

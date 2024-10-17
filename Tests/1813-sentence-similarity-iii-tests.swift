@@ -1,29 +1,30 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class SentenceSimilarityIiiTests: XCTestCase {
-  func testAreSentencesSimilar1() {
+@Suite
+struct SentenceSimilarityIiiTests {
+  @Test func testAreSentencesSimilar1() {
     let input = ("My name is Haley", "My Haley")
     let output = true
-    XCTAssertEqual(SentenceSimilarityIii().areSentencesSimilar(input.0, input.1), output)
+    #expect(SentenceSimilarityIii().areSentencesSimilar(input.0, input.1) == output)
   }
 
-  func testAreSentencesSimilar2() {
+  @Test func testAreSentencesSimilar2() {
     let input = ("of", "A lot of words")
     let output = false
-    XCTAssertEqual(SentenceSimilarityIii().areSentencesSimilar(input.0, input.1), output)
+    #expect(SentenceSimilarityIii().areSentencesSimilar(input.0, input.1) == output)
   }
 
-  func testAreSentencesSimilar3() {
+  @Test func testAreSentencesSimilar3() {
     let input = ("Eating right now", "Eating")
     let output = true
-    XCTAssertEqual(SentenceSimilarityIii().areSentencesSimilar(input.0, input.1), output)
+    #expect(SentenceSimilarityIii().areSentencesSimilar(input.0, input.1) == output)
   }
 
-  func testAreSentencesSimilar4() {
+  @Test func testAreSentencesSimilar4() {
     let input = ("Luky", "Lucccky")
     let output = false
-    XCTAssertEqual(SentenceSimilarityIii().areSentencesSimilar(input.0, input.1), output)
+    #expect(SentenceSimilarityIii().areSentencesSimilar(input.0, input.1) == output)
   }
 }

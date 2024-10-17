@@ -1,41 +1,42 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class PerfectNumberTests: XCTestCase {
-  func testCheckPerfectNumber1() {
+@Suite
+struct PerfectNumberTests {
+  @Test func testCheckPerfectNumber1() {
     let input = 28
     let output = true
-    XCTAssertEqual(PerfectNumber().checkPerfectNumber(input), output)
+    #expect(PerfectNumber().checkPerfectNumber(input) == output)
   }
 
-  func testCheckPerfectNumber2() {
+  @Test func testCheckPerfectNumber2() {
     let input = 6
     let output = true
-    XCTAssertEqual(PerfectNumber().checkPerfectNumber(input), output)
+    #expect(PerfectNumber().checkPerfectNumber(input) == output)
   }
 
-  func testCheckPerfectNumber3() {
+  @Test func testCheckPerfectNumber3() {
     let input = 496
     let output = true
-    XCTAssertEqual(PerfectNumber().checkPerfectNumber(input), output)
+    #expect(PerfectNumber().checkPerfectNumber(input) == output)
   }
 
-  func testCheckPerfectNumber4() {
+  @Test func testCheckPerfectNumber4() {
     let input = 8128
     let output = true
-    XCTAssertEqual(PerfectNumber().checkPerfectNumber(input), output)
+    #expect(PerfectNumber().checkPerfectNumber(input) == output)
   }
 
-  func testCheckPerfectNumber5() {
+  @Test func testCheckPerfectNumber5() {
     let input = 2
     let output = false
-    XCTAssertEqual(PerfectNumber().checkPerfectNumber(input), output)
+    #expect(PerfectNumber().checkPerfectNumber(input) == output)
   }
 
-  func testCheckPerfectNumber6() {
+  @Test func testCheckPerfectNumber6() {
     let input = 99_999_996
     let output = false
-    XCTAssertEqual(PerfectNumber().checkPerfectNumber(input), output)
+    #expect(PerfectNumber().checkPerfectNumber(input) == output)
   }
 }

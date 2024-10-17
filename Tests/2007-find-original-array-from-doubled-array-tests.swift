@@ -1,29 +1,30 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class FindOriginalArrayFromDoubledArrayTests: XCTestCase {
-  func testFindOriginalArray1() {
+@Suite
+struct FindOriginalArrayFromDoubledArrayTests {
+  @Test func testFindOriginalArray1() {
     let input = [1, 3, 4, 2, 6, 8]
     let output = [1, 3, 4]
-    XCTAssertEqual(FindOriginalArrayFromDoubledArray().findOriginalArray(input), output)
+    #expect(FindOriginalArrayFromDoubledArray().findOriginalArray(input) == output)
   }
 
-  func testFindOriginalArray2() {
+  @Test func testFindOriginalArray2() {
     let input = [6, 3, 0, 1]
     let output = [] as [Int]
-    XCTAssertEqual(FindOriginalArrayFromDoubledArray().findOriginalArray(input), output)
+    #expect(FindOriginalArrayFromDoubledArray().findOriginalArray(input) == output)
   }
 
-  func testFindOriginalArray3() {
+  @Test func testFindOriginalArray3() {
     let input = [1]
     let output = [] as [Int]
-    XCTAssertEqual(FindOriginalArrayFromDoubledArray().findOriginalArray(input), output)
+    #expect(FindOriginalArrayFromDoubledArray().findOriginalArray(input) == output)
   }
 
-  func testFindOriginalArray4() {
+  @Test func testFindOriginalArray4() {
     let input = [0, 0, 0, 0]
     let output = [0, 0]
-    XCTAssertEqual(FindOriginalArrayFromDoubledArray().findOriginalArray(input), output)
+    #expect(FindOriginalArrayFromDoubledArray().findOriginalArray(input) == output)
   }
 }

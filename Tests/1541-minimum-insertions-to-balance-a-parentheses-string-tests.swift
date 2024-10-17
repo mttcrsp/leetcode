@@ -1,29 +1,30 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class MinimumInsertionsToBalanceAParenthesesStringTests: XCTestCase {
-  func testMinInsertions1() {
+@Suite
+struct MinimumInsertionsToBalanceAParenthesesStringTests {
+  @Test func testMinInsertions1() {
     let input = "(()))"
     let output = 1
-    XCTAssertEqual(MinimumInsertionsToBalanceAParenthesesString().minInsertions(input), output)
+    #expect(MinimumInsertionsToBalanceAParenthesesString().minInsertions(input) == output)
   }
 
-  func testMinInsertions2() {
+  @Test func testMinInsertions2() {
     let input = "())"
     let output = 0
-    XCTAssertEqual(MinimumInsertionsToBalanceAParenthesesString().minInsertions(input), output)
+    #expect(MinimumInsertionsToBalanceAParenthesesString().minInsertions(input) == output)
   }
 
-  func testMinInsertions3() {
+  @Test func testMinInsertions3() {
     let input = "))())("
     let output = 3
-    XCTAssertEqual(MinimumInsertionsToBalanceAParenthesesString().minInsertions(input), output)
+    #expect(MinimumInsertionsToBalanceAParenthesesString().minInsertions(input) == output)
   }
 
-  func testMinInsertions4() {
+  @Test func testMinInsertions4() {
     let input = "(()((()(("
     let output = 12
-    XCTAssertEqual(MinimumInsertionsToBalanceAParenthesesString().minInsertions(input), output)
+    #expect(MinimumInsertionsToBalanceAParenthesesString().minInsertions(input) == output)
   }
 }

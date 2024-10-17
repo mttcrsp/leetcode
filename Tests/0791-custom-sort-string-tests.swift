@@ -1,11 +1,12 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class CustomSortStringTests: XCTestCase {
-  func testCustomSortString1() {
+@Suite
+struct CustomSortStringTests {
+  @Test func testCustomSortString1() {
     let input = ("cba", "abcd")
     let output = "cbad"
-    XCTAssertEqual(CustomSortString().customSortString(input.0, input.1), output)
+    #expect(CustomSortString().customSortString(input.0, input.1) == output)
   }
 }

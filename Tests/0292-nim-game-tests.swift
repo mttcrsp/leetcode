@@ -1,23 +1,24 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class NimGameTests: XCTestCase {
-  func testCanWinNim1() {
+@Suite
+struct NimGameTests {
+  @Test func testCanWinNim1() {
     let input = 4
     let output = false
-    XCTAssertEqual(NimGame().canWinNim(input), output)
+    #expect(NimGame().canWinNim(input) == output)
   }
 
-  func testCanWinNim2() {
+  @Test func testCanWinNim2() {
     let input = 1
     let output = true
-    XCTAssertEqual(NimGame().canWinNim(input), output)
+    #expect(NimGame().canWinNim(input) == output)
   }
 
-  func testCanWinNim3() {
+  @Test func testCanWinNim3() {
     let input = 2
     let output = true
-    XCTAssertEqual(NimGame().canWinNim(input), output)
+    #expect(NimGame().canWinNim(input) == output)
   }
 }

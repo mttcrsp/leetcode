@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class LongestSubsequenceWithLimitedSumTests: XCTestCase {
-  func testAnswerQueries1() {
+@Suite
+struct LongestSubsequenceWithLimitedSumTests {
+  @Test func testAnswerQueries1() {
     let input = ([4, 5, 2, 1], [3, 10, 21])
     let output = [2, 3, 4]
-    XCTAssertEqual(LongestSubsequenceWithLimitedSum().answerQueries(input.0, input.1), output)
+    #expect(LongestSubsequenceWithLimitedSum().answerQueries(input.0, input.1) == output)
   }
 
-  func testAnswerQueries2() {
+  @Test func testAnswerQueries2() {
     let input = ([2, 3, 4, 5], [1])
     let output = [0]
-    XCTAssertEqual(LongestSubsequenceWithLimitedSum().answerQueries(input.0, input.1), output)
+    #expect(LongestSubsequenceWithLimitedSum().answerQueries(input.0, input.1) == output)
   }
 }

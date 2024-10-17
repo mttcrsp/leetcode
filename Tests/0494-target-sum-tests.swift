@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class TargetSumTests: XCTestCase {
-  func testFindtargetsumways1() {
+@Suite
+struct TargetSumTests {
+  @Test func testFindtargetsumways1() {
     let input = ([1, 1, 1, 1, 1], 3)
     let output = 5
-    XCTAssertEqual(TargetSum().findTargetSumWays(input.0, input.1), output)
+    #expect(TargetSum().findTargetSumWays(input.0, input.1) == output)
   }
 
-  func testFindtargetsumways3() {
+  @Test func testFindtargetsumways3() {
     let input = ([1], 1)
     let output = 1
-    XCTAssertEqual(TargetSum().findTargetSumWays(input.0, input.1), output)
+    #expect(TargetSum().findTargetSumWays(input.0, input.1) == output)
   }
 }

@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class BinaryTreeMaximumPathSumTests: XCTestCase {
-  func testMaxPathSum1() {
+@Suite
+struct BinaryTreeMaximumPathSumTests {
+  @Test func testMaxPathSum1() {
     let input = TreeNode([1, 2, 3])
     let output = 6
-    XCTAssertEqual(BinaryTreeMaximumPathSum().maxPathSum(input), output)
+    #expect(BinaryTreeMaximumPathSum().maxPathSum(input) == output)
   }
 
-  func testMaxPathSum2() {
+  @Test func testMaxPathSum2() {
     let input = TreeNode([-10, 9, 20, nil, nil, 15, 7])
     let output = 42
-    XCTAssertEqual(BinaryTreeMaximumPathSum().maxPathSum(input), output)
+    #expect(BinaryTreeMaximumPathSum().maxPathSum(input) == output)
   }
 }

@@ -1,23 +1,24 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class SubtractTheProductAndSumOfDigitsOfAnIntegerTests: XCTestCase {
-  func testSubtractProductAndSum1() {
+@Suite
+struct SubtractTheProductAndSumOfDigitsOfAnIntegerTests {
+  @Test func testSubtractProductAndSum1() {
     let input = 234
     let output = 15
-    XCTAssertEqual(SubtractTheProductAndSumOfDigitsOfAnInteger().subtractProductAndSum(input), output)
+    #expect(SubtractTheProductAndSumOfDigitsOfAnInteger().subtractProductAndSum(input) == output)
   }
 
-  func testSubtractProductAndSum2() {
+  @Test func testSubtractProductAndSum2() {
     let input = 4421
     let output = 21
-    XCTAssertEqual(SubtractTheProductAndSumOfDigitsOfAnInteger().subtractProductAndSum(input), output)
+    #expect(SubtractTheProductAndSumOfDigitsOfAnInteger().subtractProductAndSum(input) == output)
   }
 
-  func testSubtractProductAndSum3() {
+  @Test func testSubtractProductAndSum3() {
     let input = 114
     let output = -2
-    XCTAssertEqual(SubtractTheProductAndSumOfDigitsOfAnInteger().subtractProductAndSum(input), output)
+    #expect(SubtractTheProductAndSumOfDigitsOfAnInteger().subtractProductAndSum(input) == output)
   }
 }

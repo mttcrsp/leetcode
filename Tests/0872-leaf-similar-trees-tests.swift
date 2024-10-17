@@ -1,23 +1,24 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class LeafSimilarTreesTests: XCTestCase {
-  func testLeafsimilar1() {
+@Suite
+struct LeafSimilarTreesTests {
+  @Test func testLeafsimilar1() {
     let input = (
       TreeNode([3, 5, 1, 6, 2, 9, 8, nil, nil, 7, 4]),
       TreeNode([3, 5, 1, 6, 7, 4, 2, nil, nil, nil, nil, nil, nil, 9, 8])
     )
     let output = true
-    XCTAssertEqual(LeafSimilarTrees().leafSimilar(input.0, input.1), output)
+    #expect(LeafSimilarTrees().leafSimilar(input.0, input.1) == output)
   }
 
-  func testLeafsimilar2() {
+  @Test func testLeafsimilar2() {
     let input = (
       TreeNode([1, 2, 3]),
       TreeNode([1, 3, 2])
     )
     let output = false
-    XCTAssertEqual(LeafSimilarTrees().leafSimilar(input.0, input.1), output)
+    #expect(LeafSimilarTrees().leafSimilar(input.0, input.1) == output)
   }
 }

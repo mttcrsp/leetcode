@@ -1,23 +1,24 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class RemoveOutermostParenthesesTests: XCTestCase {
-  func testRemoveouterparentheses1() {
+@Suite
+struct RemoveOutermostParenthesesTests {
+  @Test func testRemoveouterparentheses1() {
     let input = "(()())(())"
     let output = "()()()"
-    XCTAssertEqual(RemoveOutermostParentheses().removeOuterParentheses(input), output)
+    #expect(RemoveOutermostParentheses().removeOuterParentheses(input) == output)
   }
 
-  func testRemoveouterparentheses2() {
+  @Test func testRemoveouterparentheses2() {
     let input = "(()())(())(()(()))"
     let output = "()()()()(())"
-    XCTAssertEqual(RemoveOutermostParentheses().removeOuterParentheses(input), output)
+    #expect(RemoveOutermostParentheses().removeOuterParentheses(input) == output)
   }
 
-  func testRemoveouterparentheses3() {
+  @Test func testRemoveouterparentheses3() {
     let input = "()()"
     let output = ""
-    XCTAssertEqual(RemoveOutermostParentheses().removeOuterParentheses(input), output)
+    #expect(RemoveOutermostParentheses().removeOuterParentheses(input) == output)
   }
 }

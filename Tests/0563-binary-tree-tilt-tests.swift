@@ -1,23 +1,24 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class BinaryTreeTiltTests: XCTestCase {
-  func testFindTilt1() {
+@Suite
+struct BinaryTreeTiltTests {
+  @Test func testFindTilt1() {
     let input = TreeNode([1, 2, 3])
     let output = 1
-    XCTAssertEqual(BinaryTreeTilt().findTilt(input), output)
+    #expect(BinaryTreeTilt().findTilt(input) == output)
   }
 
-  func testFindTilt2() {
+  @Test func testFindTilt2() {
     let input = TreeNode([4, 2, 9, 3, 5, nil, 7])
     let output = 15
-    XCTAssertEqual(BinaryTreeTilt().findTilt(input), output)
+    #expect(BinaryTreeTilt().findTilt(input) == output)
   }
 
-  func testFindTilt3() {
+  @Test func testFindTilt3() {
     let input = TreeNode([21, 7, 14, 1, 1, 2, 2, 3, 3])
     let output = 9
-    XCTAssertEqual(BinaryTreeTilt().findTilt(input), output)
+    #expect(BinaryTreeTilt().findTilt(input) == output)
   }
 }

@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class InsertDeleteGetrandomO1Tests: XCTestCase {
-  func testRandomizedSet1() {
+@Suite
+struct InsertDeleteGetrandomO1Tests {
+  @Test func testRandomizedSet1() {
     let set = RandomizedSet()
-    XCTAssertTrue(set.insert(1))
-    XCTAssertFalse(set.remove(2))
-    XCTAssertTrue(set.insert(2))
+    #expect(set.insert(1))
+    #expect(!set.remove(2))
+    #expect(set.insert(2))
     let random = set.getRandom()
-    XCTAssert(random == 1 || random == 2)
-    XCTAssertTrue(set.remove(1))
-    XCTAssertFalse(set.insert(2))
-    XCTAssertEqual(set.getRandom(), 2)
+    #expect(random == 1 || random == 2)
+    #expect(set.remove(1))
+    #expect(!set.insert(2))
+    #expect(set.getRandom() == 2)
   }
 }

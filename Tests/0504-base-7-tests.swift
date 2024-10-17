@@ -1,23 +1,24 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class Base7Tests: XCTestCase {
-  func testConvertToBase71() {
+@Suite
+struct Base7Tests {
+  @Test func testConvertToBase71() {
     let input = 100
     let output = "202"
-    XCTAssertEqual(Base7().convertToBase7(input), output)
+    #expect(Base7().convertToBase7(input) == output)
   }
 
-  func testConvertToBase72() {
+  @Test func testConvertToBase72() {
     let input = -7
     let output = "-10"
-    XCTAssertEqual(Base7().convertToBase7(input), output)
+    #expect(Base7().convertToBase7(input) == output)
   }
 
-  func testConvertToBase73() {
+  @Test func testConvertToBase73() {
     let input = 49
     let output = "100"
-    XCTAssertEqual(Base7().convertToBase7(input), output)
+    #expect(Base7().convertToBase7(input) == output)
   }
 }

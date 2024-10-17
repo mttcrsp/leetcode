@@ -1,11 +1,12 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class ReplaceElementsWithGreatestElementOnRightSideTests: XCTestCase {
-  func testReplaceElements1() {
+@Suite
+struct ReplaceElementsWithGreatestElementOnRightSideTests {
+  @Test func testReplaceElements1() {
     let input = [17, 18, 5, 4, 6, 1]
     let output = [18, 6, 6, 6, 1, -1]
-    XCTAssertEqual(ReplaceElementsWithGreatestElementOnRightSide().replaceElements(input), output)
+    #expect(ReplaceElementsWithGreatestElementOnRightSide().replaceElements(input) == output)
   }
 }

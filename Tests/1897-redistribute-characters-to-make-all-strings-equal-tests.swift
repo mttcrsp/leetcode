@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class RedistributeCharactersToMakeAllStringsEqualTests: XCTestCase {
-  func testMakeequal1() {
+@Suite
+struct RedistributeCharactersToMakeAllStringsEqualTests {
+  @Test func testMakeequal1() {
     let input = ["abc", "aabc", "bc"]
     let output = true
-    XCTAssertEqual(RedistributeCharactersToMakeAllStringsEqual().makeEqual(input), output)
+    #expect(RedistributeCharactersToMakeAllStringsEqual().makeEqual(input) == output)
   }
 
-  func testMakeequal2() {
+  @Test func testMakeequal2() {
     let input = ["ab", "a"]
     let output = false
-    XCTAssertEqual(RedistributeCharactersToMakeAllStringsEqual().makeEqual(input), output)
+    #expect(RedistributeCharactersToMakeAllStringsEqual().makeEqual(input) == output)
   }
 }

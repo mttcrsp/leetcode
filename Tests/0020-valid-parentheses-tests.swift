@@ -1,41 +1,42 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class ValidParenthesesTests: XCTestCase {
-  func testIsvalid1() {
+@Suite
+struct ValidParenthesesTests {
+  @Test func testIsvalid1() {
     let input = "()"
     let output = true
-    XCTAssertEqual(ValidParentheses().isValid(input), output)
+    #expect(ValidParentheses().isValid(input) == output)
   }
 
-  func testIsvalid2() {
+  @Test func testIsvalid2() {
     let input = "()[]{}"
     let output = true
-    XCTAssertEqual(ValidParentheses().isValid(input), output)
+    #expect(ValidParentheses().isValid(input) == output)
   }
 
-  func testIsvalid3() {
+  @Test func testIsvalid3() {
     let input = "(]"
     let output = false
-    XCTAssertEqual(ValidParentheses().isValid(input), output)
+    #expect(ValidParentheses().isValid(input) == output)
   }
 
-  func testIsvalid4() {
+  @Test func testIsvalid4() {
     let input = "{[()()]}"
     let output = true
-    XCTAssertEqual(ValidParentheses().isValid(input), output)
+    #expect(ValidParentheses().isValid(input) == output)
   }
 
-  func testIsvalid5() {
+  @Test func testIsvalid5() {
     let input = "())"
     let output = false
-    XCTAssertEqual(ValidParentheses().isValid(input), output)
+    #expect(ValidParentheses().isValid(input) == output)
   }
 
-  func testIsvalid6() {
+  @Test func testIsvalid6() {
     let input = "((()"
     let output = false
-    XCTAssertEqual(ValidParentheses().isValid(input), output)
+    #expect(ValidParentheses().isValid(input) == output)
   }
 }

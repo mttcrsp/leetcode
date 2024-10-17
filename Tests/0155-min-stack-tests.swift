@@ -1,16 +1,17 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class MinStackTests: XCTestCase {
-  func testPush1() {
+@Suite
+struct MinStackTests {
+  @Test func testPush1() {
     let minStack = MinStack()
     minStack.push(-2)
     minStack.push(0)
     minStack.push(-3)
-    XCTAssertEqual(minStack.getMin(), -3)
+    #expect(minStack.getMin() == -3)
     minStack.pop()
-    XCTAssertEqual(minStack.top(), 0)
-    XCTAssertEqual(minStack.getMin(), -2)
+    #expect(minStack.top() == 0)
+    #expect(minStack.getMin() == -2)
   }
 }

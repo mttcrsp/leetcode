@@ -1,17 +1,18 @@
 @testable
 import Leetcode
-import XCTest
+import Testing
 
-final class RemoveTrailingZerosFromAStringTests: XCTestCase {
-  func testRemovetrailingzeros1() {
+@Suite
+struct RemoveTrailingZerosFromAStringTests {
+  @Test func testRemovetrailingzeros1() {
     let input = "51230100"
     let output = "512301"
-    XCTAssertEqual(RemoveTrailingZerosFromAString().removeTrailingZeros(input), output)
+    #expect(RemoveTrailingZerosFromAString().removeTrailingZeros(input) == output)
   }
 
-  func testRemovetrailingzeros2() {
+  @Test func testRemovetrailingzeros2() {
     let input = "123"
     let output = "123"
-    XCTAssertEqual(RemoveTrailingZerosFromAString().removeTrailingZeros(input), output)
+    #expect(RemoveTrailingZerosFromAString().removeTrailingZeros(input) == output)
   }
 }
