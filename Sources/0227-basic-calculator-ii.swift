@@ -12,10 +12,9 @@ struct BasicCalculatorIi {
       if character.isNumber {
         var number = 0
         while index < s.endIndex, let digit = Int(String(s[index])) {
-          number = 10*number+digit
+          number = (number*10)+digit
           index = s.index(after: index)
         }
-        index = s.index(before: index)
 
         switch `operator` {
         case "+": previous = result; result += number
@@ -26,9 +25,10 @@ struct BasicCalculatorIi {
         }
       } else if operators.contains(character) {
         `operator` = character
+        index = s.index(after: index)
+      } else {
+        index = s.index(after: index)
       }
-
-      index = s.index(after: index)
     }
 
     return result
