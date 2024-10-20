@@ -8,31 +8,29 @@ struct FindFirstAndLastPositionOfElementInSortedArray {
     var rhs = nums.count-1
     while lhs < rhs {
       let mid = (lhs+rhs)/2
-      if nums[mid] < target {
-        lhs = mid+1
-      } else if nums[mid] > target {
-        rhs = mid-1
-      } else {
+      if nums[mid] >= target {
         rhs = mid
+      } else {
+        lhs = mid+1
       }
     }
 
     guard nums[lhs] == target else { return result }
     result[0] = lhs
 
-    rhs = nums.count-1
+    lhs = 0
+    rhs = nums.count
+
     while lhs < rhs {
-      let mid = (lhs+rhs+1)/2
-      if nums[mid] < target {
-        lhs = mid+1
-      } else if nums[mid] > target {
-        rhs = mid-1
+      let mid = (lhs+rhs)/2
+      if nums[mid] > target {
+        rhs = mid
       } else {
-        lhs = mid
+        lhs = mid+1
       }
     }
 
-    result[1] = lhs
+    result[1] = lhs-1
     return result
   }
 }

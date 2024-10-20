@@ -5,10 +5,10 @@ struct FindMinimumInRotatedSortedArray {
     var rhs = nums.count-1
     while lhs < rhs {
       let mid = lhs+((rhs-lhs)/2)
-      if nums[mid] > nums[rhs] {
-        lhs = mid+1
-      } else {
+      if nums[mid] <= nums[rhs] {
         rhs = mid
+      } else {
+        lhs = mid+1
       }
     }
 

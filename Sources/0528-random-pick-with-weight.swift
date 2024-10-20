@@ -16,10 +16,10 @@ struct RandomPickWithWeight {
     var rhs = runningSums.count-1
     while lhs < rhs {
       let mid = lhs+(rhs-lhs)/2
-      if runningSums[mid] < target {
-        lhs = mid+1
-      } else {
+      if runningSums[mid] >= target {
         rhs = mid
+      } else {
+        lhs = mid+1
       }
     }
     return lhs

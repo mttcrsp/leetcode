@@ -15,10 +15,10 @@ class FirstBadVersion {
     var rhs = n
     while lhs < rhs {
       let mid = lhs+((rhs-lhs)/2)
-      if !isBadVersion(mid) {
-        lhs = mid+1
-      } else {
+      if isBadVersion(mid) {
         rhs = mid
+      } else {
+        lhs = mid+1
       }
     }
 
