@@ -2,30 +2,22 @@
 struct RemoveNthNodeFromEndOfList {
   func removeNthFromEnd(_ head: ListNode?, _ n: Int) -> ListNode? {
     var count = 0
-    var curr = head
-    while curr != nil {
+    var node = head
+    while node != nil {
+      node = node?.next
       count += 1
-      curr = curr?.next
     }
 
-    let targetIndex = count-n
-    guard targetIndex > 0 else {
+    if n == count {
       return head?.next
     }
 
-    var prev: ListNode?
-    var currIndex = 0
-    curr = head
-    while curr != nil {
-      if currIndex == targetIndex {
-        prev?.next = curr?.next
-      } else {
-        prev = curr
-      }
-      curr = curr?.next
-      currIndex += 1
+    node = head
+    for _ in 0 ..< count-n-1 {
+      node = node?.next
     }
 
+    node?.next = node?.next?.next
     return head
   }
 }
