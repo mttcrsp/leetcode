@@ -5,8 +5,8 @@ import XCTest
 final class MergeTwoSortedListsTests: XCTestCase {
   func testMergeTwoLists1() {
     let input = (
-      ListNode.makeList([1, 2, 4]),
-      ListNode.makeList([1, 3, 4])
+      ListNode([1, 2, 4]),
+      ListNode([1, 3, 4])
     )
     let output = MergeTwoSortedLists().mergeTwoLists(input.0, input.1)
     XCTAssertEqual(output?.val, 1)
@@ -19,8 +19,8 @@ final class MergeTwoSortedListsTests: XCTestCase {
 
   func testMergeTwoLists2() {
     let input = (
-      ListNode.makeList([]),
-      ListNode.makeList([])
+      ListNode([]),
+      ListNode([])
     )
     let output = MergeTwoSortedLists().mergeTwoLists(input.0, input.1)
     XCTAssertNil(output)
@@ -28,8 +28,8 @@ final class MergeTwoSortedListsTests: XCTestCase {
 
   func testMergeTwoLists3() {
     let input = (
-      ListNode.makeList([]),
-      ListNode.makeList([0])
+      ListNode([]),
+      ListNode([0])
     )
     let output = MergeTwoSortedLists().mergeTwoLists(input.0, input.1)
     XCTAssertEqual(output?.val, 0)

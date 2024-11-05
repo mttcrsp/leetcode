@@ -5,7 +5,7 @@ import XCTest
 final class ReorderListTests: XCTestCase {
   func testReorderlist1() {
     let input = [1, 2, 3, 4]
-    let head = ListNode.makeList(input)
+    let head = ListNode(input)
     ReorderList().reorderList(head)
     XCTAssertEqual(head?.val, 1)
     XCTAssertEqual(head?.next?.val, 4)
@@ -16,7 +16,7 @@ final class ReorderListTests: XCTestCase {
 
   func testReorderlist2() {
     let input = [1, 2, 3, 4, 5]
-    let head = ListNode.makeList(input)
+    let head = ListNode(input)
     ReorderList().reorderList(head)
     XCTAssertEqual(head?.val, 1)
     XCTAssertEqual(head?.next?.val, 5)
@@ -28,7 +28,7 @@ final class ReorderListTests: XCTestCase {
 
   func testReorderlist3() {
     let input = [1]
-    let head = ListNode.makeList(input)
+    let head = ListNode(input)
     ReorderList().reorderList(head)
     XCTAssertEqual(head?.val, 1)
     XCTAssertNil(head?.next)
