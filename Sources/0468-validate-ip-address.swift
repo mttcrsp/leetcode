@@ -1,6 +1,6 @@
 /// https://leetcode.com/problems/validate-ip-address/
 struct ValidateIpAddress {
-  private typealias Scanner = (String, String.Index) -> String.Index?
+  private typealias Scanner = @Sendable (String, String.Index) -> String.Index?
 
   func validIPAddress(_ queryIP: String) -> String {
     if scanIPv4(queryIP) {
