@@ -8,7 +8,7 @@ let package = Package(
     .library(name: "Leetcode", targets: ["Leetcode"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/apple/swift-collections.git", from: .init(1, 1, 0)),
+    .package(url: "https://github.com/apple/swift-collections.git", from: .init(1, 1, 4)),
   ],
   targets: [
     .target(
